@@ -1,0 +1,364 @@
+\hypertarget{class_lambda___nanjing__interpolator}{}\doxysection{Lambda\+\_\+\+Nanjing\+\_\+interpolator Class Reference}
+\label{class_lambda___nanjing__interpolator}\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+
+
+{\ttfamily \#include $<$lambda\+\_\+nanjing.\+h$>$}
+
+Inheritance diagram for Lambda\+\_\+\+Nanjing\+\_\+interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_lambda___nanjing__interpolator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lambda___nanjing__interpolator_a86cb47d635568a4af0cf7508edd0daab}{Lambda\+\_\+\+Nanjing\+\_\+interpolator}} ()
+\item 
+\mbox{\hyperlink{class_lambda___nanjing__interpolator_aefe5015297c45381fc55f83a4ceab546}{Lambda\+\_\+\+Nanjing\+\_\+interpolator}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+\mbox{\hyperlink{class_lambda___nanjing__interpolator_a82c2d2159bd35480c0b61139f1be8411}{Lambda\+\_\+\+Nanjing\+\_\+interpolator}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_i_o}{IO}} $\ast$io)
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_ad834d6613dd55493f6fdbc4939ca077d}{operator()}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\+\_\+status}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_a00cb8e877c15ba42849eca895543e47a}{operator()}} (unsigned int \mbox{\hyperlink{class_phase}{Phase}}, double Mzams, double Z, double \mbox{\hyperlink{class_radius}{Radius}}, double Menv, double lambda\+\_\+th)
+\item 
+void \mbox{\hyperlink{class_lambda___nanjing__interpolator_a1caa48e90e9b35b13d634535b97ebbdf}{find\+\_\+interpolators}} (double Mzams)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a4b72a0e8e1142368e34848375be4f9a0}{lambda\+\_\+\+Giant}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a5612a52a04191c6aa3f91f366ec560d2}{lambda\+\_\+\+Giant}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double lambda\+\_\+th)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a626e0e07ad9e8745ff9a0e27c41bedcd}{lambda\+\_\+\+Cheb}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a962a0190d056ac1cfc458607302e177e}{lambda\+\_\+\+Cheb}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double lambda\+\_\+th)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_afa8e83aa824581e372a55e772dfceffc}{lambda\+\_\+\+AGB}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_ac67837a70ee4dc2e826124d75a09fc07}{lambda\+\_\+\+AGB}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double lambda\+\_\+th)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a76caa80e76185de504348ed2ec7430d2}{lambda\+\_\+pure\+He}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual double \mbox{\hyperlink{class_lambda___nanjing_a759feb471f1bdbe0393427ed41d310e0}{lambda\+\_\+pure\+He}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double lambda\+\_\+th)
+\item 
+virtual \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\+\_\+status}} \mbox{\hyperlink{class_lambda___nanjing_a4bc5350c096287f5808b3973740ef840}{set\+\_\+coeff\+\_\+\+Giant}} (double Mzams, double Z, double \mbox{\hyperlink{class_radius}{Radius}})
+\item 
+virtual \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\+\_\+status}} \mbox{\hyperlink{class_lambda___nanjing_a8e2928259d81b95d026ee1e07126dab0}{set\+\_\+coeff\+\_\+\+Cheb}} (double Mzams, double Z, double \mbox{\hyperlink{class_radius}{Radius}})
+\item 
+virtual \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\+\_\+status}} \mbox{\hyperlink{class_lambda___nanjing_a0ca8790696c0f70566d35126fde90075}{set\+\_\+coeff\+\_\+\+AGB}} (double Mzams, double Z, double \mbox{\hyperlink{class_radius}{Radius}})
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing_ad6027122d529645428db1aac08b37c1b}{fitting\+\_\+equation}} (double x)
+\item 
+int \mbox{\hyperlink{class_lambda___nanjing_a5bb581d811d424265ed1133cf5c92e8d}{reset}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_a5439170f86192d456458f81d5945fbf0}{Mzams\+\_\+cache}} \{0\}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_aeace58db699dedb4502f8701a7a3491a}{Z\+\_\+cache}} \{0\}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} \mbox{\hyperlink{class_lambda___nanjing_aa3927c4a34c542e1d089390959d8a251}{svlog}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\+\_\+lambdab}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\+\_\+lambdag}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing_ab22c8d6457af0aa77d2505965767f201}{max\+BG}} = \{\}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}{lambda\+BG}} = \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___nanjing__interpolator_a847c5d49e2b6dae192886380841056c9}{Mzams\+\_\+list}} = \{1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,12.,14.,16.,20.,50.,100.\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing_a7734dc5a204286559c48b92e3963fbb2}{lambda\+\_\+estimate}} (double lambda\+\_\+th)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_ae86f5f13ad2d61500bd1c5a3617b05c2}{Mzams\+\_\+interpolators}} \mbox{[}2\mbox{]} = \{0.,0.\}
+\item 
+double \mbox{\hyperlink{class_lambda___nanjing__interpolator_aa6e35d58dade479632d58db68f794148}{wM}} \mbox{[}2\mbox{]} = \{0., 0.\}
+\item 
+const double \mbox{\hyperlink{class_lambda___nanjing_ad8de41960b5cd688d71df52739f91a8f}{ZpopI}} = 0.\+0085
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_lambda___nanjing_a52dfc2a04b0e037180817bad7e31d989}{COEF\+\_\+\+SET}} = 1
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_lambda___nanjing_ac8f967aa97369cc5d49f76439116980b}{COEF\+\_\+\+NOT\+\_\+\+SET}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to estimate the \mbox{\hyperlink{class_lambda}{Lambda}} using fitting equations in Xi\&Liu10. See the documentation of the base class for more information.
+
+With respect to the base class, the lambda is not estimated in a quantised form, bur rather using an interpolation considering the Mzams. The interpolating Mzams are the one reported in the Xu\&Li errata (\href{https://iopscience.iop.org/article/10.1088/0004-637X/722/2/1985}{\texttt{ https\+://iopscience.\+iop.\+org/article/10.\+1088/0004-\/637\+X/722/2/1985}})\+: (1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,12.,14.,16.,20.,50.,100.) Msun.
+
+Each time a lambda estimate is needed for a star with Mzams=Mzams$\ast$, two interpolating masses are defined so that Mzams\+\_\+track0\texorpdfstring{$<$}{<}=Mzams$\ast$\texorpdfstring{$<$}{<}=Mzams\+\_\+track1, if Mzams$\ast$\texorpdfstring{$<$}{<}1 Msun or Mzams$\ast$\texorpdfstring{$>$}{>}100 Msun, the lambda is estimated using Mzams=1 Msun and Mzams1=100 Msun respectively The lambda of the interpolating tracks are estimated considering the current \mbox{\hyperlink{class_radius}{Radius}}, envelope mass and metallicity of the current track 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}\label{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!coeff\_status@{coeff\_status}}
+\index{coeff\_status@{coeff\_status}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{coeff\_status}{coeff\_status}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{Lambda\+\_\+\+Nanjing\+::coeff\+\_\+status}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_a86cb47d635568a4af0cf7508edd0daab}\label{class_lambda___nanjing__interpolator_a86cb47d635568a4af0cf7508edd0daab}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Nanjing\_interpolator()}{Lambda\_Nanjing\_interpolator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Lambda\+\_\+\+Nanjing\+\_\+interpolator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_aefe5015297c45381fc55f83a4ceab546}\label{class_lambda___nanjing__interpolator_aefe5015297c45381fc55f83a4ceab546}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Nanjing\_interpolator()}{Lambda\_Nanjing\_interpolator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Lambda\+\_\+\+Nanjing\+\_\+interpolator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_a82c2d2159bd35480c0b61139f1be8411}\label{class_lambda___nanjing__interpolator_a82c2d2159bd35480c0b61139f1be8411}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Nanjing\_interpolator()}{Lambda\_Nanjing\_interpolator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Lambda\+\_\+\+Nanjing\+\_\+interpolator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{io }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_a1caa48e90e9b35b13d634535b97ebbdf}\label{class_lambda___nanjing__interpolator_a1caa48e90e9b35b13d634535b97ebbdf}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!find\_interpolators@{find\_interpolators}}
+\index{find\_interpolators@{find\_interpolators}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{find\_interpolators()}{find\_interpolators()}}
+{\footnotesize\ttfamily void Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::find\+\_\+interpolators (\begin{DoxyParamCaption}\item[{double}]{Mzams }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_ad6027122d529645428db1aac08b37c1b}\label{class_lambda___nanjing_ad6027122d529645428db1aac08b37c1b}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!fitting\_equation@{fitting\_equation}}
+\index{fitting\_equation@{fitting\_equation}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{fitting\_equation()}{fitting\_equation()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Lambda\+\_\+\+Nanjing\+::fitting\+\_\+equation (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Polynomial fitting equation for lambda (Eq. 13 in Xu\&Li10) 
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the fitting equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results (2) of the fifth order polynomial equation, the coefficients are taken from coeff\+\_\+lambdab and coeff\+\_\+lambdag 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___nanjing_ac67837a70ee4dc2e826124d75a09fc07}\label{class_lambda___nanjing_ac67837a70ee4dc2e826124d75a09fc07}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_AGB@{lambda\_AGB}}
+\index{lambda\_AGB@{lambda\_AGB}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_AGB()}{lambda\_AGB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+AGB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Mzams,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Z,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Radius,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Menv,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_afa8e83aa824581e372a55e772dfceffc}\label{class_lambda___nanjing_afa8e83aa824581e372a55e772dfceffc}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_AGB@{lambda\_AGB}}
+\index{lambda\_AGB@{lambda\_AGB}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_AGB()}{lambda\_AGB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+AGB (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a962a0190d056ac1cfc458607302e177e}\label{class_lambda___nanjing_a962a0190d056ac1cfc458607302e177e}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_Cheb@{lambda\_Cheb}}
+\index{lambda\_Cheb@{lambda\_Cheb}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_Cheb()}{lambda\_Cheb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+Cheb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Mzams,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Z,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Radius,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Menv,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a626e0e07ad9e8745ff9a0e27c41bedcd}\label{class_lambda___nanjing_a626e0e07ad9e8745ff9a0e27c41bedcd}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_Cheb@{lambda\_Cheb}}
+\index{lambda\_Cheb@{lambda\_Cheb}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_Cheb()}{lambda\_Cheb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+Cheb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a7734dc5a204286559c48b92e3963fbb2}\label{class_lambda___nanjing_a7734dc5a204286559c48b92e3963fbb2}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_estimate@{lambda\_estimate}}
+\index{lambda\_estimate@{lambda\_estimate}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_estimate()}{lambda\_estimate()}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+estimate (\begin{DoxyParamCaption}\item[{double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Wrapper for the simple equation lambdab$\ast$lambda\+\_\+th + lambdag$\ast$(1-\/lambda\+\_\+th) 
+\begin{DoxyParams}{Parameters}
+{\em lambda\+\_\+th} & Fraction of the internal energy to use (0-\/only gravitational energy, 1-\/gravitational+all internal energy) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+final lambda 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___nanjing_a5612a52a04191c6aa3f91f366ec560d2}\label{class_lambda___nanjing_a5612a52a04191c6aa3f91f366ec560d2}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_Giant@{lambda\_Giant}}
+\index{lambda\_Giant@{lambda\_Giant}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_Giant()}{lambda\_Giant()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+Giant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Mzams,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Z,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Radius,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Menv,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a4b72a0e8e1142368e34848375be4f9a0}\label{class_lambda___nanjing_a4b72a0e8e1142368e34848375be4f9a0}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_Giant@{lambda\_Giant}}
+\index{lambda\_Giant@{lambda\_Giant}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_Giant()}{lambda\_Giant()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+\+Giant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Methods to estimate lambda in various phases \mbox{\Hypertarget{class_lambda___nanjing_a759feb471f1bdbe0393427ed41d310e0}\label{class_lambda___nanjing_a759feb471f1bdbe0393427ed41d310e0}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_pureHe@{lambda\_pureHe}}
+\index{lambda\_pureHe@{lambda\_pureHe}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_pureHe()}{lambda\_pureHe()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+pure\+He (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Mzams,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Z,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Radius,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Menv,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a76caa80e76185de504348ed2ec7430d2}\label{class_lambda___nanjing_a76caa80e76185de504348ed2ec7430d2}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambda\_pureHe@{lambda\_pureHe}}
+\index{lambda\_pureHe@{lambda\_pureHe}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambda\_pureHe()}{lambda\_pureHe()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+::lambda\+\_\+pure\+He (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_ad834d6613dd55493f6fdbc4939ca077d}\label{class_lambda___nanjing__interpolator_ad834d6613dd55493f6fdbc4939ca077d}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Estimate lambda for a given star 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lambda 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_lambda___nanjing_a5b1d5c4cbe4dd90203a7384c3dc16500}{Lambda\+\_\+\+Nanjing}}.
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_a00cb8e877c15ba42849eca895543e47a}\label{class_lambda___nanjing__interpolator_a00cb8e877c15ba42849eca895543e47a}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::operator() (\begin{DoxyParamCaption}\item[{unsigned int}]{Phase,  }\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{Radius,  }\item[{double}]{Menv,  }\item[{double}]{lambda\+\_\+th }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a5bb581d811d424265ed1133cf5c92e8d}\label{class_lambda___nanjing_a5bb581d811d424265ed1133cf5c92e8d}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!reset@{reset}}
+\index{reset@{reset}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily int Lambda\+\_\+\+Nanjing\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Reset (clear) members (coeff\+\_\+lambdab, coeff\+\_\+lambdag, max\+BG, lambda\+BG) \begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___nanjing_a0ca8790696c0f70566d35126fde90075}\label{class_lambda___nanjing_a0ca8790696c0f70566d35126fde90075}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!set\_coeff\_AGB@{set\_coeff\_AGB}}
+\index{set\_coeff\_AGB@{set\_coeff\_AGB}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{set\_coeff\_AGB()}{set\_coeff\_AGB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{Lambda\+\_\+\+Nanjing\+::coeff\+\_\+status}} Lambda\+\_\+\+Nanjing\+::set\+\_\+coeff\+\_\+\+AGB (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{Radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a8e2928259d81b95d026ee1e07126dab0}\label{class_lambda___nanjing_a8e2928259d81b95d026ee1e07126dab0}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!set\_coeff\_Cheb@{set\_coeff\_Cheb}}
+\index{set\_coeff\_Cheb@{set\_coeff\_Cheb}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{set\_coeff\_Cheb()}{set\_coeff\_Cheb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{Lambda\+\_\+\+Nanjing\+::coeff\+\_\+status}} Lambda\+\_\+\+Nanjing\+::set\+\_\+coeff\+\_\+\+Cheb (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{Radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a4bc5350c096287f5808b3973740ef840}\label{class_lambda___nanjing_a4bc5350c096287f5808b3973740ef840}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!set\_coeff\_Giant@{set\_coeff\_Giant}}
+\index{set\_coeff\_Giant@{set\_coeff\_Giant}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{set\_coeff\_Giant()}{set\_coeff\_Giant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{Lambda\+\_\+\+Nanjing\+::coeff\+\_\+status}} Lambda\+\_\+\+Nanjing\+::set\+\_\+coeff\+\_\+\+Giant (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{Radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_lambda___nanjing_ac8f967aa97369cc5d49f76439116980b}\label{class_lambda___nanjing_ac8f967aa97369cc5d49f76439116980b}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!COEF\_NOT\_SET@{COEF\_NOT\_SET}}
+\index{COEF\_NOT\_SET@{COEF\_NOT\_SET}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{COEF\_NOT\_SET}{COEF\_NOT\_SET}}
+{\footnotesize\ttfamily constexpr unsigned int Lambda\+\_\+\+Nanjing\+::\+COEF\+\_\+\+NOT\+\_\+\+SET = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing_a52dfc2a04b0e037180817bad7e31d989}\label{class_lambda___nanjing_a52dfc2a04b0e037180817bad7e31d989}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!COEF\_SET@{COEF\_SET}}
+\index{COEF\_SET@{COEF\_SET}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{COEF\_SET}{COEF\_SET}}
+{\footnotesize\ttfamily constexpr unsigned int Lambda\+\_\+\+Nanjing\+::\+COEF\+\_\+\+SET = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Metallicity boundary between popI and pop\+II stars \mbox{\Hypertarget{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}\label{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!coeff\_lambdab@{coeff\_lambdab}}
+\index{coeff\_lambdab@{coeff\_lambdab}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{coeff\_lambdab}{coeff\_lambdab}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Lambda\+\_\+\+Nanjing\+::coeff\+\_\+lambdab\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+coefficient to estiamate \mbox{\hyperlink{class_lambda}{Lambda}} from Xi\&Liu considering both the gravitational + internal energy. Set in set\+\_\+coeff$\ast$$\ast$ \mbox{\Hypertarget{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}\label{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!coeff\_lambdag@{coeff\_lambdag}}
+\index{coeff\_lambdag@{coeff\_lambdag}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{coeff\_lambdag}{coeff\_lambdag}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Lambda\+\_\+\+Nanjing\+::coeff\+\_\+lambdag\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+coefficient to estiamate \mbox{\hyperlink{class_lambda}{Lambda}} from Xi\&Liu considering the gravitational energy only. Set in set\+\_\+coeff$\ast$$\ast$ \mbox{\Hypertarget{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}\label{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!lambdaBG@{lambdaBG}}
+\index{lambdaBG@{lambdaBG}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{lambdaBG}{lambdaBG}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Lambda\+\_\+\+Nanjing\+::lambda\+BG = \{\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+array storing the values estimated for lambdab and lambdag. Set in set\+\_\+coeff$\ast$$\ast$ \mbox{\Hypertarget{class_lambda___nanjing_ab22c8d6457af0aa77d2505965767f201}\label{class_lambda___nanjing_ab22c8d6457af0aa77d2505965767f201}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!maxBG@{maxBG}}
+\index{maxBG@{maxBG}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{maxBG}{maxBG}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Lambda\+\_\+\+Nanjing\+::max\+BG = \{\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+array storing the maximum value allows for lambdab and lambdag. Set in set\+\_\+coeff$\ast$$\ast$ \mbox{\Hypertarget{class_lambda___nanjing__interpolator_a5439170f86192d456458f81d5945fbf0}\label{class_lambda___nanjing__interpolator_a5439170f86192d456458f81d5945fbf0}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Mzams\_cache@{Mzams\_cache}}
+\index{Mzams\_cache@{Mzams\_cache}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_cache}{Mzams\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Mzams\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_ae86f5f13ad2d61500bd1c5a3617b05c2}\label{class_lambda___nanjing__interpolator_ae86f5f13ad2d61500bd1c5a3617b05c2}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Mzams\_interpolators@{Mzams\_interpolators}}
+\index{Mzams\_interpolators@{Mzams\_interpolators}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_interpolators}{Mzams\_interpolators}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Mzams\+\_\+interpolators\mbox{[}2\mbox{]} = \{0.,0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Mzams of the two interpolator \mbox{\Hypertarget{class_lambda___nanjing__interpolator_a847c5d49e2b6dae192886380841056c9}\label{class_lambda___nanjing__interpolator_a847c5d49e2b6dae192886380841056c9}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Mzams\_list@{Mzams\_list}}
+\index{Mzams\_list@{Mzams\_list}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_list}{Mzams\_list}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Mzams\+\_\+list = \{1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,12.,14.,16.,20.,50.,100.\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+list of all zams masses in the Xu\&Li10 and Dominik+12 tables \mbox{\Hypertarget{class_lambda___nanjing_aa3927c4a34c542e1d089390959d8a251}\label{class_lambda___nanjing_aa3927c4a34c542e1d089390959d8a251}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!svlog@{svlog}}
+\index{svlog@{svlog}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} Lambda\+\_\+\+Nanjing\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___nanjing__interpolator_aa6e35d58dade479632d58db68f794148}\label{class_lambda___nanjing__interpolator_aa6e35d58dade479632d58db68f794148}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!wM@{wM}}
+\index{wM@{wM}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{wM}{wM}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::wM\mbox{[}2\mbox{]} = \{0., 0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+interpolator weights for the two Mzams \mbox{\Hypertarget{class_lambda___nanjing__interpolator_aeace58db699dedb4502f8701a7a3491a}\label{class_lambda___nanjing__interpolator_aeace58db699dedb4502f8701a7a3491a}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!Z\_cache@{Z\_cache}}
+\index{Z\_cache@{Z\_cache}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Z\_cache}{Z\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Nanjing\+\_\+interpolator\+::\+Z\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Last Mzams and Z used to estimate lambda \mbox{\Hypertarget{class_lambda___nanjing_ad8de41960b5cd688d71df52739f91a8f}\label{class_lambda___nanjing_ad8de41960b5cd688d71df52739f91a8f}} 
+\index{Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}!ZpopI@{ZpopI}}
+\index{ZpopI@{ZpopI}!Lambda\_Nanjing\_interpolator@{Lambda\_Nanjing\_interpolator}}
+\doxysubsubsection{\texorpdfstring{ZpopI}{ZpopI}}
+{\footnotesize\ttfamily const double Lambda\+\_\+\+Nanjing\+::\+ZpopI = 0.\+0085\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__nanjing_8h}{lambda\+\_\+nanjing.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__nanjing_8cpp}{lambda\+\_\+nanjing.\+cpp}}\end{DoxyCompactItemize}

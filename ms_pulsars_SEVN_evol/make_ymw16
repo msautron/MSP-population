@@ -1,0 +1,6 @@
+rm *.o rm *.a
+nvcc -rdc=true -g -c dmdtau.cu dora.cu fermibubble.cu frb_d.cu galcen.cu gum.cu lmc.cu localbubble.cu ne_crd.cu nps.cu smc.cu spiral.cu thick.cu thin.cu ymw16par.cu
+ar -rvs ymw16.a *.o   
+nvcc -rdc=true -g ymw16.cu ymw16.a  -o ymw16 -lm
+nvcc -rdc=true -g ymw16_ne.cu ymw16.a  -o ymw16_ne -lm
+rm *.o

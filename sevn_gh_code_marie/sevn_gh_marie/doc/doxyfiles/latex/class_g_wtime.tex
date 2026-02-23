@@ -1,0 +1,364 @@
+\hypertarget{class_g_wtime}{}\doxysection{GWtime Class Reference}
+\label{class_g_wtime}\index{GWtime@{GWtime}}
+
+
+{\ttfamily \#include $<$Binary\+Property.\+h$>$}
+
+Inheritance diagram for GWtime\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_wtime}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ std\+::string, size\+\_\+t $>$ \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{\+\_\+\+Print\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_wtime_a7aec34e6bd91c826d9e0970b52d2ed62}{GWtime}} (bool reg=true)
+\item 
+\mbox{\hyperlink{class_g_wtime}{GWtime}} $\ast$ \mbox{\hyperlink{class_g_wtime_a9ac7c3e0bc3527c1fb18725dce535004}{Instance}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_g_wtime_ab067777d25c26d2c52b489b9d2ec1f00}{name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_g_wtime_a558b02b3c0c55d39d0e0ba976ac42c97}{units}} () override
+\item 
+int \mbox{\hyperlink{class_g_wtime_a387f1c0e6ac039849758d745abc253ba}{get\+ID}} () const override
+\item 
+int \mbox{\hyperlink{class_g_wtime_ab6728e55a1c7bbcaae434faa0e177e6e}{evolve}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar) override
+\item 
+virtual void \mbox{\hyperlink{class_binary_property_a6ee50b550adecd1e2961f401e4478198}{resynch}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double \&dt, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} bool set0=true)
+\item 
+virtual void \mbox{\hyperlink{class_binary_property_a56b0e563f1deae887de4ed117914e346}{check\+\_\+boundaries}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double $\ast$val, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\item 
+virtual int \mbox{\hyperlink{class_binary_property_af6f5166390a0bad01e77676664e33c45}{special\+\_\+evolve}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\item 
+double \mbox{\hyperlink{class_binary_property_aee678c9eeb3aa11a948028d96db13318}{get\+\_\+variation}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar) const
+\item 
+virtual int \mbox{\hyperlink{class_binary_property_a1e13250414bd528f8e6b69d1f7400743}{set\+\_\+broken}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\item 
+virtual double \mbox{\hyperlink{class_binary_property_aea116f27af6def5a93492e0f44162a52}{get}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b=nullptr)
+\item 
+double \mbox{\hyperlink{class_binary_property_a581355425eaf363e71d43064556e1310}{get\+\_\+0}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b=nullptr)
+\item 
+virtual void \mbox{\hyperlink{class_binary_property_ad953650e2d58cb8e4e69124ff4dd364f}{restore}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}{ID}}
+\item 
+static \mbox{\hyperlink{class_g_wtime}{GWtime}} \mbox{\hyperlink{class_g_wtime_a411bef0ef0edf1bd4dfe03c675f80508}{\+\_\+gwtime}}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_binary_property}{Binary\+Property}} $\ast$ $>$ \mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{all}}
+\item 
+static \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{\+\_\+\+Print\+Map}} \mbox{\hyperlink{class_binary_property_a29af1e0724502cadedc96e3766e601f7}{Print\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}} (\mbox{\hyperlink{class_binary_property}{Binary\+Property}} $\ast$\+\_\+p, size\+\_\+t $\ast$id, const std\+::string \&\+\_\+name)
+\item 
+bool \mbox{\hyperlink{class_binary_property_a432d31a2a688bd35266efcfe1b04e3cb}{isbad}} (const double \&val)
+\item 
+virtual void \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}} (const double \&a)
+\item 
+virtual void \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\+\_\+0}} (const double \&a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_g_wtime_a7be862f419595b22b8e24b61e9fc4e49}{time\+\_\+scaling}} = \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{utilities\+::yr\+\_\+to\+\_\+\+Myr}}$\ast$0.\+01953125/\mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{utilities\+::\+G3\+\_\+over\+\_\+c5}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_binary_property_a0c9fd363e880fdbf5bd8330a6f1a644b}{\+\_\+uniform\+\_\+real}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}
+\item 
+double \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}}
+\item 
+double \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_derived___property___binary_a91bbe2b2b4e799940dc9962dde438d20}{init\+\_\+derived}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar) override
+\item 
+void \mbox{\hyperlink{class_derived___property___binary_ae64a1f18dea80e78994ce77a8ea2309c}{init}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double par) override
+\item 
+virtual bool \mbox{\hyperlink{class_derived___property___binary_a6adda02a2999bd26ca11434c71edf474}{amiderived}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}{size}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}\label{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}} 
+\index{GWtime@{GWtime}!\_PrintMap@{\_PrintMap}}
+\index{\_PrintMap@{\_PrintMap}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{\_PrintMap}{\_PrintMap}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string,size\+\_\+t$>$ \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{Binary\+Property\+::\+\_\+\+Print\+Map}}\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_wtime_a7aec34e6bd91c826d9e0970b52d2ed62}\label{class_g_wtime_a7aec34e6bd91c826d9e0970b52d2ed62}} 
+\index{GWtime@{GWtime}!GWtime@{GWtime}}
+\index{GWtime@{GWtime}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{GWtime()}{GWtime()}}
+{\footnotesize\ttfamily GWtime\+::\+GWtime (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_derived___property___binary_a6adda02a2999bd26ca11434c71edf474}\label{class_derived___property___binary_a6adda02a2999bd26ca11434c71edf474}} 
+\index{GWtime@{GWtime}!amiderived@{amiderived}}
+\index{amiderived@{amiderived}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{amiderived()}{amiderived()}}
+{\footnotesize\ttfamily virtual bool Derived\+\_\+\+Property\+\_\+\+Binary\+::amiderived (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_a56b0e563f1deae887de4ed117914e346}\label{class_binary_property_a56b0e563f1deae887de4ed117914e346}} 
+\index{GWtime@{GWtime}!check\_boundaries@{check\_boundaries}}
+\index{check\_boundaries@{check\_boundaries}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{check\_boundaries()}{check\_boundaries()}}
+{\footnotesize\ttfamily virtual void Binary\+Property\+::check\+\_\+boundaries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double $\ast$}]{val,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_g_wtime_ab6728e55a1c7bbcaae434faa0e177e6e}\label{class_g_wtime_ab6728e55a1c7bbcaae434faa0e177e6e}} 
+\index{GWtime@{GWtime}!evolve@{evolve}}
+\index{evolve@{evolve}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{evolve()}{evolve()}}
+{\footnotesize\ttfamily int GWtime\+::evolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_aea2550f81b0bfcdd589ab929e8a53652}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_aea116f27af6def5a93492e0f44162a52}\label{class_binary_property_aea116f27af6def5a93492e0f44162a52}} 
+\index{GWtime@{GWtime}!get@{get}}
+\index{get@{get}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily virtual double Binary\+Property\+::get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_j_i_t___property_a87819f5557bdbfdeb8b4b05c538d34ae}{BJIT\+\_\+\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_a581355425eaf363e71d43064556e1310}\label{class_binary_property_a581355425eaf363e71d43064556e1310}} 
+\index{GWtime@{GWtime}!get\_0@{get\_0}}
+\index{get\_0@{get\_0}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{get\_0()}{get\_0()}}
+{\footnotesize\ttfamily double Binary\+Property\+::get\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_aee678c9eeb3aa11a948028d96db13318}\label{class_binary_property_aee678c9eeb3aa11a948028d96db13318}} 
+\index{GWtime@{GWtime}!get\_variation@{get\_variation}}
+\index{get\_variation@{get\_variation}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{get\_variation()}{get\_variation()}}
+{\footnotesize\ttfamily double Binary\+Property\+::get\+\_\+variation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+Get the variation expected for a given property just summing all the DVs due to all processes. This is equivalent to evolve, but without checks and without changing V0 and V 
+\begin{DoxyParams}{Parameters}
+{\em binstar} & Pointer to the binary from wich to take the processes variations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The DV for this property considering all the DV from the processes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_g_wtime_a387f1c0e6ac039849758d745abc253ba}\label{class_g_wtime_a387f1c0e6ac039849758d745abc253ba}} 
+\index{GWtime@{GWtime}!getID@{getID}}
+\index{getID@{getID}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily int GWtime\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_abb43f1c631627524243fcad6b7abdbaf}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_derived___property___binary_ae64a1f18dea80e78994ce77a8ea2309c}\label{class_derived___property___binary_ae64a1f18dea80e78994ce77a8ea2309c}} 
+\index{GWtime@{GWtime}!init@{init}}
+\index{init@{init}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Derived\+\_\+\+Property\+\_\+\+Binary\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double}]{par }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_ab6a7818e678516f3d601e2612c4096e4}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_derived___property___binary_a91bbe2b2b4e799940dc9962dde438d20}\label{class_derived___property___binary_a91bbe2b2b4e799940dc9962dde438d20}} 
+\index{GWtime@{GWtime}!init\_derived@{init\_derived}}
+\index{init\_derived@{init\_derived}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{init\_derived()}{init\_derived()}}
+{\footnotesize\ttfamily void Derived\+\_\+\+Property\+\_\+\+Binary\+::init\+\_\+derived (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_abd313b359ce6f822be41eb308a3467ff}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_g_wtime_a9ac7c3e0bc3527c1fb18725dce535004}\label{class_g_wtime_a9ac7c3e0bc3527c1fb18725dce535004}} 
+\index{GWtime@{GWtime}!Instance@{Instance}}
+\index{Instance@{Instance}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_wtime}{GWtime}} $\ast$ GWtime\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_aeaa014a30790b718d5221b3038abb684}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_a432d31a2a688bd35266efcfe1b04e3cb}\label{class_binary_property_a432d31a2a688bd35266efcfe1b04e3cb}} 
+\index{GWtime@{GWtime}!isbad@{isbad}}
+\index{isbad@{isbad}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{isbad()}{isbad()}}
+{\footnotesize\ttfamily bool Binary\+Property\+::isbad (\begin{DoxyParamCaption}\item[{const double \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_g_wtime_ab067777d25c26d2c52b489b9d2ec1f00}\label{class_g_wtime_ab067777d25c26d2c52b489b9d2ec1f00}} 
+\index{GWtime@{GWtime}!name@{name}}
+\index{name@{name}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string GWtime\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_a9804b0b1727df8fd494bb78f709128c9}{Binary\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}\label{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}} 
+\index{GWtime@{GWtime}!Register@{Register}}
+\index{Register@{Register}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Binary\+Property\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binary_property}{Binary\+Property}} $\ast$}]{\+\_\+p,  }\item[{size\+\_\+t $\ast$}]{id,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_ad953650e2d58cb8e4e69124ff4dd364f}\label{class_binary_property_ad953650e2d58cb8e4e69124ff4dd364f}} 
+\index{GWtime@{GWtime}!restore@{restore}}
+\index{restore@{restore}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{restore()}{restore()}}
+{\footnotesize\ttfamily virtual void Binary\+Property\+::restore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_j_i_t___property_a2ea3b3c7c8a7d006b7696a35a5387b63}{BJIT\+\_\+\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_a6ee50b550adecd1e2961f401e4478198}\label{class_binary_property_a6ee50b550adecd1e2961f401e4478198}} 
+\index{GWtime@{GWtime}!resynch@{resynch}}
+\index{resynch@{resynch}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{resynch()}{resynch()}}
+{\footnotesize\ttfamily virtual void Binary\+Property\+::resynch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double \&}]{dt,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} bool}]{set0 = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}\label{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}} 
+\index{GWtime@{GWtime}!set@{set}}
+\index{set@{set}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily virtual void Binary\+Property\+::set (\begin{DoxyParamCaption}\item[{const double \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_j_i_t___property_ad2e52f3a8545c584476c116740b7f3b3}{BJIT\+\_\+\+Property}}.
+
+\mbox{\Hypertarget{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}\label{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}} 
+\index{GWtime@{GWtime}!set\_0@{set\_0}}
+\index{set\_0@{set\_0}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{set\_0()}{set\_0()}}
+{\footnotesize\ttfamily virtual void Binary\+Property\+::set\+\_\+0 (\begin{DoxyParamCaption}\item[{const double \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_a1e13250414bd528f8e6b69d1f7400743}\label{class_binary_property_a1e13250414bd528f8e6b69d1f7400743}} 
+\index{GWtime@{GWtime}!set\_broken@{set\_broken}}
+\index{set\_broken@{set\_broken}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{set\_broken()}{set\_broken()}}
+{\footnotesize\ttfamily virtual int Binary\+Property\+::set\+\_\+broken (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_worldtime_aadcbfc67118496a529328075a472f96f}{BWorldtime}}, and \mbox{\hyperlink{class_b_timestep_a4b3b21bceb6ecb6114174dfc31740edd}{BTimestep}}.
+
+\mbox{\Hypertarget{class_binary_property_af6f5166390a0bad01e77676664e33c45}\label{class_binary_property_af6f5166390a0bad01e77676664e33c45}} 
+\index{GWtime@{GWtime}!special\_evolve@{special\_evolve}}
+\index{special\_evolve@{special\_evolve}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{special\_evolve()}{special\_evolve()}}
+{\footnotesize\ttfamily virtual int Binary\+Property\+::special\+\_\+evolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_worldtime_a310cb1d8d132bf94dc5ea88ec98149a4}{BWorldtime}}, \mbox{\hyperlink{class_b_timestep_ac50d48e2ae16c7b1bb597e241fa03693}{BTimestep}}, and \mbox{\hyperlink{class_b_event_aa8f578d01d1664253c4afa035df35a2f}{BEvent}}.
+
+\mbox{\Hypertarget{class_g_wtime_a558b02b3c0c55d39d0e0ba976ac42c97}\label{class_g_wtime_a558b02b3c0c55d39d0e0ba976ac42c97}} 
+\index{GWtime@{GWtime}!units@{units}}
+\index{units@{units}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{units()}{units()}}
+{\footnotesize\ttfamily std\+::string GWtime\+::units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_binary_property_a4b1b5f28d77ddff373f767e7e577b04f}{Binary\+Property}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_wtime_a411bef0ef0edf1bd4dfe03c675f80508}\label{class_g_wtime_a411bef0ef0edf1bd4dfe03c675f80508}} 
+\index{GWtime@{GWtime}!\_gwtime@{\_gwtime}}
+\index{\_gwtime@{\_gwtime}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{\_gwtime}{\_gwtime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_wtime}{GWtime}} GWtime\+::\+\_\+gwtime\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_binary_property_a0c9fd363e880fdbf5bd8330a6f1a644b}\label{class_binary_property_a0c9fd363e880fdbf5bd8330a6f1a644b}} 
+\index{GWtime@{GWtime}!\_uniform\_real@{\_uniform\_real}}
+\index{\_uniform\_real@{\_uniform\_real}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{\_uniform\_real}{\_uniform\_real}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Binary\+Property\+::\+\_\+uniform\+\_\+real\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_a34a2aa8d4230b38426907977675dae1c}\label{class_binary_property_a34a2aa8d4230b38426907977675dae1c}} 
+\index{GWtime@{GWtime}!all@{all}}
+\index{all@{all}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{all}{all}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_binary_property}{Binary\+Property}} $\ast$ $>$ Binary\+Property\+::all\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}\label{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}} 
+\index{GWtime@{GWtime}!ID@{ID}}
+\index{ID@{ID}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily size\+\_\+t GWtime\+::\+ID\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_binary_property_a29af1e0724502cadedc96e3766e601f7}\label{class_binary_property_a29af1e0724502cadedc96e3766e601f7}} 
+\index{GWtime@{GWtime}!PrintMap@{PrintMap}}
+\index{PrintMap@{PrintMap}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{PrintMap}{PrintMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{Binary\+Property\+::\+\_\+\+Print\+Map}} Binary\+Property\+::\+Print\+Map\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}\label{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}} 
+\index{GWtime@{GWtime}!size@{size}}
+\index{size@{size}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily size\+\_\+t Binary\+Property\+::size = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Instruction for adding new property BPROP 1-\/ Add the size\+\_\+t BPROP\+::\+ID 2-\/ Initialise the static (fake) instance BPROP BPROP\+::\+\_\+bprop. NB\+: take care of the order of initilisation. The properties will be evolved exactly in the same order in which they are initialised here Define\+: @size\+: total number of instances of \mbox{\hyperlink{class_binary_property}{Binary\+Property}} and derived classes (both fake and real). @all\+: vector containing all the (pointers) to the \mbox{\hyperlink{class_binary_property}{Binary\+Property}}. @\+Print\+Map\+: map containing the pair (Binary\+Property\+\_\+name, Binary\+Property\+\_\+id) for output purpose. Note all and Print\+Map are filled during the instantiation of the fake Processes (see below) \mbox{\Hypertarget{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}\label{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}} 
+\index{GWtime@{GWtime}!svlog@{svlog}}
+\index{svlog@{svlog}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Binary\+Property\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_g_wtime_a7be862f419595b22b8e24b61e9fc4e49}\label{class_g_wtime_a7be862f419595b22b8e24b61e9fc4e49}} 
+\index{GWtime@{GWtime}!time\_scaling@{time\_scaling}}
+\index{time\_scaling@{time\_scaling}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{time\_scaling}{time\_scaling}}
+{\footnotesize\ttfamily const double GWtime\+::time\+\_\+scaling = \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{utilities\+::yr\+\_\+to\+\_\+\+Myr}}$\ast$0.\+01953125/\mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{utilities\+::\+G3\+\_\+over\+\_\+c5}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_binary_property_a595770b80fe5498272872703e9f0817a}\label{class_binary_property_a595770b80fe5498272872703e9f0817a}} 
+\index{GWtime@{GWtime}!V@{V}}
+\index{V@{V}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily double Binary\+Property\+::V\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_binary_property_a99b216b47580244b14838aa12fe51928}\label{class_binary_property_a99b216b47580244b14838aa12fe51928}} 
+\index{GWtime@{GWtime}!V0@{V0}}
+\index{V0@{V0}!GWtime@{GWtime}}
+\doxysubsubsection{\texorpdfstring{V0}{V0}}
+{\footnotesize\ttfamily double Binary\+Property\+::\+V0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{_binary_property_8h}{Binary\+Property.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{_binary_property_8cpp}{Binary\+Property.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

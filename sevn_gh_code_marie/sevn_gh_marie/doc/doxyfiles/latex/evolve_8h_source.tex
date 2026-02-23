@@ -1,0 +1,887 @@
+\hypertarget{evolve_8h_source}{}\doxysection{evolve.\+h}
+\label{evolve_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/evolve.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/evolve.h}}
+\mbox{\hyperlink{evolve_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 2020-\/12-\/26.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_EVOLVE\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_EVOLVE\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <omp.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{star_8h}{star.h}}>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{binstar_8h}{binstar.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_i_o_8h}{IO.h}}>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{errhand_8h}{errhand.h}}>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{19 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{//TODO With the new functor implementation, the evolve function can be passed as parameters as used for other options. TO be implemented}}
+\DoxyCodeLine{22 \textcolor{comment}{//TODO the evolve function should not be put in the SEVN libraries, so we should move it in the main folder}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{125 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceevolve__utility}{evolve\_utility}}\{}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{133     \textcolor{keyword}{struct }\mbox{\hyperlink{structevolve__utility_1_1_options}{Options}}\{}
+\DoxyCodeLine{134         std::vector<double> \mbox{\hyperlink{structevolve__utility_1_1_options_a4c318e873520cb6569ce2421aaab1676}{num\_parameters}};}
+\DoxyCodeLine{135         std::vector<std::string> \mbox{\hyperlink{structevolve__utility_1_1_options_a330655395ce62d993f9f2d9101854364}{str\_parameters}};}
+\DoxyCodeLine{136     \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 }
+\DoxyCodeLine{148     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}} \{}
+\DoxyCodeLine{149     \textcolor{keyword}{public}:}
+\DoxyCodeLine{150         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a5d2a5e60ba2dacbe92fadfbf986c6ef1}{EvolveFunctor}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false}, \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}}* options=\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{151                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}(svlog), \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}}(record\_state), \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_aeed8d3835f71c9d2bd28fa32c942a809}{\_include\_failed}}(include\_failed), \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a6b7b465dcfe25aff7860a89becbbb8b5}{\_options}}\{options\} \{\};}
+\DoxyCodeLine{152         \textcolor{keyword}{virtual} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a10363af89bf2850fde40026e37a712c6}{\string~EvolveFunctor}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{153         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a2356fd448fb3b566eae418728ad961ed}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\{ \textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{154         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a2356fd448fb3b566eae418728ad961ed}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\{ \textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{155         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a2e879b095812d2c1fa89cd30fc77feac}{name}}() \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pure Virtual Base EvolveFunctor"{}};\}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{158         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}};}
+\DoxyCodeLine{159         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}};}
+\DoxyCodeLine{160         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_aeed8d3835f71c9d2bd28fa32c942a809}{\_include\_failed}};}
+\DoxyCodeLine{161         \textcolor{keyword}{const} \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}}* \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a6b7b465dcfe25aff7860a89becbbb8b5}{\_options}};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163         \textcolor{keyword}{template} <\textcolor{keyword}{class} System>}
+\DoxyCodeLine{164         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(System\& system, \textcolor{keywordtype}{bool} evolution\_result)\{}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166             \textcolor{keywordflow}{if} (evolution\_result==EXIT\_SUCCESS)}
+\DoxyCodeLine{167                 system.print();}
+\DoxyCodeLine{168             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{169                 system.print\_failed(\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_aeed8d3835f71c9d2bd28fa32c942a809}{\_include\_failed}});}
+\DoxyCodeLine{170         \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{180         \textcolor{keyword}{template} <\textcolor{keyword}{class} System>}
+\DoxyCodeLine{181         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(System\& system, \textcolor{keyword}{const} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}} \&e)\{}
+\DoxyCodeLine{182             std::string errmedd= \textcolor{stringliteral}{"{}Evolution of system "{}}+system.get\_name() + \textcolor{stringliteral}{"{}(ID "{}}+ std::to\_string(system.get\_ID())+}
+\DoxyCodeLine{183                                  \textcolor{stringliteral}{"{}) broken by an error: "{}}+e.\mbox{\hyperlink{classsevnstd_1_1sevnerr_ae4310000ddc373ae32390e0f57b99a63}{what}}();}
+\DoxyCodeLine{184             std::cerr<<errmedd<<std::endl;}
+\DoxyCodeLine{185         \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \};}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{200     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_debug}{EvolveDebug}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}} \{}
+\DoxyCodeLine{201     \textcolor{keyword}{public}:}
+\DoxyCodeLine{202         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_ad3e81391d9bfcb4463a285118a5ddf63}{EvolveDebug}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{203                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{204         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_ac29a408009c5f4b0d72ed7ec71e5b021}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override  }\{}
+\DoxyCodeLine{205             \textcolor{keywordflow}{return} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_a0431119036c2feccd0aabc78b3315fbc}{evolve\_debug}}(binary);}
+\DoxyCodeLine{206         \}}
+\DoxyCodeLine{207         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_ac29a408009c5f4b0d72ed7ec71e5b021}{operator() }}(\mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{208             \textcolor{keywordflow}{return} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_a0431119036c2feccd0aabc78b3315fbc}{evolve\_debug}}(star);}
+\DoxyCodeLine{209         \}}
+\DoxyCodeLine{210         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_af06aec70056677f02cd046f5800b782e}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveDefault"{}};\}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keyword}{private}:}
+\DoxyCodeLine{213         \textcolor{keyword}{template} <\textcolor{keyword}{typename} System>}
+\DoxyCodeLine{214         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug_a0431119036c2feccd0aabc78b3315fbc}{evolve\_debug}}(System\& system)\{}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{217             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(system,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{218 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{221         \}}
+\DoxyCodeLine{222     \};}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{236     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_default}{EvolveDefault}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}} \{}
+\DoxyCodeLine{237     \textcolor{keyword}{public}:}
+\DoxyCodeLine{238         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_aa2194bf696e8b02f9deed994b88b2316}{EvolveDefault}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{239                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{240         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_aafa9ee25c024f434b147c4571b3a8fb6}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override  }\{}
+\DoxyCodeLine{241             \textcolor{keywordflow}{return} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_a96c8be79780dded9362969cf0e9b7241}{evolve\_default}}(binary);}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_aafa9ee25c024f434b147c4571b3a8fb6}{operator() }}(\mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{244             \textcolor{keywordflow}{return} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_a96c8be79780dded9362969cf0e9b7241}{evolve\_default}}(star);}
+\DoxyCodeLine{245         \}}
+\DoxyCodeLine{246         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_a0281d98a36cd2ee23ab3a31123ee4281}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveDefault"{}};\}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248     \textcolor{keyword}{private}:}
+\DoxyCodeLine{249         \textcolor{keyword}{template} <\textcolor{keyword}{typename} System>}
+\DoxyCodeLine{250         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_default_a96c8be79780dded9362969cf0e9b7241}{evolve\_default}}(System\& system)\{}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}}) system.recordstate(); \textcolor{comment}{//always record the initial state}}
+\DoxyCodeLine{255             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{256                 \textcolor{comment}{//TODO Myabe is better to use try..catch.. outside the for?}}
+\DoxyCodeLine{257                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260                     system.evolve();}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262                     \textcolor{keywordflow}{if} (system.breaktrigger()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{263                         \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265                     \textcolor{keywordflow}{if} ( (system.isoutputtime() or system.printall()) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}}) \{}
+\DoxyCodeLine{266                         system.recordstate\_w\_timeupdate();}
+\DoxyCodeLine{267                     \}}
+\DoxyCodeLine{268                 \}}
+\DoxyCodeLine{269                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(system,e);}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273                     evolution\_result=EXIT\_FAILURE;}
+\DoxyCodeLine{274                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{275                 \}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279             \}}
+\DoxyCodeLine{280             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}}) \{}
+\DoxyCodeLine{281                 system.recordstate(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{282             \}}
+\DoxyCodeLine{283             \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{284             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(system,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{285 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{288         \}}
+\DoxyCodeLine{289     \};}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{301     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}\{}
+\DoxyCodeLine{302     \textcolor{keyword}{public}:}
+\DoxyCodeLine{303         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_ae745f019889b4ff0987a3c81f3f77df7}{EvolveStopCondition}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{304         : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{305         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_ae5b9232eaa6d04a91a3c4b6ea0b6620a}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{315                     binary.\mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}();}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{318                     \textcolor{comment}{//If special break condition is flagged and \_record\_state is true:}}
+\DoxyCodeLine{319                     \textcolor{comment}{//  record\_state, print it to the file and exit.}}
+\DoxyCodeLine{320                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a271280e2833f34add483fd9b07c3cdbf}{stop\_condition}}(binary) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{321                         binary.\mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}}(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{322                         \textcolor{keywordflow}{break}; \textcolor{comment}{//Exit}}
+\DoxyCodeLine{323                     \}}
+\DoxyCodeLine{324                     \textcolor{comment}{//If special break condition or natural breaktrigger  (controlled by input options) just break}}
+\DoxyCodeLine{325                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a271280e2833f34add483fd9b07c3cdbf}{stop\_condition}}(binary) or binary.\mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}())}
+\DoxyCodeLine{326                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{327                 \}}
+\DoxyCodeLine{328                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(binary,e);}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332                     evolution\_result = EXIT\_FAILURE;}
+\DoxyCodeLine{333                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335                 \}}
+\DoxyCodeLine{336             \}}
+\DoxyCodeLine{337 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{338             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(binary,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{339             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{340         \}}
+\DoxyCodeLine{341         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_ae5b9232eaa6d04a91a3c4b6ea0b6620a}{operator() }}(\mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{351                     star.\mbox{\hyperlink{class_star_ad182e483146e6d0d483a3aefdc29c489}{evolve}}();}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{354                     \textcolor{comment}{//If special break condition is flagged and \_record\_state is true:}}
+\DoxyCodeLine{355                     \textcolor{comment}{//  record\_state, print it to the file and exit.}}
+\DoxyCodeLine{356                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a271280e2833f34add483fd9b07c3cdbf}{stop\_condition}}(star) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{357                         star.\mbox{\hyperlink{class_star_a49bf8080d0f536d90660022ea7b7acaf}{recordstate}}(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{358                         \textcolor{keywordflow}{break}; \textcolor{comment}{//Exit}}
+\DoxyCodeLine{359                     \}}
+\DoxyCodeLine{360                         \textcolor{comment}{//If special break condition or natural breaktrigger  (controlled by input options) just break}}
+\DoxyCodeLine{361                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a271280e2833f34add483fd9b07c3cdbf}{stop\_condition}}(star) or star.\mbox{\hyperlink{class_star_aeaeace678ba2856af110ff9c18c02ad0}{breaktrigger}}())}
+\DoxyCodeLine{362                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{363                 \}}
+\DoxyCodeLine{364                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(star,e);}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368                     evolution\_result = EXIT\_FAILURE;}
+\DoxyCodeLine{369                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371                 \}}
+\DoxyCodeLine{372             \}}
+\DoxyCodeLine{373 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{374             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(star,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{375             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{376         \}}
+\DoxyCodeLine{377         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_abf15f3d802ed3c804801a4dd65779a04}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveStopCondition"{}};\}}
+\DoxyCodeLine{378     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{379         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a271280e2833f34add483fd9b07c3cdbf}{stop\_condition}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\{}
+\DoxyCodeLine{380             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{381         \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition_a1063464165c022c2bac24b515f1c2a0d}{stop\_condition}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\{}
+\DoxyCodeLine{384             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{385         \}}
+\DoxyCodeLine{386     \};}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{400     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{EvolveRecordCondition}} : \textcolor{keyword}{public}  \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}\{}
+\DoxyCodeLine{401     \textcolor{keyword}{public}:}
+\DoxyCodeLine{402         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_a47d8f833e733f333d4163454e68c9da5}{EvolveRecordCondition}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{403                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{404         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_aafc15c2704b898ed1148b801c95f3873}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{408             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Record\_counter=0;}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{415                     binary.\mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}();}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417                     \textcolor{comment}{//If record condition is true, update the BLC counter and record state (if allowed by other flags)}}
+\DoxyCodeLine{418                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_a691fb5549b667a4acae9c86be79f764c}{record\_condition}}(binary))\{}
+\DoxyCodeLine{419                         Record\_counter++;}
+\DoxyCodeLine{420                         \textcolor{comment}{//Record only if it is time (or print only end and this is the start of the Record condition Record\_counter=1) and if \_record state is true}}
+\DoxyCodeLine{421                         \textcolor{keywordflow}{if} ( ( (binary.\mbox{\hyperlink{class_binstar_a797a71bea2a27583df0df611b36fbfdb}{isoutputtime}}() or binary.\mbox{\hyperlink{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}{printall}}()) or Record\_counter==1 ) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}} ) \{}
+\DoxyCodeLine{422                             binary.\mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{423                         \}}
+\DoxyCodeLine{424                     \}}
+\DoxyCodeLine{425                         \textcolor{comment}{//If record\_condition is false, but Record\_counter>0 we just exit from the record condition, so record state (if allowed by other flags) ans reset the Record\_counter}}
+\DoxyCodeLine{426                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(Record\_counter>0)\{}
+\DoxyCodeLine{427                         \textcolor{comment}{//Always print the end}}
+\DoxyCodeLine{428                         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{429                             binary.\mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{430                         \}}
+\DoxyCodeLine{431                         \textcolor{comment}{//reset the Record\_counter counter}}
+\DoxyCodeLine{432                         Record\_counter=0;}
+\DoxyCodeLine{433                     \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435                     \textcolor{keywordflow}{if} (binary.\mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{436                         \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438                 \}}
+\DoxyCodeLine{439                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 }
+\DoxyCodeLine{442                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(binary,e);}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444                     evolution\_result = EXIT\_FAILURE;}
+\DoxyCodeLine{445                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447                 \}}
+\DoxyCodeLine{448             \}}
+\DoxyCodeLine{449 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{450             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(binary,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{451             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{452         \}}
+\DoxyCodeLine{453         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_aafc15c2704b898ed1148b801c95f3873}{operator() }}(\mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{457             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Record\_counter=0;}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{464                     star.\mbox{\hyperlink{class_star_ad182e483146e6d0d483a3aefdc29c489}{evolve}}();}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466                     \textcolor{comment}{//If record condition is true, update the BLC counter and record state (if allowed by other flags)}}
+\DoxyCodeLine{467                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_a691fb5549b667a4acae9c86be79f764c}{record\_condition}}(star))\{}
+\DoxyCodeLine{468                         Record\_counter++;}
+\DoxyCodeLine{469                         \textcolor{comment}{//Record only if it is time (or print only end and this is the start of the Record condition Record\_counter=1) and if \_record state is true}}
+\DoxyCodeLine{470                         \textcolor{keywordflow}{if} ( ( (star.\mbox{\hyperlink{class_star_a1d5ab00cfab2b2f1e376f498a64ab148}{isoutputtime}}() or star.\mbox{\hyperlink{class_star_a702908c52ea6ae05b73df75bc2495f33}{printall}}()) or Record\_counter==1 ) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}} ) \{}
+\DoxyCodeLine{471                             star.\mbox{\hyperlink{class_star_a9ecf6903874752988930d8140b5affb0}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{472                         \}}
+\DoxyCodeLine{473                     \}}
+\DoxyCodeLine{474                         \textcolor{comment}{//If record\_condition is false, but Record\_counter>0 we just exit from the record condition, so record state (if allowed by other flags) ans reset the Record\_counter}}
+\DoxyCodeLine{475                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(Record\_counter>0)\{}
+\DoxyCodeLine{476                         \textcolor{comment}{//Always print the end}}
+\DoxyCodeLine{477                         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{478                             star.\mbox{\hyperlink{class_star_a9ecf6903874752988930d8140b5affb0}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{479                         \}}
+\DoxyCodeLine{480                         \textcolor{comment}{//reset the Record\_counter counter}}
+\DoxyCodeLine{481                         Record\_counter=0;}
+\DoxyCodeLine{482                     \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484                     \textcolor{keywordflow}{if} (star.\mbox{\hyperlink{class_star_aeaeace678ba2856af110ff9c18c02ad0}{breaktrigger}}()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{485                         \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487                 \}}
+\DoxyCodeLine{488                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(star,e);}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492                     evolution\_result = EXIT\_FAILURE;}
+\DoxyCodeLine{493                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{495                 \}}
+\DoxyCodeLine{496             \}}
+\DoxyCodeLine{497 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{498             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(star,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{499             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{500         \}}
+\DoxyCodeLine{501         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_afbc3cdf445184e1a75cd24bcc52f1ae9}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveRecordCondition"{}};\}}
+\DoxyCodeLine{502     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_a691fb5549b667a4acae9c86be79f764c}{record\_condition}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\{}
+\DoxyCodeLine{506             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{507         \}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition_a372f7cbb6d2de0b5b312f000591962db}{record\_condition}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\{}
+\DoxyCodeLine{510             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{511         \}}
+\DoxyCodeLine{512     \};}
+\DoxyCodeLine{513 }
+\DoxyCodeLine{514 }
+\DoxyCodeLine{526     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact}{EvolveBinaryCompact}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}\{}
+\DoxyCodeLine{527     \textcolor{keyword}{public}:}
+\DoxyCodeLine{528         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_ad8d7c9fd82d2c68d73880277db474995}{EvolveBinaryCompact}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{529         : \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{530         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_acdec5b1ad3be0892da51365cc4932deb}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{531             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{532                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{533             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{534         \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{536         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_a18e5ea0b9597d93d11899f1449940b52}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBinaryCompact"{}};\}}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{539         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_a24bb0c6f9879edfae6fb7a8f30e4f19c}{stop\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{540             \textcolor{keywordflow}{return} binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binstar.\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}};}
+\DoxyCodeLine{541         \}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543     \};}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{556      \textcolor{comment}{//TODO Deprecated to be removed, new implementation is EvolveBinaryCompact}}
+\DoxyCodeLine{557     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old}{EvolveBinaryCompactOld}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}} \{}
+\DoxyCodeLine{558     \textcolor{keyword}{public}:}
+\DoxyCodeLine{559         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old_aa7ee0c82210e66a9051d25e269ed8811}{EvolveBinaryCompactOld}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{560                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{561         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old_affac6c7fee8c14e791e9b39ef62abf4e}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{563             \textcolor{keywordtype}{bool} special\_break\_condition = \textcolor{keyword}{false};}
+\DoxyCodeLine{564             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{571                     binary.\mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}();}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{574                     special\_break\_condition  = binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binary.\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}};}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{577                     \textcolor{comment}{//If special break condition is flagged and \_record\_state is true:}}
+\DoxyCodeLine{578                     \textcolor{comment}{//  record\_state, print it to the file and exit.}}
+\DoxyCodeLine{579                     \textcolor{keywordflow}{if} (special\_break\_condition and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{580                         binary.\mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}}(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{581                         \textcolor{keywordflow}{break}; \textcolor{comment}{//Exit}}
+\DoxyCodeLine{582                     \}}
+\DoxyCodeLine{583                     \textcolor{comment}{//If special break condition or natural breaktrigger  (controlled by input options) just break}}
+\DoxyCodeLine{584                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (special\_break\_condition or binary.\mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}())}
+\DoxyCodeLine{585                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{586                 \}}
+\DoxyCodeLine{587                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(binary,e);}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591                     evolution\_result = EXIT\_FAILURE;}
+\DoxyCodeLine{592                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{594                 \}}
+\DoxyCodeLine{595             \}}
+\DoxyCodeLine{596 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{597             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(binary,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{598             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{599         \}}
+\DoxyCodeLine{600         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old_affac6c7fee8c14e791e9b39ef62abf4e}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{601             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{602                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{603             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{604         \}}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{606         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old_a959da2b1c6a36a12cf05e7aa14e324dd}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBinaryCompact"{}};\}}
+\DoxyCodeLine{607 }
+\DoxyCodeLine{608     \};}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{622     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h}{EvolveBBH}} :  \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}\{}
+\DoxyCodeLine{623     \textcolor{keyword}{public}:}
+\DoxyCodeLine{624         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h_a95abd5b045ac8971165b37f89a63d4be}{EvolveBBH}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{625         : \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{626         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h_acd4af29c567acc6511977f006cf472b6}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{627             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{628                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{629             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{630         \}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{632         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h_af503cd5e5f38f2d51c080f714f77e000}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBBH"{}};\}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{635         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h_af109d7a09e0c833f7eb24f0deedfbf99}{stop\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{636             \textcolor{keywordflow}{return} binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a0b101fdf510136fb7b29707d462d2e31}{amiBH}}() and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a0b101fdf510136fb7b29707d462d2e31}{amiBH}}() and !binstar.\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}};}
+\DoxyCodeLine{637         \}}
+\DoxyCodeLine{638 }
+\DoxyCodeLine{639     \};}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641 }
+\DoxyCodeLine{655     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c}{EvolveBLC}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}} \{}
+\DoxyCodeLine{656     \textcolor{keyword}{public}:}
+\DoxyCodeLine{657         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c_ac58e15faa12fc41c5c80e8d702e7bb59}{EvolveBLC}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{658                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{659         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c_ad4f2c7fc7d3241218e0d8b8258addfe6}{operator() }}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{660 }
+\DoxyCodeLine{661             \textcolor{keywordtype}{bool} BLC\_flag = \textcolor{keyword}{false}, BLC\_case1=\textcolor{keyword}{false}, BLC\_case2=\textcolor{keyword}{false};}
+\DoxyCodeLine{662             \textcolor{comment}{//The BLC counter counts the evolution steps the systems has been in the BLC configuration}}
+\DoxyCodeLine{663             \textcolor{comment}{//It is increased by one if the BLC\_flag is zero, while it is reset to zero when BLC\_flag is false}}
+\DoxyCodeLine{664             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} BLC\_counter=0;}
+\DoxyCodeLine{665             \textcolor{keywordtype}{bool} evolution\_result = EXIT\_SUCCESS; \textcolor{comment}{//Reset to true}}
+\DoxyCodeLine{666 }
+\DoxyCodeLine{667             \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{670 }
+\DoxyCodeLine{672                     binary.\mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}();}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{674                     BLC\_case1 = binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}();}
+\DoxyCodeLine{675                     BLC\_case2 = binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binary.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}();}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{678                     BLC\_flag  = (BLC\_case1 or BLC\_case2) and !binary.\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}};}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{680                     \textcolor{comment}{//If BLC\_flag is true, update the BLC counter and record state (if allowed by other flags)}}
+\DoxyCodeLine{681                     if (BLC\_flag)\{}
+\DoxyCodeLine{682                         BLC\_counter++;}
+\DoxyCodeLine{683                         \textcolor{comment}{//Record only if it is time (or print only end and this is the start of the BLC conditions BLC\_counter=) and if \_record state is true}}
+\DoxyCodeLine{684                         \textcolor{keywordflow}{if} ( ( (binary.\mbox{\hyperlink{class_binstar_a797a71bea2a27583df0df611b36fbfdb}{isoutputtime}}() or binary.\mbox{\hyperlink{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}{printall}}()) or BLC\_counter==1 ) and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}} ) \{}
+\DoxyCodeLine{685                             binary.\mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{686                         \}}
+\DoxyCodeLine{687                     \}}
+\DoxyCodeLine{688                     \textcolor{comment}{//If BLC\_flag is false, but BLC\_counter>0 we are at the end of a BLC phase, so record state (if allowed by other flags) ans reset the BLC counter}}
+\DoxyCodeLine{689                     \textcolor{comment}{//FInally break, in fact if this system was in a BLC phase and not it is not, there is no way it will enter again in a BLC phase}}
+\DoxyCodeLine{690                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(BLC\_counter>0)\{}
+\DoxyCodeLine{691 }
+\DoxyCodeLine{692                         \textcolor{comment}{//Always print the end}}
+\DoxyCodeLine{693                         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a3c2503d58e99d652b6467f2986c0e657}{\_record\_state}})\{}
+\DoxyCodeLine{694                             binary.\mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{695                         \}}
+\DoxyCodeLine{696                         \textcolor{comment}{//reset the BLC counter}}
+\DoxyCodeLine{697                         BLC\_counter=0;}
+\DoxyCodeLine{698                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{699                     \}}
+\DoxyCodeLine{700 }
+\DoxyCodeLine{701                     \textcolor{keywordflow}{if} (binary.\mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{702                         \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{703 }
+\DoxyCodeLine{704                 \}}
+\DoxyCodeLine{705                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{707                     \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a64ab8f18f0dda79e1f3374242db91a10}{catched\_error\_message}}(binary,e);}
+\DoxyCodeLine{708 }
+\DoxyCodeLine{709                     evolution\_result=EXIT\_FAILURE;}
+\DoxyCodeLine{710                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{711                 \}}
+\DoxyCodeLine{712             \}}
+\DoxyCodeLine{713 \textcolor{comment}{            /********************************/}}
+\DoxyCodeLine{714             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_ad66d499476c18572ad91aa081f72565b}{final\_print}}(binary,evolution\_result); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{715             \textcolor{keywordflow}{return} evolution\_result;}
+\DoxyCodeLine{716         \}}
+\DoxyCodeLine{717         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c_ad4f2c7fc7d3241218e0d8b8258addfe6}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{718             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{719                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{720             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{721         \}}
+\DoxyCodeLine{722         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c_a4593fba52a7fed266fe99d6134f3849c}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBLC"{}};\}}
+\DoxyCodeLine{723 }
+\DoxyCodeLine{724 }
+\DoxyCodeLine{725     \};}
+\DoxyCodeLine{726 }
+\DoxyCodeLine{727 }
+\DoxyCodeLine{728 }
+\DoxyCodeLine{729 }
+\DoxyCodeLine{741     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1}{EvolveBCX1}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}} \{}
+\DoxyCodeLine{742     \textcolor{keyword}{public}:}
+\DoxyCodeLine{743         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1_a1a621d0c13c13c30b785ded39cdab1fd}{EvolveBCX1}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{744                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{745         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1_a7981bec94469dd80d575ac660a7a53dc}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{746             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{747                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{748             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{749         \}}
+\DoxyCodeLine{750 }
+\DoxyCodeLine{751         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1_a4f0d94deb7fd988ed26067b8530e62e4}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBCX1"{}};\}}
+\DoxyCodeLine{752 }
+\DoxyCodeLine{753     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{754         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1_abea3f1deffc9b08354c07627fda27d13}{stop\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{755             \textcolor{keywordtype}{bool} BH\_cond = binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a0b101fdf510136fb7b29707d462d2e31}{amiBH}}() and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})>=14 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})<=24;}
+\DoxyCodeLine{756             \textcolor{keywordtype}{bool}  MS\_cond = binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}})==1 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})>=30 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})<=50;}
+\DoxyCodeLine{757             \textcolor{keywordtype}{bool} Semimajor\_cond = binstar.\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{Semimajor::ID}})<=1000000000000.0;}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{759             \textcolor{keywordflow}{return} BH\_cond and MS\_cond and Semimajor\_cond;}
+\DoxyCodeLine{760         \}}
+\DoxyCodeLine{761 }
+\DoxyCodeLine{762     \};}
+\DoxyCodeLine{763 }
+\DoxyCodeLine{775     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula}{EvolveBHMSTarantula}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}} \{}
+\DoxyCodeLine{776     \textcolor{keyword}{public}:}
+\DoxyCodeLine{777         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula_a8451401bdbaa48cd0e0249eb01c5a148}{EvolveBHMSTarantula}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{778                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{EvolveStopCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{779         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula_aa91d9cf23c468ec0566b26cd9e432f4d}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{780             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{781                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{782             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{783         \}}
+\DoxyCodeLine{784 }
+\DoxyCodeLine{785         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula_abb1dce6b2e55c2f8bed805640464e3f9}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveBHMSTarantula"{}};\}}
+\DoxyCodeLine{786 }
+\DoxyCodeLine{787     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{788         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula_a84bdc7641d3e1d85bec2c3b402e37c83}{stop\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{789 }
+\DoxyCodeLine{790             \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double}  yr\_to\_day = 265.24;}
+\DoxyCodeLine{791 }
+\DoxyCodeLine{792             \textcolor{keywordtype}{bool} BH\_cond = binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a0b101fdf510136fb7b29707d462d2e31}{amiBH}}() and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})>=6 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})<=16;}
+\DoxyCodeLine{793             \textcolor{keywordtype}{bool} MS\_cond = binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}})==1 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})>=15 and binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})<=32;}
+\DoxyCodeLine{794             \textcolor{keywordtype}{bool} P\_cond  = binstar.\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{Period::ID}})*yr\_to\_day < 100;}
+\DoxyCodeLine{795             \textcolor{keywordtype}{bool} e\_cond  = binstar.\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{Eccentricity::ID}}) < 0.3;}
+\DoxyCodeLine{796 }
+\DoxyCodeLine{797             \textcolor{keywordflow}{return} BH\_cond and MS\_cond and P\_cond and e\_cond;}
+\DoxyCodeLine{798         \}}
+\DoxyCodeLine{799 }
+\DoxyCodeLine{800     \};}
+\DoxyCodeLine{801 }
+\DoxyCodeLine{816     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_w1}{EvolveW1}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{EvolveRecordCondition}} \{}
+\DoxyCodeLine{817 }
+\DoxyCodeLine{818     \textcolor{keyword}{public}:}
+\DoxyCodeLine{819         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a156fd24c31394dfe8711d667da8406f4}{EvolveW1}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{820                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{EvolveRecordCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{821         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a6949f433b7fc5a0507dc0954139f25ff}{operator() }}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{822             \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor_a4d42779c8389317731ff89fc95922d50}{\_svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Evolve for star is not implemented for functor EvolveBinaryCompact"{}},\_\_FILE\_\_,\_\_LINE\_\_,}
+\DoxyCodeLine{823                             \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{824             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{825         \}}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{827         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a2ad63558ca2e98cf61c0c2b7c84de80b}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveW1"{}};\}}
+\DoxyCodeLine{828 }
+\DoxyCodeLine{829     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{830         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a5c9f3a3d310a22cf48996e0f0bdab6e4}{record\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{831             \textcolor{keywordtype}{bool} BHNS\_cond = (binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}()) or (binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}() and !binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a3445bcc8f569344cf20076dbc13ad639}{amiCompact}}());}
+\DoxyCodeLine{832             \textcolor{keywordtype}{bool} Period\_cond = !binstar.\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}} and binstar.\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{Period::ID}})>=\mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a032b5e5e7716ea632ad03ae12655a20f}{Pmin}} and binstar.\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{Period::ID}})<=\mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a2eaa48ed2468ab2f46ca98096e9ea7a4}{Pmax}};}
+\DoxyCodeLine{833 }
+\DoxyCodeLine{834             \textcolor{keywordflow}{return} BHNS\_cond and Period\_cond;}
+\DoxyCodeLine{835         \}}
+\DoxyCodeLine{836     \textcolor{keyword}{private}:}
+\DoxyCodeLine{837         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_ab9f697bb179f7d4efbf79b107245a7df}{hours\_to\_yr}} = 1.0/8766.0; \textcolor{comment}{//1 hours to year, considering 1 year=365.25 days}}
+\DoxyCodeLine{838         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a032b5e5e7716ea632ad03ae12655a20f}{Pmin}} = 1*\mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_ab9f697bb179f7d4efbf79b107245a7df}{hours\_to\_yr}}; \textcolor{comment}{//Minimum Period 1h}}
+\DoxyCodeLine{839         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_a2eaa48ed2468ab2f46ca98096e9ea7a4}{Pmax}} = 5*\mbox{\hyperlink{classevolve__utility_1_1_evolve_w1_ab9f697bb179f7d4efbf79b107245a7df}{hours\_to\_yr}}; \textcolor{comment}{//Maximum Period 5h}}
+\DoxyCodeLine{840 }
+\DoxyCodeLine{841     \};}
+\DoxyCodeLine{842 }
+\DoxyCodeLine{843 }
+\DoxyCodeLine{854     \textcolor{keyword}{class }\mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l}{EvolveRRL}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{EvolveRecordCondition}} \{}
+\DoxyCodeLine{855 }
+\DoxyCodeLine{856     \textcolor{keyword}{public}:}
+\DoxyCodeLine{857         \textcolor{keyword}{explicit} \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l_a2a7129d7f98e68cf30c103569681947d}{EvolveRRL}}(\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} include\_failed=\textcolor{keyword}{false})}
+\DoxyCodeLine{858                 : \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{EvolveRecordCondition}}(svlog,record\_state,include\_failed) \{\};}
+\DoxyCodeLine{859         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l_acf0d4ebc8ea6fb13b605867e4f74aced}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EvolveRRL"{}};\}}
+\DoxyCodeLine{860 }
+\DoxyCodeLine{861     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{862         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l_a933e0a0f4fc856fe008d6c1be16a4366}{record\_condition}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{863             \textcolor{keywordflow}{return} binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(0)-\/>\mbox{\hyperlink{class_star_a4beb43f148f8dc9d53af82740bdb45e4}{amiRRL}}() or binstar.\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(1)-\/>\mbox{\hyperlink{class_star_a4beb43f148f8dc9d53af82740bdb45e4}{amiRRL}}();}
+\DoxyCodeLine{864         \}}
+\DoxyCodeLine{865         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l_ada2a427d22489aecb3005ec877b515b4}{record\_condition}}(\mbox{\hyperlink{class_star}{Star}}\& star)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{866             \textcolor{keywordflow}{return} star.\mbox{\hyperlink{class_star_a4beb43f148f8dc9d53af82740bdb45e4}{amiRRL}}() or star.\mbox{\hyperlink{class_star_a4beb43f148f8dc9d53af82740bdb45e4}{amiRRL}}();}
+\DoxyCodeLine{867         \}}
+\DoxyCodeLine{868     \};}
+\DoxyCodeLine{869 }
+\DoxyCodeLine{870 }
+\DoxyCodeLine{879     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}{evolve\_single}}(\mbox{\hyperlink{class_binstar}{Binstar}}\& binary, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{880 }
+\DoxyCodeLine{881         \textcolor{keywordflow}{if} (record\_state) binary.\mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}}(); \textcolor{comment}{//always record the initial state}}
+\DoxyCodeLine{882         \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{883 }
+\DoxyCodeLine{884             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{885 }
+\DoxyCodeLine{886 }
+\DoxyCodeLine{887                 binary.\mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}();}
+\DoxyCodeLine{888 }
+\DoxyCodeLine{889 }
+\DoxyCodeLine{890                 \textcolor{keywordflow}{if} (binary.\mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{891                     \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{892 }
+\DoxyCodeLine{893                 \textcolor{keywordflow}{if} ( (binary.\mbox{\hyperlink{class_binstar_a797a71bea2a27583df0df611b36fbfdb}{isoutputtime}}() or binary.\mbox{\hyperlink{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}{printall}}()) and record\_state ) \{}
+\DoxyCodeLine{894                     binary.\mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{895                 \}}
+\DoxyCodeLine{896             \}}
+\DoxyCodeLine{897             \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{898 }
+\DoxyCodeLine{899 }
+\DoxyCodeLine{900                 svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}{error}}(\textcolor{stringliteral}{"{}Evolution of binary "{}}+binary.\mbox{\hyperlink{class_binstar_a3533d9004019fd9d494cb759f7fd68b5}{get\_name}}() + \textcolor{stringliteral}{"{}(ID "{}}+ \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(binary.\mbox{\hyperlink{class_binstar_a3ddee965313902fe42a6399656b241d1}{get\_ID}}(),\_\_FILE\_\_,\_\_LINE\_\_)+}
+\DoxyCodeLine{901                             \textcolor{stringliteral}{"{}) broken by an error: "{}}+e.\mbox{\hyperlink{classsevnstd_1_1sevnerr_ae4310000ddc373ae32390e0f57b99a63}{what}}(),\_\_FILE\_\_,\_\_LINE\_\_,\textcolor{keyword}{false});}
+\DoxyCodeLine{902 }
+\DoxyCodeLine{903                 \textcolor{comment}{//std::cerr<< binaries[i].get\_name()  <<"{} "{} <<e.what()<<std::endl << std::flush;}}
+\DoxyCodeLine{904                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{905             \}}
+\DoxyCodeLine{906 }
+\DoxyCodeLine{907             \textcolor{comment}{//utilities::wait();}}
+\DoxyCodeLine{908 }
+\DoxyCodeLine{909 }
+\DoxyCodeLine{910         \}}
+\DoxyCodeLine{911         \textcolor{keywordflow}{if} (record\_state) \{}
+\DoxyCodeLine{912             binary.\mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}}(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{913             binary.\mbox{\hyperlink{class_binstar_a7dab973fbbda46726e581094e77d5888}{print}}(); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{914         \}}
+\DoxyCodeLine{915 \textcolor{comment}{        /********************************/}}
+\DoxyCodeLine{916 }
+\DoxyCodeLine{917         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{918     \}}
+\DoxyCodeLine{919 }
+\DoxyCodeLine{928     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}{evolve\_single}}(\mbox{\hyperlink{class_star}{Star}}\& star, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}}\& svlog, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{929 }
+\DoxyCodeLine{930         \textcolor{keywordflow}{if} (record\_state) star.\mbox{\hyperlink{class_star_a49bf8080d0f536d90660022ea7b7acaf}{recordstate}}(); \textcolor{comment}{//always record the initial state}}
+\DoxyCodeLine{931         \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{932 }
+\DoxyCodeLine{933             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{934 }
+\DoxyCodeLine{935 }
+\DoxyCodeLine{936                 star.\mbox{\hyperlink{class_star_ad182e483146e6d0d483a3aefdc29c489}{evolve}}();}
+\DoxyCodeLine{937 }
+\DoxyCodeLine{938 }
+\DoxyCodeLine{939                 \textcolor{keywordflow}{if} (star.\mbox{\hyperlink{class_star_aeaeace678ba2856af110ff9c18c02ad0}{breaktrigger}}()) \textcolor{comment}{//stopping condition for evolving the star}}
+\DoxyCodeLine{940                     \textcolor{keywordflow}{break}; \textcolor{comment}{//go to evolve the next star}}
+\DoxyCodeLine{941 }
+\DoxyCodeLine{942                 \textcolor{keywordflow}{if} ( (star.\mbox{\hyperlink{class_star_a1d5ab00cfab2b2f1e376f498a64ab148}{isoutputtime}}() or star.\mbox{\hyperlink{class_star_a702908c52ea6ae05b73df75bc2495f33}{printall}}()) and record\_state ) \{}
+\DoxyCodeLine{943 }
+\DoxyCodeLine{944                     star.\mbox{\hyperlink{class_star_a9ecf6903874752988930d8140b5affb0}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{945                 \}}
+\DoxyCodeLine{946             \}}
+\DoxyCodeLine{947             \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}\& e)\{}
+\DoxyCodeLine{948 }
+\DoxyCodeLine{949                 svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}{error}}(\textcolor{stringliteral}{"{}Evolution of binary "{}}+star.\mbox{\hyperlink{class_star_a1ac6b97affa5f8ced5d9a6acb355f4b6}{get\_name}}() + \textcolor{stringliteral}{"{}(ID "{}}+ \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(star.\mbox{\hyperlink{class_star_a1f080eecc78bb674d4f2b9213e8b0887}{get\_ID}}(),\_\_FILE\_\_,\_\_LINE\_\_)+}
+\DoxyCodeLine{950                             \textcolor{stringliteral}{"{}) broken by an error: "{}}+e.\mbox{\hyperlink{classsevnstd_1_1sevnerr_ae4310000ddc373ae32390e0f57b99a63}{what}}(),\_\_FILE\_\_,\_\_LINE\_\_,\textcolor{keyword}{false});}
+\DoxyCodeLine{951 }
+\DoxyCodeLine{952                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{953             \}}
+\DoxyCodeLine{954 }
+\DoxyCodeLine{955             \textcolor{comment}{//utilities::wait();}}
+\DoxyCodeLine{956 }
+\DoxyCodeLine{957 }
+\DoxyCodeLine{958         \}}
+\DoxyCodeLine{959         \textcolor{keywordflow}{if} (record\_state) \{}
+\DoxyCodeLine{960             star.\mbox{\hyperlink{class_star_a49bf8080d0f536d90660022ea7b7acaf}{recordstate}}(); \textcolor{comment}{//always record the final state}}
+\DoxyCodeLine{961             star.\mbox{\hyperlink{class_star_ae33ba22f50777b85c2fecbceecd6c059}{print}}(); \textcolor{comment}{//print out all the recorded states for the star}}
+\DoxyCodeLine{962         \}}
+\DoxyCodeLine{963 \textcolor{comment}{        /********************************/}}
+\DoxyCodeLine{964 }
+\DoxyCodeLine{965         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{966     \}}
+\DoxyCodeLine{967 }
+\DoxyCodeLine{968 }
+\DoxyCodeLine{978     \textcolor{keyword}{template} <\textcolor{keyword}{typename} System>}
+\DoxyCodeLine{979     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}{evolve\_list}}(\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}* evolve\_function, std::vector<System>\& systems, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}}\& sevnio, \textcolor{keywordtype}{int} Nevolve=-\/1)\{}
+\DoxyCodeLine{980         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} svlog;}
+\DoxyCodeLine{981 }
+\DoxyCodeLine{982         \textcolor{keywordflow}{if} (Nevolve==-\/1) Nevolve=systems.size();}
+\DoxyCodeLine{983         \textcolor{keywordtype}{unsigned} Nfailed =0;}
+\DoxyCodeLine{984 }
+\DoxyCodeLine{985 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{986 \textcolor{preprocessor}{\#pragma omp parallel num\_threads(sevnio.nthreads)}}
+\DoxyCodeLine{987 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{988         \{}
+\DoxyCodeLine{989 }
+\DoxyCodeLine{990 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{991 \textcolor{preprocessor}{\#pragma omp for schedule(static)  reduction(+: Nfailed)}}
+\DoxyCodeLine{992 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{993             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < (size\_t)Nevolve; i++) \{}
+\DoxyCodeLine{994 }
+\DoxyCodeLine{995                 \textcolor{comment}{//NOTICE: THE FOLLOWING IS EXTREMELY IMPORTANT}}
+\DoxyCodeLine{996                 \textcolor{comment}{//mtrand is a static threadlocal variaible, i.e. it is a global variable for each thread}}
+\DoxyCodeLine{997                 \textcolor{comment}{//it is "{}seeded"{} each time we initiliase a system (binary or star), but we initiliase them}}
+\DoxyCodeLine{998                 \textcolor{comment}{//before to evolve them, therefore is you not "{}re-\/seed"{} mtrand before the evolution}}
+\DoxyCodeLine{999                 \textcolor{comment}{//mtrand will be seeded with the last loaded system and this will make impossibile to reproduce our results}}
+\DoxyCodeLine{1000                 \textcolor{comment}{//unless we use exactly the same list of systems (at the same relative position in the input file)}}
+\DoxyCodeLine{1001                 \textcolor{comment}{//Notice also that it is important that mtrand IS NEVER RE-\/SEEDED during the stellar/binary evolution}}
+\DoxyCodeLine{1002                 \textcolor{comment}{//(for this reason when we create an auxiliary star we save the current mtrand status, then we initiliase the}}
+\DoxyCodeLine{1003                 \textcolor{comment}{//auxiliary star where mtrand is reseed and finally we restore the old mtrand)}}
+\DoxyCodeLine{1004                 \textcolor{comment}{//TODO We should surely improve this behaviour (see issue 71 on gitlab: https://gitlab.com/sevn/SEVN/-\//issues/71 )}}
+\DoxyCodeLine{1005                 \mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}}.seed(systems[i].get\_rseed());\textcolor{comment}{//Set random state for riproducibility, DO NOT MOVE OR REMOVE THIS LINE}}
+\DoxyCodeLine{1006 }
+\DoxyCodeLine{1007 }
+\DoxyCodeLine{1008 \textcolor{comment}{                /****** EVOLVE  ******/}}
+\DoxyCodeLine{1009                 \textcolor{keywordflow}{if}((*evolve\_function)(systems[i])==EXIT\_FAILURE)}
+\DoxyCodeLine{1010                     Nfailed++;}
+\DoxyCodeLine{1011 }
+\DoxyCodeLine{1012 }
+\DoxyCodeLine{1013             \}}
+\DoxyCodeLine{1014 }
+\DoxyCodeLine{1015 }
+\DoxyCodeLine{1016         \}}
+\DoxyCodeLine{1017 }
+\DoxyCodeLine{1018         \textcolor{keywordflow}{return} Nfailed;}
+\DoxyCodeLine{1019     \}}
+\DoxyCodeLine{1020 }
+\DoxyCodeLine{1021 }
+\DoxyCodeLine{1033     \textcolor{comment}{//[[deprecated("{}Replaced by functor evolve implementation"{})]] This attribute can be used only from C++14}}
+\DoxyCodeLine{1034     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1035     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}{chunk\_dispatcher}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Nchunk, \mbox{\hyperlink{class_i_o}{IO}}\& sevnio, std::vector<T>\& systems, \textcolor{keywordtype}{bool} record\_state=\textcolor{keyword}{true}, \textcolor{keywordtype}{bool} progress=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{1036 }
+\DoxyCodeLine{1038         \textcolor{comment}{//If systems is not an empty vector clear it}}
+\DoxyCodeLine{1039         \textcolor{keywordflow}{if} (!systems.empty())}
+\DoxyCodeLine{1040             systems.clear();}
+\DoxyCodeLine{1041 }
+\DoxyCodeLine{1043         \textcolor{comment}{//Max size}}
+\DoxyCodeLine{1044         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Ntot = sevnio.\mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}}.size();}
+\DoxyCodeLine{1045         \textcolor{comment}{//Reset Nchunk if needed}}
+\DoxyCodeLine{1046         Nchunk = std::min(Nchunk,Ntot);}
+\DoxyCodeLine{1047         \textcolor{comment}{//Reserve space for systems}}
+\DoxyCodeLine{1048         systems.reserve(Nchunk);}
+\DoxyCodeLine{1049 }
+\DoxyCodeLine{1050 }
+\DoxyCodeLine{1052         \textcolor{keywordflow}{if} (progress)}
+\DoxyCodeLine{1053             std::cout<<\textcolor{stringliteral}{"{}Evolving systems:"{}}<<std::endl;}
+\DoxyCodeLine{1054 }
+\DoxyCodeLine{1055         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Ndone=0;}
+\DoxyCodeLine{1056         \textcolor{keywordtype}{size\_t} current\_idx=0;}
+\DoxyCodeLine{1057         \textcolor{keywordtype}{int} Ntodo=0;}
+\DoxyCodeLine{1058         \textcolor{keywordtype}{int} Nfailed=0;}
+\DoxyCodeLine{1059         \textcolor{keywordflow}{while} (Ndone<Ntot)\{}
+\DoxyCodeLine{1060 }
+\DoxyCodeLine{1061 }
+\DoxyCodeLine{1062             \textcolor{comment}{//Assign Ntodo}}
+\DoxyCodeLine{1063             Ntodo = std::min(Ntot-\/Ndone, Nchunk);}
+\DoxyCodeLine{1064 }
+\DoxyCodeLine{1065             \textcolor{comment}{//Fill vector}}
+\DoxyCodeLine{1066             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < Ntodo; i++)\{}
+\DoxyCodeLine{1067                 systems.emplace\_back(\&sevnio, sevnio.\mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}}[current\_idx], current\_idx);}
+\DoxyCodeLine{1068                 current\_idx++;}
+\DoxyCodeLine{1069             \}}
+\DoxyCodeLine{1070 }
+\DoxyCodeLine{1071             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1072             \textcolor{comment}{//utilities::hardwait("{}After filling systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1073 }
+\DoxyCodeLine{1074             \textcolor{comment}{//Evolve and update Nfailed}}
+\DoxyCodeLine{1075             Nfailed+=\mbox{\hyperlink{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}{evolve\_list}}(systems,sevnio,Ntodo,record\_state);}
+\DoxyCodeLine{1076 }
+\DoxyCodeLine{1077             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1078             \textcolor{comment}{//utilities::hardwait("{}After evolving systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1079 }
+\DoxyCodeLine{1080             \textcolor{comment}{//Clear}}
+\DoxyCodeLine{1081             systems.clear();}
+\DoxyCodeLine{1082 }
+\DoxyCodeLine{1083             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1084             \textcolor{comment}{//utilities::hardwait("{}After clearing systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1085 }
+\DoxyCodeLine{1086             \textcolor{comment}{//Update Ndone}}
+\DoxyCodeLine{1087             Ndone+=Ntodo;}
+\DoxyCodeLine{1088 }
+\DoxyCodeLine{1089             \textcolor{comment}{//TODO 1: Here we can estimate time needed to perform a chunk run and estimate the time to the end}}
+\DoxyCodeLine{1090             \textcolor{comment}{//TODO 2: Maybe Nfailed is not needed because svlog has already static counters to warning, error and critical messages}}
+\DoxyCodeLine{1091             \textcolor{keywordflow}{if} (progress)\{}
+\DoxyCodeLine{1092                 std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)r"{}}<<Ndone<<\textcolor{stringliteral}{"{}/"{}}<<Ntot<<\textcolor{stringliteral}{"{} (Nfailed:"{}}<<Nfailed<<\textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{1093                 std::cout<<std::flush;}
+\DoxyCodeLine{1094             \}}
+\DoxyCodeLine{1095 }
+\DoxyCodeLine{1096 }
+\DoxyCodeLine{1097 }
+\DoxyCodeLine{1098         \}}
+\DoxyCodeLine{1099 }
+\DoxyCodeLine{1100         \textcolor{keywordflow}{if} (progress)}
+\DoxyCodeLine{1101             std::cout<<std::endl;}
+\DoxyCodeLine{1102 }
+\DoxyCodeLine{1103         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{1104     \}}
+\DoxyCodeLine{1105 }
+\DoxyCodeLine{1117     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1118     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}{chunk\_dispatcher}}(\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{EvolveFunctor}}* evolve\_function,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Nchunk, \mbox{\hyperlink{class_i_o}{IO}}\& sevnio, std::vector<T>\& systems, \textcolor{keywordtype}{bool} progress=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{1119 }
+\DoxyCodeLine{1121         \textcolor{comment}{//If systems is not an empty vector clear it}}
+\DoxyCodeLine{1122         \textcolor{keywordflow}{if} (!systems.empty())}
+\DoxyCodeLine{1123             systems.clear();}
+\DoxyCodeLine{1124 }
+\DoxyCodeLine{1125         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} sevnlog;}
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1128         \textcolor{comment}{//Max size}}
+\DoxyCodeLine{1129         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Ntot = sevnio.\mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}}.size();}
+\DoxyCodeLine{1130         \textcolor{comment}{//Reset Nchunk if needed}}
+\DoxyCodeLine{1131         Nchunk = std::min(Nchunk,Ntot);}
+\DoxyCodeLine{1132         \textcolor{comment}{//Reserve space for systems}}
+\DoxyCodeLine{1133         systems.reserve(Nchunk);}
+\DoxyCodeLine{1134 }
+\DoxyCodeLine{1136         \textcolor{keywordflow}{if} (progress)}
+\DoxyCodeLine{1137             std::cout<<\textcolor{stringliteral}{"{}Evolving systems:"{}}<<std::endl;}
+\DoxyCodeLine{1138 }
+\DoxyCodeLine{1139         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Ndone=0;}
+\DoxyCodeLine{1140         \textcolor{keywordtype}{size\_t} current\_idx=0;}
+\DoxyCodeLine{1141         \textcolor{keywordtype}{int} Ntodo=0;}
+\DoxyCodeLine{1142         \textcolor{keywordtype}{int} Nfailed=0;}
+\DoxyCodeLine{1143         \textcolor{keywordflow}{while} (Ndone<Ntot)\{}
+\DoxyCodeLine{1144 }
+\DoxyCodeLine{1145 }
+\DoxyCodeLine{1146             \textcolor{comment}{//Assign Ntodo}}
+\DoxyCodeLine{1147             Ntodo = std::min(Ntot-\/Ndone, Nchunk);}
+\DoxyCodeLine{1148 }
+\DoxyCodeLine{1149             \textcolor{comment}{//Fill vector}}
+\DoxyCodeLine{1150             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < (size\_t)Ntodo; i++)\{}
+\DoxyCodeLine{1151 }
+\DoxyCodeLine{1152                 \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{1153                     systems.emplace\_back(\&sevnio, sevnio.\mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}}[current\_idx], current\_idx);}
+\DoxyCodeLine{1154                 \}}
+\DoxyCodeLine{1155                 \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}\& e)\{ \textcolor{comment}{//sevnio error contains initialisation errors}}
+\DoxyCodeLine{1156                     sevnio.\mbox{\hyperlink{class_i_o_a9810b918c80b14367202e45dca06a8f5}{print\_failed\_initilisation\_summary}}(current\_idx);}
+\DoxyCodeLine{1157                     sevnlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}{error}}(\textcolor{stringliteral}{"{}Failed initilisation for System with ID="{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(current\_idx,\_\_FILE\_\_,\_\_LINE\_\_)+}
+\DoxyCodeLine{1158                     \textcolor{stringliteral}{"{} with message:\(\backslash\)n"{}}+e.\mbox{\hyperlink{classsevnstd_1_1sevnerr_ae4310000ddc373ae32390e0f57b99a63}{what}}(),\_\_FILE\_\_,\_\_LINE\_\_,sevnio.\mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\_bool}}(\textcolor{stringliteral}{"{}initerror\_stop"{}}));}
+\DoxyCodeLine{1159                 \}}
+\DoxyCodeLine{1160                 current\_idx++;}
+\DoxyCodeLine{1161 }
+\DoxyCodeLine{1162 }
+\DoxyCodeLine{1163             \}}
+\DoxyCodeLine{1164 }
+\DoxyCodeLine{1165             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1166             \textcolor{comment}{//utilities::hardwait("{}After filling systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1167             \textcolor{comment}{//Evolve and update Nfailed}}
+\DoxyCodeLine{1168             \textcolor{comment}{//Nfailed+=evolve\_list(evolve\_function,systems,sevnio,Ntodo);}}
+\DoxyCodeLine{1169             \textcolor{comment}{//We use system.size instead of Ntodo because wome of the systema could be not initliased due to initilisation errors}}
+\DoxyCodeLine{1170             Nfailed+=\mbox{\hyperlink{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}{evolve\_list}}(evolve\_function,systems,sevnio,systems.size());}
+\DoxyCodeLine{1171             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1172             \textcolor{comment}{//utilities::hardwait("{}After evolving systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1173             \textcolor{comment}{//Clear}}
+\DoxyCodeLine{1174             systems.clear();}
+\DoxyCodeLine{1175 }
+\DoxyCodeLine{1176             \textcolor{comment}{//MEMORY DEBUG}}
+\DoxyCodeLine{1177             \textcolor{comment}{//utilities::hardwait("{}After clearing systems"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{1178 }
+\DoxyCodeLine{1179             \textcolor{comment}{//Update Ndone}}
+\DoxyCodeLine{1180             Ndone+=Ntodo;}
+\DoxyCodeLine{1181 }
+\DoxyCodeLine{1182             \textcolor{comment}{//TODO 1: Here we can estimate time needed to perform a chunk run and estimate the time to the end}}
+\DoxyCodeLine{1183             \textcolor{comment}{//TODO 2: Maybe Nfailed is not needed because svlog has already static counters to warning, error and critical messages}}
+\DoxyCodeLine{1184             \textcolor{keywordflow}{if} (progress)\{}
+\DoxyCodeLine{1185                 std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)r"{}}<<Ndone<<\textcolor{stringliteral}{"{}/"{}}<<Ntot<<\textcolor{stringliteral}{"{} (Nfailed:"{}}<<Nfailed<<\textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{1186                 std::cout<<std::flush;}
+\DoxyCodeLine{1187             \}}
+\DoxyCodeLine{1188 }
+\DoxyCodeLine{1189 }
+\DoxyCodeLine{1190 }
+\DoxyCodeLine{1191         \}}
+\DoxyCodeLine{1192 }
+\DoxyCodeLine{1193         \textcolor{keywordflow}{if} (progress)}
+\DoxyCodeLine{1194             std::cout<<std::endl;}
+\DoxyCodeLine{1195 }
+\DoxyCodeLine{1196         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{1197     \}}
+\DoxyCodeLine{1198 }
+\DoxyCodeLine{1199 }
+\DoxyCodeLine{1200 }
+\DoxyCodeLine{1201 \}}
+\DoxyCodeLine{1202 }
+\DoxyCodeLine{1203 }
+\DoxyCodeLine{1204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_EVOLVE\_H}}
+
+\end{DoxyCode}

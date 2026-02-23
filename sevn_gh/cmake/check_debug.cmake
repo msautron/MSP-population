@@ -1,0 +1,10 @@
+#Debug
+if (debug)
+    message("-- Debug output enabled")
+    add_definitions(-DDEBUG)
+    SET(CMAKE_DEBUG_CXX_FLAGS "-O0")
+    SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${CMAKE_DEBUG_CXX_FLAGS}" )
+    SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
+else()
+    message("-- DEBUG MODE: Disabled")
+endif(debug)

@@ -1,0 +1,77 @@
+\hypertarget{lambda__klencki21_8h_source}{}\doxysection{lambda\+\_\+klencki21.\+h}
+\label{lambda__klencki21_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/lambdas/lambda\_klencki21.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/lambdas/lambda\_klencki21.h}}
+\mbox{\hyperlink{lambda__klencki21_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 07/12/2021.}}
+\DoxyCodeLine{3 \textcolor{comment}{// This headed contains the class Lambda Klencki and its derived classes.}}
+\DoxyCodeLine{4 \textcolor{comment}{// They are used to use the Lambda fit from the paper Klencki+21 (Appendix A,  https://ui.adsabs.harvard.edu/abs/2021A\%26A...645A..54K/abstract).}}
+\DoxyCodeLine{5 \textcolor{comment}{//}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef SEVN\_LAMBDA\_KLENCKI21\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define SEVN\_LAMBDA\_KLENCKI21\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lambda__base_8h}{lambda\_base.h}}>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_o}{IO}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{class_lambda___klencki}{Lambda\_Klencki}}  : \textcolor{keyword}{public} \mbox{\hyperlink{class_lambda___base}{Lambda\_Base}} \{}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_lambda___klencki}{Lambda\_Klencki}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{44     \mbox{\hyperlink{class_lambda___klencki}{Lambda\_Klencki}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_i_o}{IO}} *io);}
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lambda___klencki_ad58ec89f0b1b04e85cc21f68d11d6d93}{\string~Lambda\_Klencki}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{55     std::vector<double> \mbox{\hyperlink{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}{find\_row}}(\textcolor{keywordtype}{double} Mzams,\textcolor{keywordtype}{double} Z);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}{operator() }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{override};}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}{operator() }}(\textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83      \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}} \mbox{\hyperlink{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}{svlog}};}
+\DoxyCodeLine{84      \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}{Mzams\_cache}}\{0\}, \mbox{\hyperlink{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}{Z\_cache}}\{0\}; }
+\DoxyCodeLine{85      std::vector<double> \mbox{\hyperlink{class_lambda___klencki_aa200896a0bb14dbee6e1a1f5cb1c660b}{vector\_cache}}; }
+\DoxyCodeLine{86      \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}{Zsun}}=0.017; }
+\DoxyCodeLine{102      \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}{estimate\_lambda}}(\textcolor{keywordtype}{double} R, \textcolor{keyword}{const} std::vector<double>\& coefficients);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{116      \textcolor{keyword}{static} \textcolor{keyword}{thread\_local} std::vector<std::vector<double>> \mbox{\hyperlink{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}{table}}; }
+\DoxyCodeLine{117      \textcolor{keyword}{static} \textcolor{keyword}{thread\_local} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}{already\_loaded}}; }
+\DoxyCodeLine{118 \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+\DoxyCodeLine{126 \textcolor{keyword}{class }\mbox{\hyperlink{class_lambda___klencki__interpolator}{Lambda\_Klencki\_interpolator}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_lambda___klencki}{Lambda\_Klencki}}\{}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{keyword}{public}:}
+\DoxyCodeLine{129     \mbox{\hyperlink{class_lambda___klencki__interpolator}{Lambda\_Klencki\_interpolator}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{130     \mbox{\hyperlink{class_lambda___klencki__interpolator}{Lambda\_Klencki\_interpolator}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_i_o}{IO}} *io);}
+\DoxyCodeLine{161     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki__interpolator_a3ae0d2b09f6d62a5aaf55fea2491b916}{operator() }}(\textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} R) \textcolor{keyword}{override};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{168     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lambda___klencki__interpolator_ae56d4aad8c1d7ecf19921b1a16bfa067}{fill\_interpolators\_lists}}();}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lambda___klencki__interpolator_a3c92ece003102ea6e3645757a79f5e16}{find\_interpolators}}(\textcolor{keywordtype}{double} Mzams,  \textcolor{keywordtype}{double} Z);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keyword}{static} \textcolor{keyword}{thread\_local} std::vector<double> \mbox{\hyperlink{class_lambda___klencki__interpolator_a42fe871c0208f9a4c4effb3e71382ec0}{Mzams\_list}};  }
+\DoxyCodeLine{181     \textcolor{keyword}{static} \textcolor{keyword}{thread\_local} std::vector<std::vector<double>> \mbox{\hyperlink{class_lambda___klencki__interpolator_a366baf4d4c8373e78415160b81ec3f69}{Z\_list}};  }
+\DoxyCodeLine{182     \textcolor{keyword}{static} \textcolor{keyword}{thread\_local} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_lambda___klencki__interpolator_ae2c5f0132d515c0690247c27870b1738}{already\_loaded\_lists}};  }
+\DoxyCodeLine{184     std::vector<std::vector<double>> \mbox{\hyperlink{class_lambda___klencki__interpolator_ab1c9ed047b1ffd4d44ecc8cfe9a6ede5}{vector\_cache}}; }
+\DoxyCodeLine{186 \textcolor{keyword}{private}:}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki__interpolator_abda38aa10f94cd4c74d9dd77f0fff295}{Mzams\_interpolators}} [2] = \{0.,0.\}; }
+\DoxyCodeLine{189     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki__interpolator_a1f25c9c5b24e96033416015c259a9566}{Z\_interpolators}} [4] = \{0.,0.,0.,0.\}; }
+\DoxyCodeLine{190     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki__interpolator_a782f625e611a059499df6275e0bdf271}{wM}} [2] = \{0., 0.\}; }
+\DoxyCodeLine{191     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___klencki__interpolator_a40c2405fad6559f3e72af104c4bd9aa7}{wZ}} [4] = \{0., 0., 0., 0.\}; }
+\DoxyCodeLine{193 \};}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_LAMBDA\_KLENCKI21\_H}}
+
+\end{DoxyCode}

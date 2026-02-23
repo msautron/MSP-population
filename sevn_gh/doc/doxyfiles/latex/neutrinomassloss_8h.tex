@@ -1,0 +1,46 @@
+\hypertarget{neutrinomassloss_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/neutrinomassloss/neutrinomassloss.h File Reference}
+\label{neutrinomassloss_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/neutrinomassloss/neutrinomassloss.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/neutrinomassloss/neutrinomassloss.h}}
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}}
+\item 
+class \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}}~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((unused))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}\label{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}} 
+\index{neutrinomassloss.h@{neutrinomassloss.h}!\_UNUSED@{\_UNUSED}}
+\index{\_UNUSED@{\_UNUSED}!neutrinomassloss.h@{neutrinomassloss.h}}
+\doxysubsubsection{\texorpdfstring{\_UNUSED}{\_UNUSED}}
+{\footnotesize\ttfamily \#define \+\_\+\+UNUSED~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((unused))}
+
+This header contains the class \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}}. They are used to handle the neutrino mass loss during a SN explosion This class is auxiliary to the Supernova class, each supernova instance has a \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} instance The class has only one method that is called in the Supernova class \+:
+\begin{DoxyItemize}
+\item double apply(const double mremnant, Star $\ast$s)\+: it get the (pre-\/correction) remnant mass mremnant and the pointer to the exploding star as input and return the mass of the remnant after the neutrino mass loss $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ADD A NEW \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} MODEL $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ Assume we are implementing a new \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} class \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}}, we suggest to create a new header file called \mbox{\hyperlink{nmllattimer89_8h}{nmllattimer89.\+h}} in include/star/procs/neutrinomassloss/ and the related source file \mbox{\hyperlink{nmllattimer89_8cpp}{nmllattimer89.\+cpp}} in src/star/procs/neutrinomassloss/ Remember to add \#include \texorpdfstring{$<$}{<}\mbox{\hyperlink{nmllattimer89_8h}{nmllattimer89.\+h}}\texorpdfstring{$>$}{>} in the \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} and in \mbox{\hyperlink{nmllattimer89_8cpp}{nmllattimer89.\+cpp}} Since it is possible that you will use the class star, we suggest to forward declare it in \mbox{\hyperlink{nmllattimer89_8h}{nmllattimer89.\+h}} class \mbox{\hyperlink{class_star}{Star}}; and then \#include \texorpdfstring{$<$}{<}\mbox{\hyperlink{star_8h}{star.\+h}}\texorpdfstring{$>$}{>} in \mbox{\hyperlink{nmllattimer89_8cpp}{nmllattimer89.\+cpp}}, remember also to add \#include \texorpdfstring{$<$}{<}\mbox{\hyperlink{neutrinomassloss_8h}{neutrinomassloss.\+h}}\texorpdfstring{$>$}{>} in \mbox{\hyperlink{nmllattimer89_8h}{nmllattimer89.\+h}}
+\end{DoxyItemize}
+
+1-\/ Define the new class, public inherited from \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} e.\+g. class \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}} \+: public \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}}
+
+2-\/ Build the specific constructor \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}}(bool reg = true) \+: \mbox{\hyperlink{class_pair_instability}{Pair\+Instability(false)}}\{ if (reg) Register(true); \} IMPORTANT\+: the Base constructor has to be called with reg=false
+
+3-\/ Override the name method inline std\+::string name() override \{ return \char`\"{}lattimer89\char`\"{}; \} NOTICE\+: the returned name will be the one used to register the option and the one that will be used to select the given option at runtime, e.\+g. -\/sn\+\_\+neutrinomloss lattimer89
+
+4-\/ Define the static instance static \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}} \+\_\+nmllattimer89;
+
+4b-\/ Add the static instance in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}} \mbox{\hyperlink{class_n_m_l_lattimer89_aada6986f22a96a668208910af7aa0da9}{NMLLattimer89\+::\+\_\+nmllattimer89}}; Notice\+: In this way as soon the \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} is loaded the class is added to the available pair instability models
+
+5-\/ Override the method instance NMLLattimer89$\ast$ instance() override \{ return (new \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89(false)}}); \} Notice if very important to use reg=false when calling the constructor
+
+6-\/ Override the method apply double apply(\+\_\+\+UNUSED const double mremnant, \+\_\+\+UNUSED Star $\ast$s) const; it get the (pre-\/correction) remnant mass mremnant and the pointer to the exploding star as input and return the mass of the remnant after the neutrino mass loss
+
+8\+: Add documentation Try to document as much as possible. 

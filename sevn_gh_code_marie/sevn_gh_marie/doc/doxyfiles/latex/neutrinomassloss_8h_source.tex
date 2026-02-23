@@ -1,0 +1,94 @@
+\hypertarget{neutrinomassloss_8h_source}{}\doxysection{neutrinomassloss.\+h}
+\label{neutrinomassloss_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/neutrinomassloss/neutrinomassloss.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/neutrinomassloss/neutrinomassloss.h}}
+\mbox{\hyperlink{neutrinomassloss_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/25/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{Module for Neutrino mass loss models, it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class NeutrinoMassLoss:  Base class for NeutrinoMassLoss models}}
+\DoxyCodeLine{5 \textcolor{comment}{-\/ Class NMLDisabled: Simple NeutrinoMassLoss model, just disable the neutrino mass loss correction}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SEVN\_NEUTRINOMASSLOSS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SEVN\_NEUTRINOMASSLOSS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define \_UNUSED \_\_attribute\_\_ ((unused))}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80 \textcolor{keyword}{class }\mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\{}
+\DoxyCodeLine{81 \textcolor{comment}{/***** For Developers that want to add new NeutrinoMassLoss models: ******/}}
+\DoxyCodeLine{85 \textcolor{keyword}{public}:}
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_neutrino_mass_loss_a15bc827a8625d4c66630855dbef5fbaa}{name}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NeutrinoMassLoss"{}};\}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}} *\mbox{\hyperlink{class_neutrino_mass_loss_a9fd730f4b5fb8930003a7a219a51023a}{instance}}() = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{101     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_neutrino_mass_loss_af7da1dffb3354819b56961149324a147}{apply}}(\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} mremnant, \mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{105 \textcolor{comment}{    /***** STOP: DO NOT CHANGE THE REST OF THE CODE IF YOU ARE NOT FULLY AWARE OF WHAT  YOU ARE DOING ******/}}
+\DoxyCodeLine{106 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keyword}{public}:}
+\DoxyCodeLine{109     \textcolor{comment}{//Constructor -\/ Destructor}}
+\DoxyCodeLine{110     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_neutrino_mass_loss_aab4ab2afc3640b391b01916b7c2fab9d}{NeutrinoMassLoss}}(\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{\};}
+\DoxyCodeLine{111     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_neutrino_mass_loss_a388a5aefd74b54f671dadc35ef96d2b9}{\string~NeutrinoMassLoss}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{comment}{//Create instance}}
+\DoxyCodeLine{119 \textcolor{comment}{}    \textcolor{keyword}{static} \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}} *\mbox{\hyperlink{class_neutrino_mass_loss_a98f206d00c8b76e31844ebb284ebe4fb}{Instance}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{class_neutrino_mass_loss_a15bc827a8625d4c66630855dbef5fbaa}{name}});}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{comment}{//Remove cp and mv, we don't need to copy or mv, therefore to avoid unexpected behaviour we just delete them}}
+\DoxyCodeLine{122     \mbox{\hyperlink{class_neutrino_mass_loss_ab92ba57f359a65aa5b2cfbb6cc7e6a65}{NeutrinoMassLoss}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\&) = \textcolor{keyword}{delete}; \textcolor{comment}{//copy constructor}}
+\DoxyCodeLine{123     \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\& \mbox{\hyperlink{class_neutrino_mass_loss_aaca1319b879cd9dbf48a84ec9075b94c}{operator= }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\&) = \textcolor{keyword}{delete}; \textcolor{comment}{//copy assignment}}
+\DoxyCodeLine{124     \mbox{\hyperlink{class_neutrino_mass_loss_a79188b4e745747911c685bff6d72969a}{NeutrinoMassLoss}} (\mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\&\& other) = \textcolor{keyword}{delete}; \textcolor{comment}{//mv constructor}}
+\DoxyCodeLine{125     \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\& \mbox{\hyperlink{class_neutrino_mass_loss_aaca1319b879cd9dbf48a84ec9075b94c}{operator= }}(\mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\&\& other) = \textcolor{keyword}{delete}; \textcolor{comment}{//mv assignement}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{131     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_neutrino_mass_loss_a4b29264b9855051a83033f772b457dbd}{Register}}(\mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}} *ptr);}
+\DoxyCodeLine{132     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_neutrino_mass_loss_a41dc7be56c8f44135200e47279ab6e4a}{svlog}};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{private}:}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{137     \textcolor{comment}{//TODO We are using this Register-\/StaticMap formalism a lot, maybe we have to create a base template class containing}}
+\DoxyCodeLine{138     \textcolor{comment}{//all these methods (GetStaticMap,Register,GetUsed) to have only one definition of these functions}}
+\DoxyCodeLine{139     \textcolor{keyword}{static} std::map<std::string, NeutrinoMassLoss *> \&\mbox{\hyperlink{class_neutrino_mass_loss_ac61852e271770ff671b5757a772f2de8}{GetStaticMap}}() \{}
+\DoxyCodeLine{140         \textcolor{comment}{//First time call the function create the map, since c++11 this is thread safe}}
+\DoxyCodeLine{141         \textcolor{keyword}{static} std::map<std::string, NeutrinoMassLoss *> \_locmap;}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{145     \textcolor{keyword}{static} std::vector<int> \&\mbox{\hyperlink{class_neutrino_mass_loss_a45da0575d5891a34024879502ed056b1}{GetUsed}}() \{}
+\DoxyCodeLine{146         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{148     \}}
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{156 \textcolor{keyword}{class }\mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}}\{}
+\DoxyCodeLine{157 \textcolor{keyword}{public}:}
+\DoxyCodeLine{158     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{159     \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{comment}{//name}}
+\DoxyCodeLine{162     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_n_m_l_disabled_abb50716c308cdc4f62af0ec1533a0acf}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}disabled"{}};\}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{165     \textcolor{keyword}{static} \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} \mbox{\hyperlink{class_n_m_l_disabled_af3eadbfbf97fd824f1dac047447844e4}{\_nmldisabled}};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{168     \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}}* \mbox{\hyperlink{class_n_m_l_disabled_a638938eb3e0b2b84c09ecf224dac006f}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{178      \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_m_l_disabled_aa0f768c56e091b8a915faf0db3121d4c}{apply}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mremnant, \mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} mremnant;\}}
+\DoxyCodeLine{179 \};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_NEUTRINOMASSLOSS\_H}}
+
+\end{DoxyCode}

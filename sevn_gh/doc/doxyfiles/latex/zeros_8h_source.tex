@@ -1,0 +1,39 @@
+\hypertarget{zeros_8h_source}{}\doxysection{zeros.\+h}
+\label{zeros_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/zeros.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/zeros.h}}
+\mbox{\hyperlink{zeros_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class Zeros: Kicks velocity always=0}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef SEVN\_ZEROS\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define SEVN\_ZEROS\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_zeros}{Zeros}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kicks}{Kicks}}\{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_zeros_af4e89912c1b9772f2299fa3180e1e3e5}{Zeros}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{20             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_zeros_aac72e52325bf204f03d6117a272359fe}{name}}());}
+\DoxyCodeLine{21         \}}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{static} \mbox{\hyperlink{class_zeros}{Zeros}} \mbox{\hyperlink{class_zeros_a9e96776e9221c093c3b8b6ff85513a97}{\_zeros}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_zeros_a439f406fdd9ab0eed214accb0c558d96}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_zeros}{Zeros}}* \mbox{\hyperlink{class_zeros_a0f035653ebe78e085593b16daa3966ca}{instance}}() \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_zeros}{Zeros}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_zeros_aac72e52325bf204f03d6117a272359fe}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}zeros"{}}; \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_ZEROS\_H}}
+
+\end{DoxyCode}

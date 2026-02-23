@@ -1,0 +1,67 @@
+\hypertarget{_h5out_8h_source}{}\doxysection{H5out.\+h}
+\label{_h5out_8h_source}\index{/Users/giulianoiorio/Documents/SEVNDEVEL/include/h5out/H5out.h@{/Users/giulianoiorio/Documents/SEVNDEVEL/include/h5out/H5out.h}}
+\mbox{\hyperlink{_h5out_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 30/01/19.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_H5OUT\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_H5OUT\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <H5Cpp.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <H5File.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{errhand_8h}{errhand.h}}>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <zconf.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacesevnstd}{sevnstd}} \{}
+\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1_h5out}{H5out}} \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{public}:}
+\DoxyCodeLine{23         \mbox{\hyperlink{classsevnstd_1_1_h5out_adc512abdf423c7f81e4ebaa033a93a33}{H5out}}(\textcolor{keyword}{const} std::string \&output\_folder=\textcolor{stringliteral}{"{}output"{}}, \textcolor{keyword}{const} std::string \&fname=\textcolor{stringliteral}{"{}stars.h5"{}})\{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25             \mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\_h5}} = \mbox{\hyperlink{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}{utilities::gen\_filename}}(output\_folder,fname); \textcolor{comment}{//this should be OpenMP-\/safe}}
+\DoxyCodeLine{26             \mbox{\hyperlink{sevnlog_8h_a4e00e382d7268ade5fc6f59e8e738e1e}{DEBUG\_LOG}}(\textcolor{stringliteral}{"{}f5name = "{}}<<\mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\_h5}});}
+\DoxyCodeLine{27             \textcolor{comment}{//utilities::wait();}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29             \mbox{\hyperlink{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}{groupname\_h5}} = \textcolor{stringliteral}{"{}/stars"{}};}
+\DoxyCodeLine{30             \mbox{\hyperlink{classsevnstd_1_1_h5out_ac593d8ae5863c7bc9868bda1ced51806}{header\_name\_h5}} = \mbox{\hyperlink{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}{groupname\_h5}} + \textcolor{stringliteral}{"{}/header"{}};}
+\DoxyCodeLine{31             \mbox{\hyperlink{classsevnstd_1_1_h5out_a25853d5f525dd841a7c874a429b00f15}{header\_printed}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_h5out_a6ad57d1f9325f64a6e0357c66fe5c4bf}{print}}(std::vector<std::string> \&columns, std::vector<std::vector<double>> \&printmatrix, \textcolor{keyword}{const} std::string \&\_name);}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_h5out_adc382c32eaebd9080eb8ae25e7cbdfec}{print\_header}}(std::vector<std::string> \&columns);}
+\DoxyCodeLine{36         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_h5out_a4978d348e117e6172a4bfc1f2fe82cfa}{set\_filename}}(std::string a) \{\mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\_h5}}=a;\};}
+\DoxyCodeLine{37         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsevnstd_1_1_h5out_abc46cd810c37cc18d4b9f656735d18ca}{get\_filename}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\_h5}};\};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{private}:}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         std::string \mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\_h5}}, \mbox{\hyperlink{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}{groupname\_h5}}, \mbox{\hyperlink{classsevnstd_1_1_h5out_ac593d8ae5863c7bc9868bda1ced51806}{header\_name\_h5}};}
+\DoxyCodeLine{42         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{classsevnstd_1_1_h5out_a05d96b4ed6295b39105ef22f0c7fe19a}{svlog}};}
+\DoxyCodeLine{43         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classsevnstd_1_1_h5out_a25853d5f525dd841a7c874a429b00f15}{header\_printed}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         H5::H5File \mbox{\hyperlink{classsevnstd_1_1_h5out_aa4cf31f15d9dcd316773db6884417850}{file}};}
+\DoxyCodeLine{46         H5::DataSpace \mbox{\hyperlink{classsevnstd_1_1_h5out_ae6f8e4290a91cb180afd611c5ee3eb17}{dataspace}};}
+\DoxyCodeLine{47         H5::DSetCreatPropList \mbox{\hyperlink{classsevnstd_1_1_h5out_a013b534a455132ff7ec6548bf8d00eaa}{plist}};}
+\DoxyCodeLine{48         H5::DataSet \mbox{\hyperlink{classsevnstd_1_1_h5out_ac313a31ba86d8a4f4ed6ae3814f112bd}{dataset}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         hsize\_t \mbox{\hyperlink{classsevnstd_1_1_h5out_a0dfcd867c4365926323c98fe2a2223fa}{dim}}[2];}
+\DoxyCodeLine{52         hsize\_t \mbox{\hyperlink{classsevnstd_1_1_h5out_a434f2b520c3cd5212fc5a5abedce0a98}{chunk\_dim}}[2];}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classsevnstd_1_1_h5out_a7a9ecdeb4c98fb6a62daf1577ae8f52d}{col\_size}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \};}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_H5OUT\_H}}
+
+\end{DoxyCode}

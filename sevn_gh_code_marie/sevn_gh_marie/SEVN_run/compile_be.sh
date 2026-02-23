@@ -1,0 +1,1 @@
+gcc -g -W /home/matteo.sautron/sevn_gh_code_marie/sevn_gh_marie/SEVN_run/birth_pulsars.c /home/matteo.sautron/sevn_gh_code_marie/sevn_gh_marie/SEVN_run/birth_evolution_pop.c -o /home/matteo.sautron/sevn_gh_code_marie/sevn_gh_marie/SEVN_run/birth_and_evol -lm -lgsl -lgslcblas

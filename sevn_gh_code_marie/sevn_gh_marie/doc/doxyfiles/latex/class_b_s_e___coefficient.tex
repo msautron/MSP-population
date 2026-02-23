@@ -1,0 +1,145 @@
+\hypertarget{class_b_s_e___coefficient}{}\doxysection{BSE\+\_\+\+Coefficient Class Reference}
+\label{class_b_s_e___coefficient}\index{BSE\_Coefficient@{BSE\_Coefficient}}
+
+
+{\ttfamily \#include $<$BSEintegrator.\+h$>$}
+
+Inheritance diagram for BSE\+\_\+\+Coefficient\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=11.000000cm]{class_b_s_e___coefficient}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_s_e___coefficient_a557dae1a8c510e7f4902d8e2060614ae}{BSE\+\_\+\+Coefficient}} (double \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}, double \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}}, double \mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}}=0, double \mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}}=0, double \mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}}=0, double \mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}=0)
+\item 
+double \mbox{\hyperlink{class_b_s_e___coefficient_a493a5bc1bbb9d1cecccf48f8bf170a5d}{operator()}} () const
+\item 
+double \mbox{\hyperlink{class_b_s_e___coefficient_a5f4ac10cab275f31a1c4dd44c006bb46}{getZ}} ()
+\item 
+void \mbox{\hyperlink{class_b_s_e___coefficient_ace7b3ba60913b3c79a35922c0befcf9d}{change\+\_\+Z}} (double newZ)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}{set\+\_\+coeff}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_b_s_e___coefficient_a9fcf51b5e8ddd376cf4b6cf5498681d4}{Zsun}} =\mbox{\hyperlink{_b_s_eintegrator_8h_aff3b1518aa32927f40d293144943e69e}{c\+Zsun}}
+\item 
+double \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}
+\item 
+double \mbox{\hyperlink{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}{coeff}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parent class to store the coefficients from Appendix A in Hurley+00 it receives as input the metallicity and the alpha,beta,gamma,eta parameters and it returns overloading the () operator the value of the corresponde coefficient 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_s_e___coefficient_a557dae1a8c510e7f4902d8e2060614ae}\label{class_b_s_e___coefficient_a557dae1a8c510e7f4902d8e2060614ae}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!BSE\_Coefficient@{BSE\_Coefficient}}
+\index{BSE\_Coefficient@{BSE\_Coefficient}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{BSE\_Coefficient()}{BSE\_Coefficient()}}
+{\footnotesize\ttfamily BSE\+\_\+\+Coefficient\+::\+BSE\+\_\+\+Coefficient (\begin{DoxyParamCaption}\item[{double}]{Z,  }\item[{double}]{alpha,  }\item[{double}]{beta = {\ttfamily 0},  }\item[{double}]{gamma = {\ttfamily 0},  }\item[{double}]{eta = {\ttfamily 0},  }\item[{double}]{mu = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_e___coefficient_ace7b3ba60913b3c79a35922c0befcf9d}\label{class_b_s_e___coefficient_ace7b3ba60913b3c79a35922c0befcf9d}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!change\_Z@{change\_Z}}
+\index{change\_Z@{change\_Z}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{change\_Z()}{change\_Z()}}
+{\footnotesize\ttfamily void BSE\+\_\+\+Coefficient\+::change\+\_\+Z (\begin{DoxyParamCaption}\item[{double}]{newZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a5f4ac10cab275f31a1c4dd44c006bb46}\label{class_b_s_e___coefficient_a5f4ac10cab275f31a1c4dd44c006bb46}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!getZ@{getZ}}
+\index{getZ@{getZ}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{getZ()}{getZ()}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Coefficient\+::getZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a493a5bc1bbb9d1cecccf48f8bf170a5d}\label{class_b_s_e___coefficient_a493a5bc1bbb9d1cecccf48f8bf170a5d}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!operator()@{operator()}}
+\index{operator()@{operator()}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Coefficient\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}\label{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!set\_coeff@{set\_coeff}}
+\index{set\_coeff@{set\_coeff}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{set\_coeff()}{set\_coeff()}}
+{\footnotesize\ttfamily void BSE\+\_\+\+Coefficient\+::set\+\_\+coeff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}\label{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!alpha@{alpha}}
+\index{alpha@{alpha}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::alpha}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}\label{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!beta@{beta}}
+\index{beta@{beta}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::beta}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}\label{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!coeff@{coeff}}
+\index{coeff@{coeff}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{coeff}{coeff}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Coefficient\+::coeff\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}\label{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!eta@{eta}}
+\index{eta@{eta}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::eta}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}\label{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!gamma@{gamma}}
+\index{gamma@{gamma}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{gamma}{gamma}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::gamma}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}\label{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!mu@{mu}}
+\index{mu@{mu}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::mu}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}\label{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!Z@{Z}}
+\index{Z@{Z}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Coefficient\+::Z\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_b_s_e___coefficient_a9fcf51b5e8ddd376cf4b6cf5498681d4}\label{class_b_s_e___coefficient_a9fcf51b5e8ddd376cf4b6cf5498681d4}} 
+\index{BSE\_Coefficient@{BSE\_Coefficient}!Zsun@{Zsun}}
+\index{Zsun@{Zsun}!BSE\_Coefficient@{BSE\_Coefficient}}
+\doxysubsubsection{\texorpdfstring{Zsun}{Zsun}}
+{\footnotesize\ttfamily const double BSE\+\_\+\+Coefficient\+::\+Zsun =\mbox{\hyperlink{_b_s_eintegrator_8h_aff3b1518aa32927f40d293144943e69e}{c\+Zsun}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/\mbox{\hyperlink{_b_s_eintegrator_8h}{BSEintegrator.\+h}}\end{DoxyCompactItemize}

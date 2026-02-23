@@ -1,0 +1,233 @@
+\hypertarget{class_unified}{}\doxysection{Unified Class Reference}
+\label{class_unified}\index{Unified@{Unified}}
+
+
+{\ttfamily \#include $<$unified.\+h$>$}
+
+Inheritance diagram for Unified\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_unified}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_kicks_a24df9d565af3b8a2c37575cfd152e561}{apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual void \mbox{\hyperlink{class_kicks_a5574ee61f5450621cbbf4b851aadc319}{\+\_\+apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)=0
+\item 
+double \mbox{\hyperlink{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}{get\+\_\+random\+\_\+kick}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ \mbox{\hyperlink{class_kicks_a0bcf9d165b436dceef7b3636600f9750}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}} (\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ptr, const std\+::string \&\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_kicks_a29029dc8666af30104c1483c60c1ac7e}{set\+\_\+random\+\_\+kick}} (const double \&a)
+\item 
+void \mbox{\hyperlink{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}{kick\+\_\+initializer}} ()
+\item 
+virtual void \mbox{\hyperlink{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}{check\+\_\+and\+\_\+correct\+\_\+vkick}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}{draw\+\_\+from\+\_\+gaussian}} (double std, double mean=0.)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\+\_\+gaussian}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}{uniform\+Real\+Distribution}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}}
+\item 
+double \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\+\_\+velocity\+\_\+kick}} =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unified_a3e481869b0eee53a7f5024788a0105ee}{Unified}} (bool reg=true)
+\item 
+void \mbox{\hyperlink{class_unified_a7cfe0e6e8cc51ea1160ef4914539e356}{\+\_\+apply}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s) override
+\item 
+\mbox{\hyperlink{class_unified}{Unified}} $\ast$ \mbox{\hyperlink{class_unified_a3541bdc65b6c7d53986c3251f8cbb123}{instance}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}{name}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& \mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{Get\+Static\+Map}} ()
+\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{Get\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_unified}{Unified}} \mbox{\hyperlink{class_unified_a5c22201ed462d2e916c42f2f15d61bc7}{\+\_\+unified}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_kicks}{Kicks}} from Giacobbo \& Mapelli 2020, \href{https://ui.adsabs.harvard.edu/abs/2020ApJ...891..141G/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2020\+Ap\+J...\+891..\+141\+G/abstract}} Natal kicks are drawn from a Maxwellina, but then they are rescaled by a factor proportional to Mejecta/\+Mremnant. Vkick propto Mejecta takes into accoun the SN asymmetries, while Vkick propto 1/\+MBH takes into account the conservation of linear momentum 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_unified_a3e481869b0eee53a7f5024788a0105ee}\label{class_unified_a3e481869b0eee53a7f5024788a0105ee}} 
+\index{Unified@{Unified}!Unified@{Unified}}
+\index{Unified@{Unified}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{Unified()}{Unified()}}
+{\footnotesize\ttfamily Unified\+::\+Unified (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kicks_a5574ee61f5450621cbbf4b851aadc319}\label{class_kicks_a5574ee61f5450621cbbf4b851aadc319}} 
+\index{Unified@{Unified}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Kicks\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_unified_a7cfe0e6e8cc51ea1160ef4914539e356}\label{class_unified_a7cfe0e6e8cc51ea1160ef4914539e356}} 
+\index{Unified@{Unified}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Unified\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}}
+
+Initial check\mbox{\Hypertarget{class_kicks_a24df9d565af3b8a2c37575cfd152e561}\label{class_kicks_a24df9d565af3b8a2c37575cfd152e561}} 
+\index{Unified@{Unified}!apply@{apply}}
+\index{apply@{apply}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily void Kicks\+::apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+Wrapper for specified \+\_\+apply functions 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}\label{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}} 
+\index{Unified@{Unified}!check\_and\_correct\_vkick@{check\_and\_correct\_vkick}}
+\index{check\_and\_correct\_vkick@{check\_and\_correct\_vkick}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{check\_and\_correct\_vkick()}{check\_and\_correct\_vkick()}}
+{\footnotesize\ttfamily void Kicks\+::check\+\_\+and\+\_\+correct\+\_\+vkick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Check if we have to make correction to the final Vkick (after all the fallback and similar correction) It checks\+:
+\begin{DoxyItemize}
+\item If Mremant=0 (e.\+g. after a PPISN) So far it just check that the final Vkick is not lower than the parameter sn\+\_\+min\+\_\+vkick. If this is the case it just sets the final velocity to the minimum value and rescale all the components by the factor min\+\_\+vkick/old\+\_\+vkick if old\+\_\+vkick is 0, new isotropic velocity components are randomly drawn 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}\label{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}} 
+\index{Unified@{Unified}!draw\_from\_gaussian@{draw\_from\_gaussian}}
+\index{draw\_from\_gaussian@{draw\_from\_gaussian}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{draw\_from\_gaussian()}{draw\_from\_gaussian()}}
+{\footnotesize\ttfamily double Kicks\+::draw\+\_\+from\+\_\+gaussian (\begin{DoxyParamCaption}\item[{double}]{std,  }\item[{double}]{mean = {\ttfamily 0.} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}\label{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}} 
+\index{Unified@{Unified}!get\_random\_kick@{get\_random\_kick}}
+\index{get\_random\_kick@{get\_random\_kick}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{get\_random\_kick()}{get\_random\_kick()}}
+{\footnotesize\ttfamily double Kicks\+::get\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}\label{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}} 
+\index{Unified@{Unified}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& Kicks\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}\label{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}} 
+\index{Unified@{Unified}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Kicks\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_unified_a3541bdc65b6c7d53986c3251f8cbb123}\label{class_unified_a3541bdc65b6c7d53986c3251f8cbb123}} 
+\index{Unified@{Unified}!instance@{instance}}
+\index{instance@{instance}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_unified}{Unified}} $\ast$ Unified\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_kicks_ad55608716d3198c9d3c24f55e8b9b552}{Kicks}}.
+
+\mbox{\Hypertarget{class_kicks_a0bcf9d165b436dceef7b3636600f9750}\label{class_kicks_a0bcf9d165b436dceef7b3636600f9750}} 
+\index{Unified@{Unified}!Instance@{Instance}}
+\index{Instance@{Instance}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ Kicks\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}\label{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}} 
+\index{Unified@{Unified}!kick\_initializer@{kick\_initializer}}
+\index{kick\_initializer@{kick\_initializer}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{kick\_initializer()}{kick\_initializer()}}
+{\footnotesize\ttfamily void Kicks\+::kick\+\_\+initializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}\label{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}} 
+\index{Unified@{Unified}!name@{name}}
+\index{name@{name}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Unified\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}{Kicks}}.
+
+\mbox{\Hypertarget{class_kicks_a86dff21954db932117e2b4ff1146a192}\label{class_kicks_a86dff21954db932117e2b4ff1146a192}} 
+\index{Unified@{Unified}!Register@{Register}}
+\index{Register@{Register}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Kicks\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$}]{ptr,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a29029dc8666af30104c1483c60c1ac7e}\label{class_kicks_a29029dc8666af30104c1483c60c1ac7e}} 
+\index{Unified@{Unified}!set\_random\_kick@{set\_random\_kick}}
+\index{set\_random\_kick@{set\_random\_kick}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{set\_random\_kick()}{set\_random\_kick()}}
+{\footnotesize\ttfamily void Kicks\+::set\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}\item[{const double \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_unified_a5c22201ed462d2e916c42f2f15d61bc7}\label{class_unified_a5c22201ed462d2e916c42f2f15d61bc7}} 
+\index{Unified@{Unified}!\_unified@{\_unified}}
+\index{\_unified@{\_unified}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{\_unified}{\_unified}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_unified}{Unified}} Unified\+::\+\_\+unified\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_kicks_aa489fda64b125b3465f9f6249de25b83}\label{class_kicks_aa489fda64b125b3465f9f6249de25b83}} 
+\index{Unified@{Unified}!random\_velocity\_kick@{random\_velocity\_kick}}
+\index{random\_velocity\_kick@{random\_velocity\_kick}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{random\_velocity\_kick}{random\_velocity\_kick}}
+{\footnotesize\ttfamily double Kicks\+::random\+\_\+velocity\+\_\+kick =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}\label{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}} 
+\index{Unified@{Unified}!standard\_gaussian@{standard\_gaussian}}
+\index{standard\_gaussian@{standard\_gaussian}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{standard\_gaussian}{standard\_gaussian}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution$<$double$>$ Kicks\+::standard\+\_\+gaussian\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}\label{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}} 
+\index{Unified@{Unified}!svlog@{svlog}}
+\index{svlog@{svlog}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Kicks\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}\label{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}} 
+\index{Unified@{Unified}!uniformRealDistribution@{uniformRealDistribution}}
+\index{uniformRealDistribution@{uniformRealDistribution}!Unified@{Unified}}
+\doxysubsubsection{\texorpdfstring{uniformRealDistribution}{uniformRealDistribution}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Kicks\+::uniform\+Real\+Distribution\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{unified_8h}{unified.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{unified_8cpp}{unified.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

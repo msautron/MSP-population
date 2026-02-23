@@ -1,0 +1,1180 @@
+\hypertarget{class_s_e_v_npar}{}\doxysection{SEVNpar Class Reference}
+\label{class_s_e_v_npar}\index{SEVNpar@{SEVNpar}}
+
+
+{\ttfamily \#include $<$params.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_e_v_npar_a8db4b9caca8f24bb9f80e9e8ecb59c57}{SEVNpar}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_s_e_v_npar_a8a0337290f1115ef710bccf275f514e6}{SEVNpar}} (int argc, char $\ast$$\ast$argv)
+\item 
+\mbox{\hyperlink{class_s_e_v_npar_a6ab20078787075549602e31415495598}{$\sim$\+SEVNpar}} ()
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a5e5a4155f090718bfabd650454a9ea50}{load}} (int n, char $\ast$$\ast$val, bool initialise=false)
+\begin{DoxyCompactList}\small\item\em load \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}} \& \mbox{\hyperlink{class_s_e_v_npar_a2772deb1fe7410826b4ebe96a59ee057}{get\+\_\+num\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em GET and GET like stuff. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}} \& \mbox{\hyperlink{class_s_e_v_npar_ab7f2356aa64df57f79bf9dbc1f6bc484}{get\+\_\+str\+\_\+map}} ()
+\item 
+const \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}} \& \mbox{\hyperlink{class_s_e_v_npar_a5cd2d2574d9a4dc8954fcd8735b96ae2}{get\+\_\+bool\+\_\+map}} ()
+\item 
+double \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\+\_\+num}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\+\_\+str}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\+\_\+bool}} (std\+::string name)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a64a987aa2d321c57608ee31eebb4eb49}{get}} (std\+::string name, double \&val)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a70d85009c82fef62bdbbe9fc84d4f4f8}{get}} (std\+::string name, std\+::string \&val)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a477c236e4cc4ac9fd5359c88525be47c}{get}} (std\+::string name, bool \&val)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_s_e_v_npar_a8a72936f687bcea786f05ab494426676}{keys}} ()
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a109b288d346f818a46bdd86a058ce71a}{set}} (std\+::string name, double val)
+\begin{DoxyCompactList}\small\item\em SET and SET like stuff. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a769dbcaf16ff90e29ad1fef36214d537}{set}} (std\+::string name, std\+::string val)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a2471ebbaf87293e0a87e0beaa2abf1b0}{set\+\_\+zlimit}} (const std\+::vector$<$ double $>$ \&Zlist)
+\begin{DoxyCompactList}\small\item\em SPECIAL SET. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_e_v_npar_aaf40e1bbc5b6ccd7257ea7390e7fc051}{set\+\_\+zlimit\+\_\+\+HE}} (const std\+::vector$<$ double $>$ \&Zlist\+\_\+\+HE)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ad9463d00efd559af8e7eb41ef14be15a}{set\+\_\+zams\+\_\+limit}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&Zams\+\_\+list)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ae43dfbd2e377e009f298e8a41dc4d698}{set\+\_\+zams\+\_\+limit\+\_\+he}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&Zams\+\_\+list\+\_\+\+HE)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ada0620cfd977e7961dc856050111a4a9}{set\+\_\+myself}} ()
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a4d7f1216475d4bad3bcf810493c54f91}{set\+\_\+tables}} (std\+::string tables)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_acbdf756830947fa9fe80a5f9d0de4067}{set\+\_\+tables\+HE}} (std\+::string tables\+HE)
+\item 
+std\+::string \mbox{\hyperlink{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}{print}} (bool use\+\_\+default=false)
+\item 
+double \mbox{\hyperlink{class_s_e_v_npar_a3e74f501b41569b54683b14171ac4ab9}{ts\+\_\+maximum\+\_\+variation}} ()
+\begin{DoxyCompactList}\small\item\em Parameter function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}{instance\+\_\+counter}} =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}{prv\+\_\+set}} (std\+::string name, double val)
+\begin{DoxyCompactList}\small\item\em SET. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ab27f9c1e3e4054dd4bbd2427d665372a}{prv\+\_\+set}} (std\+::string name, std\+::string val)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a820dd6a1fc71158c7bafac84e20bc58c}{prv\+\_\+set}} (std\+::string name, bool val)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ad68c8a8561ef7caec53838368ec77660}{set\+\_\+from\+\_\+string}} (std\+::string name, std\+::string val)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_ac7d82e7971128660ee3af0960dafb095}{is\+\_\+public\+\_\+settable}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_ac3c0ae03b0ac31021922d8128ec9f855}{is\+\_\+private\+\_\+settable}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}{is\+\_\+settable}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}{is\+\_\+num\+\_\+par}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}{is\+\_\+str\+\_\+par}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}{is\+\_\+bool\+\_\+par}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_ac79650c9b0480876b01d70704cb14538}{is\+\_\+par}} (std\+::string name)
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a564f9b78802a89ce0253124c92b6c667}{default\+\_\+value\+\_\+num}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation methods. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ad3562704eba535ded152d1b04af0073a}{default\+\_\+value\+\_\+str}} ()
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_ad205ad95e2b8b79fb9d0fc43c978c746}{default\+\_\+value\+\_\+bool}} ()
+\item 
+int \mbox{\hyperlink{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}{init}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}{check}} ()
+\begin{DoxyCompactList}\small\item\em CHECK. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_aabdb32f4ea55e3ad4e0918958a337f52}{check\+\_\+star}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a238325fa911e70f84b4060ef1704b398}{check\+\_\+ns}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a5e3beafe6851aa1e70278ef2ce0ef371}{check\+\_\+sn}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a6e80845ac203bc4973d62d91580029f4}{check\+\_\+timestep}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}{check\+\_\+mzams}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a4dcb3882abfc70ae5ce256fb5a9e64bc}{check\+\_\+mzams\+\_\+he}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}{check\+\_\+z}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a28f5e7dce9c0d5895ba3044bc983abfe}{check\+\_\+z\+\_\+he}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_ac522536c6889a4e630eddb783f8514ce}{check\+\_\+jtrack}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a8c32b4dad4e20527b9448a62b757d059}{check\+\_\+rlobe}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a41e85acc8abbdb5a9b26755f40530678}{check\+\_\+\+GW}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a469469cc46520042acbccb3d9ddf114b}{check\+\_\+winds}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a57be1b67e235092bfb38f3f9e9ff859d}{check\+\_\+accretion}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a549f6a57c2c01e2743a42c8f502a1347}{check\+\_\+ce}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_afb100dc429d84f7239df21ebb153fe3b}{check\+\_\+hard}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a30c5305cd77a049df950af75192ea210}{check\+\_\+parameters}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_abe7703201506f657a673ee2b649a752d}{check\+\_\+option\+\_\+mode}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_af6aa28b0a3c636ae6ef6753eb37b0216}{check\+\_\+ev}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_ab7bd60080793ad5b41ebc0af0261f901}{check\+\_\+log}} ()
+\item 
+bool \mbox{\hyperlink{class_s_e_v_npar_a87161d4269621e29b7486ee4054b567a}{check\+\_\+systems}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_s_e_v_npar_a60bbb1a5a34f7433fcf1acb2f6e1ac71}{n2s}} (double val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}} \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\+\_\+num}}
+\item 
+\mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}} \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\+\_\+str}}
+\item 
+\mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}} \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\+\_\+bool}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::set$<$ std\+::string $>$ \mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\+\_\+settable}} \{\}
+\item 
+static std\+::set$<$ std\+::string $>$ \mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\+\_\+settable}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_s_e_v_npar_aeecd1e9dbc6bd81e408e99213897dec1}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}} \&svpar)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_e_v_npar_a8db4b9caca8f24bb9f80e9e8ecb59c57}\label{class_s_e_v_npar_a8db4b9caca8f24bb9f80e9e8ecb59c57}} 
+\index{SEVNpar@{SEVNpar}!SEVNpar@{SEVNpar}}
+\index{SEVNpar@{SEVNpar}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{SEVNpar()}{SEVNpar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEVNpar\+::\+SEVNpar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+Default constructor\+: just the parameters to the default value. \mbox{\Hypertarget{class_s_e_v_npar_a8a0337290f1115ef710bccf275f514e6}\label{class_s_e_v_npar_a8a0337290f1115ef710bccf275f514e6}} 
+\index{SEVNpar@{SEVNpar}!SEVNpar@{SEVNpar}}
+\index{SEVNpar@{SEVNpar}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{SEVNpar()}{SEVNpar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEVNpar\+::\+SEVNpar (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor to load parameters from line command 
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of arguments \\
+\hline
+{\em argv} & arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_s_e_v_npar_a6ab20078787075549602e31415495598}\label{class_s_e_v_npar_a6ab20078787075549602e31415495598}} 
+\index{SEVNpar@{SEVNpar}!````~SEVNpar@{$\sim$SEVNpar}}
+\index{````~SEVNpar@{$\sim$SEVNpar}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{$\sim$SEVNpar()}{~SEVNpar()}}
+{\footnotesize\ttfamily SEVNpar\+::$\sim$\+SEVNpar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}\label{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}} 
+\index{SEVNpar@{SEVNpar}!check@{check}}
+\index{check@{check}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+CHECK. 
+
+Method to check the values of the parameters \begin{DoxyReturn}{Returns}
+true if all the checks are true, false if at least one check is false or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks raise an error when it is not satisfied \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a57be1b67e235092bfb38f3f9e9ff859d}\label{class_s_e_v_npar_a57be1b67e235092bfb38f3f9e9ff859d}} 
+\index{SEVNpar@{SEVNpar}!check\_accretion@{check\_accretion}}
+\index{check\_accretion@{check\_accretion}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_accretion()}{check\_accretion()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+accretion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a549f6a57c2c01e2743a42c8f502a1347}\label{class_s_e_v_npar_a549f6a57c2c01e2743a42c8f502a1347}} 
+\index{SEVNpar@{SEVNpar}!check\_ce@{check\_ce}}
+\index{check\_ce@{check\_ce}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_ce()}{check\_ce()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+ce (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related to the common envelope process. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_af6aa28b0a3c636ae6ef6753eb37b0216}\label{class_s_e_v_npar_af6aa28b0a3c636ae6ef6753eb37b0216}} 
+\index{SEVNpar@{SEVNpar}!check\_ev@{check\_ev}}
+\index{check\_ev@{check\_ev}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_ev()}{check\_ev()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+ev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check the parameter(s) related to the general evolution process \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a41e85acc8abbdb5a9b26755f40530678}\label{class_s_e_v_npar_a41e85acc8abbdb5a9b26755f40530678}} 
+\index{SEVNpar@{SEVNpar}!check\_GW@{check\_GW}}
+\index{check\_GW@{check\_GW}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_GW()}{check\_GW()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+\+GW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related to the GW rad process. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_afb100dc429d84f7239df21ebb153fe3b}\label{class_s_e_v_npar_afb100dc429d84f7239df21ebb153fe3b}} 
+\index{SEVNpar@{SEVNpar}!check\_hard@{check\_hard}}
+\index{check\_hard@{check\_hard}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_hard()}{check\_hard()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+hard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the paramters related to the hardening process. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ac522536c6889a4e630eddb783f8514ce}\label{class_s_e_v_npar_ac522536c6889a4e630eddb783f8514ce}} 
+\index{SEVNpar@{SEVNpar}!check\_jtrack@{check\_jtrack}}
+\index{check\_jtrack@{check\_jtrack}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_jtrack()}{check\_jtrack()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+jtrack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related the tracks jump \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ab7bd60080793ad5b41ebc0af0261f901}\label{class_s_e_v_npar_ab7bd60080793ad5b41ebc0af0261f901}} 
+\index{SEVNpar@{SEVNpar}!check\_log@{check\_log}}
+\index{check\_log@{check\_log}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_log()}{check\_log()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}\label{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}} 
+\index{SEVNpar@{SEVNpar}!check\_mzams@{check\_mzams}}
+\index{check\_mzams@{check\_mzams}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_mzams()}{check\_mzams()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+mzams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) containing the limit of the ZAMS mass from the tables. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a4dcb3882abfc70ae5ce256fb5a9e64bc}\label{class_s_e_v_npar_a4dcb3882abfc70ae5ce256fb5a9e64bc}} 
+\index{SEVNpar@{SEVNpar}!check\_mzams\_he@{check\_mzams\_he}}
+\index{check\_mzams\_he@{check\_mzams\_he}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_mzams\_he()}{check\_mzams\_he()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+mzams\+\_\+he (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) containing the limit of the ZAMS mass from the pure\+HE tables. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a238325fa911e70f84b4060ef1704b398}\label{class_s_e_v_npar_a238325fa911e70f84b4060ef1704b398}} 
+\index{SEVNpar@{SEVNpar}!check\_ns@{check\_ns}}
+\index{check\_ns@{check\_ns}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_ns()}{check\_ns()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+ns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_abe7703201506f657a673ee2b649a752d}\label{class_s_e_v_npar_abe7703201506f657a673ee2b649a752d}} 
+\index{SEVNpar@{SEVNpar}!check\_option\_mode@{check\_option\_mode}}
+\index{check\_option\_mode@{check\_option\_mode}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_option\_mode()}{check\_option\_mode()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+option\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a30c5305cd77a049df950af75192ea210}\label{class_s_e_v_npar_a30c5305cd77a049df950af75192ea210}} 
+\index{SEVNpar@{SEVNpar}!check\_parameters@{check\_parameters}}
+\index{check\_parameters@{check\_parameters}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_parameters()}{check\_parameters()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a8c32b4dad4e20527b9448a62b757d059}\label{class_s_e_v_npar_a8c32b4dad4e20527b9448a62b757d059}} 
+\index{SEVNpar@{SEVNpar}!check\_rlobe@{check\_rlobe}}
+\index{check\_rlobe@{check\_rlobe}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_rlobe()}{check\_rlobe()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+rlobe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check the parameter(s) related to the Roche Lobe Overflow \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a5e3beafe6851aa1e70278ef2ce0ef371}\label{class_s_e_v_npar_a5e3beafe6851aa1e70278ef2ce0ef371}} 
+\index{SEVNpar@{SEVNpar}!check\_sn@{check\_sn}}
+\index{check\_sn@{check\_sn}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_sn()}{check\_sn()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+sn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_aabdb32f4ea55e3ad4e0918958a337f52}\label{class_s_e_v_npar_aabdb32f4ea55e3ad4e0918958a337f52}} 
+\index{SEVNpar@{SEVNpar}!check\_star@{check\_star}}
+\index{check\_star@{check\_star}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_star()}{check\_star()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+star (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related to the star properties. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a87161d4269621e29b7486ee4054b567a}\label{class_s_e_v_npar_a87161d4269621e29b7486ee4054b567a}} 
+\index{SEVNpar@{SEVNpar}!check\_systems@{check\_systems}}
+\index{check\_systems@{check\_systems}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_systems()}{check\_systems()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+systems (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a6e80845ac203bc4973d62d91580029f4}\label{class_s_e_v_npar_a6e80845ac203bc4973d62d91580029f4}} 
+\index{SEVNpar@{SEVNpar}!check\_timestep@{check\_timestep}}
+\index{check\_timestep@{check\_timestep}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_timestep()}{check\_timestep()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+timestep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related to the adaptive time step. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a469469cc46520042acbccb3d9ddf114b}\label{class_s_e_v_npar_a469469cc46520042acbccb3d9ddf114b}} 
+\index{SEVNpar@{SEVNpar}!check\_winds@{check\_winds}}
+\index{check\_winds@{check\_winds}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_winds()}{check\_winds()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+winds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) related to the winds process. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}\label{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}} 
+\index{SEVNpar@{SEVNpar}!check\_z@{check\_z}}
+\index{check\_z@{check\_z}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_z()}{check\_z()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) containing the limit of Z from the tables. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a28f5e7dce9c0d5895ba3044bc983abfe}\label{class_s_e_v_npar_a28f5e7dce9c0d5895ba3044bc983abfe}} 
+\index{SEVNpar@{SEVNpar}!check\_z\_he@{check\_z\_he}}
+\index{check\_z\_he@{check\_z\_he}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{check\_z\_he()}{check\_z\_he()}}
+{\footnotesize\ttfamily bool SEVNpar\+::check\+\_\+z\+\_\+he (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+check the parameter(s) containing the limit of Z from the tables. \begin{DoxyReturn}{Returns}
+true or throw an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ad205ad95e2b8b79fb9d0fc43c978c746}\label{class_s_e_v_npar_ad205ad95e2b8b79fb9d0fc43c978c746}} 
+\index{SEVNpar@{SEVNpar}!default\_value\_bool@{default\_value\_bool}}
+\index{default\_value\_bool@{default\_value\_bool}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{default\_value\_bool()}{default\_value\_bool()}}
+{\footnotesize\ttfamily int SEVNpar\+::default\+\_\+value\+\_\+bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Method to define the boolean parameters and their default value. A parameter can be added as params\+\_\+bool\mbox{[}\char`\"{}name\char`\"{}\mbox{]} = std\+::make\+\_\+pair(value,documentation); \begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\hyperlink{class_i_o}{IO}} options
+
+Evolution
+
+GWcheck parameters
+
+RLO options
+
+Extra tables options
+
+Optimistic scenario\mbox{\Hypertarget{class_s_e_v_npar_a564f9b78802a89ce0253124c92b6c667}\label{class_s_e_v_npar_a564f9b78802a89ce0253124c92b6c667}} 
+\index{SEVNpar@{SEVNpar}!default\_value\_num@{default\_value\_num}}
+\index{default\_value\_num@{default\_value\_num}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{default\_value\_num()}{default\_value\_num()}}
+{\footnotesize\ttfamily int SEVNpar\+::default\+\_\+value\+\_\+num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialisation methods. 
+
+Double params.
+
+Method to define the numeric parameters and their default value. A parameter can be added as params\+\_\+num\mbox{[}\char`\"{}name\char`\"{}\mbox{]} = std\+::make\+\_\+pair(value,documentation); \begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+STAR
+
+Tracks check
+
+\texorpdfstring{$<$}{<} Max \mbox{\hyperlink{class_zams}{Zams}} \mbox{\hyperlink{class_mass}{Mass}} in the loaded tables
+
+\texorpdfstring{$<$}{<} Min \mbox{\hyperlink{class_zams}{Zams}} \mbox{\hyperlink{class_mass}{Mass}} in the loaded tables
+
+\texorpdfstring{$<$}{<} Max Z in the loaded tables
+
+\texorpdfstring{$<$}{<} Min Z in the loaded tables
+
+\texorpdfstring{$<$}{<} Max \mbox{\hyperlink{class_zams}{Zams}} \mbox{\hyperlink{class_mass}{Mass}} in the loaded tables
+
+SN
+
+Jump track parameters
+
+\texorpdfstring{$<$}{<} relative accumulated mass threshold to change tracks
+
+\texorpdfstring{$<$}{<} relative difference in total mass to consider the convergence reached
+
+\texorpdfstring{$<$}{<} The maximum new zams that will be tested is Mzams + jtrack\+\_\+\+DM\+\_\+factor\+\_\+max$\ast$d\+M\+\_\+accumul
+
+\texorpdfstring{$<$}{<} The minimum new zams that will be tested is Mzams + jtrack\+\_\+\+DM\+\_\+factor\+\_\+min$\ast$d\+M\+\_\+accumul
+
+\texorpdfstring{$<$}{<} Maximum, number of iteration to found the convergence
+
+\texorpdfstring{$<$}{<} \mbox{\hyperlink{class_mass}{Mass}} increment when trying to matche the core ans in case the binding energy
+
+GWcheck parameters
+
+\texorpdfstring{$<$}{<} Time in units of Hubble time. If \mbox{\hyperlink{class_g_wtime}{GWtime}}\texorpdfstring{$<$}{<}GW\+\_\+\+TSHOLD$\ast$t\+Hubble, enable GW process
+
+Winds parameters
+
+\mbox{\hyperlink{class_timestep}{Timestep}}
+
+Roche Lobe
+
+\mbox{\hyperlink{class_kicks}{Kicks}} parameters
+
+CE
+
+\mbox{\hyperlink{class_hardening}{Hardening}}
+
+Evolution\mbox{\Hypertarget{class_s_e_v_npar_ad3562704eba535ded152d1b04af0073a}\label{class_s_e_v_npar_ad3562704eba535ded152d1b04af0073a}} 
+\index{SEVNpar@{SEVNpar}!default\_value\_str@{default\_value\_str}}
+\index{default\_value\_str@{default\_value\_str}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{default\_value\_str()}{default\_value\_str()}}
+{\footnotesize\ttfamily int SEVNpar\+::default\+\_\+value\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Method to define the literal parameters and their default value. A parameter can be added as params\+\_\+str\mbox{[}\char`\"{}name\char`\"{}\mbox{]} = std\+::make\+\_\+pair(value,documentation); \begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+INPUT OPTIONS
+
+Roche Lobe
+
+Overwrite Z
+
+Evolution
+
+System
+
+Output
+
+Input
+
+Folders
+
+LOG\mbox{\Hypertarget{class_s_e_v_npar_a477c236e4cc4ac9fd5359c88525be47c}\label{class_s_e_v_npar_a477c236e4cc4ac9fd5359c88525be47c}} 
+\index{SEVNpar@{SEVNpar}!get@{get}}
+\index{get@{get}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{bool \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Store directly the value of a boolean parameters in an input variable. This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \mbox{\Hypertarget{class_s_e_v_npar_a64a987aa2d321c57608ee31eebb4eb49}\label{class_s_e_v_npar_a64a987aa2d321c57608ee31eebb4eb49}} 
+\index{SEVNpar@{SEVNpar}!get@{get}}
+\index{get@{get}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Store directly the value of a numerical parameters in an input variable. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+{\em val} & variable where to store the parameter\textquotesingle{}s value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or thrown an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if the parameter name is not present. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a70d85009c82fef62bdbbe9fc84d4f4f8}\label{class_s_e_v_npar_a70d85009c82fef62bdbbe9fc84d4f4f8}} 
+\index{SEVNpar@{SEVNpar}!get@{get}}
+\index{get@{get}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Store directly the value of a literal parameters in an input variable. This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \mbox{\Hypertarget{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}\label{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}} 
+\index{SEVNpar@{SEVNpar}!get\_bool@{get\_bool}}
+\index{get\_bool@{get\_bool}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_bool()}{get\_bool()}}
+{\footnotesize\ttfamily bool SEVNpar\+::get\+\_\+bool (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+get a boolean variable 
+\begin{DoxyParams}{Parameters}
+{\em name} & of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+parameter value or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if the parameter name is not present in the str group. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a5cd2d2574d9a4dc8954fcd8735b96ae2}\label{class_s_e_v_npar_a5cd2d2574d9a4dc8954fcd8735b96ae2}} 
+\index{SEVNpar@{SEVNpar}!get\_bool\_map@{get\_bool\_map}}
+\index{get\_bool\_map@{get\_bool\_map}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_bool\_map()}{get\_bool\_map()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}} \& SEVNpar\+::get\+\_\+bool\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}\label{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}} 
+\index{SEVNpar@{SEVNpar}!get\_num@{get\_num}}
+\index{get\_num@{get\_num}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_num()}{get\_num()}}
+{\footnotesize\ttfamily double SEVNpar\+::get\+\_\+num (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+get a numerical variable 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the parameter value or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if the parameter name is not present in the numerical group. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a2772deb1fe7410826b4ebe96a59ee057}\label{class_s_e_v_npar_a2772deb1fe7410826b4ebe96a59ee057}} 
+\index{SEVNpar@{SEVNpar}!get\_num\_map@{get\_num\_map}}
+\index{get\_num\_map@{get\_num\_map}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_num\_map()}{get\_num\_map()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}} \& SEVNpar\+::get\+\_\+num\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+GET and GET like stuff. 
+
+\mbox{\Hypertarget{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}\label{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}} 
+\index{SEVNpar@{SEVNpar}!get\_str@{get\_str}}
+\index{get\_str@{get\_str}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_str()}{get\_str()}}
+{\footnotesize\ttfamily std\+::string SEVNpar\+::get\+\_\+str (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+get a literal variable 
+\begin{DoxyParams}{Parameters}
+{\em name} & of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+parameter value or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if the parameter name is not present in the str group. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ab7f2356aa64df57f79bf9dbc1f6bc484}\label{class_s_e_v_npar_ab7f2356aa64df57f79bf9dbc1f6bc484}} 
+\index{SEVNpar@{SEVNpar}!get\_str\_map@{get\_str\_map}}
+\index{get\_str\_map@{get\_str\_map}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{get\_str\_map()}{get\_str\_map()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}} \& SEVNpar\+::get\+\_\+str\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}\label{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}} 
+\index{SEVNpar@{SEVNpar}!init@{init}}
+\index{init@{init}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int SEVNpar\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise all the parameters to default values \begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if the one of the parameters checks fail. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}\label{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}} 
+\index{SEVNpar@{SEVNpar}!is\_bool\_par@{is\_bool\_par}}
+\index{is\_bool\_par@{is\_bool\_par}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_bool\_par()}{is\_bool\_par()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+bool\+\_\+par (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if a giben parameter is a boolean parameter. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}\label{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}} 
+\index{SEVNpar@{SEVNpar}!is\_num\_par@{is\_num\_par}}
+\index{is\_num\_par@{is\_num\_par}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_num\_par()}{is\_num\_par()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+num\+\_\+par (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if a given parameter is a numeric parameter. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_ac79650c9b0480876b01d70704cb14538}\label{class_s_e_v_npar_ac79650c9b0480876b01d70704cb14538}} 
+\index{SEVNpar@{SEVNpar}!is\_par@{is\_par}}
+\index{is\_par@{is\_par}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_par()}{is\_par()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+par (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if a given parameter is a parameter of the class. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_ac3c0ae03b0ac31021922d8128ec9f855}\label{class_s_e_v_npar_ac3c0ae03b0ac31021922d8128ec9f855}} 
+\index{SEVNpar@{SEVNpar}!is\_private\_settable@{is\_private\_settable}}
+\index{is\_private\_settable@{is\_private\_settable}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_private\_settable()}{is\_private\_settable()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+private\+\_\+settable (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if it is settable 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_ac7d82e7971128660ee3af0960dafb095}\label{class_s_e_v_npar_ac7d82e7971128660ee3af0960dafb095}} 
+\index{SEVNpar@{SEVNpar}!is\_public\_settable@{is\_public\_settable}}
+\index{is\_public\_settable@{is\_public\_settable}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_public\_settable()}{is\_public\_settable()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+public\+\_\+settable (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if it is directly settable 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}\label{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}} 
+\index{SEVNpar@{SEVNpar}!is\_settable@{is\_settable}}
+\index{is\_settable@{is\_settable}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_settable()}{is\_settable()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+settable (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if a given parameter is settable 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}\label{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}} 
+\index{SEVNpar@{SEVNpar}!is\_str\_par@{is\_str\_par}}
+\index{is\_str\_par@{is\_str\_par}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{is\_str\_par()}{is\_str\_par()}}
+{\footnotesize\ttfamily bool SEVNpar\+::is\+\_\+str\+\_\+par (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if a given parameter is a literal parameter. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a8a72936f687bcea786f05ab494426676}\label{class_s_e_v_npar_a8a72936f687bcea786f05ab494426676}} 
+\index{SEVNpar@{SEVNpar}!keys@{keys}}
+\index{keys@{keys}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ SEVNpar\+::keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Store all the names of the parameters in a vector \begin{DoxyReturn}{Returns}
+vector of string containing of all the parameters names. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a5e5a4155f090718bfabd650454a9ea50}\label{class_s_e_v_npar_a5e5a4155f090718bfabd650454a9ea50}} 
+\index{SEVNpar@{SEVNpar}!load@{load}}
+\index{load@{load}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily int SEVNpar\+::load (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{char $\ast$$\ast$}]{val,  }\item[{bool}]{initialise = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+load 
+
+load parameters from a list of arguments 
+\begin{DoxyParams}{Parameters}
+{\em n} & number of arguments \\
+\hline
+{\em val} & arguments \\
+\hline
+{\em initialise} & if true initialise all the parameters to default before to set them \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if one of the parameters is not settable.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+\+: the function checks only whether a parameter is not settable, it skips all the parameters that are not present in the class. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_s_e_v_npar_a60bbb1a5a34f7433fcf1acb2f6e1ac71}\label{class_s_e_v_npar_a60bbb1a5a34f7433fcf1acb2f6e1ac71}} 
+\index{SEVNpar@{SEVNpar}!n2s@{n2s}}
+\index{n2s@{n2s}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{n2s()}{n2s()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string SEVNpar\+::n2s (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Transform a double to a string. 
+\begin{DoxyParams}{Parameters}
+{\em value} & to transform to a string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the {\ttfamily value}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}\label{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}} 
+\index{SEVNpar@{SEVNpar}!n2s@{n2s}}
+\index{n2s@{n2s}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{n2s()}{n2s()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string SEVNpar\+::n2s (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Transform the numeric parameter of a given name to a string. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the value of the parameter. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}\label{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}} 
+\index{SEVNpar@{SEVNpar}!print@{print}}
+\index{print@{print}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string SEVNpar\+::print (\begin{DoxyParamCaption}\item[{bool}]{use\+\_\+default = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a formatted string storing the name, values and comment of each parameter. 
+\begin{DoxyParams}{Parameters}
+{\em use\+\_\+default} & if true the string will contain the default values independently of the current values. (the current values are not overwritten). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the name, values and comment of each parameter.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+In the comment there are two automatic additions inside square brackets\+:
+\begin{DoxyItemize}
+\item The first contains info about the parameter type \mbox{[}N\mbox{]} numeric, \mbox{[}L\mbox{]} literal;
+\item the second contains info about the set property \mbox{[}S\mbox{]} directle settable, \mbox{[}PS\mbox{]} private settable, \mbox{[}NS\mbox{]} non settable at runtime. 
+\end{DoxyItemize}
+\end{DoxyNote}
+\mbox{\Hypertarget{class_s_e_v_npar_a820dd6a1fc71158c7bafac84e20bc58c}\label{class_s_e_v_npar_a820dd6a1fc71158c7bafac84e20bc58c}} 
+\index{SEVNpar@{SEVNpar}!prv\_set@{prv\_set}}
+\index{prv\_set@{prv\_set}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{prv\_set()}{prv\_set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::prv\+\_\+set (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Set the value of a given boolean parameter
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \mbox{\Hypertarget{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}\label{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}} 
+\index{SEVNpar@{SEVNpar}!prv\_set@{prv\_set}}
+\index{prv\_set@{prv\_set}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{prv\_set()}{prv\_set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::prv\+\_\+set (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+SET. 
+
+Set the value of a given numeric parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter. \\
+\hline
+{\em val} & value to save in the parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS of throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item the parameter is not present, 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ab27f9c1e3e4054dd4bbd2427d665372a}\label{class_s_e_v_npar_ab27f9c1e3e4054dd4bbd2427d665372a}} 
+\index{SEVNpar@{SEVNpar}!prv\_set@{prv\_set}}
+\index{prv\_set@{prv\_set}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{prv\_set()}{prv\_set()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int SEVNpar\+::prv\+\_\+set (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Set the value of a given literal parameter
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \mbox{\Hypertarget{class_s_e_v_npar_a109b288d346f818a46bdd86a058ce71a}\label{class_s_e_v_npar_a109b288d346f818a46bdd86a058ce71a}} 
+\index{SEVNpar@{SEVNpar}!set@{set}}
+\index{set@{set}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int SEVNpar\+::set (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+SET and SET like stuff. 
+
+Set the value of a given numeric parameter 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter. \\
+\hline
+{\em val} & value to save in the parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS of thrown an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item the parameter is not directly settable,
+\item the parameter is not present,
+\item the parameter\textquotesingle{}s value fails the check(s). 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a769dbcaf16ff90e29ad1fef36214d537}\label{class_s_e_v_npar_a769dbcaf16ff90e29ad1fef36214d537}} 
+\index{SEVNpar@{SEVNpar}!set@{set}}
+\index{set@{set}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int SEVNpar\+::set (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the value of a given literal parameter This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \mbox{\Hypertarget{class_s_e_v_npar_ad68c8a8561ef7caec53838368ec77660}\label{class_s_e_v_npar_ad68c8a8561ef7caec53838368ec77660}} 
+\index{SEVNpar@{SEVNpar}!set\_from\_string@{set\_from\_string}}
+\index{set\_from\_string@{set\_from\_string}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_from\_string()}{set\_from\_string()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+from\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Basic method to set value from a string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter. \\
+\hline
+{\em val} & value to save in the parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS, EXIT\+\_\+\+FAILURE or thrown an error. EXIT\+\_\+\+FAILURE means that the paremeter is not in the list
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item the parameter is not settable,
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+\+: if the parameter is not in the list, the function return EXIT\+\_\+\+FAILURE but it does not throw an error. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_s_e_v_npar_ada0620cfd977e7961dc856050111a4a9}\label{class_s_e_v_npar_ada0620cfd977e7961dc856050111a4a9}} 
+\index{SEVNpar@{SEVNpar}!set\_myself@{set\_myself}}
+\index{set\_myself@{set\_myself}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_myself()}{set\_myself()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+myself (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the paramter myself containing the PATH of the SEVN folder. \begin{DoxyReturn}{Returns}
+Exist Success if the {\bfseries{FILE}} contains the /include/ in the string, if /include/ is not found a critical error is raised @\+Notice this is based on the fact that the folder structure contains the folder include that contains (considering all the possibile subfolders) the file param.\+h 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_a4d7f1216475d4bad3bcf810493c54f91}\label{class_s_e_v_npar_a4d7f1216475d4bad3bcf810493c54f91}} 
+\index{SEVNpar@{SEVNpar}!set\_tables@{set\_tables}}
+\index{set\_tables@{set\_tables}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_tables()}{set\_tables()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+tables (\begin{DoxyParamCaption}\item[{std\+::string}]{tables }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the tables path 
+\begin{DoxyParams}{Parameters}
+{\em tables} & path to the tables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_acbdf756830947fa9fe80a5f9d0de4067}\label{class_s_e_v_npar_acbdf756830947fa9fe80a5f9d0de4067}} 
+\index{SEVNpar@{SEVNpar}!set\_tablesHE@{set\_tablesHE}}
+\index{set\_tablesHE@{set\_tablesHE}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_tablesHE()}{set\_tablesHE()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+tables\+HE (\begin{DoxyParamCaption}\item[{std\+::string}]{tables\+HE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the pure\+HE tables path 
+\begin{DoxyParams}{Parameters}
+{\em tables\+HE} & path to the pure\+HE tables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_e_v_npar_ad9463d00efd559af8e7eb41ef14be15a}\label{class_s_e_v_npar_ad9463d00efd559af8e7eb41ef14be15a}} 
+\index{SEVNpar@{SEVNpar}!set\_zams\_limit@{set\_zams\_limit}}
+\index{set\_zams\_limit@{set\_zams\_limit}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_zams\_limit()}{set\_zams\_limit()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+zams\+\_\+limit (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{Zams\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the min and max ZAMS \mbox{\hyperlink{class_mass}{Mass}}. Notice\+: the max \mbox{\hyperlink{class_zams}{Zams}} is the minimum between the zams upper limits considering all the metallicites. The min zams is the maximum between the zams lower limits. 
+\begin{DoxyParams}{Parameters}
+{\em Zams\+\_\+list} & Vector of vector of doubles containing the list of zams \mbox{\hyperlink{class_mass}{Mass}} at each metallicity (loaded in \mbox{\hyperlink{class_i_o}{IO}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item check\+\_\+mzams is false or return an error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_ae43dfbd2e377e009f298e8a41dc4d698}\label{class_s_e_v_npar_ae43dfbd2e377e009f298e8a41dc4d698}} 
+\index{SEVNpar@{SEVNpar}!set\_zams\_limit\_he@{set\_zams\_limit\_he}}
+\index{set\_zams\_limit\_he@{set\_zams\_limit\_he}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_zams\_limit\_he()}{set\_zams\_limit\_he()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+zams\+\_\+limit\+\_\+he (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{Zams\+\_\+list\+\_\+\+HE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the min and max ZAMS pure\+HE \mbox{\hyperlink{class_mass}{Mass}}. Notice\+: the max \mbox{\hyperlink{class_zams}{Zams}} is the minimum between the zams upper limits considering all the metallicites. The min zams is the maximum between the zams lower limits. 
+\begin{DoxyParams}{Parameters}
+{\em Zams\+\_\+list\+\_\+\+HE} & Vector of vector of doubles containing the list of zams \mbox{\hyperlink{class_mass}{Mass}} at each metallicity (loaded in \mbox{\hyperlink{class_i_o}{IO}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item check\+\_\+mzams is false or return an error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a2471ebbaf87293e0a87e0beaa2abf1b0}\label{class_s_e_v_npar_a2471ebbaf87293e0a87e0beaa2abf1b0}} 
+\index{SEVNpar@{SEVNpar}!set\_zlimit@{set\_zlimit}}
+\index{set\_zlimit@{set\_zlimit}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_zlimit()}{set\_zlimit()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+zlimit (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{Zlist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+SPECIAL SET. 
+
+Set the min and max Z 
+\begin{DoxyParams}{Parameters}
+{\em Zlist} & Vector of doubles containing the list of loaded metallicites (loaded in \mbox{\hyperlink{class_i_o}{IO}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item check\+\_\+z is false or return an error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_aaf40e1bbc5b6ccd7257ea7390e7fc051}\label{class_s_e_v_npar_aaf40e1bbc5b6ccd7257ea7390e7fc051}} 
+\index{SEVNpar@{SEVNpar}!set\_zlimit\_HE@{set\_zlimit\_HE}}
+\index{set\_zlimit\_HE@{set\_zlimit\_HE}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{set\_zlimit\_HE()}{set\_zlimit\_HE()}}
+{\footnotesize\ttfamily int SEVNpar\+::set\+\_\+zlimit\+\_\+\+HE (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{Zlist\+\_\+\+HE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the min and max Z of the pure\+HE tables 
+\begin{DoxyParams}{Parameters}
+{\em Zlist\+\_\+\+HE} & Vector of doubles containing the list of loaded metallicites (loaded in \mbox{\hyperlink{class_i_o}{IO}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd\+::params\+\_\+error}}} & Thrown if\+:
+\begin{DoxyItemize}
+\item check\+\_\+z is false or return an error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_s_e_v_npar_a3e74f501b41569b54683b14171ac4ab9}\label{class_s_e_v_npar_a3e74f501b41569b54683b14171ac4ab9}} 
+\index{SEVNpar@{SEVNpar}!ts\_maximum\_variation@{ts\_maximum\_variation}}
+\index{ts\_maximum\_variation@{ts\_maximum\_variation}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{ts\_maximum\_variation()}{ts\_maximum\_variation()}}
+{\footnotesize\ttfamily double SEVNpar\+::ts\+\_\+maximum\+\_\+variation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Parameter function. 
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_s_e_v_npar_aeecd1e9dbc6bd81e408e99213897dec1}\label{class_s_e_v_npar_aeecd1e9dbc6bd81e408e99213897dec1}} 
+\index{SEVNpar@{SEVNpar}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}} \&}]{svpar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Overload of the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator, it just calls the print method
+
+@overloaded
+
+\begin{DoxyNote}{Note}
+since it is a friend function it not a method of the class 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}\label{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}} 
+\index{SEVNpar@{SEVNpar}!instance\_counter@{instance\_counter}}
+\index{instance\_counter@{instance\_counter}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{instance\_counter}{instance\_counter}}
+{\footnotesize\ttfamily std\+::size\+\_\+t SEVNpar\+::instance\+\_\+counter =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Stores the number of active instance of this class \mbox{\Hypertarget{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}\label{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}} 
+\index{SEVNpar@{SEVNpar}!params\_bool@{params\_bool}}
+\index{params\_bool@{params\_bool}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{params\_bool}{params\_bool}}
+{\footnotesize\ttfamily \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}} SEVNpar\+::params\+\_\+bool\hspace{0.3cm}{\ttfamily [private]}}
+
+map containing the boolean parameters \{name\+: \{boolean value, comment\}\} \mbox{\Hypertarget{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}\label{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}} 
+\index{SEVNpar@{SEVNpar}!params\_num@{params\_num}}
+\index{params\_num@{params\_num}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{params\_num}{params\_num}}
+{\footnotesize\ttfamily \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}} SEVNpar\+::params\+\_\+num\hspace{0.3cm}{\ttfamily [private]}}
+
+map containing the numer parameters \{name\+: \{double value, comment\}\} \mbox{\Hypertarget{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}\label{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}} 
+\index{SEVNpar@{SEVNpar}!params\_str@{params\_str}}
+\index{params\_str@{params\_str}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{params\_str}{params\_str}}
+{\footnotesize\ttfamily \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}} SEVNpar\+::params\+\_\+str\hspace{0.3cm}{\ttfamily [private]}}
+
+map containing the literal parameters \{name\+: \{string value, comment\}\} \mbox{\Hypertarget{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}\label{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}} 
+\index{SEVNpar@{SEVNpar}!private\_settable@{private\_settable}}
+\index{private\_settable@{private\_settable}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{private\_settable}{private\_settable}}
+{\footnotesize\ttfamily std\+::set$<$ std\+::string $>$ SEVNpar\+::private\+\_\+settable\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+set containing the name of all the properties that can be set directly \mbox{\Hypertarget{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}\label{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}} 
+\index{SEVNpar@{SEVNpar}!public\_settable@{public\_settable}}
+\index{public\_settable@{public\_settable}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{public\_settable}{public\_settable}}
+{\footnotesize\ttfamily std\+::set$<$ std\+::string $>$ SEVNpar\+::public\+\_\+settable \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+set containing the name of all the properties that can be set directly \mbox{\Hypertarget{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}\label{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}} 
+\index{SEVNpar@{SEVNpar}!svlog@{svlog}}
+\index{svlog@{svlog}!SEVNpar@{SEVNpar}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} SEVNpar\+::svlog\hspace{0.3cm}{\ttfamily [protected]}}
+
+logging instance 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/\mbox{\hyperlink{params_8h}{params.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/\mbox{\hyperlink{params_8cpp}{params.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,774 @@
+\hypertarget{binstar_8h_source}{}\doxysection{binstar.\+h}
+\label{binstar_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/binstar.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/binstar.h}}
+\mbox{\hyperlink{binstar_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 04/12/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_BINSTAR\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_BINSTAR\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_binary_property_8h}{BinaryProperty.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_processes_8h}{Processes.h}}>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{star_8h}{star.h}}>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_8h}{params.h}}>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{18 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_orbit_8h}{Orbit.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_lookup}{Lookup}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}}; }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}};  }
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}};  }
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\_at\_broken}}; }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a91908734182a6ef52aea045d8039725d}{repeatstep}};  }
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}{mix}}; }
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}{comenv}}; }
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\_swallowed}}[2]; }
+\DoxyCodeLine{39     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a24217396219460cd0c3c2f77b62c7435}{last\_Timestep}}; }
+\DoxyCodeLine{41     \textcolor{comment}{//TODO the print options should be removed from the classes stars and binaries and handled by another class only devoted to that}}
+\DoxyCodeLine{43 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a01918bafdd308f4951e83846b2be3deb}{print\_all\_steps}};  }
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a99ab4eccc5d731f5280c825b1970f895}{print\_per\_phase}};  }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_abbc52bc2a7091921195a193790e2c9ee}{print\_only\_end}};  }
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_afe404388646b25734c88c9c2d918bdbb}{print\_events}}; }
+\DoxyCodeLine{47     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a3919e4796b26dc05942564998392ffdd}{print\_rlo}}; }
+\DoxyCodeLine{49     \textcolor{comment}{//Check disable, some process can force the e or a to jump to some values}}
+\DoxyCodeLine{50     \textcolor{comment}{//in that case we have to disable the check for adaptive time step.}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a3d8455155259bdf45eb534601f372e4b}{disable\_e\_check}}; }
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a8c36ce436fee6f539bcffb72c408a803}{disable\_a\_check}}; }
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_af922e7f1042d200fcf07e80dcb8b750b}{disable\_DM\_check}}; }
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a39716614c3b5ed6b3e6981ec1bf2c9f5}{disable\_OmegaRem\_NS\_check}}; }
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_ad680c1c67d1bbabd3f3b4c2c36816a69}{disable\_stellar\_rotation\_check}}; }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a4176647d0f9a5769112f39abf9cfeedc}{force\_tiny\_dt}}; }
+\DoxyCodeLine{58     \textcolor{comment}{//Other variables}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a17b0917231d9823ffceaef979674ba91}{CE\_E\_tomatch}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; }
+\DoxyCodeLine{61     \textcolor{comment}{//Guard}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\_step\_completed}};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_binstar_ab8fa8f4f0ebf9867ac63e78323d4a766}{Binstar}}()\{\}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{comment}{//Proper constructors}}
+\DoxyCodeLine{71     \mbox{\hyperlink{class_binstar_ac9ada0b73f9ee8df44fdd82bee5d93d7}{Binstar}}(\mbox{\hyperlink{class_i_o}{IO}} *\_io, std::vector<std::string> \&params, \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \_rseed=0)\{}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{comment}{//GI 03/02/2023: Based on a issue regarding data leak after failed initialisation, I implement}}
+\DoxyCodeLine{75         \textcolor{comment}{//this solution to robustly clean the heap allocated variables after a failed object initilisation.}}
+\DoxyCodeLine{76         \textcolor{comment}{//Indeed, in such cases, the object is never build, so the desctructor is not available.}}
+\DoxyCodeLine{77         \textcolor{comment}{//So, I have implemented a private method default\_destructor that is called from the destructor to clean the heap}}
+\DoxyCodeLine{78         \textcolor{comment}{//but can be called also here. So we use a try-\/catch-\/rethrow schema to check if the initilisation}}
+\DoxyCodeLine{79         \textcolor{comment}{//was successful, otherwise we clean the heap and then rethrow the error.}}
+\DoxyCodeLine{80         \textcolor{comment}{//We use this schema also for the other two constructors.}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{comment}{//Try the initialisation}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{84 \textcolor{comment}{            /***********************************}}
+\DoxyCodeLine{85 \textcolor{comment}{            * Some variable assignment}}
+\DoxyCodeLine{86 \textcolor{comment}{            ************************************/}}
+\DoxyCodeLine{87             \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}} = \_io;}
+\DoxyCodeLine{88             \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}} = \_ID;}
+\DoxyCodeLine{89             \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{90             \mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}} = \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}} = \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{91             \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}} = \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\_at\_broken}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{92             \mbox{\hyperlink{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}{init\_params}} = params;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{95             \mbox{\hyperlink{class_binstar_a01918bafdd308f4951e83846b2be3deb}{print\_all\_steps}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{96             \mbox{\hyperlink{class_binstar_a99ab4eccc5d731f5280c825b1970f895}{print\_per\_phase}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{97             \mbox{\hyperlink{class_binstar_afe404388646b25734c88c9c2d918bdbb}{print\_events}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{98             \mbox{\hyperlink{class_binstar_a3919e4796b26dc05942564998392ffdd}{print\_rlo}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100             \mbox{\hyperlink{class_binstar_a24217396219460cd0c3c2f77b62c7435}{last\_Timestep}} = 0.0;}
+\DoxyCodeLine{101             \mbox{\hyperlink{class_binstar_a91908734182a6ef52aea045d8039725d}{repeatstep}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{102             \mbox{\hyperlink{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}{mix}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{103             \mbox{\hyperlink{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}{comenv}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{104             \mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\_step\_completed}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{105             \mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\_swallowed}}[0] = \mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\_swallowed}}[1] = \textcolor{keyword}{false};}
+\DoxyCodeLine{106             \mbox{\hyperlink{class_binstar_a3d8455155259bdf45eb534601f372e4b}{disable\_e\_check}} = \mbox{\hyperlink{class_binstar_a8c36ce436fee6f539bcffb72c408a803}{disable\_a\_check}} = \mbox{\hyperlink{class_binstar_af922e7f1042d200fcf07e80dcb8b750b}{disable\_DM\_check}} = \mbox{\hyperlink{class_binstar_a39716614c3b5ed6b3e6981ec1bf2c9f5}{disable\_OmegaRem\_NS\_check}} = \mbox{\hyperlink{class_binstar_ad680c1c67d1bbabd3f3b4c2c36816a69}{disable\_stellar\_rotation\_check}} = \mbox{\hyperlink{class_binstar_a4176647d0f9a5769112f39abf9cfeedc}{force\_tiny\_dt}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{107             \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}} = \_rseed;}
+\DoxyCodeLine{108 \textcolor{comment}{            /************************************/}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111             \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}.resize(\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a13566b115648e8dd8d7d84c413c4962a}{printcolumns\_binary}}.size());}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{BinaryProperty::all}}.size(); i++) \{}
+\DoxyCodeLine{114                 \textcolor{keyword}{property}.push\_back(\mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{BinaryProperty::all}}[i]-\/>Instance()); \textcolor{comment}{//create instances for all properties}}
+\DoxyCodeLine{115             \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}{Process::all}}.size(); i++) \{}
+\DoxyCodeLine{118                 \textcolor{comment}{//std:cout<<"{}Procss "{}<< Process::all[i]-\/>name() << "{} "{} << i <<std::endl;}}
+\DoxyCodeLine{119                 \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}.push\_back(\mbox{\hyperlink{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}{Process::all}}[i]-\/>Instance(\_io)); \textcolor{comment}{//create instances for all properties}}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{comment}{            /***********************************}}
+\DoxyCodeLine{125 \textcolor{comment}{            * Init Stars and binary params}}
+\DoxyCodeLine{126 \textcolor{comment}{            ************************************/}}
+\DoxyCodeLine{127             \mbox{\hyperlink{class_binstar_a101c7957ed37b33ece459ca9e90accbf}{init}}(\mbox{\hyperlink{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}{init\_params}});}
+\DoxyCodeLine{128 \textcolor{comment}{            /************************************/}}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130         \textcolor{comment}{//Catch any kind of error, dangerous in general, but we use it just to clean the heap and then}}
+\DoxyCodeLine{131         \textcolor{comment}{//the error is rethrown and handled somewhere else.}}
+\DoxyCodeLine{132         \textcolor{keywordflow}{catch} (...)\{ \textcolor{comment}{//Catch all errors}}
+\DoxyCodeLine{133             \mbox{\hyperlink{class_binstar_a1d574ee8559d351c18bc9e40e9bd9a69}{default\_destructor}}();  \textcolor{comment}{//Clean the heap associated to class members}}
+\DoxyCodeLine{134             \textcolor{keywordflow}{throw}; \textcolor{comment}{//Rethrown the exact same  error}}
+\DoxyCodeLine{135         \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{142     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id})\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \textcolor{keyword}{property}[id]-\/>get(\textcolor{keyword}{this});\}}
+\DoxyCodeLine{143     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id})\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \textcolor{keyword}{property}[id]-\/>get\_0(\textcolor{keyword}{this});\}}
+\DoxyCodeLine{144     \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{class_binstar_a3533d9004019fd9d494cb759f7fd68b5}{get\_name}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}};\}}
+\DoxyCodeLine{145     \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_binstar_a3ddee965313902fe42a6399656b241d1}{get\_ID}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}};\}}
+\DoxyCodeLine{146     \textcolor{keyword}{inline} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id})  \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[id];\}}
+\DoxyCodeLine{147     \textcolor{keyword}{inline} \mbox{\hyperlink{class_process}{Process}} *\mbox{\hyperlink{class_binstar_a04b361bb7b2b44b2607c723a9c760c44}{getprocess}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id}) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}[id];\}}
+\DoxyCodeLine{148     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::vector<Process*>\& \mbox{\hyperlink{class_binstar_ab332981ff691ed161875fef11ef0e063}{getprocesses}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}};\}}
+\DoxyCodeLine{149     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::vector<double> \& \mbox{\hyperlink{class_binstar_ae9045f1ea047957cf0708c1ca5bcae76}{getstate}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}};\}}
+\DoxyCodeLine{154     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_ae15b810f04205d83ffd01182e3f5aefb}{get\_last\_Timestep}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a24217396219460cd0c3c2f77b62c7435}{last\_Timestep}};\}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{164     \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{class_binstar_a4b228f71444ec10afd3ade913cd64280}{get\_id\_more\_evolved\_star}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{165         \textcolor{comment}{//If one of the star is empty return the other one}}
+\DoxyCodeLine{166         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>isempty and !\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isempty)}
+\DoxyCodeLine{167             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{168         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isempty)}
+\DoxyCodeLine{169             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{170         \textcolor{comment}{//If both are remnant the older is the more compact following the order HeWD,COWD,ONEWD,NS,BH}}
+\DoxyCodeLine{171         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>isremnant and \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isremnant and \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_remnant_type_a43febf5b5d0040a1a86ba7d592483335}{RemnantType::ID}})!=\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_remnant_type_a43febf5b5d0040a1a86ba7d592483335}{RemnantType::ID}}))}
+\DoxyCodeLine{172             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_remnant_type_a43febf5b5d0040a1a86ba7d592483335}{RemnantType::ID}})>\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_remnant_type_a43febf5b5d0040a1a86ba7d592483335}{RemnantType::ID}}) ? 0 : 1;}
+\DoxyCodeLine{173         \textcolor{comment}{//If both are remnant of the same type, the more evolved is the one with the largest mass}}
+\DoxyCodeLine{174         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>isremnant and \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isremnant)}
+\DoxyCodeLine{175             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})>\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}}) ? 0 : 1;}
+\DoxyCodeLine{176         \textcolor{comment}{//In the stars have the same phase (not remnant handled before), return the more evolved is the one with the larger plife}}
+\DoxyCodeLine{177         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}})==\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}}))}
+\DoxyCodeLine{178             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a47e0a9696e9f7016211301d907d90114}{plife}}()>=\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a47e0a9696e9f7016211301d907d90114}{plife}}() ? 0 : 1;}
+\DoxyCodeLine{179         \textcolor{comment}{//Finally, if the stars are not empty, not remnant and don't have the same phase}}
+\DoxyCodeLine{180         \textcolor{comment}{//the more evolved is the one with the largest phase.}}
+\DoxyCodeLine{181         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{182             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}})>=\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}}) ? 0 : 1;}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{193     \textcolor{keyword}{inline} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_binstar_a052185ea21dc4a619ec79f06f2487691}{get\_more\_evolved\_star}}() \{}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_id=\mbox{\hyperlink{class_binstar_a4b228f71444ec10afd3ade913cd64280}{get\_id\_more\_evolved\_star}}();}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}}(\_id);}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{207     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a474c1c11e647c7271bcf5358f48e27ab}{Radx}}(\textcolor{keywordtype}{size\_t} starID);}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 }
+\DoxyCodeLine{212     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a66786ad072e4fa222a8a029a052e1869}{get\_svpar\_num}}(std::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}});\};}
+\DoxyCodeLine{213     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_binstar_ae6ac8eb8bf40c68feca2a205449e0618}{get\_svpar\_str}}(std::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}});\};}
+\DoxyCodeLine{214     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}{get\_svpar\_bool}}(std::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\_bool}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}});\};}
+\DoxyCodeLine{215     \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{class_binstar_a163e065638c477da4d751440a0cd2ac2}{get\_rseed}}()\{}
+\DoxyCodeLine{216         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}==0)}
+\DoxyCodeLine{217             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}rseed has not been initialised"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1bse__error}{sevnstd::bse\_error}}());}
+\DoxyCodeLine{218         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}};}
+\DoxyCodeLine{219     \}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221     \textcolor{comment}{//TODO Move to the src file}}
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}}() \{}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\_step\_completed}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226         \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(std::to\_string(\mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}}[\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}]-\/>get()));}
+\DoxyCodeLine{227         \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(std::to\_string(\mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}}[\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}]-\/>get\_0()));}
+\DoxyCodeLine{228         \textcolor{comment}{//utilities::wait(\_\_PRETTY\_FUNCTION\_\_);}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231         \textcolor{comment}{//double twait=4.5668373678e+01;}}
+\DoxyCodeLine{232         \textcolor{keywordtype}{double} twait=1E30;}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>twait)\{}
+\DoxyCodeLine{234             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S0 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{235             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S1 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{236             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}B T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{237             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities::wait}}(\textcolor{stringliteral}{"{}Before synch\_dt"{}});}
+\DoxyCodeLine{238         \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{comment}{        /*************************************}}
+\DoxyCodeLine{243 \textcolor{comment}{        * Synchronise proposed timesteps}}
+\DoxyCodeLine{244 \textcolor{comment}{        *************************************/}}
+\DoxyCodeLine{245         \mbox{\hyperlink{class_binstar_a116c8e2a2676d286b709d250546a641b}{synchronise\_dt\_star}}();}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>twait)\{}
+\DoxyCodeLine{250             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S0 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{251             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S1 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{252             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}B T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{253             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities::wait}}(\textcolor{stringliteral}{"{}After synch\_dt"{}});}
+\DoxyCodeLine{254         \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{comment}{        /*************************************}}
+\DoxyCodeLine{257 \textcolor{comment}{        * Single stellar evolution}}
+\DoxyCodeLine{258 \textcolor{comment}{        *************************************/}}
+\DoxyCodeLine{259         \textcolor{comment}{//At this point timesteps are in sync}}
+\DoxyCodeLine{260         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_ad182e483146e6d0d483a3aefdc29c489}{evolve}}();}
+\DoxyCodeLine{261         \textcolor{comment}{//timestep of star 0 may have changed at this point}}
+\DoxyCodeLine{262         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_ad182e483146e6d0d483a3aefdc29c489}{evolve}}();}
+\DoxyCodeLine{263         \textcolor{comment}{//timestep of star 1 may have changed at this point}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267         \textcolor{comment}{//std::cout<<"{} 0: "{}<<star[0]-\/>getp\_0(Timestep::ID)<<"{} "{}<<star[0]-\/>getp(Timestep::ID)<<std::endl;}}
+\DoxyCodeLine{268         \textcolor{comment}{//std::cout<<"{} 1: "{}<<star[1]-\/>getp\_0(Timestep::ID)<<"{} "{}<<star[1]-\/>getp(Timestep::ID)<<std::endl;}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>twait)\{}
+\DoxyCodeLine{271             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S0 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{272             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S1 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{273             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}B T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{274             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}{pdebug}}(\textcolor{stringliteral}{"{}S0 type"{}},\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}}),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{275             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities::wait}}(\textcolor{stringliteral}{"{}After evolve star"{}});}
+\DoxyCodeLine{276         \}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278         \textcolor{comment}{//Check if the the two stars have been evolved with the same timestep.}}
+\DoxyCodeLine{279         \textcolor{comment}{//If not repeat the evolution of the star with the largest used timestep (V0).}}
+\DoxyCodeLine{280         \textcolor{comment}{//Plus update the new timestep of the binary.}}
+\DoxyCodeLine{281         \mbox{\hyperlink{class_binstar_a37f873db5f84a7c554b87574cd352460}{check\_and\_sync\_sse}}();}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>twait)\{}
+\DoxyCodeLine{286             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S0 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{287             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S1 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{288             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}B T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{289             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities::wait}}(\textcolor{stringliteral}{"{}After check and synch"{}});}
+\DoxyCodeLine{290         \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 \textcolor{comment}{        /*************************************}}
+\DoxyCodeLine{294 \textcolor{comment}{        * Binary stellar evolution}}
+\DoxyCodeLine{295 \textcolor{comment}{        *************************************/}}
+\DoxyCodeLine{296         \textcolor{comment}{//Here the timestep of the binary is equal to the one just done by the single stars (s-\/>getp\_0(Timestep::ID)).}}
+\DoxyCodeLine{297         \textcolor{comment}{//So it is equal to one defined in synchronise\_dt\_star if the stars have not repeated the evoluion in evolve.}}
+\DoxyCodeLine{298         \textcolor{comment}{//In that case it is equal to the actual timestep of the single stellar evolution}}
+\DoxyCodeLine{299         \mbox{\hyperlink{class_binstar_aefaf3f43593cb62606ad5c8dc4bcfce1}{evolve\_binary}}();}
+\DoxyCodeLine{300         \textcolor{comment}{//NOT NEEDED ANYMORE}}
+\DoxyCodeLine{301         \textcolor{comment}{//binary\_evolution\_status = evolve\_binary();}}
+\DoxyCodeLine{302         \textcolor{comment}{//Now if the the Binary properties have not been uptated, update in any case the BTimestep to be syncrhonised with stars Timestepgit}}
+\DoxyCodeLine{303         \textcolor{comment}{//if (binary\_evolution\_status==utilities::BIN\_EV\_NOT\_DONE)\{}}
+\DoxyCodeLine{304          \textcolor{comment}{//   std::cout<<"{} WE "{}<<std::endl;}}
+\DoxyCodeLine{305             \textcolor{comment}{//property[BTimestep::ID]-\/>evolve(this);}}
+\DoxyCodeLine{306         \textcolor{comment}{//    std::cout<<"{} WE2 "{}<<std::endl;}}
+\DoxyCodeLine{307         \textcolor{comment}{//\}}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>twait)\{}
+\DoxyCodeLine{310             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S0 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{311             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}S1 T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{312             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}B T= "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} T0="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} WT="{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{313             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities::wait}}(\textcolor{stringliteral}{"{}After evolv binary"{}});}
+\DoxyCodeLine{314         \}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318         \textcolor{comment}{//Check if the binary evolution has re-\/evolved the system with a smaller timestep}}
+\DoxyCodeLine{319         \textcolor{comment}{//In that case just re-\/evolve the stars with this timestep and again the binary.}}
+\DoxyCodeLine{320         \textcolor{comment}{//NB: This check assumes that the stars are already synchronised (check\_and\_sync\_sse) and that}}
+\DoxyCodeLine{321         \textcolor{comment}{//the binary has been evolved with the actual time step of the stellar evolution. Therefore,}}
+\DoxyCodeLine{322         \textcolor{comment}{// the new proposed binary dt can be only smaller than the stellar dt. If it is larger}}
+\DoxyCodeLine{323         \mbox{\hyperlink{class_binstar_a9b4cec5b5639c0e127c3fb0ce03518cd}{check\_and\_sync\_bse}}();}
+\DoxyCodeLine{324         \textcolor{comment}{//property[BTimestep::ID]-\/>resynch(1e30);}}
+\DoxyCodeLine{325         \textcolor{comment}{//At this point stars and binary processes have been evolved with the same timestep}}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327         \mbox{\hyperlink{class_binstar_aee6bcdfa097710b90edd685bd032d8eb}{evolution\_step\_done}}();}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{comment}{        /****************************************************************}}
+\DoxyCodeLine{331 \textcolor{comment}{        * FINAL STUFF. All the updates that need to be done after a complete evolution step (all the repetitions already done) go here}}
+\DoxyCodeLine{332 \textcolor{comment}{        * Last checks, change tracks and check mass limits for remnants}}
+\DoxyCodeLine{333 \textcolor{comment}{        * Plus,  evolve the derived property so that they are updated considering processes and change of tracks}}
+\DoxyCodeLine{334 \textcolor{comment}{        *****************************************************************/}}
+\DoxyCodeLine{335         \textcolor{comment}{//TODO The points below can be completely skipped if the binary is broken}}
+\DoxyCodeLine{337 \textcolor{comment}{}        \mbox{\hyperlink{class_star}{Star}} * this\_star = \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0];}
+\DoxyCodeLine{338         \mbox{\hyperlink{class_star}{Star}} * other\_star = \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1];}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<2; i++)\{}
+\DoxyCodeLine{341             \textcolor{comment}{//First of all check if it has to explode}}
+\DoxyCodeLine{342             \textcolor{comment}{//TODO this is a temporary solution, we have to think about how to handle SNIa}}
+\DoxyCodeLine{343             \textcolor{keywordflow}{if} (this\_star-\/>\mbox{\hyperlink{class_star_a95912be380d702e08bae163186a56b6f}{is\_exploding\_as\_SNI}}())\{}
+\DoxyCodeLine{344                     \textcolor{comment}{//TODO Can we remove the difference between explode\_as\_SNI(binstar *b) and explode\_as\_SNI(), i.e. between Star::set\_empty and Star::set\_empty\_in\_bse}}
+\DoxyCodeLine{345                     this\_star-\/>\mbox{\hyperlink{class_star_a46056c34b865a3b6362a9e771c3dfdaa}{explode\_as\_SNI}}(\textcolor{keyword}{this}); \textcolor{comment}{//Use explode\_as\_SNI(Binstar* b) so that timestep\_0 is reset to the current value}}
+\DoxyCodeLine{346                     \mbox{\hyperlink{class_binstar_afde7d5efa2872bd096e7668e7f533296}{set\_broken}}();}
+\DoxyCodeLine{347                     \mbox{\hyperlink{class_binstar_a0b5c618923549ca6fc4db699d8d59cab}{set\_onesurvived}}();}
+\DoxyCodeLine{348                     \textcolor{comment}{//TODO, Here we are using a arbitrary process just to set the event, we should have a proper way to set the event without calling the preoceese}}
+\DoxyCodeLine{349                     \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}[\mbox{\hyperlink{class_roche_lobe_aeb29651cd3555b07b979889263d1ef66}{RocheLobe::ID}}]-\/>set\_event((\textcolor{keywordtype}{double})\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06aaa354cbf315566ecb462ace09fa7fcb6}{Lookup::EventsList::SNIa}});}
+\DoxyCodeLine{350             \}}
+\DoxyCodeLine{351             \mbox{\hyperlink{class_binstar_ab7b40ec98fab01193fe082cc198ce31e}{check\_and\_set\_QHE}}(this\_star); \textcolor{comment}{//Check if we have to flag QHE evolution}}
+\DoxyCodeLine{352             this\_star-\/>\mbox{\hyperlink{class_star_af4526e9395faa0f7a5b71a924d4f9d4c}{find\_new\_track}}(); \textcolor{comment}{//Check if we have to change tracks}}
+\DoxyCodeLine{353             this\_star-\/>\mbox{\hyperlink{class_star_a7affdfdd1c6ba54cce86e44863ece446}{check\_remnant\_mass\_limits}}(); \textcolor{comment}{//Check if we have to performe a Crem transition (e.g. from NS to BH)}}
+\DoxyCodeLine{354             \textcolor{comment}{//If the Mass is extremely small set it to empty.}}
+\DoxyCodeLine{355             \textcolor{keywordflow}{if} (this\_star-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}})<1e-\/3)\{this\_star-\/>\mbox{\hyperlink{class_star_a6207087242eafe99439e5e12a828afe1}{set\_empty}}();\}}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357             \textcolor{comment}{//Update derived properties (basic properties could have been changes during binary processes)}}
+\DoxyCodeLine{358             \textcolor{comment}{//TODO Now this check is made also inside binary\_evolution. I have to check  if we can remove this call from here}}
+\DoxyCodeLine{359             \mbox{\hyperlink{class_binstar_a007cbdae2fb976bc85a21866a0e88526}{update\_derived\_properties\_star}}(this\_star);}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361             \textcolor{comment}{//update Maximum CO and minimum HE (only after the CO core has been formed)}}
+\DoxyCodeLine{362             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}{get\_svpar\_bool}}(\textcolor{stringliteral}{"{}ev\_set\_maxCO"{}}) and std::isnan(this\_star-\/>\mbox{\hyperlink{class_star_a676334d73c66669f3edcf0086ba469e7}{get\_MCO\_max}}()) and this\_star-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}}) >= \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2ad78060bf17c456d3895da3a24299ff9e}{TerminalCoreHeBurning}} and !this\_star-\/>\mbox{\hyperlink{class_star_a5393a0ad9bc22851d12c390c5fb9c0b4}{amiremnant}}())\{}
+\DoxyCodeLine{363                 this\_star-\/>\mbox{\hyperlink{class_star_a510ac820edd8c1123037dbd1e3e1ef36}{set\_MCO\_max}}();}
+\DoxyCodeLine{364             \}}
+\DoxyCodeLine{365             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}{get\_svpar\_bool}}(\textcolor{stringliteral}{"{}ev\_set\_minHE"{}}) and std::isnan(this\_star-\/>\mbox{\hyperlink{class_star_a97bb34ff0685ed61b43cd47f1fe10ddd}{get\_MHE\_min}}()) and this\_star-\/>\mbox{\hyperlink{class_star_af7c112956f93fec2bd3f8c7ba4edcaec}{getp}}(\mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}}) >= \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2ad78060bf17c456d3895da3a24299ff9e}{TerminalCoreHeBurning}} and !this\_star-\/>\mbox{\hyperlink{class_star_a5393a0ad9bc22851d12c390c5fb9c0b4}{amiremnant}}())\{}
+\DoxyCodeLine{366                 this\_star-\/>\mbox{\hyperlink{class_star_a958500bc48b83aed7a6bf844a5b860e8}{set\_MHE\_min}}();}
+\DoxyCodeLine{367             \}}
+\DoxyCodeLine{368             \mbox{\hyperlink{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}{utilities::swap\_stars}}(this\_star,other\_star);}
+\DoxyCodeLine{369         \}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371         \textcolor{comment}{//Very last thing Binary event special evolve}}
+\DoxyCodeLine{372         \textcolor{keyword}{property}[\mbox{\hyperlink{class_b_event_af99294f025726cc04091fd384f6b4230}{BEvent::ID}}]-\/>special\_evolve(\textcolor{keyword}{this});}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374     \}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376     \textcolor{comment}{//TODO tO save space maybe we can flush the allstates data to the output file after a given number of stored elements.}}
+\DoxyCodeLine{377     \textcolor{comment}{//TODO use a binary property NextOutput}}
+\DoxyCodeLine{378     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\_w\_timeupdate}}() \{}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{381         \mbox{\hyperlink{class_binstar_aefac41679d9bbc2e7cf7dbc0f3c3c2d9}{evolution\_guard}}(\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383         \textcolor{comment}{//TODO check that they are in sync}}
+\DoxyCodeLine{384         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a9ecf6903874752988930d8140b5affb0}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{385         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a9ecf6903874752988930d8140b5affb0}{recordstate\_w\_timeupdate}}();}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{387         \mbox{\hyperlink{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}{recordstate\_binary}}();}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389     \}}
+\DoxyCodeLine{390     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}}() \{}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392         \textcolor{comment}{//TODO check that they are in sync}}
+\DoxyCodeLine{393         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a49bf8080d0f536d90660022ea7b7acaf}{recordstate}}();}
+\DoxyCodeLine{394         \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a49bf8080d0f536d90660022ea7b7acaf}{recordstate}}();}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396         \mbox{\hyperlink{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}{recordstate\_binary}}();}
+\DoxyCodeLine{397     \}}
+\DoxyCodeLine{398     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}{recordstate\_binary}}()\{}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a13566b115648e8dd8d7d84c413c4962a}{printcolumns\_binary}}.size(); i++)\{}
+\DoxyCodeLine{401             \textcolor{comment}{//Concerning the Timestep, put the used one not the proposed one}}
+\DoxyCodeLine{402             \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a76e7189db5b97005fa199ca0ae6fb19c}{printIDs\_binary}}[i]==\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}})}
+\DoxyCodeLine{403                 \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}[i] = \mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a76e7189db5b97005fa199ca0ae6fb19c}{printIDs\_binary}}[i]);}
+\DoxyCodeLine{404                 \textcolor{comment}{//state[i] = star[0]-\/>getp\_0(Timestep::ID);}}
+\DoxyCodeLine{405             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{406                 \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}[i] = \mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a76e7189db5b97005fa199ca0ae6fb19c}{printIDs\_binary}}[i]);}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408         \}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411         \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}} = \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a9b84497e1c7fca7cb3da6b42b2a7be7e}{getstate}}();}
+\DoxyCodeLine{412         \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}.insert(\mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}.end(), \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a9b84497e1c7fca7cb3da6b42b2a7be7e}{getstate}}().begin(), \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a9b84497e1c7fca7cb3da6b42b2a7be7e}{getstate}}().end());}
+\DoxyCodeLine{413         \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}.insert(\mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}.end(), \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}.begin(), \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}.end());}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415         \mbox{\hyperlink{class_binstar_a1995046c6ca65dfaf4daed12f2594100}{allstates}}.push\_back(\mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}});}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417         \textcolor{comment}{//TODO The single recordstate of the two stars are now stored in combinedstate. Can we reset and free the memory of star.allstates?}}
+\DoxyCodeLine{418         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \& cc: \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}})}
+\DoxyCodeLine{419             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}Combined state: "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(cc,\_\_FILE\_\_,\_\_LINE\_\_));}
+\DoxyCodeLine{420     \}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_afde7d5efa2872bd096e7668e7f533296}{set\_broken}}()\{}
+\DoxyCodeLine{423         \mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{424         \mbox{\hyperlink{class_binstar_a3b0954cffeb07905f7fa90ded5047534}{check\_and\_set\_broken}}();}
+\DoxyCodeLine{425         \textcolor{comment}{//std::string w = utilities::log\_print("{}BROKEN"{}, this);}}
+\DoxyCodeLine{426         \textcolor{comment}{//print\_to\_log(w);}}
+\DoxyCodeLine{427     \}}
+\DoxyCodeLine{428     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a0f66da596fb8e6771bd8effdf37659a6}{set\_empty}}()\{\mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}}=\textcolor{keyword}{false}; \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}}=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{429     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a0b5c618923549ca6fc4db699d8d59cab}{set\_onesurvived}}()\{}
+\DoxyCodeLine{430         \textcolor{comment}{//set\_onesurvived is triggered when a star in the system becomes empty:}}
+\DoxyCodeLine{431         \textcolor{comment}{//if oneservived is already true, the binasry system is now empty}}
+\DoxyCodeLine{432         \textcolor{comment}{//if empty the binary is empty and onesurvived has to be false.}}
+\DoxyCodeLine{433         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}})}
+\DoxyCodeLine{434             \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{435         \textcolor{comment}{//if true and not empty, not the binary system becomes empty and onesurvived is reset to false}}
+\DoxyCodeLine{436         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}})\{}
+\DoxyCodeLine{437             \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{438             \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{439         \}}
+\DoxyCodeLine{440         \textcolor{comment}{//If binary is not empty and onesurvived was false set onesurvived to true}}
+\DoxyCodeLine{441         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{442             \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}}= \textcolor{keyword}{true};}
+\DoxyCodeLine{443     \}}
+\DoxyCodeLine{444     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447         \textcolor{comment}{//if (star[0]-\/>isempty and star[1]-\/>isempty) return true; //the system is empty}}
+\DoxyCodeLine{448         \textcolor{keywordflow}{if} ( (\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}} or \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}}) and \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\_at\_broken}}) \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{//system is broken or just one object in the system}}
+\DoxyCodeLine{449         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>isremnant and \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isremnant and \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}}) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{450         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( (!\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>isremnant or !\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>isremnant)  and \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}} )\{}
+\DoxyCodeLine{451             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{452         \}}
+\DoxyCodeLine{453         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\_at\_remnant}})\{}
+\DoxyCodeLine{454             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}})>=\mbox{\hyperlink{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}{get\_tf}}() or  \mbox{\hyperlink{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}{utilities::areEqual}}(\mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}}(\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}}),\mbox{\hyperlink{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}{get\_tf}}());}
+\DoxyCodeLine{455         \}}
+\DoxyCodeLine{456         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{457             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} svlog\_tmp;}
+\DoxyCodeLine{458             svlog\_tmp.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Star breaktrigger check failed (Maybe Worldtimes are not synchronised?)"{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{459         \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464     \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{471     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a6d9fa9dc69e02246865fc0321549ba72}{is\_process\_ongoing}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id})\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}[id]-\/>is\_process\_ongoing();\}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{474 }
+\DoxyCodeLine{479     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_af11e563c73b698c167cd444bd50cf286}{processes\_alarm}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id})\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}[id]-\/>is\_special\_evolution\_alarm\_on();\}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{485     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a08f804b7957d014044a1c6e1fd0c1a08}{process\_alarm\_any}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{491     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a36128cfad5b054f6b33e5cd1ffbd1897}{reset\_all\_processes\_alarms}}()\{\textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& proc : \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}) proc-\/>special\_evolution\_alarm\_switch\_off();\};}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{494 }
+\DoxyCodeLine{497     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a8971009ead0cecde5352b5b8aeecfba3}{reset\_events}}()\{}
+\DoxyCodeLine{498         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& proc : \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}})}
+\DoxyCodeLine{499             proc-\/>reset\_event();}
+\DoxyCodeLine{500     \}}
+\DoxyCodeLine{508     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_ac374cd7eddd3f041d049768f42b7a495}{get\_event\_from\_processes}}()\{}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510         \textcolor{keywordtype}{bool} RLOB\_triggered=\textcolor{keyword}{false};}
+\DoxyCodeLine{511         \textcolor{keywordtype}{bool} Merger\_triggered=\textcolor{keyword}{false};}
+\DoxyCodeLine{512         \textcolor{keywordtype}{bool} Collision\_triggered=\textcolor{keyword}{false};}
+\DoxyCodeLine{513         \textcolor{keywordtype}{bool} CE\_triggered=\textcolor{keyword}{false};}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515         \textcolor{keywordtype}{double} \textcolor{keyword}{event}=-\/1.0;}
+\DoxyCodeLine{516         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& proc : \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}})\{}
+\DoxyCodeLine{517             \textcolor{keywordtype}{double} this\_event=proc-\/>get\_event();}
+\DoxyCodeLine{518             \textcolor{keywordflow}{if} (this\_event==EventsList::RLOBegin) RLOB\_triggered=\textcolor{keyword}{true};}
+\DoxyCodeLine{519             \textcolor{keywordflow}{else}  \textcolor{keywordflow}{if} (this\_event==EventsList::Merger) Merger\_triggered=\textcolor{keyword}{true};}
+\DoxyCodeLine{520             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this\_event==EventsList::Collision) Collision\_triggered=\textcolor{keyword}{true};}
+\DoxyCodeLine{521             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this\_event==EventsList::CE) CE\_triggered=\textcolor{keyword}{true};}
+\DoxyCodeLine{522             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this\_event==EventsList::CE\_Merger)\{CE\_triggered=\textcolor{keyword}{true};Merger\_triggered=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{523             \textcolor{keywordflow}{if} (this\_event>event)\{}
+\DoxyCodeLine{524                 \textcolor{keyword}{event}=this\_event;}
+\DoxyCodeLine{525             \}}
+\DoxyCodeLine{526         \}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528         \textcolor{comment}{//Check composite events}}
+\DoxyCodeLine{529         \textcolor{keywordflow}{if} (Collision\_triggered and CE\_triggered and Merger\_triggered) \textcolor{keyword}{event}=EventsList::Collision\_CE\_Merger;}
+\DoxyCodeLine{530         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Collision\_triggered and CE\_triggered) \textcolor{keyword}{event}=EventsList::Collision\_CE;}
+\DoxyCodeLine{531         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Collision\_triggered and Merger\_triggered) \textcolor{keyword}{event}=EventsList::Collision\_Merger;}
+\DoxyCodeLine{532         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (RLOB\_triggered and CE\_triggered and Merger\_triggered) \textcolor{keyword}{event}=EventsList::RLOB\_CE\_Merger;}
+\DoxyCodeLine{533         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (RLOB\_triggered and CE\_triggered) \textcolor{keyword}{event}=EventsList::RLOB\_CE;}
+\DoxyCodeLine{534         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (RLOB\_triggered and Merger\_triggered) \textcolor{keyword}{event}=EventsList::RLOB\_Merger;}
+\DoxyCodeLine{535         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (CE\_triggered and Merger\_triggered) \textcolor{keyword}{event}=EventsList::CE\_Merger;}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537         \textcolor{keywordflow}{return} event;}
+\DoxyCodeLine{538     \}}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542     \textcolor{comment}{//TODO, outoput stuff should be removed from the star and binary classes and handeld by a separate class}}
+\DoxyCodeLine{547 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a797a71bea2a27583df0df611b36fbfdb}{isoutputtime}}();}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}{printall}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a01918bafdd308f4951e83846b2be3deb}{print\_all\_steps}};\}}
+\DoxyCodeLine{550     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a1a7a24142d1d36ffbc685c8252aadfe9}{notprint}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_abbc52bc2a7091921195a193790e2c9ee}{print\_only\_end}};\}}
+\DoxyCodeLine{557     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a7dab973fbbda46726e581094e77d5888}{print}}()\{}
+\DoxyCodeLine{558         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a1c2f0b12a9a1bfffdd7d7129eb37c7b8}{print\_log}}();}
+\DoxyCodeLine{559         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a05104d92ec20c809ec5816829a9433bd}{print\_evolved\_summary}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}, \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}, \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}});}
+\DoxyCodeLine{560         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a0b6c0c34c5c9f20a78fb23776674baa7}{print\_formatted\_output}}(\mbox{\hyperlink{class_binstar_a1995046c6ca65dfaf4daed12f2594100}{allstates}}, \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}, \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}, \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}},\textcolor{keyword}{true});}
+\DoxyCodeLine{561     \}}
+\DoxyCodeLine{576     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a0611147a14a45d55b971208783f49bf5}{print\_failed}}(\textcolor{keywordtype}{bool} include\_in\_output=\textcolor{keyword}{false})\{}
+\DoxyCodeLine{577         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a1c2f0b12a9a1bfffdd7d7129eb37c7b8}{print\_log}}();}
+\DoxyCodeLine{578         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a3ca54354ff5ec1562bcaba6802b32c9a}{print\_failed\_summary}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}, \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}, \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}});}
+\DoxyCodeLine{579         \textcolor{keywordflow}{if} (include\_in\_output)}
+\DoxyCodeLine{580             \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a0b6c0c34c5c9f20a78fb23776674baa7}{print\_formatted\_output}}(\mbox{\hyperlink{class_binstar_a1995046c6ca65dfaf4daed12f2594100}{allstates}}, \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}, \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}, \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}},\textcolor{keyword}{true});}
+\DoxyCodeLine{581     \}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{588     \textcolor{keywordtype}{void}  \textcolor{keyword}{inline} \mbox{\hyperlink{class_binstar_a0eb54871696753494838a12289f31f9c}{print\_to\_log}}(std::string\& message)\{}
+\DoxyCodeLine{589         \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a7e37248890d47aaf46fc0a32c9758187}{log\_put}}(message);}
+\DoxyCodeLine{590     \}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{599     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a101c7957ed37b33ece459ca9e90accbf}{init}}(\textcolor{keyword}{const} std::vector<std::string> \&params);}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{601     \textcolor{keyword}{inline} std::vector<double>  \mbox{\hyperlink{class_binstar_a815867f513fa1febbe5e5c9fdf42c854}{get\_zams}}() \{}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{603         std::vector<double> zams\{\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a71ab4e444bb4151768018eb26c142d01}{get\_zams}}(), \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a71ab4e444bb4151768018eb26c142d01}{get\_zams}}()\};}
+\DoxyCodeLine{604         \textcolor{keywordflow}{return} zams;}
+\DoxyCodeLine{605     \};}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607     \textcolor{keyword}{inline} std::vector<double>  \mbox{\hyperlink{class_binstar_ab493e92d3c59c6e2dca195cb6cdb9cac}{get\_Z}}() \{}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609         std::vector<double> Z\{\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0]-\/>\mbox{\hyperlink{class_star_a83cdb6cbab090c6da36d3160e2a2591c}{get\_Z}}(), \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1]-\/>\mbox{\hyperlink{class_star_a83cdb6cbab090c6da36d3160e2a2591c}{get\_Z}}()\};}
+\DoxyCodeLine{610         \textcolor{keywordflow}{return} Z;}
+\DoxyCodeLine{611     \};}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{619     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aa1b586f803316850cedc4bc8db9e0174}{set\_tf}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} a, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line) \{}
+\DoxyCodeLine{620 }
+\DoxyCodeLine{621         \textcolor{keywordflow}{if}(std::isnan(a) || std::isinf(a))}
+\DoxyCodeLine{622             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Tf set to INF or NAN"{}}, file, line);}
+\DoxyCodeLine{623         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(a < 0.0)}
+\DoxyCodeLine{624             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Tf cannot be negative"{}}, file, line);}
+\DoxyCodeLine{625         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{626             \mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}} = a;}
+\DoxyCodeLine{627     \}}
+\DoxyCodeLine{628 }
+\DoxyCodeLine{635     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a2439eada01ef664c81dfc6bd7e9d7f8e}{set\_dtout}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} a, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line) \{}
+\DoxyCodeLine{636 }
+\DoxyCodeLine{637         \textcolor{keywordflow}{if}(std::isnan(a) || std::isinf(a))}
+\DoxyCodeLine{638             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}dtout set to INF or NAN"{}}, file, line);}
+\DoxyCodeLine{639         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(a <0.0)}
+\DoxyCodeLine{640             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}dtout cannot be negative"{}}, file, line);}
+\DoxyCodeLine{641         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{642             \mbox{\hyperlink{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}{dtout}} = a;}
+\DoxyCodeLine{643     \}}
+\DoxyCodeLine{644 }
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aee6bcdfa097710b90edd685bd032d8eb}{evolution\_step\_done}}()\{}
+\DoxyCodeLine{647         \mbox{\hyperlink{class_binstar_a24217396219460cd0c3c2f77b62c7435}{last\_Timestep}} = \mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\_0}}(\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}); \textcolor{comment}{//V0 in BTimestep contains the Timestep of the step currently done, V is the time predicted for the new Timestep}}
+\DoxyCodeLine{648         \mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\_step\_completed}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{649     \}}
+\DoxyCodeLine{650     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aefac41679d9bbc2e7cf7dbc0f3c3c2d9}{evolution\_guard}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1)\{}
+\DoxyCodeLine{651         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\_step\_completed}})}
+\DoxyCodeLine{652             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}The function recordstate\_w\_timeupdate can be called only after an evolution step"{}},file\_input,line\_input,\mbox{\hyperlink{classsevnstd_1_1bse__error}{sevnstd::bse\_error}}());}
+\DoxyCodeLine{653     \}}
+\DoxyCodeLine{654     \textcolor{keyword}{inline} \textcolor{keywordtype}{double}  \mbox{\hyperlink{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}{get\_tf}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}};\};}
+\DoxyCodeLine{655 }
+\DoxyCodeLine{656     \textcolor{comment}{//TODO We have to take into account that the two stars can have different phases times. For now we just disable the print\_per\_phase option}}
+\DoxyCodeLine{657     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a9d2d3f8f42498c92e3d58a3cee23f17d}{get\_dtout}}()  \{}
+\DoxyCodeLine{658         \textcolor{comment}{//if(print\_per\_phase)}}
+\DoxyCodeLine{659         \textcolor{comment}{//    return dtout\_phase[(size\_t)properties[Phase::ID]-\/>get()];   //TODO it can be or fixed or print all time steps or print all timesteps diveded by 2 (print every 2), or divided by 3 (print every 3) and so on...}}
+\DoxyCodeLine{660         \textcolor{comment}{//else}}
+\DoxyCodeLine{661         \textcolor{comment}{//    return dtout;}}
+\DoxyCodeLine{662         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}{dtout}};}
+\DoxyCodeLine{663     \}}
+\DoxyCodeLine{664 }
+\DoxyCodeLine{665     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\_id\_name}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{666         std::string mss = \textcolor{stringliteral}{"{}ID: "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}},\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{} Name: "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{667         \textcolor{keywordflow}{return} mss;}
+\DoxyCodeLine{668     \}}
+\DoxyCodeLine{669 }
+\DoxyCodeLine{677     \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{utilities::sn\_explosion}} \mbox{\hyperlink{class_binstar_a5004c805552685bf6a423b6a01bdc184}{check\_accretion\_on\_compact}}(\textcolor{keywordtype}{size\_t} donorID, \textcolor{keywordtype}{size\_t} accretorID, \textcolor{keywordtype}{double} DMaccreted);}
+\DoxyCodeLine{678 }
+\DoxyCodeLine{683     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a5004c805552685bf6a423b6a01bdc184}{check\_accretion\_on\_compact}}()\{}
+\DoxyCodeLine{684 }
+\DoxyCodeLine{685         \mbox{\hyperlink{class_star}{Star}} *donor    = \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[0];}
+\DoxyCodeLine{686         \mbox{\hyperlink{class_star}{Star}} *accretor = \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[1];}
+\DoxyCodeLine{687         \textcolor{keywordtype}{double} DM\_accretor;}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{689         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<2; i++)\{}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{692             \textcolor{comment}{//Consider all the process, NB DM can be negative}}
+\DoxyCodeLine{693             \textcolor{comment}{//Cycle over all the processes to get the total DM variation.}}
+\DoxyCodeLine{694             DM\_accretor=0;}
+\DoxyCodeLine{695             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&proc : \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}})\{}
+\DoxyCodeLine{696                 DM\_accretor += proc-\/>get\_var(accretor-\/>\mbox{\hyperlink{class_star_a1f080eecc78bb674d4f2b9213e8b0887}{get\_ID}}(), \mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}});}
+\DoxyCodeLine{697             \}}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{699             \textcolor{comment}{//Check only if it is really accreting}}
+\DoxyCodeLine{700             \textcolor{keywordflow}{if} (DM\_accretor>0)}
+\DoxyCodeLine{701                 \mbox{\hyperlink{class_binstar_a5004c805552685bf6a423b6a01bdc184}{check\_accretion\_on\_compact}}(donor-\/>\mbox{\hyperlink{class_star_a1f080eecc78bb674d4f2b9213e8b0887}{get\_ID}}(), accretor-\/>\mbox{\hyperlink{class_star_a1f080eecc78bb674d4f2b9213e8b0887}{get\_ID}}(), DM\_accretor);}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{703 }
+\DoxyCodeLine{704             \mbox{\hyperlink{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}{utilities::swap\_stars}}(donor, accretor);}
+\DoxyCodeLine{705         \}}
+\DoxyCodeLine{706     \}}
+\DoxyCodeLine{707 }
+\DoxyCodeLine{712     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_a3b0954cffeb07905f7fa90ded5047534}{check\_and\_set\_broken}}()\{}
+\DoxyCodeLine{713         \textcolor{comment}{//If broken or onesurvived or empty set properties to broken  and return true}}
+\DoxyCodeLine{714         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}} or \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}} or \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}}) \{}
+\DoxyCodeLine{715             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&prop: \mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}})}
+\DoxyCodeLine{716                 prop-\/>set\_broken(\textcolor{keyword}{this});}
+\DoxyCodeLine{717             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{718         \}}
+\DoxyCodeLine{719 }
+\DoxyCodeLine{720         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{721     \}}
+\DoxyCodeLine{722 }
+\DoxyCodeLine{723 }
+\DoxyCodeLine{724     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aeb44d765aa9b80a384eb9b37ed0010bd}{check\_and\_set\_bavera\_xspin}}();}
+\DoxyCodeLine{725     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a78a3dc92757243d2f7bc54e3dd43be12}{check\_if\_applied\_bavera\_xspin}}();}
+\DoxyCodeLine{726     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a21decff12513b1673276460b72a66e19}{SetXspinBavera}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}, \textcolor{keyword}{const} \textcolor{keywordtype}{double}) \textcolor{keyword}{const}; \textcolor{comment}{// Computes the Xspin following Bavera et al. (2021). Used only for the second BH spin in the case of a binary undergoing WR+BH -\/-\/> BH+BH.}}
+\DoxyCodeLine{728 \textcolor{comment}{}}
+\DoxyCodeLine{729 }
+\DoxyCodeLine{730 }
+\DoxyCodeLine{731 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{732 }
+\DoxyCodeLine{734     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}}; }
+\DoxyCodeLine{735     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}{dtout}}; }
+\DoxyCodeLine{736     std::vector<double> \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}};  }
+\DoxyCodeLine{737     std::vector<double> \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}; }
+\DoxyCodeLine{738     std::vector<std::vector<double>> \mbox{\hyperlink{class_binstar_a1995046c6ca65dfaf4daed12f2594100}{allstates}}; }
+\DoxyCodeLine{740 }
+\DoxyCodeLine{743 }
+\DoxyCodeLine{746     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a116c8e2a2676d286b709d250546a641b}{synchronise\_dt\_star}}();}
+\DoxyCodeLine{747 }
+\DoxyCodeLine{752     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a37f873db5f84a7c554b87574cd352460}{check\_and\_sync\_sse}}();}
+\DoxyCodeLine{753 }
+\DoxyCodeLine{754 }
+\DoxyCodeLine{759     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a9b4cec5b5639c0e127c3fb0ce03518cd}{check\_and\_sync\_bse}}();}
+\DoxyCodeLine{760 }
+\DoxyCodeLine{762 }
+\DoxyCodeLine{772     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a85b95135889d7164a4c5c2b057c3fb2e}{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution}}();}
+\DoxyCodeLine{773 }
+\DoxyCodeLine{780     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a1178046c7a85780693d8901da879722b}{check\_AngMomSpin\_after\_binary\_evolution}}();}
+\DoxyCodeLine{781 }
+\DoxyCodeLine{792     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aa455558e6e1e3c834e3c8062bd8de7e0}{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor,}
+\DoxyCodeLine{793                                                                std::size\_t mass\_limiting\_property\_id);}
+\DoxyCodeLine{794 }
+\DoxyCodeLine{806     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binstar_ab7b40ec98fab01193fe082cc198ce31e}{check\_and\_set\_QHE}}(\mbox{\hyperlink{class_star}{Star}} *accretor);}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{814     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a007cbdae2fb976bc85a21866a0e88526}{update\_derived\_properties\_star}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{815 }
+\DoxyCodeLine{817 }
+\DoxyCodeLine{820     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_ae496c2e7acd865f56077d7eb3feed9cf}{reset\_evolution\_flags}}()\{\mbox{\hyperlink{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}{mix}}=\mbox{\hyperlink{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}{comenv}}=\mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\_swallowed}}[0]=\mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\_swallowed}}[1]=\textcolor{keyword}{false};\}}
+\DoxyCodeLine{821 }
+\DoxyCodeLine{823 }
+\DoxyCodeLine{824 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{825     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}};  }
+\DoxyCodeLine{828 \textcolor{keyword}{private}:}
+\DoxyCodeLine{829 }
+\DoxyCodeLine{831     vector<Process*> \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}};  }
+\DoxyCodeLine{832     vector<BinaryProperty*> \mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}}; }
+\DoxyCodeLine{833     \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}}[2]=\{\textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\}; }
+\DoxyCodeLine{834     \mbox{\hyperlink{class_i_o}{IO}} *\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}; }
+\DoxyCodeLine{835     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}}; }
+\DoxyCodeLine{836     std::vector<std::string> \mbox{\hyperlink{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}{init\_params}}; }
+\DoxyCodeLine{837     std::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}};  }
+\DoxyCodeLine{838     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}; }
+\DoxyCodeLine{840 }
+\DoxyCodeLine{842     \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{utilities::bse\_evolution}} \mbox{\hyperlink{class_binstar_aefaf3f43593cb62606ad5c8dc4bcfce1}{evolve\_binary}}();}
+\DoxyCodeLine{843 }
+\DoxyCodeLine{844     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a1fb61a171833151e3f91c6b0ced607af}{resynch}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&dt)\{}
+\DoxyCodeLine{845 }
+\DoxyCodeLine{846         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&prop : \mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}}) prop-\/>restore();}
+\DoxyCodeLine{847         \textcolor{keyword}{property}[\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}}]-\/>resynch(dt);}
+\DoxyCodeLine{848 }
+\DoxyCodeLine{849     \}}
+\DoxyCodeLine{850 }
+\DoxyCodeLine{854     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a1d574ee8559d351c18bc9e40e9bd9a69}{default\_destructor}}();}
+\DoxyCodeLine{855 }
+\DoxyCodeLine{863     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a8c1c3e5570a0bb94a954a2f76f5919ec}{call\_stars\_constructor}}(std::vector<std::string> \&params\_star1, std::vector<std::string> \&params\_star2);}
+\DoxyCodeLine{864 }
+\DoxyCodeLine{874     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_acc619bacd09980142a743a82b16c9003}{init\_stars}}(\textcolor{keyword}{const} std::vector<std::string> \&params);}
+\DoxyCodeLine{875 }
+\DoxyCodeLine{885     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a9dcf72f4fdadda8bf06f19b0e9898ef9}{init\_stars\_legacy}}(\textcolor{keyword}{const} std::vector<std::string> \&params);}
+\DoxyCodeLine{886 }
+\DoxyCodeLine{891     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a226dbca0db6ba4269a84900dd9716428}{set\_initial\_semimajor}}(\textcolor{keywordtype}{double} a\_ini)\{}
+\DoxyCodeLine{892         \textcolor{keywordflow}{if} (a\_ini<=0)\{}
+\DoxyCodeLine{893             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Error on binary initialisation ("{}} + \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\_id\_name}}() +\textcolor{stringliteral}{"{}): Semimajor is "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(a\_ini, \_\_FILE\_\_, \_\_LINE\_\_) + \textcolor{stringliteral}{"{}: out of range (Semimajor>0)"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{894         \}}
+\DoxyCodeLine{895         \textcolor{keyword}{property}[\mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{Semimajor::ID}}]-\/>init(a\_ini);}
+\DoxyCodeLine{896     \}}
+\DoxyCodeLine{897 }
+\DoxyCodeLine{903     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_ac055a8c158630f1d449bb27e1a3d2942}{set\_initial\_semimajor}}(std::string a\_ini)\{}
+\DoxyCodeLine{904 }
+\DoxyCodeLine{905         \textcolor{keywordtype}{double} a\_inid;}
+\DoxyCodeLine{906         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{907             a\_inid = utilities::s2n<double>(a\_ini, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{908         \}}
+\DoxyCodeLine{909         \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}\& e)\{}
+\DoxyCodeLine{910             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Impossible to transform the given initial Semimajor axis to a number ("{}}+}
+\DoxyCodeLine{911             \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\_id\_name}}()+\textcolor{stringliteral}{"{}): its value is "{}}+a\_ini,\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{912         \}}
+\DoxyCodeLine{913         \mbox{\hyperlink{class_binstar_a226dbca0db6ba4269a84900dd9716428}{set\_initial\_semimajor}}(a\_inid);}
+\DoxyCodeLine{914     \}}
+\DoxyCodeLine{915 }
+\DoxyCodeLine{916 }
+\DoxyCodeLine{921     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}{set\_initial\_eccentricity}}(\textcolor{keywordtype}{double} ecc\_ini)\{}
+\DoxyCodeLine{922         \textcolor{keywordflow}{if} (ecc\_ini<0 or ecc\_ini>=1)\{}
+\DoxyCodeLine{923             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Error on binary initialisation ("{}} + \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\_id\_name}}() +\textcolor{stringliteral}{"{}): Eccentricity is "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(ecc\_ini, \_\_FILE\_\_, \_\_LINE\_\_) + \textcolor{stringliteral}{"{}: out of range (0<=Eccentricity<1)"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{924         \}}
+\DoxyCodeLine{925         \textcolor{keyword}{property}[\mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{Eccentricity::ID}}]-\/>init(ecc\_ini);}
+\DoxyCodeLine{926     \}}
+\DoxyCodeLine{927 }
+\DoxyCodeLine{933     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_ad48aad98fc5f6350914ac5eb86882fc8}{set\_initial\_eccentricity}}(std::string ecc\_ini)\{}
+\DoxyCodeLine{934 }
+\DoxyCodeLine{935         \textcolor{keywordtype}{double} ecc\_inid;}
+\DoxyCodeLine{936         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{937             ecc\_inid = utilities::s2n<double>(ecc\_ini, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{938         \}}
+\DoxyCodeLine{939         \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}\& e)\{}
+\DoxyCodeLine{940             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Impossible to transform the given initial Eccentricity  to a number ("{}}+}
+\DoxyCodeLine{941                            \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\_id\_name}}()+\textcolor{stringliteral}{"{}): its value is "{}}+ecc\_ini,\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{942         \}}
+\DoxyCodeLine{943         \mbox{\hyperlink{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}{set\_initial\_eccentricity}}(ecc\_inid);}
+\DoxyCodeLine{944     \}}
+\DoxyCodeLine{945 }
+\DoxyCodeLine{946 }
+\DoxyCodeLine{953     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_aff1c82eea945fa790312bc4e7a77bec2}{init\_binary\_properties}}(\textcolor{keyword}{const} std::vector<std::string> \&params)\{}
+\DoxyCodeLine{954 }
+\DoxyCodeLine{955         \textcolor{keywordtype}{int} inchoice=\mbox{\hyperlink{namespace_lookup_a94eac4b6a4a62070069fa1073a6bc8df}{inputmapbin}}.at(\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_abadbf7d7e979b1b4515dfe8b47a30722}{binput\_mode}}).first;}
+\DoxyCodeLine{956 }
+\DoxyCodeLine{957         std::string a,ecc;}
+\DoxyCodeLine{958 }
+\DoxyCodeLine{959         \textcolor{keywordflow}{if} (inchoice==InputBinaryOption::\_new)\{}
+\DoxyCodeLine{960             a=params[10];}
+\DoxyCodeLine{961             ecc=params[11];}
+\DoxyCodeLine{962         \}}
+\DoxyCodeLine{963         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (inchoice==InputBinaryOption::\_legacy)\{}
+\DoxyCodeLine{964             a=params[6];}
+\DoxyCodeLine{965             ecc=params[7];}
+\DoxyCodeLine{966         \}}
+\DoxyCodeLine{967 }
+\DoxyCodeLine{968         \textcolor{comment}{//Init semimajor}}
+\DoxyCodeLine{969         \mbox{\hyperlink{class_binstar_a226dbca0db6ba4269a84900dd9716428}{set\_initial\_semimajor}}(a);}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{971         \textcolor{comment}{//Init eccentricity}}
+\DoxyCodeLine{972         \mbox{\hyperlink{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}{set\_initial\_eccentricity}}(ecc);}
+\DoxyCodeLine{973 }
+\DoxyCodeLine{974     \}}
+\DoxyCodeLine{975 }
+\DoxyCodeLine{982     \textcolor{keywordtype}{void}  \mbox{\hyperlink{class_binstar_af662832c416e52e65e81353b13b582dd}{init\_other\_params}}();}
+\DoxyCodeLine{983 }
+\DoxyCodeLine{988     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a857dad2fd434d3cc7be21242befadeec}{set\_break\_at\_broken}}(std::string \&\mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}})\{}
+\DoxyCodeLine{989         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}}==\textcolor{stringliteral}{"{}broken"{}})\{}
+\DoxyCodeLine{990             \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\_at\_broken}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{991             \mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}}=\textcolor{stringliteral}{"{}14000"{}}; \textcolor{comment}{//Set time to Hubble time}}
+\DoxyCodeLine{992         \}}
+\DoxyCodeLine{993         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{994             \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\_at\_broken}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{995         \}}
+\DoxyCodeLine{996     \}}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{998     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binstar_a97ed25d332706a969e7a3156d4414edf}{set\_rseed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} a, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line)\{}
+\DoxyCodeLine{999 }
+\DoxyCodeLine{1000         \textcolor{keywordflow}{if}(std::isnan(a) || std::isinf(a))}
+\DoxyCodeLine{1001             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Rseed set to INF or NAN"{}}, file, line);}
+\DoxyCodeLine{1002         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (a<=0)}
+\DoxyCodeLine{1003             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Rseed cannot be negative or 0"{}}, file, line);}
+\DoxyCodeLine{1004         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1005             \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}} = a;}
+\DoxyCodeLine{1006     \}}
+\DoxyCodeLine{1007 }
+\DoxyCodeLine{1012     \textcolor{keywordtype}{void} \textcolor{keyword}{inline} \mbox{\hyperlink{class_binstar_a0b17da2bd3cfe2cfc6aff82e51454955}{check\_init\_param}}(\textcolor{keyword}{const} std::vector<std::string> \&params)\{}
+\DoxyCodeLine{1013 }
+\DoxyCodeLine{1014 }
+\DoxyCodeLine{1015         \textcolor{keywordtype}{int} par\_expected\_size = \mbox{\hyperlink{namespace_lookup_a94eac4b6a4a62070069fa1073a6bc8df}{inputmapbin}}.at(\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_abadbf7d7e979b1b4515dfe8b47a30722}{binput\_mode}}).second; \textcolor{comment}{//Number of expected parameters given the binput\_mode stored in io.}}
+\DoxyCodeLine{1016         \textcolor{comment}{//If rseed is provided we have an extra parameter that is the seed.}}
+\DoxyCodeLine{1017         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}-\/>\mbox{\hyperlink{class_i_o_a865cff47863a99f5e102ad9ef205db83}{rseed\_provided}}())}
+\DoxyCodeLine{1018             par\_expected\_size+=1;}
+\DoxyCodeLine{1019         \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{int})params.size()!=par\_expected\_size)\{}
+\DoxyCodeLine{1020             std::string par\_exp=\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(par\_expected\_size, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1021             std::string inparam\_size=\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(params.size(), \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1022             std::string this\_ID=\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}}, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1023             \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Number of Binary params needs to be "{}} +par\_exp+\textcolor{stringliteral}{"{}, it is instead "{}} + inparam\_size + \textcolor{stringliteral}{"{} (ID\_bin: "{}} + this\_ID +\textcolor{stringliteral}{"{}). Maybe you are using inputs containing the ran"{}}}
+\DoxyCodeLine{1024                                                                                                                                        \textcolor{stringliteral}{"{}dom seed, but rseed parameter is false."{}} , \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1025         \}}
+\DoxyCodeLine{1026     \}}
+\DoxyCodeLine{1028 }
+\DoxyCodeLine{1029 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1030 }
+\DoxyCodeLine{1032     \mbox{\hyperlink{class_binstar_a7e88a2abd59b421705987ce265c08429}{\string~Binstar}}();}
+\DoxyCodeLine{1033 }
+\DoxyCodeLine{1034 \};}
+\DoxyCodeLine{1035 }
+\DoxyCodeLine{1036 }
+\DoxyCodeLine{1037 }
+\DoxyCodeLine{1038 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_BINSTAR\_H}}
+
+\end{DoxyCode}

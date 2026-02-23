@@ -1,0 +1,275 @@
+\hypertarget{lookup__and__phases_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/lookup\+\_\+and\+\_\+phases.h File Reference}
+\label{lookup__and__phases_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/lookup\_and\_phases.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/lookup\_and\_phases.h}}
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_lookup}{Lookup}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ std\+::string, Output\+Option $>$ \mbox{\hyperlink{namespace_lookup_af9d3d8fb1df25ea3462d49e825a429f6}{Lookup\+::\+OUTPUTMAP}}
+\item 
+typedef std\+::pair$<$ Input\+Binary\+Option, int $>$ \mbox{\hyperlink{namespace_lookup_aeea61877c69f280e745f8688286e59cd}{Lookup\+::\+\_\+\+INPAIR}}
+\item 
+typedef std\+::map$<$ Input\+Binary\+Option, int $>$ \mbox{\hyperlink{namespace_lookup_a4271f9b9f278e469efb0562d3389ba77}{Lookup\+::\+INPUTMAPBIN\+\_\+\+NPARAM}}
+\item 
+typedef std\+::map$<$ std\+::string, \+\_\+\+INPAIR $>$ \mbox{\hyperlink{namespace_lookup_aad48bd0c33567ce93e37c1d334c7ea51}{Lookup\+::\+INPUTMAPBIN}}
+\item 
+typedef std\+::map$<$ std\+::string, Winds\+Mode $>$ \mbox{\hyperlink{namespace_lookup_a55966f8991a50ee053a9ba892fa90916}{Lookup\+::\+WINDSMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, RLMode $>$ \mbox{\hyperlink{namespace_lookup_a4ab0d50e2efe08ff9b26efa1c1018ddb}{Lookup\+::\+RLMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, Tides\+Mode $>$ \mbox{\hyperlink{namespace_lookup_add94078bd355aa3e0e1b7d9de8b1be10}{Lookup\+::\+TIDESMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, GWMode $>$ \mbox{\hyperlink{namespace_lookup_a09f6c9c935aeda729c1a9d3820db3936}{Lookup\+::\+GWMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, Mix\+Mode $>$ \mbox{\hyperlink{namespace_lookup_a0c98c74e91e97b31f7a388359a04d1c6}{Lookup\+::\+MIXMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, SNKick\+Mode $>$ \mbox{\hyperlink{namespace_lookup_a35ba4dc44bc710be22c63f09de1f7335}{Lookup\+::\+SNKMAP}}
+\item 
+typedef std\+::map$<$ std\+::string, CEMode $>$ \mbox{\hyperlink{namespace_lookup_a1b9627b1c0a2bfaf2c445c5ed3b7b0c0}{Lookup\+::\+CEMAP}}
+\item 
+typedef std\+::map$<$ Winds\+Mode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_ad227cf63599acea009d2018359b7b440}{Lookup\+::\+WINDSMAP\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ Tides\+Mode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_ac8e87a9c9da08cacda536060be6470d3}{Lookup\+::\+TIDESMAP\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ GWMode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_a5611f096d9afeaad2cbb6ecfe9b574ed}{Lookup\+::\+GW\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ RLMode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_ac785d6e537426453874050f16adf39fa}{Lookup\+::\+RL\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ Mix\+Mode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_ab056e7db92ec9ab875c39757c2baac30}{Lookup\+::\+MIX\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ SNKick\+Mode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_ae573c1384673244d509628a11eabb1a5}{Lookup\+::\+SNK\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ CEMode, std\+::string $>$ \mbox{\hyperlink{namespace_lookup_a64cdcb8a305611c8a6848f8cfc1d20be}{Lookup\+::\+CE\+\_\+\+NAME}}
+\item 
+typedef std\+::map$<$ std\+::string, Tables $>$ \mbox{\hyperlink{namespace_lookup_a3ac752a6f0d024e0615e00dbc023f0e9}{Lookup\+::\+FILEMAP}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060}{Lookup\+::\+Tables}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060abd289560ffefd35b517b22251a2b5327}{Lookup\+::\+\_\+\+Time}} = 0
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ad4639e553176fd9d1165e0650c40b351}{Lookup\+::\+\_\+\+Mass}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ad008a445747186f0240fcd557c2e7f04}{Lookup\+::\+\_\+\+Radius}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060aae8324b9d2b84181d4020dabce882ba6}{Lookup\+::\+\_\+\+MHE}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ab040a2a1b52d4de7f58ab068d8eb6152}{Lookup\+::\+\_\+\+MCO}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ae0f233ebf55c4676512a17cc4be7dfe2}{Lookup\+::\+\_\+\+RHE}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ae4f80772a0c144d163de41f4b7d2918d}{Lookup\+::\+\_\+\+RCO}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060aef72b733792a9f6fd5b32a0173ac9643}{Lookup\+::\+\_\+\+Lumi}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a116f6a055a0b928e19dec44cb1c7a7b7}{Lookup\+::\+\_\+\+Phase}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060abcd3254fe2edf055f0e754fe860c3245}{Lookup\+::\+\_\+\+Inertia}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a5a6b700e21090208a89c6b46ad57f773}{Lookup\+::\+\_\+\+Hsup}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a21538b55eb5e427aa774af63e711eefd}{Lookup\+::\+\_\+\+HEsup}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060afed267c37a2b57b6759bafb33c0bfc8e}{Lookup\+::\+\_\+\+Csup}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a03b989d95c0373285518529bdab957c7}{Lookup\+::\+\_\+\+Nsup}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a35034a5833786eee47f125d049ac2559}{Lookup\+::\+\_\+\+Osup}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060a73774740ac393c91e2aa8b23bcce1110}{Lookup\+::\+\_\+\+Qconv}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060ac01428221d3e20a1c98cd1782bdded39}{Lookup\+::\+\_\+\+Depthconv}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060aa93ef41aeea42a5d95ce36dc18f1682c}{Lookup\+::\+\_\+\+Tconv}}
+, \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060af27cc67259157b892faafb883a675a1a}{Lookup\+::\+\_\+\+Ntables}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2}{Lookup\+::\+Phases}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2a3f15701511fa7c9e11e5a01c94a5368d}{Lookup\+::\+Pre\+Main\+Sequence}} = 0
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2ac2d66e7ae3215bccdf2bbc4395179e41}{Lookup\+::\+Main\+Sequence}}
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2a1a66447c67369c6d005e1c7bb7ddf87a}{Lookup\+::\+Terminal\+Main\+Sequence}}
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2a39325d5c0965f631c1f83cd9d1aec3b8}{Lookup\+::\+Shell\+HBurning}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2ad62ef2754d5170c004bfac8a3b2a5e91}{Lookup\+::\+Core\+He\+Burning}}
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2ad78060bf17c456d3895da3a24299ff9e}{Lookup\+::\+Terminal\+Core\+He\+Burning}}
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2a1ad8cde9c0953f898f01a593a8a0db4d}{Lookup\+::\+Shell\+He\+Burning}}
+, \mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2abf808233451b2bc93acce04764cd882d}{Lookup\+::\+Remnant}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a340ca24ce16933d723ffeb25691f4fb2a2ba2e60c69c108f20de938883c8e339e}{Lookup\+::\+Nphases}}
+ \}
+\begin{DoxyCompactList}\small\item\em NOTICE\+: The order is important from less evolved to more evolved. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba6363c57bc650e9d97a3a7218be1e94ec}{Lookup\+::\+Unknown}} = 0
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba856b12c2d4b866db5f1cf3294ffcb4a9}{Lookup\+::\+Electron\+Capture}}
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfbaaf921f3a9ed2f973f58d75c6573b4003}{Lookup\+::\+Core\+Collapse}}
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba857c7b3e64b04f394190159070433432}{Lookup\+::\+PPISN}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfbabdbc963b7ddf98243f102853e0676cb9}{Lookup\+::\+PISN}}
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba84ef67b4eb1202b43f78791341c5c222}{Lookup\+::\+Ia}}
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfbaff0b9610b98287dce64513e58362001c}{Lookup\+::\+WDformation}}
+, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba91e404d773954dac8c9be300b0b6f37a}{Lookup\+::\+NSNexplosiontypes}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68d}{Lookup\+::\+Material}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68dae127b5e56260ed5d533dc5cb5175c052}{Lookup\+::H}} = 0
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68da3044b12b0e153db44f1f2ec2e0c7987b}{Lookup\+::\+He}}
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68da124996b302b72f34a022fa747a1e9fe2}{Lookup\+::\+CO}}
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68da3c06ece92c45e2843d4efd732b563b4b}{Lookup\+::\+ONe}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68da6c9ddb5dd0aa068244169f6fd11a08f4}{Lookup\+::\+Neutron}}
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68dab20f76e9556b9c3c7b7adef9e03e396b}{Lookup\+::\+BHmaterial}}
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68dae7f246c85ca2e60d963b6bb237b52aed}{Lookup\+::\+Unknownmaterial}}
+, \mbox{\hyperlink{namespace_lookup_abdaea5fba4aa4f092181c78f9aa4d68da147b31eaff4f523adc390676f0977ebd}{Lookup\+::\+Nmaterial}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup\+::\+Remnants}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca9f7d7978ba1c7c6ce1cd80393b8d8799}{Lookup\+::\+Zombie}} =-\/2
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca872a21c1553580915b01da131c44ca8d}{Lookup\+::\+Empty}} =-\/1
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bcaded066815a8bc55d8a7cdc52af5998c1}{Lookup\+::\+Not\+ARemnant}}
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca1f2b9e627bdef1847e3c0c1502b470e7}{Lookup\+::\+He\+WD}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca1cd983f989dcc55a595a9ed28c89f357}{Lookup\+::\+COWD}}
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca6491dcd7ba24b08716d2210cbad5e9db}{Lookup\+::\+ONe\+WD}}
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca8c105160f19ff5689ed70b72469b1a04}{Lookup\+::\+NS\+\_\+\+ECSN}}
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca96d9fb64e16ab65bd62328d0aaf63787}{Lookup\+::\+NS\+\_\+\+CCSN}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bcaf37dc147908fb47144c13b4a08f6f094}{Lookup\+::\+BH}}
+, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca7cd400d52d5a3c1939edf26b17fd21c6}{Lookup\+::\+Nremnants}}
+ \}
+\begin{DoxyCompactList}\small\item\em NOTICE, the order is important (mass ordered)\+: WD, NS, BH. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341}{Lookup\+::\+Output\+Option}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341afafc1146bf12a4a199dcb14a35847887}{Lookup\+::\+\_\+hdf5}} = 0
+, \mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341a2763aa08e65a45d8733bc268b0ec2950}{Lookup\+::\+\_\+ascii}}
+, \mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341a7e8f65bd42b0fa68be9fc3f399595534}{Lookup\+::\+\_\+csv}}
+, \mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341a0421d7d37f8767a614987405124233c1}{Lookup\+::\+\_\+binary}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341adf9dfe24b3d25b05c2e83ebe4961be9b}{Lookup\+::\+\_\+\+Noption}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957}{Lookup\+::\+Winds\+Mode}} \{ \mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957ac58a5a816f22b14ab0660cb904f3d6d7}{Lookup\+::\+\_\+\+WHurley}} = 0
+, \mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957a69d9205b1776927985d0195bd8b8c7f1}{Lookup\+::\+\_\+\+WFani\+AD}}
+, \mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957ac9c199cd10dee8d7748ee4bea42877b8}{Lookup\+::\+\_\+\+WFani\+DE}}
+, \mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957af89a467351eccbef6388ff4939c8fe00}{Lookup\+::\+\_\+\+Wdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_adb9c69058cb79d9adec3dc54145c95dc}{Lookup\+::\+RLMode}} \{ \mbox{\hyperlink{namespace_lookup_adb9c69058cb79d9adec3dc54145c95dca6aeee8fb6251ea27780f51c531a08920}{Lookup\+::\+\_\+\+RLHurley}} = 0
+, \mbox{\hyperlink{namespace_lookup_adb9c69058cb79d9adec3dc54145c95dcad6f065e639da28764aa6585ab4d06253}{Lookup\+::\+\_\+\+RLHurley\+BSE}}
+, \mbox{\hyperlink{namespace_lookup_adb9c69058cb79d9adec3dc54145c95dca1cddaabfc984ef229cc6edbbc5b7615f}{Lookup\+::\+\_\+\+RLHurleymod}}
+, \mbox{\hyperlink{namespace_lookup_adb9c69058cb79d9adec3dc54145c95dcaae754156e3b2f78818a9d6568932a779}{Lookup\+::\+\_\+\+RLdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8}{Lookup\+::\+Tides\+Mode}} \{ \mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8ae9c41262927dc7e2aedc8f955d935328}{Lookup\+::\+\_\+\+Tsimple}} = 0
+, \mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8a78385f6c8995dbb3f1c343f0c7e73d61}{Lookup\+::\+\_\+\+Tsimple\+\_\+notab}}
+, \mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8a0f51bdd2c5c923f14428dac010f5439b}{Lookup\+::\+\_\+\+Tdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_afa3b1f8dcf05443fde72386e958e3f8e}{Lookup\+::\+GWMode}} \{ \mbox{\hyperlink{namespace_lookup_afa3b1f8dcf05443fde72386e958e3f8ea52be8b81a4da7326bee1837c661e29f3}{Lookup\+::\+\_\+\+GWPeters}} = 0
+, \mbox{\hyperlink{namespace_lookup_afa3b1f8dcf05443fde72386e958e3f8ead17d09a10cd0473c0abb21e5bf92a030}{Lookup\+::\+\_\+\+GWdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_aadeab44dcabde024dcc91e7121f9136d}{Lookup\+::\+Mix\+Mode}} \{ \mbox{\hyperlink{namespace_lookup_aadeab44dcabde024dcc91e7121f9136da6389167506afd1811a3045d39e69fbb5}{Lookup\+::\+\_\+\+Mixsimple}} = 0
+, \mbox{\hyperlink{namespace_lookup_aadeab44dcabde024dcc91e7121f9136dad72223e0cc64014ed8a74bff9abcb583}{Lookup\+::\+\_\+\+Mixdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_ab61a6a1513502b713c0da485397549b1}{Lookup\+::\+SNKick\+Mode}} \{ \mbox{\hyperlink{namespace_lookup_ab61a6a1513502b713c0da485397549b1a9f5781acf1ff27d14a47ec3efde40f36}{Lookup\+::\+\_\+\+SNKick\+Hurley}} =0
+, \mbox{\hyperlink{namespace_lookup_ab61a6a1513502b713c0da485397549b1a330fd53b0640ca60125933e21476a73f}{Lookup\+::\+\_\+\+SNKickdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a0e9f65a092f0daaf39b5f091e09368b3}{Lookup\+::\+CEMode}} \{ \mbox{\hyperlink{namespace_lookup_a0e9f65a092f0daaf39b5f091e09368b3aa86100e4a4f969c0c5489b48502d1d2c}{Lookup\+::\+\_\+\+CEEnergy}} = 0
+, \mbox{\hyperlink{namespace_lookup_a0e9f65a092f0daaf39b5f091e09368b3a0ba577398517a45d968c8496acc98170}{Lookup\+::\+\_\+\+CEdisabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_aad9b7cc2ae8af348500f0022f869a298}{Lookup\+::\+Input\+Binary\+Option}} \{ \mbox{\hyperlink{namespace_lookup_aad9b7cc2ae8af348500f0022f869a298a1794a36707d01a8ce38a16ef879b1ac9}{Lookup\+::\+\_\+new}} = 0
+, \mbox{\hyperlink{namespace_lookup_aad9b7cc2ae8af348500f0022f869a298a51844b767328d915b26293aa439aa247}{Lookup\+::\+\_\+legacy}}
+, \mbox{\hyperlink{namespace_lookup_aad9b7cc2ae8af348500f0022f869a298adfe9bec3c8558ba06f298e6f77cacb3b}{Lookup\+::\+\_\+\+Niop}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06}{Lookup\+::\+Events\+List}} \{ \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a66a139488869516447ed9a0b0a5692b4}{Lookup\+::\+No\+Event}} = -\/1
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a8df73d22b8d0666fdb9e819faa96dfd8}{Lookup\+::\+Change\+Phase}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a156424f9720d5d2d121f4be8cd17546f}{Lookup\+::\+Change\+Remnant}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06afd2365b83405c4beddac0e1ce647b250}{Lookup\+::\+QHE}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a8b96d8340599eb53abf825f47022bca0}{Lookup\+::\+GWBegin}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a030c29ea5f808c6ad6de948ea3648371}{Lookup\+::\+RLOBegin}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a976fe9393868b396611f2cce207d81f4}{Lookup\+::\+RLOEnd}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a30ebc53a0807e1083f610c07e49c9533}{Lookup\+::\+Collision}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06aa215658e55d51afd1e6ccea7f86b6613}{Lookup\+::\+CE}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a13183b332a266b3596b67fc0cf6a6987}{Lookup\+::\+Merger}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06aed9764253a8c1d52ec6f0e46d5e12275}{Lookup\+::\+CE\+\_\+\+Merger}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06abbd73e9fc6ad888bcd5e656e9d6c91c7}{Lookup\+::\+RLOB\+\_\+\+Merger}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a25cf211ffce56874b257de0acb28a4be}{Lookup\+::\+RLOB\+\_\+\+CE}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a24f6d15efc0f5c6c3bf1aa91ce950632}{Lookup\+::\+RLOB\+\_\+\+CE\+\_\+\+Merger}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06ad0e24b96c2fa7d4dfbf4e0c6a027eac8}{Lookup\+::\+Collision\+\_\+\+Merger}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06acb0c6a3662297ce63ec30bc45296de60}{Lookup\+::\+Collision\+\_\+\+CE}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a72c2fe47217c7f71f3e84294058dae81}{Lookup\+::\+Collision\+\_\+\+CE\+\_\+\+Merger}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06ac8f9c4c194ec18c0fdda6863b72ba4c4}{Lookup\+::\+Swallowed}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a25556a5adf0be801e27223093856ebce}{Lookup\+::\+RLOB\+\_\+\+Swallowed}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06af6e2c7e10947b6b9d991e628e9e27e69}{Lookup\+::\+GW\+\_\+\+Merger}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a68068e62a5b8b6ac8d29f0c120fa1d9f}{Lookup\+::\+SNBroken}}
+, \mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06aaa354cbf315566ecb462ace09fa7fcb6}{Lookup\+::\+SNIa}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3}{Lookup\+::\+DTout\+\_\+type}} \+: unsigned int \{ \newline
+\mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3ac25cc3b7281e72727b2cc2a5110d3078}{Lookup\+::\+\_\+\+DTUNKNOWN}} =0
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3ac33713f7648c2c9e68659bca625590ea}{Lookup\+::\+\_\+\+DTVAL}}
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3ad168162ef9d75e50dc903412a5f72a39}{Lookup\+::\+\_\+\+DTLIST}}
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3af6e8e9d642a9dee3afcd2c9ffe53aa06}{Lookup\+::\+\_\+\+DTGENINTERVAL}}
+, \newline
+\mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3ad3ad09e592acc8574acaa8578e30e355}{Lookup\+::\+\_\+\+DTALL}}
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3a354e9eb637a7658f9add3c44b4f13f28}{Lookup\+::\+\_\+\+DTEND}}
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3acce83ebf8aad24d1617f4b900ad4cae0}{Lookup\+::\+\_\+\+DTEVNT}}
+, \mbox{\hyperlink{namespace_lookup_a9bac853e7242ca7352ea11d32c5ebab3a90cca4f9a43fb96dea21e5cb47e0cd9c}{Lookup\+::\+\_\+\+DTEVNTRLO}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespace_lookup_adbd458568472f110b7a549b0f6f070b5}{Lookup\+::literal}} (Phases A)
+\item 
+std\+::string \mbox{\hyperlink{namespace_lookup_a2087bfd092bcd10205bb154f86c5ab64}{Lookup\+::literal}} (Remnants A)
+\item 
+std\+::string \mbox{\hyperlink{namespace_lookup_af9ac561ce1241c65ccb0c197d3081302}{Lookup\+::literal}} (Events\+List A)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_lookup_acb0bbf377ec31f8822ab803cd7b1d118}{Lookup\+::xspinmodes}} = \{\char`\"{}geneva\char`\"{}, \char`\"{}mesa\char`\"{}, \char`\"{}fuller\char`\"{}, \char`\"{}maxwellian\char`\"{}, \char`\"{}zeros\char`\"{}, \char`\"{}accretion\char`\"{}, \char`\"{}disabled\char`\"{}\}
+\item 
+const OUTPUTMAP \mbox{\hyperlink{namespace_lookup_ac55f693d4648a2e00c8fd886ecbab785}{Lookup\+::outputmap}}
+\item 
+const INPUTMAPBIN \mbox{\hyperlink{namespace_lookup_a94eac4b6a4a62070069fa1073a6bc8df}{Lookup\+::inputmapbin}}
+\item 
+const INPUTMAPBIN\+\_\+\+NPARAM \mbox{\hyperlink{namespace_lookup_ac7e92587521676c16864971e222c1e61}{Lookup\+::inputmapbin\+\_\+nparam}}
+\item 
+const WINDSMAP \mbox{\hyperlink{namespace_lookup_ac84b1d6e9b93d22f24866ae18006a718}{Lookup\+::windsmap}}
+\item 
+const RLMAP \mbox{\hyperlink{namespace_lookup_ad23517187bf8c77c9febf03ad602055d}{Lookup\+::rlmap}}
+\item 
+const TIDESMAP \mbox{\hyperlink{namespace_lookup_ae547e773b9b695a0cd572677e5a1ba40}{Lookup\+::tidesmap}}
+\item 
+const GWMAP \mbox{\hyperlink{namespace_lookup_a02168e15376d126e214ae1ff69805792}{Lookup\+::gwmap}}
+\item 
+const MIXMAP \mbox{\hyperlink{namespace_lookup_af85e37d422054a14c1387a48bb897afc}{Lookup\+::mixmap}}
+\item 
+const SNKMAP \mbox{\hyperlink{namespace_lookup_a6a83abfff1ebe2361901ccf4dcbfba40}{Lookup\+::snkmap}}
+\item 
+const CEMAP \mbox{\hyperlink{namespace_lookup_ae9148572c44b53ed259b561938969da4}{Lookup\+::cemap}}
+\item 
+const \mbox{\hyperlink{namespace_lookup_ad227cf63599acea009d2018359b7b440}{WINDSMAP\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_a842962d685f2e1f53fba72430a139254}{Lookup\+::windsmap\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Winds. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_lookup_ac8e87a9c9da08cacda536060be6470d3}{TIDESMAP\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_a294a33caf6d9bacdeb0520182ea6cff7}{Lookup\+::tidesmap\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_tides}{Tides}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_lookup_a5611f096d9afeaad2cbb6ecfe9b574ed}{GW\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_a19d4e2e5f3aa67fc2e1ee0999de7d8ad}{Lookup\+::gwmap\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em GW. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_lookup_ac785d6e537426453874050f16adf39fa}{RL\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup\+::rlmap\+\_\+name}}
+\item 
+const \mbox{\hyperlink{namespace_lookup_ab056e7db92ec9ab875c39757c2baac30}{MIX\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_ae0f707b925fb15f1621deaaba1d21aef}{Lookup\+::mixmap\+\_\+name}}
+\item 
+const \mbox{\hyperlink{namespace_lookup_ae573c1384673244d509628a11eabb1a5}{SNK\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_ae577447b0fb0c18ce28942292ab21f0f}{Lookup\+::snkmap\+\_\+name}}
+\item 
+const \mbox{\hyperlink{namespace_lookup_a64cdcb8a305611c8a6848f8cfc1d20be}{CE\+\_\+\+NAME}} \mbox{\hyperlink{namespace_lookup_ae2b4919081f4cbd2cb81d08d06779804}{Lookup\+::cemap\+\_\+name}}
+\item 
+const FILEMAP \mbox{\hyperlink{namespace_lookup_a34dc3dad6af684ef09be13e5f3e70bc6}{Lookup\+::filemap}}
+\item 
+const FILEMAP \mbox{\hyperlink{namespace_lookup_a9785968b3957a67037226fb5945a30ba}{Lookup\+::filemap\+\_\+optional}}
+\end{DoxyCompactItemize}

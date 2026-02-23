@@ -1,0 +1,202 @@
+\hypertarget{_b_s_eintegrator_8h_source}{}\doxysection{BSEintegrator.\+h}
+\label{_b_s_eintegrator_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/BSEintegrator.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/BSEintegrator.h}}
+\mbox{\hyperlink{_b_s_eintegrator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 10/08/2021.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_BSEINTEGRATOR\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_BSEINTEGRATOR\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{_b_s_eintegrator_8h_aff3b1518aa32927f40d293144943e69e}{cZsun}} = 0.02;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/****************** BSE COEFFICIENTS ********************/}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_b_s_e___coefficient_a557dae1a8c510e7f4902d8e2060614ae}{BSE\_Coefficient}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}}=0, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}}=0, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}}=0, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}=0) : \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}}\{\mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}}\}, \mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}}\{\mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}}\}, \mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}}\{\mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}}\}, \mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}}\{\mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}}\}, \mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}\{\mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}\}, \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}\{\mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}\}\{}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}{set\_coeff}}();}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a493a5bc1bbb9d1cecccf48f8bf170a5d}{operator() }}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}{coeff}};\}}
+\DoxyCodeLine{25     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a5f4ac10cab275f31a1c4dd44c006bb46}{getZ}}()\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}};\}}
+\DoxyCodeLine{26     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_e___coefficient_ace7b3ba60913b3c79a35922c0befcf9d}{change\_Z}}(\textcolor{keywordtype}{double} newZ)\{}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}=newZ;}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}{set\_coeff}}();}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}};}
+\DoxyCodeLine{32     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}};}
+\DoxyCodeLine{33     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}};}
+\DoxyCodeLine{34     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}};}
+\DoxyCodeLine{35     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{38     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a9fcf51b5e8ddd376cf4b6cf5498681d4}{Zsun}}=\mbox{\hyperlink{_b_s_eintegrator_8h_aff3b1518aa32927f40d293144943e69e}{cZsun}};}
+\DoxyCodeLine{39     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}{coeff}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_e___coefficient_aa5cab9b4cda2225fea172ab5a96b7a9d}{set\_coeff}}()\{}
+\DoxyCodeLine{43         \textcolor{keywordtype}{double} Zlog = std::log10(\mbox{\hyperlink{class_b_s_e___coefficient_a69d0ca2e6f34625572a9a84e180a9cf5}{Z}}/\mbox{\hyperlink{class_b_s_e___coefficient_a9fcf51b5e8ddd376cf4b6cf5498681d4}{Zsun}});}
+\DoxyCodeLine{44         \textcolor{comment}{//Appendix A Hurley+00}}
+\DoxyCodeLine{45         \mbox{\hyperlink{class_b_s_e___coefficient_a7754a7a82db801770ea6cd5d5461ddb9}{coeff}} = \mbox{\hyperlink{class_b_s_e___coefficient_aa51a086ecf6c868f94bcb41f4890189e}{alpha}} + Zlog*(\mbox{\hyperlink{class_b_s_e___coefficient_a59ce11c17f6a3b112eb31e97ca74808c}{beta}} + Zlog*(\mbox{\hyperlink{class_b_s_e___coefficient_a58bca37c5a1c0fce409a3982e919206c}{gamma}} + Zlog*(\mbox{\hyperlink{class_b_s_e___coefficient_addf6fc31a16c28174ca7846dba18365c}{eta}} + Zlog*\mbox{\hyperlink{class_b_s_e___coefficient_ab65aeb83c8180239033cb97b9b101c99}{mu}}))); \textcolor{comment}{// alpha+beta*Zlog+gamma*Zlog\string^2+eta*Zlog\string^3+mu*Zlog\string^4}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{//TODO it is betteer to create a single class containing a vector with all the coefficients}}
+\DoxyCodeLine{53 \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a1}{BSE\_Coefficient\_a1}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{54 \textcolor{keyword}{public}:}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_b_s_e___coefficient__a1_a726bff095bef363ce44914c00cceceec}{BSE\_Coefficient\_a1}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,1593.890,2053.038,1231.1226,232.7785\}\{}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a2}{BSE\_Coefficient\_a2}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{60 \textcolor{keyword}{public}:}
+\DoxyCodeLine{61     \mbox{\hyperlink{class_b_s_e___coefficient__a2_adc49bef6c6bf70696775226d2fd93719}{BSE\_Coefficient\_a2}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,2.706708e3,1.483131e3,5.772723e3,7.411230e1\}\{\}}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a3}{BSE\_Coefficient\_a3}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{64 \textcolor{keyword}{public}:}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_b_s_e___coefficient__a3_ab32ac547113f066dfcaa6132c8eaea5a}{BSE\_Coefficient\_a3}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,1.466143e2,-\/1.048442e2,-\/6.795374e1,-\/1.391127e1\}\{\}}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a4}{BSE\_Coefficient\_a4}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{68 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69     \mbox{\hyperlink{class_b_s_e___coefficient__a4_a8c7f7924a95b785bf5071f5cf82f6c19}{BSE\_Coefficient\_a4}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,4.141960e-\/2,4.564888e-\/2,2.958542e-\/2,5.571483e-\/3\}\{\}}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a5}{BSE\_Coefficient\_a5}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{72 \textcolor{keyword}{public}:}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_b_s_e___coefficient__a5_aa9cebf9ae40f304c303c2ac2a7de1d3e}{BSE\_Coefficient\_a5}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,3.426349e-\/1\}\{\}}
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a6}{BSE\_Coefficient\_a6}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{76 \textcolor{keyword}{public}:}
+\DoxyCodeLine{77     \mbox{\hyperlink{class_b_s_e___coefficient__a6_a36830e94340bd0c12ce9795683be9359}{BSE\_Coefficient\_a6}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,1.949814e1,1.758178,-\/6.008212,-\/4.470533\}\{\}}
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a7}{BSE\_Coefficient\_a7}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{80 \textcolor{keyword}{public}:}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_b_s_e___coefficient__a7_a2de9205fcc190d79bcefd4f854be6ae0}{BSE\_Coefficient\_a7}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,4.903830\}\{\}}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a8}{BSE\_Coefficient\_a8}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{84 \textcolor{keyword}{public}:}
+\DoxyCodeLine{85     \mbox{\hyperlink{class_b_s_e___coefficient__a8_a8de83200d678fde5f34a9c0ef6b2e3ba}{BSE\_Coefficient\_a8}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,5.212154e-\/2,3.166411e-\/2,-\/2.750074e-\/3,-\/2.271549e-\/3\}\{\}}
+\DoxyCodeLine{86 \};}
+\DoxyCodeLine{87 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a9}{BSE\_Coefficient\_a9}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{88 \textcolor{keyword}{public}:}
+\DoxyCodeLine{89     \mbox{\hyperlink{class_b_s_e___coefficient__a9_a0f4a8dd6ffd35d52a6262a57385e8ed9}{BSE\_Coefficient\_a9}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,1.312179,-\/3.294936e-\/1,9.231860e-\/2,2.610989e-\/2\}\{\}}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___coefficient__a10}{BSE\_Coefficient\_a10}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{}
+\DoxyCodeLine{92 \textcolor{keyword}{public}:}
+\DoxyCodeLine{93     \mbox{\hyperlink{class_b_s_e___coefficient__a10_a4297fa4fc1331a649df0ce655a9ffb1c}{BSE\_Coefficient\_a10}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___coefficient}{BSE\_Coefficient}}\{Zinput,8.073972e-\/1\}\{\}}
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/********************************************************/}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{comment}{/******************BSE PROPERTIES**************************/}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_e___property}{BSE\_Property}}\{}
+\DoxyCodeLine{107 \textcolor{keyword}{public}:}
+\DoxyCodeLine{108     \mbox{\hyperlink{class_b_s_e___property_a39d8c56d321abe203faf2dcc3f58ec2d}{BSE\_Property}}(\textcolor{keywordtype}{double} Zinput): \mbox{\hyperlink{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}{Z}}\{Zinput\}\{\}}
+\DoxyCodeLine{109     \textcolor{keyword}{virtual}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}{operator() }}(\textcolor{keywordtype}{double} M) = 0;}
+\DoxyCodeLine{110     \textcolor{comment}{//TODO add also the operator with M and time}}
+\DoxyCodeLine{111     \textcolor{comment}{//virtual  double operator() (double M, double t) = 0;}}
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_b_s_e___property_a3e9e6203ba521b775c267ba2196b9162}{units}}()\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};\}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{comment}{//Just a wrapper to be called easily by  pointers}}
+\DoxyCodeLine{115     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}{eval}}(\textcolor{keywordtype}{double} M)\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}{operator()}}(M);\}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{118     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}{chaced\_M}}=0;}
+\DoxyCodeLine{119     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}{chaced\_logP}}=0;}
+\DoxyCodeLine{120     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}{Z}};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     std::vector<double> \mbox{\hyperlink{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}{coeff}};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127 }
+\DoxyCodeLine{131 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_etimes}{BSEtimes}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_b_s_e___property}{BSE\_Property}}\{}
+\DoxyCodeLine{132 \textcolor{keyword}{public}:}
+\DoxyCodeLine{133     \mbox{\hyperlink{class_b_s_etimes_a883dffa43801b6aa9f5bfee212e315fc}{BSEtimes}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_b_s_e___property}{BSE\_Property}}(Zinput)\{\}}
+\DoxyCodeLine{134     std::string \mbox{\hyperlink{class_b_s_etimes_a74f74d626cc180a06366b33d557aae02}{units}}()\textcolor{keyword}{ override}\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Myr"{}};\}}
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{141 \textcolor{keyword}{class }\mbox{\hyperlink{class_tbgb}{Tbgb}} :  \textcolor{keyword}{public}  \mbox{\hyperlink{class_b_s_etimes}{BSEtimes}}\{}
+\DoxyCodeLine{142 \textcolor{keyword}{public}:}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \mbox{\hyperlink{class_tbgb_ac6996e887730814833e71ecae64b25d2}{Tbgb}}(\textcolor{keywordtype}{double} Zinput): \mbox{\hyperlink{class_b_s_etimes}{BSEtimes}}(Zinput), \mbox{\hyperlink{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}{a1}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a1}{BSE\_Coefficient\_a1}}(Zinput)()\}, \mbox{\hyperlink{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}{a2}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a2}{BSE\_Coefficient\_a2}}(Zinput)()\}, \mbox{\hyperlink{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}{a3}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a3}{BSE\_Coefficient\_a3}}(Zinput)()\}, \mbox{\hyperlink{class_tbgb_a24e00ae531b2af2b88593616514b2056}{a4}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a4}{BSE\_Coefficient\_a4}}(Zinput)()\}, \mbox{\hyperlink{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}{a5}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a5}{BSE\_Coefficient\_a5}}(Zinput)()\}\{}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}{operator() }}(\textcolor{keywordtype}{double} M)\textcolor{keyword}{ override}\{}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keywordtype}{double} M3=M*M*M;}
+\DoxyCodeLine{151         \textcolor{keywordtype}{double} M7=M3*M*M*M*M;}
+\DoxyCodeLine{152         \textcolor{keywordtype}{double} num = \mbox{\hyperlink{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}{a1}} + \mbox{\hyperlink{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}{a2}}*M3 + \mbox{\hyperlink{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}{a3}}*std::pow(M,5.5) + M7;}
+\DoxyCodeLine{153         \textcolor{keywordtype}{double} den = \mbox{\hyperlink{class_tbgb_a24e00ae531b2af2b88593616514b2056}{a4}}*M*M + \mbox{\hyperlink{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}{a5}}*M7;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} num/den;}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keyword}{private}:}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}{a1}};}
+\DoxyCodeLine{161     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}{a2}};}
+\DoxyCodeLine{162     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}{a3}};}
+\DoxyCodeLine{163     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_a24e00ae531b2af2b88593616514b2056}{a4}};}
+\DoxyCodeLine{164     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}{a5}};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \};}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{172 \textcolor{keyword}{class }\mbox{\hyperlink{class_thook}{Thook}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_tbgb}{Tbgb}}\{}
+\DoxyCodeLine{173 \textcolor{keyword}{public}:}
+\DoxyCodeLine{174     \mbox{\hyperlink{class_thook_adff84ba452cfe6c6364fc545735b37b4}{Thook}}(\textcolor{keywordtype}{double} Zinput): \mbox{\hyperlink{class_tbgb}{Tbgb}}(Zinput), \mbox{\hyperlink{class_thook_a15ccd0ec3a0a290fd6fefe9037ce0f12}{a6}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a6}{BSE\_Coefficient\_a6}}(Zinput)()\}, \mbox{\hyperlink{class_thook_a315544610b21eee36a042cd68925b151}{a7}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a7}{BSE\_Coefficient\_a7}}(Zinput)()\},\mbox{\hyperlink{class_thook_a1a46ba650c1b9dbb30f1fe21e43172fe}{a8}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a8}{BSE\_Coefficient\_a8}}(Zinput)()\}, \mbox{\hyperlink{class_thook_adbbbd3fc50fb4e79c9d1230c5f9e49aa}{a9}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a9}{BSE\_Coefficient\_a9}}(Zinput)()\}, \mbox{\hyperlink{class_thook_a4e239a49e6fac6adb24d75e43ef372c1}{a10}}\{\mbox{\hyperlink{class_b_s_e___coefficient__a10}{BSE\_Coefficient\_a10}}(Zinput)()\}\{}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_aa6826efd4e81ea51de46c02ba3336cf0}{operator() }}(\textcolor{keywordtype}{double} M)\textcolor{keyword}{ override}\{}
+\DoxyCodeLine{179         \textcolor{keywordtype}{double} tbgb = \mbox{\hyperlink{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}{Tbgb::operator()}}(M);}
+\DoxyCodeLine{180         \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_thook_aa1f07eed0b4a88df80403ded97eedd42}{mu}}(M)*tbgb;}
+\DoxyCodeLine{181     \}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{comment}{//Eq. 7 in Hurley+00}}
+\DoxyCodeLine{184     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_aa1f07eed0b4a88df80403ded97eedd42}{mu}}(\textcolor{keywordtype}{double} M)\{}
+\DoxyCodeLine{185         \textcolor{keywordtype}{double} mut = 1.0-\/0.01*std::max(\mbox{\hyperlink{class_thook_a15ccd0ec3a0a290fd6fefe9037ce0f12}{a6}}/std::pow(M,\mbox{\hyperlink{class_thook_a315544610b21eee36a042cd68925b151}{a7}}),\mbox{\hyperlink{class_thook_a1a46ba650c1b9dbb30f1fe21e43172fe}{a8}}+\mbox{\hyperlink{class_thook_adbbbd3fc50fb4e79c9d1230c5f9e49aa}{a9}}/std::pow(M,\mbox{\hyperlink{class_thook_a4e239a49e6fac6adb24d75e43ef372c1}{a10}}));}
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} std::max(0.5,mut);}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{keyword}{private}:}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_a15ccd0ec3a0a290fd6fefe9037ce0f12}{a6}};}
+\DoxyCodeLine{192     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_a315544610b21eee36a042cd68925b151}{a7}};}
+\DoxyCodeLine{193     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_a1a46ba650c1b9dbb30f1fe21e43172fe}{a8}};}
+\DoxyCodeLine{194     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_adbbbd3fc50fb4e79c9d1230c5f9e49aa}{a9}};}
+\DoxyCodeLine{195     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_thook_a4e239a49e6fac6adb24d75e43ef372c1}{a10}};}
+\DoxyCodeLine{196 \};}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{202 \textcolor{keyword}{class }\mbox{\hyperlink{class_tms}{Tms}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_thook}{Thook}}\{}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{keyword}{public}:}
+\DoxyCodeLine{205     \mbox{\hyperlink{class_tms_ac9de3c12cfd517cc261af2f5397ee5b4}{Tms}}(\textcolor{keywordtype}{double} Zinput) : \mbox{\hyperlink{class_thook}{Thook}}(Zinput)\{}
+\DoxyCodeLine{206         \textcolor{keywordtype}{double} Zeta = std::log10(Zinput/\mbox{\hyperlink{_b_s_eintegrator_8h_aff3b1518aa32927f40d293144943e69e}{cZsun}});}
+\DoxyCodeLine{207         \textcolor{comment}{//Eq. 6 in Hurley+00}}
+\DoxyCodeLine{208         \mbox{\hyperlink{class_tms_a07b89dccae108073bf4c91dd366a8954}{x}}=std::max(0.95, std::min(0.95-\/0.03*(Zeta+0.30103),0.99));}
+\DoxyCodeLine{209     \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tms_af05e5f92e6c40182182bfe2cec9f1373}{operator() }}(\textcolor{keywordtype}{double} M)\textcolor{keyword}{ override}\{}
+\DoxyCodeLine{212         \textcolor{keywordtype}{double} tbgb = \mbox{\hyperlink{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}{Tbgb::operator()}}(M);}
+\DoxyCodeLine{213         \textcolor{keywordtype}{double} thook = \mbox{\hyperlink{class_thook_aa6826efd4e81ea51de46c02ba3336cf0}{Thook::operator()}}(M);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215         \textcolor{keywordflow}{return} std::max(thook,\mbox{\hyperlink{class_tms_a07b89dccae108073bf4c91dd366a8954}{x}}*tbgb);}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tms_a07b89dccae108073bf4c91dd366a8954}{x}};}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_BSEINTEGRATOR\_H}}
+
+\end{DoxyCode}

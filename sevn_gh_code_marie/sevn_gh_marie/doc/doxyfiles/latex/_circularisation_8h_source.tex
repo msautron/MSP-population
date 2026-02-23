@@ -1,0 +1,196 @@
+\hypertarget{_circularisation_8h_source}{}\doxysection{Circularisation.\+h}
+\label{_circularisation_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Circularisation.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Circularisation.h}}
+\mbox{\hyperlink{_circularisation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 7/22/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_CIRCULARISATION\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_CIRCULARISATION\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_processes_8h}{Processes.h}}>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{//Forward declaration}}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation}{Circularisation}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_process}{Process}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_circularisation_a1087b2e224323a09dfa076a513535692}{Circularisation}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{23             \textcolor{comment}{//First register to include this Property in static array}}
+\DoxyCodeLine{24             \mbox{\hyperlink{class_process_a22775758327708f0135eb29387eb6e63}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_circularisation_a87d9d776bbf342464497132f4e061da5}{ID}}, \mbox{\hyperlink{class_circularisation_a86572baedfa10f70d802dfdf48e72520}{name}}());}
+\DoxyCodeLine{25         \}}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_circularisation_a13faeaa255b07a39f8f596a5bde833b8}{\string~Circularisation}}()\{\};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_circularisation_a87d9d776bbf342464497132f4e061da5}{ID}};}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation}{Circularisation}} \mbox{\hyperlink{class_circularisation_a9dd0e89b4db390809798c4980523609a}{\_circularisation}};}
+\DoxyCodeLine{31     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_a86572baedfa10f70d802dfdf48e72520}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Circularisation"{}}; \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_circularisation}{Circularisation}} *\mbox{\hyperlink{class_circularisation_a417f8b83e9730a293fefa887278c8687}{Instance}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io) \textcolor{keyword}{override};}
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_circularisation}{Circularisation}} *\mbox{\hyperlink{class_circularisation_ad3d050427347e75491690d0532246dae}{instance}}() \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{37     \textcolor{comment}{//this a prototype for the future refactoring of the whole Process classes}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} std::map<std::string, Circularisation *> \& \mbox{\hyperlink{class_circularisation_a00513704d28e656e62d4ab50847baa31}{GetStaticMap}}()\{}
+\DoxyCodeLine{39         \textcolor{keyword}{static} std::map<std::string, Circularisation *> \_locmap;}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_circularisation_a7690e31190f2af69ee52979c4ce34b06}{GetUsed}}()\{}
+\DoxyCodeLine{43         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\mbox{\hyperlink{class_circularisation}{Circularisation}} *ptr) \{}
+\DoxyCodeLine{47         \mbox{\hyperlink{class_circularisation_a00513704d28e656e62d4ab50847baa31}{GetStaticMap}}().insert(std::make\_pair(ptr-\/>\mbox{\hyperlink{class_circularisation_a86572baedfa10f70d802dfdf48e72520}{name}}(), ptr));}
+\DoxyCodeLine{48         \mbox{\hyperlink{class_circularisation_a7690e31190f2af69ee52979c4ce34b06}{GetUsed}}().resize(\mbox{\hyperlink{class_circularisation_a00513704d28e656e62d4ab50847baa31}{GetStaticMap}}().\mbox{\hyperlink{class_process_a95c3723ba5175dbcff4298597322fc6d}{size}}());}
+\DoxyCodeLine{49         \mbox{\hyperlink{class_circularisation_a7690e31190f2af69ee52979c4ce34b06}{GetUsed}}()[\mbox{\hyperlink{class_circularisation_a7690e31190f2af69ee52979c4ce34b06}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{62 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation_disabled}{CircularisationDisabled}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_circularisation}{Circularisation}}\{}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{public}:}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \mbox{\hyperlink{class_circularisation_disabled_aae3e7e85834d62470cedd8b3142f0eb1}{CircularisationDisabled}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_circularisation}{Circularisation}}(nullptr, false) \{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{68             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{69             \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_disabled_ac370f31d473d2347f5a09191274d6480}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}disabled"{}}; \}}
+\DoxyCodeLine{74     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation_disabled}{CircularisationDisabled}} \mbox{\hyperlink{class_circularisation_disabled_a7c295787bdace80007be1d59dd863ad6}{\_circularisationdisabled}};}
+\DoxyCodeLine{75     \mbox{\hyperlink{class_circularisation_disabled}{CircularisationDisabled}}* \mbox{\hyperlink{class_circularisation_disabled_ab372631faad2ba4cd069cd21658906eb}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_circularisation_disabled}{CircularisationDisabled}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_circularisation_disabled_ad555f9fba46f05ad3f598ea2846ceca2}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_circularisation}{Circularisation}}\{}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{public}:}
+\DoxyCodeLine{87     \mbox{\hyperlink{class_standard_circularisation_a9f6f2ebf1bbd816f29816ec1d47ad321}{StandardCircularisation}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_circularisation}{Circularisation}}(nullptr, false) \{\}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{95      \textcolor{keywordtype}{int} \mbox{\hyperlink{class_standard_circularisation_afee695c6fce4ab4f1d443100678f0274}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{103     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_standard_circularisation_a91930838747f88f918106a594f75df14}{special\_evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_standard_circularisation_ab73c611ef445d78d55c9dc75b487850e}{check\_condition}}=\textcolor{keyword}{false}; }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_standard_circularisation_a4aa6516810078ba514f94bc3b09bf2d1}{circularise}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) = 0;}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_standard_circularisation_ae35166787015d98ce9ca6a9e1a22f6e4}{check\_activation}}(\mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{const};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{comment}{//Log message}}
+\DoxyCodeLine{134 \textcolor{comment}{}    \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_standard_circularisation_aa5dcce686e0216d29afb0131edd64812}{log\_message\_circ}}(\mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keywordtype}{double} a\_new, \textcolor{keywordtype}{double} e\_new) \textcolor{keyword}{const};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{147 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}\{}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{keyword}{public}:}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \mbox{\hyperlink{class_circularisation_periastron_ab38f1dc2307c4b4e9ea3f95f6791cdb9}{CircularisationPeriastron}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}(nullptr, false) \{}
+\DoxyCodeLine{152         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{153             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{154             \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_periastron_a43c2113ca9ba55f31ce1b8344e47b442}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}periastron"{}}; \}}
+\DoxyCodeLine{159     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}} \mbox{\hyperlink{class_circularisation_periastron_adfa11e080315e2263fc961bbbc14d947}{\_circularisationperiastron}};}
+\DoxyCodeLine{160     \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}}* \mbox{\hyperlink{class_circularisation_periastron_a7f06129eb7a86866dcc6d6b63bba3f33}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{161         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{162     \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_circularisation_periastron_a78fa06c79eeeef425afb79d2ac8fbb97}{circularise}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{179 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation_periastron_full}{CircularisationPeriastronFull}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}}\{}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{keyword}{public}:}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \mbox{\hyperlink{class_circularisation_periastron_full_a2ec8dc541c5b257f6445ec1b99bd42d1}{CircularisationPeriastronFull}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}}(nullptr, false) \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{185             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{186             \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188     \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_periastron_full_a1061582b99b295e4edf6fa560d665826}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}periastron\_full"{}}; \}}
+\DoxyCodeLine{191     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation_periastron_full}{CircularisationPeriastronFull}} \mbox{\hyperlink{class_circularisation_periastron_full_a03d53dc341d7a7f46395c55dfe08f799}{\_circularisationperiastronfull}};}
+\DoxyCodeLine{192     \mbox{\hyperlink{class_circularisation_periastron_full}{CircularisationPeriastronFull}}* \mbox{\hyperlink{class_circularisation_periastron_full_a35962ad091ca09a86a5d931d1664e87c}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{193         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_circularisation_periastron_full}{CircularisationPeriastronFull}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{205      \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_circularisation_periastron_full_a897b60755df5515d1acd153857fd0b2d}{check\_activation}}(\mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{const override};}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{214 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation_ang_mom}{CircularisationAngMom}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}\{}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{keyword}{public}:}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \mbox{\hyperlink{class_circularisation_ang_mom_a18b1b3ad42ec74dede2b82fb6b1e0769}{CircularisationAngMom}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}(nullptr, false) \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{220             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{221             \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{222         \}}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_ang_mom_a74cefd5257c30d8867c96b9bd61a9840}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}angmom"{}}; \}}
+\DoxyCodeLine{226     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation_ang_mom}{CircularisationAngMom}} \mbox{\hyperlink{class_circularisation_ang_mom_a1c64515c84f129472aa05d531ab8b4c8}{\_circularisationangmom}};}
+\DoxyCodeLine{227     \mbox{\hyperlink{class_circularisation_ang_mom}{CircularisationAngMom}}* \mbox{\hyperlink{class_circularisation_ang_mom_aa1c151ef2f2c14c798ee52072cd223c4}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{228         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_circularisation_ang_mom}{CircularisationAngMom}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{229     \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_circularisation_ang_mom_ae53f39a720749fa5b085450745b30d73}{circularise}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \};}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{245 \textcolor{keyword}{class }\mbox{\hyperlink{class_circularisation_semimajor}{CircularisationSemimajor}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}\{}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{keyword}{public}:}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     \mbox{\hyperlink{class_circularisation_semimajor_a40de27b54e4f473b9f8cbcb614db942d}{CircularisationSemimajor}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_standard_circularisation}{StandardCircularisation}}(nullptr, false) \{}
+\DoxyCodeLine{250         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{251             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{252             \mbox{\hyperlink{class_circularisation_a01e2799921ef04246d433852551a570f}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{253         \}}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_circularisation_semimajor_a3dce0d0d3f12ef7acba61d8fdd5694cc}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}semimajor"{}}; \}}
+\DoxyCodeLine{257     \textcolor{keyword}{static} \mbox{\hyperlink{class_circularisation_semimajor}{CircularisationSemimajor}} \mbox{\hyperlink{class_circularisation_semimajor_ae921093147f98c9a37cb28e5bc2b26d2}{\_circularisationsemimajor}};}
+\DoxyCodeLine{258     \mbox{\hyperlink{class_circularisation_semimajor}{CircularisationSemimajor}}* \mbox{\hyperlink{class_circularisation_semimajor_ad9b32e3d4ec208a087809165c9a7d2be}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_circularisation_semimajor}{CircularisationSemimajor}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_circularisation_semimajor_a6121f49505a143ae71d002d5e4b795b9}{circularise}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \};}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_CIRCULARISATION\_H}}
+
+\end{DoxyCode}

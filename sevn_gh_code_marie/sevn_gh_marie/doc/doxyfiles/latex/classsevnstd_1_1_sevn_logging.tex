@@ -1,0 +1,486 @@
+\hypertarget{classsevnstd_1_1_sevn_logging}{}\doxysection{sevnstd\+::Sevn\+Logging Class Reference}
+\label{classsevnstd_1_1_sevn_logging}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+
+
+{\ttfamily \#include $<$sevnlog.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a73f289157288ec0ac8869379d225c53a}{Sevn\+Logging}} ()
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a71c518bb55c4410e0070a16b40707a01}{Sevn\+Logging}} (int level)
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a881a7a577c58380f8d2c08735c06b8c5}{$\sim$\+Sevn\+Logging}} ()
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_affcf3939810e71cacac9c1b3508040dd}{log}} (int level, std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1, int stop=0) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8b67b53c273bfa7b170226f84e25631d}{info}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}{error}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1, bool stop=true) const
+\item 
+{\footnotesize template$<$class E $>$ }\\void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad59a16166b8ddffd119b03b3515ddcb8}{error}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1, bool stop=true, E \&\&err=nullptr) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1) const
+\item 
+{\footnotesize template$<$class E $>$ }\\void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a5505d78a8c49351021bed1aa69ef97e5}{critical}} (std\+::string errstate, const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1, E \&\&err=nullptr) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}{pdebug}} () const
+\begin{DoxyCompactList}\small\item\em Variadic prints. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a9875d891e667229412179cbd53e9e957}{pdebug}} (T head, Tail... tail) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ab8261f1e09d6cbebe4eab2ad7ebbb688}{pinfo}} () const
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ab8bc14e4917a2c9006966c1e08750e80}{pinfo}} (T head, Tail... tail) const
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad6b19be2483605ef782445803efa5602}{pwarning}} () const
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a2c29af1bab7df47837f74adcc6e394dc}{pwarning}} (T head, Tail... tail) const
+\item 
+int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a0324f04abb6f2c16156b38b36e74183f}{get\+\_\+level}} ()
+\item 
+unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aa82e9abf2587f6545c22a92256034b12}{get\+\_\+\+Ndebug}} ()
+\item 
+unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a22f80d730ca57058e19a019a8397c398}{get\+\_\+\+Ninfo}} ()
+\item 
+unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a75d3362476f35368f0a9333c4e29f0ea}{get\+\_\+\+Nwarning}} ()
+\item 
+unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6c56932c4f2c666d571f3a2efa14694e}{get\+\_\+\+Nerror}} ()
+\item 
+unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8fa8f56583b4a32696d3f488b3b39506}{get\+\_\+\+Ncustom}} ()
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a34b8c6b2f5e872fe0c04e493f8a2ac58}{set\+\_\+level}} (std\+::string level)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3}{\+\_\+\+LOG\+\_\+\+LEVEL}} \{ \newline
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a00212081277d22e6116363427fa7d7ac}{\+\_\+notset}} = 0
+, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a0e7e78c0facfdb7ce6d36b65357a7522}{\+\_\+debug}} = 10
+, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3af981d75baba046ae61c773eabdafc4fe}{\+\_\+info}} = 20
+, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a79e37f86b7fe53470ad7eea7a1ac3c63}{\+\_\+warning}} = 30
+, \newline
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3ac5027f9d37cf8c092062b44757f0fb8e}{\+\_\+error}} = 40
+, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3afa6d9d02077f407573811f574aa09951}{\+\_\+critical}} = 100
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8263616aaf9d5fd2b36c7996a7d828d7}{set\+\_\+level}} (int level)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\+\_\+level}} = 20
+\item 
+static unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}{count\+\_\+debug}} =0
+\item 
+static unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}{count\+\_\+info}} =0
+\item 
+static unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}{count\+\_\+warning}} =0
+\item 
+static unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}{count\+\_\+error}} =0
+\item 
+static unsigned int \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abc41e5bc612bf4f9656f28fd220ff7c0}{count\+\_\+custom\+\_\+log}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A thread safe(really?) Logging class to handle the message output and the error. It is based on a log level scheme. There is a static attribute log\+\_\+level that has some integer value by default (20 or 10 id DEBUG has been enabled). Then a given message is sent in output only if its level is larger than log\+\_\+level. A new log\+\_\+level can be set with the method set\+\_\+level. The possible logging message are debug(lvl 10), info(lvl 20), warning(lvl 30), error(lvl 40), critical (no level always printed). Critical raises automatically an exception, while in error is optional. A general log method can be used to print output with a custom level. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_LOG\_LEVEL@{\_LOG\_LEVEL}}
+\index{\_LOG\_LEVEL@{\_LOG\_LEVEL}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{\_LOG\_LEVEL}{\_LOG\_LEVEL}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3}{sevnstd\+::\+Sevn\+Logging\+::\+\_\+\+LOG\+\_\+\+LEVEL}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+An enum storing the various log level. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_notset@{\_notset}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_notset@{\_notset}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a00212081277d22e6116363427fa7d7ac}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a00212081277d22e6116363427fa7d7ac}} 
+\+\_\+notset&lvl 0, Notset general value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_debug@{\_debug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_debug@{\_debug}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a0e7e78c0facfdb7ce6d36b65357a7522}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a0e7e78c0facfdb7ce6d36b65357a7522}} 
+\+\_\+debug&lvl 10, Debug level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_info@{\_info}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_info@{\_info}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3af981d75baba046ae61c773eabdafc4fe}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3af981d75baba046ae61c773eabdafc4fe}} 
+\+\_\+info&lvl 20, Info level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_warning@{\_warning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_warning@{\_warning}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a79e37f86b7fe53470ad7eea7a1ac3c63}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a79e37f86b7fe53470ad7eea7a1ac3c63}} 
+\+\_\+warning&lvl 30, Warning level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_error@{\_error}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_error@{\_error}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3ac5027f9d37cf8c092062b44757f0fb8e}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3ac5027f9d37cf8c092062b44757f0fb8e}} 
+\+\_\+error&lvl 40, Error level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_critical@{\_critical}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!\_critical@{\_critical}}}\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3afa6d9d02077f407573811f574aa09951}\label{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3afa6d9d02077f407573811f574aa09951}} 
+\+\_\+critical&lvl 100, Only critical level \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a73f289157288ec0ac8869379d225c53a}\label{classsevnstd_1_1_sevn_logging_a73f289157288ec0ac8869379d225c53a}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!SevnLogging@{SevnLogging}}
+\index{SevnLogging@{SevnLogging}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{SevnLogging()}{SevnLogging()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sevnstd\+::\+Sevn\+Logging\+::\+Sevn\+Logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default class constructor. \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a71c518bb55c4410e0070a16b40707a01}\label{classsevnstd_1_1_sevn_logging_a71c518bb55c4410e0070a16b40707a01}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!SevnLogging@{SevnLogging}}
+\index{SevnLogging@{SevnLogging}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{SevnLogging()}{SevnLogging()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily sevnstd\+::\+Sevn\+Logging\+::\+Sevn\+Logging (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Class constructor that set the static log level attribute. 
+\begin{DoxyParams}{Parameters}
+{\em level} & log level to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a881a7a577c58380f8d2c08735c06b8c5}\label{classsevnstd_1_1_sevn_logging_a881a7a577c58380f8d2c08735c06b8c5}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!````~SevnLogging@{$\sim$SevnLogging}}
+\index{````~SevnLogging@{$\sim$SevnLogging}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{$\sim$SevnLogging()}{~SevnLogging()}}
+{\footnotesize\ttfamily sevnstd\+::\+Sevn\+Logging\+::$\sim$\+Sevn\+Logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default class destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}\label{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!critical@{critical}}
+\index{critical@{critical}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::critical (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+Logs a message with std\+::cerr level CRITICAL (no level) on this logger and throw an sevnerr exception. This message will never be filtered out. 
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a5505d78a8c49351021bed1aa69ef97e5}\label{classsevnstd_1_1_sevn_logging_a5505d78a8c49351021bed1aa69ef97e5}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!critical@{critical}}
+\index{critical@{critical}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class E $>$ \\
+void sevnstd\+::\+Sevn\+Logging\+::critical (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1},  }\item[{E \&\&}]{err = {\ttfamily nullptr} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Logs a message with std\+::cerr level CRITICAL (no level) on this logger and throw an exception E. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em E} & exception derived from the class sevnerr \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & file\+\_\+input Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & line\+\_\+input Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+{\em err} & exception derived from the class sevnerr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}\label{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!debug@{debug}}
+\index{debug@{debug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::debug (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+Logs a message to std\+::cout with level DEBUG (lvl 10) on this logger. 
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}\label{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!error@{error}}
+\index{error@{error}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1},  }\item[{bool}]{stop = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+Logs a message with std\+::cerr level ERROR (lvl 40) on this logger and throw an exception. 
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+{\em stop} & if true throw a sevnerr exception. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ad59a16166b8ddffd119b03b3515ddcb8}\label{classsevnstd_1_1_sevn_logging_ad59a16166b8ddffd119b03b3515ddcb8}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!error@{error}}
+\index{error@{error}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class E $>$ \\
+void sevnstd\+::\+Sevn\+Logging\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1},  }\item[{bool}]{stop = {\ttfamily true},  }\item[{E \&\&}]{err = {\ttfamily nullptr} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em E} & exception derived from the class sevnerr \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & file\+\_\+input Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & line\+\_\+input Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+{\em stop} & if if true throw a err exception (see below). \\
+\hline
+{\em err} & exception derived from the class sevnerr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a0324f04abb6f2c16156b38b36e74183f}\label{classsevnstd_1_1_sevn_logging_a0324f04abb6f2c16156b38b36e74183f}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_level@{get\_level}}
+\index{get\_level@{get\_level}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_level()}{get\_level()}}
+{\footnotesize\ttfamily int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Logs a message to std\+::cout with level DEBUG (lvl 10) on this logger. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & pack of Variadic arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & args to be printed Logs a message to std\+::cout with level DEBUG (lvl 10) on this logger. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & pack of Variadic arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & args to be printed Get the current level of this logger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+log level. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a8fa8f56583b4a32696d3f488b3b39506}\label{classsevnstd_1_1_sevn_logging_a8fa8f56583b4a32696d3f488b3b39506}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_Ncustom@{get\_Ncustom}}
+\index{get\_Ncustom@{get\_Ncustom}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_Ncustom()}{get\_Ncustom()}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+\+Ncustom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current counter of custom log calls \begin{DoxyReturn}{Returns}
+current counter of custom log calls 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_aa82e9abf2587f6545c22a92256034b12}\label{classsevnstd_1_1_sevn_logging_aa82e9abf2587f6545c22a92256034b12}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_Ndebug@{get\_Ndebug}}
+\index{get\_Ndebug@{get\_Ndebug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_Ndebug()}{get\_Ndebug()}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+\+Ndebug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current counter of debug calls \begin{DoxyReturn}{Returns}
+current counter of debug calls 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a6c56932c4f2c666d571f3a2efa14694e}\label{classsevnstd_1_1_sevn_logging_a6c56932c4f2c666d571f3a2efa14694e}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_Nerror@{get\_Nerror}}
+\index{get\_Nerror@{get\_Nerror}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_Nerror()}{get\_Nerror()}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+\+Nerror (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current counter of error calls \begin{DoxyReturn}{Returns}
+current counter of error calls 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a22f80d730ca57058e19a019a8397c398}\label{classsevnstd_1_1_sevn_logging_a22f80d730ca57058e19a019a8397c398}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_Ninfo@{get\_Ninfo}}
+\index{get\_Ninfo@{get\_Ninfo}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_Ninfo()}{get\_Ninfo()}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+\+Ninfo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current counter of info calls \begin{DoxyReturn}{Returns}
+current counter of info calls 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a75d3362476f35368f0a9333c4e29f0ea}\label{classsevnstd_1_1_sevn_logging_a75d3362476f35368f0a9333c4e29f0ea}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!get\_Nwarning@{get\_Nwarning}}
+\index{get\_Nwarning@{get\_Nwarning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{get\_Nwarning()}{get\_Nwarning()}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::get\+\_\+\+Nwarning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current counter of warning calls \begin{DoxyReturn}{Returns}
+current counter of warning calls 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a8b67b53c273bfa7b170226f84e25631d}\label{classsevnstd_1_1_sevn_logging_a8b67b53c273bfa7b170226f84e25631d}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!info@{info}}
+\index{info@{info}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::info (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+Logs a message to std\+::cout with level INFO (lvl 20) on this logger. 
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_affcf3939810e71cacac9c1b3508040dd}\label{classsevnstd_1_1_sevn_logging_affcf3939810e71cacac9c1b3508040dd}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!log@{log}}
+\index{log@{log}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::log (\begin{DoxyParamCaption}\item[{int}]{level,  }\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1},  }\item[{int}]{stop = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+Logs a message to std\+::cout with integer level on this logger. 
+\begin{DoxyParams}{Parameters}
+{\em level} & message level. \\
+\hline
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+{\em stop} & if != 0, throw a runtime exception. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}\label{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pdebug@{pdebug}}
+\index{pdebug@{pdebug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pdebug()}{pdebug()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::pdebug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Variadic prints. 
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a9875d891e667229412179cbd53e9e957}\label{classsevnstd_1_1_sevn_logging_a9875d891e667229412179cbd53e9e957}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pdebug@{pdebug}}
+\index{pdebug@{pdebug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pdebug()}{pdebug()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Tail$>$ \\
+void sevnstd\+::\+Sevn\+Logging\+::pdebug (\begin{DoxyParamCaption}\item[{T}]{head,  }\item[{Tail...}]{tail }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ab8261f1e09d6cbebe4eab2ad7ebbb688}\label{classsevnstd_1_1_sevn_logging_ab8261f1e09d6cbebe4eab2ad7ebbb688}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pinfo@{pinfo}}
+\index{pinfo@{pinfo}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pinfo()}{pinfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::pinfo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ab8bc14e4917a2c9006966c1e08750e80}\label{classsevnstd_1_1_sevn_logging_ab8bc14e4917a2c9006966c1e08750e80}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pinfo@{pinfo}}
+\index{pinfo@{pinfo}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pinfo()}{pinfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Tail$>$ \\
+void sevnstd\+::\+Sevn\+Logging\+::pinfo (\begin{DoxyParamCaption}\item[{T}]{head,  }\item[{Tail...}]{tail }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_ad6b19be2483605ef782445803efa5602}\label{classsevnstd_1_1_sevn_logging_ad6b19be2483605ef782445803efa5602}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pwarning@{pwarning}}
+\index{pwarning@{pwarning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pwarning()}{pwarning()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::pwarning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a2c29af1bab7df47837f74adcc6e394dc}\label{classsevnstd_1_1_sevn_logging_a2c29af1bab7df47837f74adcc6e394dc}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!pwarning@{pwarning}}
+\index{pwarning@{pwarning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{pwarning()}{pwarning()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Tail$>$ \\
+void sevnstd\+::\+Sevn\+Logging\+::pwarning (\begin{DoxyParamCaption}\item[{T}]{head,  }\item[{Tail...}]{tail }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a8263616aaf9d5fd2b36c7996a7d828d7}\label{classsevnstd_1_1_sevn_logging_a8263616aaf9d5fd2b36c7996a7d828d7}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!set\_level@{set\_level}}
+\index{set\_level@{set\_level}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{set\_level()}{set\_level()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::set\+\_\+level (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Set the static log\+\_\+level. 
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a34b8c6b2f5e872fe0c04e493f8a2ac58}\label{classsevnstd_1_1_sevn_logging_a34b8c6b2f5e872fe0c04e493f8a2ac58}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!set\_level@{set\_level}}
+\index{set\_level@{set\_level}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{set\_level()}{set\_level()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::set\+\_\+level (\begin{DoxyParamCaption}\item[{std\+::string}]{level }\end{DoxyParamCaption})}
+
+Public interface to change log level 
+\begin{DoxyParams}{Parameters}
+{\em level} & string, can be\+: dubug, info, warning,error. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}\label{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!warning@{warning}}
+\index{warning@{warning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily void sevnstd\+::\+Sevn\+Logging\+::warning (\begin{DoxyParamCaption}\item[{std\+::string}]{errstate,  }\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+Logs a message with std\+::cerr level WARNING (lvl 30) on this logger. 
+\begin{DoxyParams}{Parameters}
+{\em errstate} & message to log. \\
+\hline
+{\em file\+\_\+input} & Null or {\bfseries{FILE}}. if {\bfseries{FILE}} is used the message logs the name of the file where the log is called. \\
+\hline
+{\em line\+\_\+input} & Null or {\bfseries{LINE}}. if {\bfseries{LINE}} is used the message logs the row number in the file where the log is called. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_abc41e5bc612bf4f9656f28fd220ff7c0}\label{classsevnstd_1_1_sevn_logging_abc41e5bc612bf4f9656f28fd220ff7c0}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!count\_custom\_log@{count\_custom\_log}}
+\index{count\_custom\_log@{count\_custom\_log}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{count\_custom\_log}{count\_custom\_log}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::count\+\_\+custom\+\_\+log =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Counter storing how many times a custom log has been called \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}\label{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!count\_debug@{count\_debug}}
+\index{count\_debug@{count\_debug}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{count\_debug}{count\_debug}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::count\+\_\+debug =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Counter storing how many times a debug log has been called \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}\label{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!count\_error@{count\_error}}
+\index{count\_error@{count\_error}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{count\_error}{count\_error}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::count\+\_\+error =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Counter storing how many times an error log has been called \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}\label{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!count\_info@{count\_info}}
+\index{count\_info@{count\_info}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{count\_info}{count\_info}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::count\+\_\+info =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Counter storing how many times a info log has been called \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}\label{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!count\_warning@{count\_warning}}
+\index{count\_warning@{count\_warning}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{count\_warning}{count\_warning}}
+{\footnotesize\ttfamily unsigned int sevnstd\+::\+Sevn\+Logging\+::count\+\_\+warning =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Counter storing how many times a warning log has been called \mbox{\Hypertarget{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}\label{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}} 
+\index{sevnstd::SevnLogging@{sevnstd::SevnLogging}!log\_level@{log\_level}}
+\index{log\_level@{log\_level}!sevnstd::SevnLogging@{sevnstd::SevnLogging}}
+\doxysubsubsection{\texorpdfstring{log\_level}{log\_level}}
+{\footnotesize\ttfamily int sevnstd\+::\+Sevn\+Logging\+::log\+\_\+level = 20\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Current log level ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/\mbox{\hyperlink{sevnlog_8h}{sevnlog.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/\mbox{\hyperlink{sevnlog_8cpp}{sevnlog.\+cpp}}\end{DoxyCompactItemize}

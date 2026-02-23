@@ -1,0 +1,764 @@
+\hypertarget{utilities_8h_source}{}\doxysection{utilities.\+h}
+\label{utilities_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/utilities.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/utilities.h}}
+\mbox{\hyperlink{utilities_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 04/05/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_REVISED\_UTILITIES\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_REVISED\_UTILITIES\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <omp.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{25 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define \_UNUSED \_\_attribute\_\_ ((unused))}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define openfile(a, b) utilities::\_openfile(a, b, \_\_FILE\_\_, \_\_LINE\_\_)}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceutilities}{utilities}}\{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{//random number generator (OpenMP thread-\/safe)}}
+\DoxyCodeLine{36     \textcolor{keyword}{extern} std::mt19937\_64 \mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}};}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    \#ifdef \_OPENMP}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{        \#pragma omp threadprivate(utilities::mtrand)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{//GI 140520 changed this because a firstprivate clause is added in the main files}}
+\DoxyCodeLine{43     \textcolor{comment}{//GI 130321 Changed again because a firstprivate clause could not be used with the current implementation}}
+\DoxyCodeLine{44     \textcolor{comment}{//this means that this version is not compilable with INTEL compiler  (beacuse mtrand is defined as extern)}}
+\DoxyCodeLine{45     \textcolor{comment}{//extern std::uniform\_real\_distribution<double> rand\_unif\_0\_1(0.0, 1.0);}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{//SEVN NAME}}
+\DoxyCodeLine{49     \textcolor{keyword}{const} std::string \mbox{\hyperlink{namespaceutilities_ac437c3804f9e4432bba9696d0e7d7d66}{SEVN\_NAME}} = \textcolor{stringliteral}{"{}SEVN"{}}; \textcolor{comment}{//NOTICE THIS HAS TO BE THE NAME OF THE FOLDER CONTAINING THE CODE}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{//TODO: Add  cgs -\/> SEVN units constants}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{//constants}}
+\DoxyCodeLine{54     \textcolor{comment}{//TODO The timestep and other time property are in Myr, but some costant and the eq. of some process are in yr, should we use only a timescale?}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57     \textcolor{comment}{//TODO Check all the constants to be consistent with these values}}
+\DoxyCodeLine{58     \textcolor{comment}{//GI, 27/07/2022, all the constant updated to match the definition in astropy-\/4.3.1}}
+\DoxyCodeLine{59     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}} = 3.925125598496094e8; \textcolor{comment}{//RSUN\string^3 YR\string^-\/2 MSUN\string^-\/1 (astropy: constant.G.to("{}Rsun\string^3/yr\string^2/Msun"{}))}}
+\DoxyCodeLine{60     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\_cgs}} = 3.1557600e7; \textcolor{comment}{//yr in s (astropy: u.yr.to(u.s))}}
+\DoxyCodeLine{61     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{parsec\_cgs}}= 3.085677581491367e+18; \textcolor{comment}{//parsec in cm (astropy: u.parsec.to(u.cm))}}
+\DoxyCodeLine{62     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\_cgs}} = 6.95700e10; \textcolor{comment}{//rsun in cm (astropy constant.R\_sun.to("{}cm"{}))}}
+\DoxyCodeLine{63     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{Msun\_cgs}} = 1.988409870698051e+33; \textcolor{comment}{//msun in g (astropy constant.M\_sun.to("{}cm"{}))}}
+\DoxyCodeLine{64     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a28e44bb0489aab3ef84fd095d3753b0d}{G\_cgs}} = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}*\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\_cgs}}*\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\_cgs}}*\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\_cgs}}/(\mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{Msun\_cgs}}*\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\_cgs}}*\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\_cgs}}); \textcolor{comment}{//cm\string^3 s\string^-\/2 g\string^-\/1}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a47fe906e6b7da76e22a464334578dc97}{Sigma\_StefBoltz}} = 7.1694165533435e-\/17; \textcolor{comment}{//LSun\string^3 RSun\string^-\/2 K\string^-\/4 (astropy: constant.sigma\_sb.to('Lsun/(K\string^4 * Rsun\string^2)')}}
+\DoxyCodeLine{68     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a017d164aee676c18711c233161112a09}{Myr\_to\_yr}} = 1.0e6;}
+\DoxyCodeLine{69     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{yr\_to\_Myr}} = 1.0e-\/6;}
+\DoxyCodeLine{70     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_ad4395607216c892cc3e20865ab082365}{AU\_to\_RSun}} = 215.03215567054764; \textcolor{comment}{//(astropy u.au.to(u.Rsun))}}
+\DoxyCodeLine{71     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a4ef76ced1a466cc37ee8097b0828e2c0}{kms\_to\_RSunyr}} = 45.360931435963785; \textcolor{comment}{//(astropy: (u.km/u.s).to(u.Rsun/u.yr))}}
+\DoxyCodeLine{72     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a975b6ee31de7176975ea5b8cfd7fcc2b}{LSun\_to\_Solar}} = 12.500687924182579; \textcolor{comment}{//From Lsun to MSun RSun\string^2 yr\string^-\/3 (astropy: u.Lsun.to((u.Msun*u.Rsun**2)/(u.yr**3)))}}
+\DoxyCodeLine{73     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}} = 1.3598865132357053e7; \textcolor{comment}{// RSun/yr (astropy: constant.c.to('Rsun/yr'))}}
+\DoxyCodeLine{74     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}{km\_to\_RSun}} = 1.4374011786689665e-\/06; \textcolor{comment}{//(astropy: u.km.to(u.Rsun))}}
+\DoxyCodeLine{75     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a6dd95f51ac5d6ad655ba6a7dc3c4d14a}{parsec\_to\_Rsun}}= \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{parsec\_cgs}}/\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\_cgs}};}
+\DoxyCodeLine{76     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a77816d4fdac32f98db24cd8ee9d270da}{g\_to\_MSun}} = 5.029144215870041e-\/34; \textcolor{comment}{//(astropy: u.g.to(u.Msun))}}
+\DoxyCodeLine{77     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}{G\_over\_c2}} = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}} / (\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}*\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}});}
+\DoxyCodeLine{78     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{G3\_over\_c5}} = (\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}*\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}*\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}})/(\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}*\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}*\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}*\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}*\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}); \textcolor{comment}{//Scaling for GW processes}}
+\DoxyCodeLine{79     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a6e13bd44f0a215efb6ec383635f18beb}{tH}} = 13.7*1e3; \textcolor{comment}{//Hubble time in Myr}}
+\DoxyCodeLine{80     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_abcfcb4adf8c53a518c1faac8ba588df4}{Mchandra}} = 1.41; \textcolor{comment}{//Chandrasekhar mass in Msun}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keyword}{const} std::string \mbox{\hyperlink{namespaceutilities_ab29d5142bf0cfab8afdfac3ba1bff74e}{PLACEHOLDER}}=\textcolor{stringliteral}{"{}xxx"{}}; \textcolor{comment}{//Standard placeholder for input properties}}
+\DoxyCodeLine{86     \textcolor{comment}{//SY}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{comment}{//MAGIC NULL VALUES}}
+\DoxyCodeLine{89     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{NULL\_DOUBLE}} = -\/9e30;}
+\DoxyCodeLine{90     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{NULL\_INT}} = -\/999999999;}
+\DoxyCodeLine{91     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{namespaceutilities_a437549a34ca4e945d0af00dbeadf132f}{NULL\_SINT}} = 999999999;}
+\DoxyCodeLine{92     \textcolor{comment}{//constexpr std::string NULL\_STR = "{}FORZAROMA"{}; //NOT POSSIBLE in C11 (It will be possible in C20)}}
+\DoxyCodeLine{93     \textcolor{keyword}{const} std::string \mbox{\hyperlink{namespaceutilities_ab5a36637937008a46b2a3ed133c14607}{NULL\_STR}} = \textcolor{stringliteral}{"{}FORZAROMA"{}};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{comment}{//MAGIC LARGE AN TINY VALUES}}
+\DoxyCodeLine{96     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_af0789923452446c33f1de7668680b695}{DIFF\_TOLL}} = 1e-\/10; \textcolor{comment}{//Tollerance on difference between two values}}
+\DoxyCodeLine{97     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_af6ff0e3a92481bc39762efddcefcc111}{LARGE}} = 1e30;}
+\DoxyCodeLine{98     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}{TINY}} = 1e-\/15;}
+\DoxyCodeLine{99     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a3b51ca9508e01917e4f6b41ba0d22b55}{DOUBLE\_EPS}} = std::numeric\_limits<double>::epsilon();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{comment}{//INT CONSTANT TO HANDLE RETURN FROM EVOLUTION}}
+\DoxyCodeLine{103     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}{evolution}};}
+\DoxyCodeLine{104     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a3aaa090f3fe0bd1146914efa3a597e01}{SINGLE\_STEP\_EVOLUTION}}=0;}
+\DoxyCodeLine{105     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a5f79261e9e274d212bc3df7b41153218}{REPEATED\_EVOLUTION}}=1;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{comment}{//INT CONSTANT TO HANDLE RETURN FROM FUNCTIONS}}
+\DoxyCodeLine{108     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}{jump\_convergence}};}
+\DoxyCodeLine{109     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_ad82ee12f43249cb733cccfbae3457445}{JUMP\_CONVERGE}}=0;}
+\DoxyCodeLine{110     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a95931a56320767f90a608451e0e0646e}{JUMP}}=1;}
+\DoxyCodeLine{111     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_aea36271797cd62a5821e150266445ea7}{NO\_JUMP}}=2;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{comment}{//INT CONST FOR SN EXPLOSION}}
+\DoxyCodeLine{114     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{sn\_explosion}};}
+\DoxyCodeLine{115     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_ace17a566ecd2a1007126044f4bf8f90b}{SNIA\_EXPLODE}}=1;}
+\DoxyCodeLine{116     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a0308cd173253f4c6fd076ab6d8f4700c}{SNII\_EXPLODE}}=2;}
+\DoxyCodeLine{117     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_ac4f5b28bd822b418e1fe464fff7aec00}{SN\_NOT\_EXPLODE}}=0;}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{comment}{//INT CONST FOR RLO}}
+\DoxyCodeLine{120     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}{rlo}};}
+\DoxyCodeLine{121     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a33e76025a31389355ff5d92499994b80}{RLO\_FALSE}}=0; \textcolor{comment}{//RLO is happening or happened}}
+\DoxyCodeLine{122     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a723786f902084fec38340605e9a2e5c7}{RLO\_TRUE}}=1; \textcolor{comment}{//RLO is happening or happened}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{comment}{//bool CONST FOR BINARY EVOLUTION}}
+\DoxyCodeLine{125     \textcolor{keyword}{typedef} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{bse\_evolution}};}
+\DoxyCodeLine{126     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a61af3ef55d9ed97bdfff3f17cb56371c}{BIN\_EV\_DONE}} = 1; \textcolor{comment}{//This is the return if the properties of the binary have been evolved with the proper evolve method}}
+\DoxyCodeLine{127     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a689d03c171ad7069be73d26d5ce532f8}{BIN\_EV\_NOT\_DONE}} = 0; \textcolor{comment}{//This is the return if the properties of the binary have been evolved without the proper evolve method}}
+\DoxyCodeLine{128     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a63375849a06208aac4f477564869ec83}{BIN\_EV\_SETBROKEN}} = 2; \textcolor{comment}{//This is the return if the properties of the binary have not been evolved but a set broken has been called}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_ade38453232303159b98bc41b7cc62d39}{maxwellian\_cdf}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} sigma);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a8dfa02151562fe4907d07c05ed469d61}{maxwellian\_pdf}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} sigma);}
+\DoxyCodeLine{132     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_ab0f49bc367ee398c0d0c743e2885fc3c}{R\_Schwarzschild}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_mass}{Mass}})\{\textcolor{keywordflow}{return} 2.0*\mbox{\hyperlink{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}{G\_over\_c2}}*\mbox{\hyperlink{class_mass}{Mass}}; \} \textcolor{comment}{//rs=2GM/c\string^2\}}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{144     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{const} std::string \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{n2s}}(T val, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_input, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line\_input, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} precision=6) \{}
+\DoxyCodeLine{145         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} svlog;}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147         std::ostringstream stream;}
+\DoxyCodeLine{148         stream << std::scientific << std::setprecision(precision);}
+\DoxyCodeLine{149         stream << val;}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151         \textcolor{keywordflow}{if} (stream.fail())}
+\DoxyCodeLine{152             svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Cannot convert into a string"{}}, file\_input, line\_input);}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} stream.str();}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{163     \textcolor{keyword}{struct }\mbox{\hyperlink{structutilities_1_1_mass_container}{MassContainer}}\{}
+\DoxyCodeLine{164         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{structutilities_1_1_mass_container_a865ea6bb5f1b0e8f71734ae0ce384c1b}{Mass}};  \textcolor{comment}{//Mass}}
+\DoxyCodeLine{165         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{structutilities_1_1_mass_container_af134227e80c061b0ba3f2fce57f50407}{MHE}};  \textcolor{comment}{//Mass of the HE core}}
+\DoxyCodeLine{166         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{structutilities_1_1_mass_container_afb366acfb81e762d306c186ba3643815}{MCO}};  \textcolor{comment}{//Mass of the CO core}}
+\DoxyCodeLine{167     \};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_afcca65bc160a7b86fecf33c7eb284365}{roche\_lobe\_Eg}}(\textcolor{keywordtype}{double} Mass\_primary, \textcolor{keywordtype}{double} Mass\_secondary, \textcolor{keywordtype}{double} a);}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{185     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a3f43c17cef43eb800adb11f8149fb8fa}{R\_Alfven}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} \mbox{\hyperlink{classd_mdt}{dMdt}}, \textcolor{keywordtype}{bool} get0=\textcolor{keyword}{false});}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{193     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a2fbe4f78d85628cbec9a1ba4282ad539}{Hfrac}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{205     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_aa7afa3b720a62f078bb377c1b82b75c9}{dMdt\_Eddington\_accretion}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \textcolor{keywordtype}{double} eddfact=1.0);}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{214     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a3258eafe01d806f8fdc9106f4d37c2ac}{omega\_crit}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_mass}{Mass}}, \textcolor{keywordtype}{double} Rpolar)\{}
+\DoxyCodeLine{215         \textcolor{keywordtype}{double} Reqc = 1.5 *Rpolar;}
+\DoxyCodeLine{216         \textcolor{keywordflow}{return} std::sqrt(\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{utilities::G}}*\mbox{\hyperlink{class_mass}{Mass}}/(Reqc*Reqc*Reqc));}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 }
+\DoxyCodeLine{223     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}{hardwait}}()\{}
+\DoxyCodeLine{224         std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)nWaiting"{}}<<std::endl;}
+\DoxyCodeLine{225         std::cin.get();}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{230     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Tail>}
+\DoxyCodeLine{231     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}{hardwait}}(T head, Tail... tail)\{}
+\DoxyCodeLine{232         std::cout << head << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{233         \mbox{\hyperlink{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}{hardwait}}(tail...);}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 }
+\DoxyCodeLine{244     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{wait}}()\{}
+\DoxyCodeLine{245 \textcolor{preprocessor}{    \#ifdef DEBUG}}
+\DoxyCodeLine{246         std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)nWaiting"{}}<<std::endl;}
+\DoxyCodeLine{247         \textcolor{keywordtype}{char} \_fake;}
+\DoxyCodeLine{248         std::cin>>\_fake;}
+\DoxyCodeLine{249 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{250     \}}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{259     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Tail>}
+\DoxyCodeLine{260     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{wait}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} T head, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} Tail... tail)\{}
+\DoxyCodeLine{261 \textcolor{preprocessor}{    \#ifdef DEBUG}}
+\DoxyCodeLine{262             std::cout << head << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{263             \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{wait}}(tail...);}
+\DoxyCodeLine{264 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{265     \}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 \textcolor{comment}{    /********** Template variadic function to be used in the log *******/}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     std::string \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{get\_name}}(\mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{270     \textcolor{keywordtype}{long} \mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{get\_ID}}(\mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{271     std::string \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{get\_name}}(\mbox{\hyperlink{class_binstar}{Binstar}}* b);}
+\DoxyCodeLine{272     \textcolor{keywordtype}{long} \mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{get\_ID}}(\mbox{\hyperlink{class_binstar}{Binstar}}* b);}
+\DoxyCodeLine{273     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{get\_current\_time}}(\mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{274     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{get\_current\_time}}(\mbox{\hyperlink{class_binstar}{Binstar}}* b);}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{280     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{\_log\_print\_core}}(std::stringstream \&ss, T t)\{}
+\DoxyCodeLine{281         ss<<t;}
+\DoxyCodeLine{282         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{283     \}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... ListP>}
+\DoxyCodeLine{286     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{\_log\_print\_core}}(std::stringstream \&ss, T t, ListP... args)\{}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288         ss<<t<<\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{289         \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{\_log\_print\_core}}(ss,args...);}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{292     \}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294     \textcolor{keyword}{template} <\textcolor{keyword}{class }System, \textcolor{keyword}{typename}... ListP>}
+\DoxyCodeLine{295     std::string \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{common\_log\_print}}(\textcolor{keyword}{const} std::string\& label, System* system, ListP... args)\{}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297         std::stringstream ss;}
+\DoxyCodeLine{298         \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{\_log\_print\_core}}(ss,args...);}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300         std::string id\_str=std::to\_string(\mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{get\_ID}}(system));}
+\DoxyCodeLine{301         std::string time = \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{get\_current\_time}}(system),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{get\_name}}(system) +\textcolor{stringliteral}{"{};"{}} +id\_str + \textcolor{stringliteral}{"{};"{}} +label  + \textcolor{stringliteral}{"{};"{}} + time + \textcolor{stringliteral}{"{};"{}} + ss.str();}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     \}}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307     \textcolor{keyword}{template} <\textcolor{keyword}{class }System, \textcolor{keyword}{typename}... ListP>}
+\DoxyCodeLine{308     std::string \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{common\_log\_print}}(\textcolor{keyword}{const} std::string\& label, System* system)\{}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311         std::string id\_str=std::to\_string(\mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{get\_ID}}(system));}
+\DoxyCodeLine{312         std::string time = \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{get\_current\_time}}(system),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{get\_name}}(system) +\textcolor{stringliteral}{"{};"{}} +id\_str + \textcolor{stringliteral}{"{};"{}} +label  + \textcolor{stringliteral}{"{};"{}} + time + \textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316     \}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... ListP>}
+\DoxyCodeLine{320     std::string \mbox{\hyperlink{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}{log\_print}}(\textcolor{keyword}{const} std::string\& label, \mbox{\hyperlink{class_star}{Star}}* star, ListP... args)\{}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}S;"{}} + \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{common\_log\_print}}(label,star,args...);}
+\DoxyCodeLine{323     \}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... ListP>}
+\DoxyCodeLine{326     std::string \mbox{\hyperlink{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}{log\_print}}(\textcolor{keyword}{const} std::string\& label, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, ListP... args)\{}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}B;"{}} + \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{common\_log\_print}}(label,binstar,args...);}
+\DoxyCodeLine{329     \}}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{337     std::string \mbox{\hyperlink{namespaceutilities_ad4595aef0bc3c65e955fa3a9bf23b9c8}{log\_star\_info}}(\mbox{\hyperlink{class_star}{Star}}* s, \textcolor{keywordtype}{bool} oldstep=\textcolor{keyword}{false});}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{comment}{    /*************************************************************************************/}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{namespaceutilities_ae3cb027b183de132627565f2336f7baa}{gen\_rseed}}();}
+\DoxyCodeLine{344     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{namespaceutilities_ae3cb027b183de132627565f2336f7baa}{gen\_rseed}}(std::random\_device \&rd);}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string \mbox{\hyperlink{namespaceutilities_a78da5ab9c9281a8a6a7e75e26c3083db}{random\_keygen}}(std::mt19937\_64 *\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}})\{}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348         \textcolor{comment}{//std::string allkeys = "{}0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"{};}}
+\DoxyCodeLine{349         std::string keys\_init = \textcolor{stringliteral}{"{}123456789"{}}; \textcolor{comment}{//GI71119: MORE SIMILAT TO A source\_id GAIA like (it can easier to load and manage as a pure number table)}}
+\DoxyCodeLine{350         std::string keys = \textcolor{stringliteral}{"{}0123456789"{}};}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352         std::uniform\_int\_distribution<int> unifo\_keys\_init(0, (\textcolor{keywordtype}{int})keys\_init.size()-\/1);}
+\DoxyCodeLine{353         std::uniform\_int\_distribution<int> unifo\_keys(0, (\textcolor{keywordtype}{int})keys.size()-\/1);}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355         std::string key = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{356         key += keys\_init[(unifo\_keys\_init(*\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}}))];}
+\DoxyCodeLine{357         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 14; i++)\{}
+\DoxyCodeLine{358             \textcolor{keywordtype}{int} position = unifo\_keys(*\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}});}
+\DoxyCodeLine{359             key += keys[position];}
+\DoxyCodeLine{360         \}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362         \textcolor{keywordflow}{return} key;}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366     std::vector<std::string> \mbox{\hyperlink{namespaceutilities_a93f0a7d7bbb9abbf583c034a0ba36831}{split}}(\textcolor{keyword}{const} std::string\& s, \textcolor{keywordtype}{char} delimiter);}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_ae574463a42faed78d4047d64c4c68306}{isifstream}}();}
+\DoxyCodeLine{371     \textcolor{keyword}{template} <> \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_ae7b4c3d9c59d57b613a0b3c29593c992}{isifstream<std::ifstream>}}() \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{comment}{//general functions}}
+\DoxyCodeLine{374     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{binary\_search}}(T *array, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} left, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} right, \textcolor{keyword}{const} T value)\{}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377         \textcolor{keywordflow}{if} (right > left+1) \{}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379             \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} mid = left + ((right -\/ left)>>1);}
+\DoxyCodeLine{380             \textcolor{comment}{//std::cout<<left<<"{}   "{}<<mid<<"{}   "{}<<right<<std::endl;}}
+\DoxyCodeLine{381             \textcolor{comment}{//std::cout<<"{}****"{}<<array[left]<<std::endl;}}
+\DoxyCodeLine{382             \textcolor{comment}{//std::cout<<array[mid]<<std::endl;}}
+\DoxyCodeLine{383             \textcolor{comment}{//std::cout<<array[right]<<std::endl;}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385             \textcolor{keywordflow}{if}(array[mid] > value)}
+\DoxyCodeLine{386                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{binary\_search}}(array, left, mid, value);}
+\DoxyCodeLine{387             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (array[mid] == value)}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{return} mid;}
+\DoxyCodeLine{389             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{390                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{binary\_search}}(array, mid, right, value);}
+\DoxyCodeLine{391         \}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393         \textcolor{keywordflow}{if}(array[left] == value) \textcolor{keywordflow}{return} left;}
+\DoxyCodeLine{394         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(array[right] == value) \textcolor{keywordflow}{return} right;}
+\DoxyCodeLine{395         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} left;}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397     \}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_af67ca3b2a7fbf1eb97cd0841fa74de4d}{string\_is\_number}}(std::string str) \{}
+\DoxyCodeLine{401         T value;}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403         std::stringstream stream(str);}
+\DoxyCodeLine{404         stream >> value;}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406         \textcolor{keywordflow}{return} (!stream.fail() and stream.eof()) ;}
+\DoxyCodeLine{407     \}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{419     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a23da6a4ec38109d21322e28fc95224a8}{kepler}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&ecc, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&m, \textcolor{keyword}{const} \textcolor{keywordtype}{double} tol = 1e-\/6, \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxit = 50) \{  \textcolor{comment}{// it solves the Kepler's equation giving the mean anomaly and the eccentricity}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421         \textcolor{comment}{//We use a Generalize Newton-\/Raphson method that converge cubically (instead of quadratically for the classical  Newton Raphson)}}
+\DoxyCodeLine{422         \textcolor{comment}{//Given the Kepler Equation we can have problem if f1 is 0, if f2 is 0 or if f1*f1-\/2*f*f2 is <=0}}
+\DoxyCodeLine{423         \textcolor{comment}{//f1=1-\/ecc*cos(E) but ecc<1 always so f1<1 as well. When f2 is 0 or f1*f1-\/2*f*f2 is <=0 we revert to a simple NR for that step}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425         \textcolor{keywordtype}{int} k = 1; \textcolor{comment}{// to check max iterations}}
+\DoxyCodeLine{426         \textcolor{keywordtype}{double} em = m; \textcolor{comment}{//em = eccentric anomaly (output), m = mean anomaly (input)}}
+\DoxyCodeLine{427         \textcolor{keywordtype}{double} sinem = sin(em);}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429         \textcolor{comment}{//If eccentricity is 0  we have M=E, i.e. the Eccentricity anomaly  is equal to the Mean anomaly}}
+\DoxyCodeLine{430         \textcolor{keywordflow}{if} (ecc==0)}
+\DoxyCodeLine{431             \textcolor{keywordflow}{return} m;}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433         \textcolor{keywordtype}{double} f = em -\/ ecc*sinem -\/ m;}
+\DoxyCodeLine{434         \textcolor{keywordtype}{double} f1 = 1.0 -\/ ecc*cos(em);}
+\DoxyCodeLine{435         \textcolor{keywordtype}{double} f2 = ecc*sinem;}
+\DoxyCodeLine{436         \textcolor{keywordtype}{double} fsquare=f1*f1 -\/ 2*f*f2;}
+\DoxyCodeLine{437         \textcolor{keyword}{auto} check\_problem = [\&f2,\&fsquare]()\{ \textcolor{keywordflow}{return} f2==0 or fsquare<=0;\}; \textcolor{comment}{//Lmabda expression to check if I have to pass to a NR}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440         \textcolor{keywordflow}{if} (check\_problem()) \textcolor{comment}{//If the second derivatie is 0 make a step using the first order Newthon Methond}}
+\DoxyCodeLine{441             em = em -\/ f/f1;}
+\DoxyCodeLine{442         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{443             em = em + (-\/f1 + sqrt(fsquare))/f2;}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{445         \textcolor{comment}{// iterations}}
+\DoxyCodeLine{446         \textcolor{keywordflow}{while}(fabs(f) > tol \&\& k < maxit)\{}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449 }
+\DoxyCodeLine{450             sinem = sin(em);}
+\DoxyCodeLine{451             f = em -\/ ecc*sinem -\/ m;}
+\DoxyCodeLine{452             f1 = 1.0 -\/ ecc*cos(em);}
+\DoxyCodeLine{453             f2 = ecc*sinem;}
+\DoxyCodeLine{454             fsquare=f1*f1 -\/ 2*f*f2;}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457             \textcolor{keywordflow}{if} (check\_problem()) \textcolor{comment}{//If the second derivatie is 0 make a step using the first order Newthon Methond}}
+\DoxyCodeLine{458                 em = em -\/ f/f1;}
+\DoxyCodeLine{459             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{460                 em = em + (-\/f1 + sqrt(fsquare))/f2;}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464             k++;}
+\DoxyCodeLine{465         \}}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467         \textcolor{keywordflow}{return} em;}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{469     \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471     \textcolor{comment}{//templates}}
+\DoxyCodeLine{472     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{const} T \mbox{\hyperlink{namespaceutilities_aebdd1c18ee6b1e45259452cdf35433ef}{s2n}}(std::string \&str, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_input, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line\_input) \{}
+\DoxyCodeLine{473         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} svlog;}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{475         T value;}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478         std::stringstream stream(str);}
+\DoxyCodeLine{479         stream >> value;}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482         \textcolor{keywordflow}{if} (stream.fail())}
+\DoxyCodeLine{483             svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Cannot convert the string "{}} + str + \textcolor{stringliteral}{"{}into a number"{}}, file\_input, line\_input,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485         \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{486     \}}
+\DoxyCodeLine{487 }
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}{\_openfile}}(T \&in, \textcolor{keyword}{const} std::string f, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_input, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line\_input)\{}
+\DoxyCodeLine{490         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} svlog;}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493         \textcolor{keywordflow}{if}(in.is\_open()) in.close();}
+\DoxyCodeLine{494         \textcolor{keywordflow}{if}(utilities::isifstream<T>())}
+\DoxyCodeLine{495             in.open(f.c\_str(), std::ios::in);}
+\DoxyCodeLine{496         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{497             in.open(f.c\_str(), std::ios::out);}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499         \textcolor{keywordflow}{if}(!in) svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Cannot open file "{}} + f, file\_input, line\_input,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{500     \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505     \textcolor{comment}{//useful function to sort arrays and indexes}}
+\DoxyCodeLine{506     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_adec8bc9cd6d6ca58ceb366d35e149cf0}{wayToSort}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j) \{ \textcolor{keywordflow}{return} i > j; \}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> T \mbox{\hyperlink{namespaceutilities_abc62a2b904b601c04ed9c5835db161c4}{dirname2n}}(std::string str, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_input, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line\_input)\{}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511         std::size\_t found = str.find(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{512         \textcolor{keywordflow}{if} (found == std::string::npos)}
+\DoxyCodeLine{513             str.insert(1,\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515         \textcolor{keywordflow}{return} utilities::s2n<T>(str, file\_input, line\_input);}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517     \}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520   \textcolor{comment}{//GI}}
+\DoxyCodeLine{524 \textcolor{comment}{}  \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_ae858919d32c2141749f28c6c766b9d2e}{print\_vector}}(\textcolor{keyword}{const} std::vector<T>\& v)\{}
+\DoxyCodeLine{525       std::cout<< \textcolor{stringliteral}{"{}[ "{}};}
+\DoxyCodeLine{526       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& element : v)}
+\DoxyCodeLine{527           std::cout << element << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{528       std::cout<< \textcolor{stringliteral}{"{}]"{}}<<std::endl;}
+\DoxyCodeLine{529   \}}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532   \textcolor{comment}{//GI}}
+\DoxyCodeLine{540 \textcolor{comment}{}  \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}{gen\_filename}}(\textcolor{keyword}{const} std::string \&\_folder, \textcolor{keyword}{const} std::string \&\_fname, \textcolor{keywordtype}{bool} print\_threads=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542       std::string return\_string;}
+\DoxyCodeLine{543       std::string folder = \_folder.back()==\textcolor{charliteral}{'/'} ? \_folder.substr(0, \_folder.length()-\/1) : \_folder; \textcolor{comment}{//GI 141219: To avoid to have a double / if the \_folder in input already contains a / at the end}}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545       \textcolor{keywordflow}{if} (print\_threads)\{}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547           std::size\_t found\_extension;}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549           \textcolor{comment}{//GI 141219: Simple loop to get only the last occurence of . in the string}}
+\DoxyCodeLine{550           \textcolor{keywordflow}{for} ( std::size\_t pos=0; pos!=std::string::npos; pos=\_fname.find(\textcolor{charliteral}{'.'},pos+1)) found\_extension = pos;}
+\DoxyCodeLine{551           \textcolor{keywordflow}{if} (found\_extension==0) found\_extension = \_fname.length();}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553 \textcolor{preprocessor}{          \#ifdef \_OPENMP}}
+\DoxyCodeLine{554                   \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{555 \textcolor{preprocessor}{          \#else}}
+\DoxyCodeLine{556                   \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{557 \textcolor{preprocessor}{          \#endif}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559           return\_string = folder + \textcolor{stringliteral}{"{}/"{}} + \_fname.substr(0, found\_extension) + \textcolor{stringliteral}{"{}\_"{}} + std::to\_string(num\_thread) + \_fname.substr(found\_extension);}
+\DoxyCodeLine{560       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562           return\_string = folder + \textcolor{stringliteral}{"{}/"{}} + \_fname;}
+\DoxyCodeLine{563       \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{565       \textcolor{keywordflow}{return} return\_string;}
+\DoxyCodeLine{566   \}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568 }
+\DoxyCodeLine{573   \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}{get\_absolute\_SEVN\_path}}()\{}
+\DoxyCodeLine{574         std::string here\_token = \textcolor{stringliteral}{"{}include/"{}};}
+\DoxyCodeLine{575         std::string sevn\_path = \_\_FILE\_\_;}
+\DoxyCodeLine{576         std::size\_t found = sevn\_path.find(\textcolor{stringliteral}{"{}/src/"{}});}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578 }
+\DoxyCodeLine{579         \textcolor{keyword}{static} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}} svlog;}
+\DoxyCodeLine{580         \textcolor{keywordflow}{if} (found!=std::string::npos)\{}
+\DoxyCodeLine{581             sevn\_path = sevn\_path.substr(0,found);}
+\DoxyCodeLine{582         \}}
+\DoxyCodeLine{583         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{584             svlog.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Error in the initialisation of parameter myself (path of the SEVN folder)."{}}}
+\DoxyCodeLine{585                            \textcolor{stringliteral}{"{} The path finding it is based on the fact that the utilities.h file is inside the folder include "{}}}
+\DoxyCodeLine{586                            \textcolor{stringliteral}{"{}in the main SEVN folder. Did you change it?"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{587         \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589         \textcolor{keywordflow}{return} sevn\_path;}
+\DoxyCodeLine{590   \}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{602   \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a72e0ffe5e40b23cf4da701b0cc7783bc}{find\_line}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& x1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& x2, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& y1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& y2, \textcolor{keywordtype}{double} \& slope, \textcolor{keywordtype}{double} \& intercept)\{}
+\DoxyCodeLine{603       slope = (y2 -\/ y1)/(x2-\/x1);}
+\DoxyCodeLine{604       intercept = y2 -\/slope*x2;}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{606       \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{607   \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{610   \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_aed157133573e489cc7274532f561a5dd}{rel\_difference}}(T val1, T val2)\{}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612         \textcolor{keywordflow}{return} fabs( (val1-\/val2)/val1 );}
+\DoxyCodeLine{613     \}}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615 }
+\DoxyCodeLine{616 }
+\DoxyCodeLine{617   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}{swap\_stars}}(\mbox{\hyperlink{class_star}{Star}}* \& s1, \mbox{\hyperlink{class_star}{Star}}* \& s2)\{}
+\DoxyCodeLine{618         \mbox{\hyperlink{class_star}{Star}} *stmp=s1;}
+\DoxyCodeLine{619         s1=s2;}
+\DoxyCodeLine{620         s2=stmp;}
+\DoxyCodeLine{621     \}}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{628   \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceutilities_a0e9dc09eefcd89601a54d42b4312fd57}{trim}}(\textcolor{keyword}{const} std::string\& s) \{}
+\DoxyCodeLine{629         \textcolor{keywordflow}{return} std::regex\_replace(s, std::regex(\textcolor{stringliteral}{"{}\string^[ \(\backslash\)\(\backslash\)s]+|[ \(\backslash\)\(\backslash\)s]+\$"{}}), std::string(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{630   \}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{641   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Iter>}
+\DoxyCodeLine{642   \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}{isinlist}}(T element, Iter it, Iter end)\{}
+\DoxyCodeLine{643 }
+\DoxyCodeLine{644       \textcolor{keywordflow}{return} std::find(it, end, element)!=end;}
+\DoxyCodeLine{645   \}}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{653   \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceutilities_a334289d9ad6ce25d13324134b0739ee1}{make\_pfile\_str}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} plife, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_phase}{Phase}}, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} min\_precision=6)\{}
+\DoxyCodeLine{654 }
+\DoxyCodeLine{655       \textcolor{comment}{//In the following rows we estimate plife and the transform the number to a string to initialise stars.}}
+\DoxyCodeLine{656       \textcolor{comment}{//Hovewer, if plife is very close to 0 or 1 without enough number of digits we can artificially force plife to be 0 or 1}}
+\DoxyCodeLine{657       \textcolor{comment}{//Theregore we dynamically set the precision estimating the difference between plife and 0 or 1, taking the exponent of log10}}
+\DoxyCodeLine{658       \textcolor{comment}{//and using the next larger integer.}}
+\DoxyCodeLine{659       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} precision; \textcolor{comment}{//Set the precision to transform pfile from number to string}}
+\DoxyCodeLine{660       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digit\_0= std::ceil(std::abs(std::log10(std::abs(plife-\/0))));}
+\DoxyCodeLine{661       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digit\_1= std::ceil(std::abs(std::log10(std::abs(plife-\/1))));}
+\DoxyCodeLine{662       precision=std::max(std::max(digit\_0,digit\_1),min\_precision);}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{664       \textcolor{comment}{//Consistency check}}
+\DoxyCodeLine{665       std::stringstream tini\_ss; \textcolor{comment}{//string containing the plife (see below)}}
+\DoxyCodeLine{666       \textcolor{comment}{//Close to plife=1 is necessary to use a large number of digits to avoid to set plife=1 when trasformi to string}}
+\DoxyCodeLine{667       tini\_ss << \textcolor{stringliteral}{"{}\%"{}} << std::setprecision(precision)  << plife * 100 << \textcolor{stringliteral}{"{}:"{}} << \mbox{\hyperlink{class_phase}{Phase}}; \textcolor{comment}{//Starting time}}
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669       \textcolor{keywordflow}{return} tini\_ss.str();}
+\DoxyCodeLine{670   \}}
+\DoxyCodeLine{671 }
+\DoxyCodeLine{672 }
+\DoxyCodeLine{673   \textcolor{comment}{//Interpolator}}
+\DoxyCodeLine{684 \textcolor{comment}{}  \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> T \mbox{\hyperlink{namespaceutilities_a24db937086b3a175ab295e3b8457e101}{interpolate\_1D}}(T xp,  std::vector<T>\& x\_interp,  std::vector<T>\& y\_interp, \textcolor{keywordtype}{bool} equispaced\_interval=\textcolor{keyword}{false}, \textcolor{keywordtype}{bool} ext\_raise=\textcolor{keyword}{false})\{}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{686 }
+\DoxyCodeLine{687       \textcolor{keywordflow}{if} (xp<x\_interp[0] and ext\_raise)}
+\DoxyCodeLine{688           \textcolor{keywordflow}{throw} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}(\textcolor{stringliteral}{"{}Error in interpolate\_1D in utility.h: xp is out of boundary."{}});}
+\DoxyCodeLine{689       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (xp<=x\_interp[0])}
+\DoxyCodeLine{690           \textcolor{keywordflow}{return} y\_interp[0];}
+\DoxyCodeLine{691 }
+\DoxyCodeLine{692       \textcolor{keywordflow}{if} (xp>x\_interp.back() and ext\_raise)}
+\DoxyCodeLine{693           \textcolor{keywordflow}{throw} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnstd::sevnerr}}(\textcolor{stringliteral}{"{}Error in interpolate\_1D in utility.h: xp is out of boundary."{}});}
+\DoxyCodeLine{694       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (xp>=x\_interp.back())}
+\DoxyCodeLine{695           \textcolor{keywordflow}{return} y\_interp.back();}
+\DoxyCodeLine{696 }
+\DoxyCodeLine{697       \textcolor{keywordtype}{size\_t} pos;}
+\DoxyCodeLine{698       \textcolor{keywordflow}{if} (equispaced\_interval)\{}
+\DoxyCodeLine{699           \textcolor{keywordtype}{double} dx   = x\_interp[1]-\/x\_interp[0];}
+\DoxyCodeLine{700           pos = int( (xp-\/x\_interp[0])/dx); \textcolor{comment}{//int return floor}}
+\DoxyCodeLine{701       \}}
+\DoxyCodeLine{702       \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{703           pos = \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{binary\_search}}(\&x\_interp[0], 0, x\_interp.size()-\/1, xp);}
+\DoxyCodeLine{704       \}}
+\DoxyCodeLine{705       \textcolor{keywordflow}{return} (y\_interp[pos+1]-\/y\_interp[pos])/(x\_interp[pos+1]-\/x\_interp[pos])*(xp-\/x\_interp[pos])+y\_interp[pos];}
+\DoxyCodeLine{706   \}}
+\DoxyCodeLine{707 }
+\DoxyCodeLine{714   \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceutilities_af6c19ca97db0520e36ecbc316fcea155}{get\_subpath}}(std::string path, std::string split\_string, \textcolor{keywordtype}{bool} include\_split\_string=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{715 }
+\DoxyCodeLine{716       \textcolor{keywordtype}{size\_t} tt= path.find(split\_string);}
+\DoxyCodeLine{717       std::string subpath;}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{719       \textcolor{keywordflow}{if} (include\_split\_string)\{}
+\DoxyCodeLine{720           subpath = path.substr(0,tt+split\_string.size());}
+\DoxyCodeLine{721       \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{722           subpath = path.substr(0,tt);}
+\DoxyCodeLine{723       \}}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{725       \textcolor{keywordflow}{return} subpath;}
+\DoxyCodeLine{726   \}}
+\DoxyCodeLine{727 }
+\DoxyCodeLine{734   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{735   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceutilities_a9db8059c417fcc3e00c964b205dfd10c}{transpose}}(std::vector<std::vector<T>>\& MatrixT, std::vector<std::vector<T>>\& Matrix)\{}
+\DoxyCodeLine{736 }
+\DoxyCodeLine{737       MatrixT.resize(Matrix.size());}
+\DoxyCodeLine{738 }
+\DoxyCodeLine{739       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& Matrix\_row : Matrix)\{}
+\DoxyCodeLine{740           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<(int)Matrix\_row.size(); j++)}
+\DoxyCodeLine{741               MatrixT[j].push\_back(Matrix\_row[j]);}
+\DoxyCodeLine{742       \}}
+\DoxyCodeLine{743 }
+\DoxyCodeLine{744   \}}
+\DoxyCodeLine{745 }
+\DoxyCodeLine{746 }
+\DoxyCodeLine{755     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T>}
+\DoxyCodeLine{756     \textcolor{keywordtype}{int} \mbox{\hyperlink{namespaceutilities_a87976691f0e05cda8ae21158c0a8f414}{findInVector}}(\textcolor{keyword}{const} std::vector<T>  \& vecOfElements, \textcolor{keyword}{const} T  \& element)}
+\DoxyCodeLine{757     \{}
+\DoxyCodeLine{758         \textcolor{keywordtype}{int} result ;}
+\DoxyCodeLine{759         \textcolor{comment}{// Find given element in vector}}
+\DoxyCodeLine{760         \textcolor{keyword}{auto} it = std::find(vecOfElements.begin(), vecOfElements.end(), element);}
+\DoxyCodeLine{761         \textcolor{keywordflow}{if} (it != vecOfElements.end())}
+\DoxyCodeLine{762         \{}
+\DoxyCodeLine{763             result = distance(vecOfElements.begin(), it);}
+\DoxyCodeLine{764 }
+\DoxyCodeLine{765         \}}
+\DoxyCodeLine{766         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{767         \{}
+\DoxyCodeLine{768             result=-\/1;}
+\DoxyCodeLine{769         \}}
+\DoxyCodeLine{770         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{771     \}}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{773 }
+\DoxyCodeLine{774     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Key, \textcolor{keyword}{typename} Value>}
+\DoxyCodeLine{775     std::map<Value,Key> \mbox{\hyperlink{namespaceutilities_a418f3150143150ba35d09e34659261bd}{flip\_map}}(\textcolor{keyword}{const} std::map<Key,Value> \&original\_map)\{}
+\DoxyCodeLine{776         std::map<Value,Key> flipped\_map;}
+\DoxyCodeLine{777 }
+\DoxyCodeLine{778         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& pair : original\_map)\{}
+\DoxyCodeLine{779             flipped\_map[pair.second] = pair.first;}
+\DoxyCodeLine{780         \}}
+\DoxyCodeLine{781 }
+\DoxyCodeLine{782         \textcolor{keywordflow}{return} flipped\_map;}
+\DoxyCodeLine{783     \}}
+\DoxyCodeLine{784 }
+\DoxyCodeLine{795     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}{areEqual}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y);}
+\DoxyCodeLine{796 }
+\DoxyCodeLine{803     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceutilities_a28bd246e784a216570ec90d73248581b}{smallestSignificativeStep}}(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{805 }
+\DoxyCodeLine{814     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{815     \textcolor{keyword}{inline} std::unique\_ptr<T> \mbox{\hyperlink{namespaceutilities_ad68bd867b8840d57e9e377174b5720c3}{make\_unique}}(Args\&\&... args) \{}
+\DoxyCodeLine{816         \textcolor{keywordflow}{return} std::unique\_ptr<T>(\textcolor{keyword}{new} T(std::forward<Args>(args)...));}
+\DoxyCodeLine{817     \}}
+\DoxyCodeLine{818 }
+\DoxyCodeLine{820 }
+\DoxyCodeLine{825   \textcolor{keyword}{class }\mbox{\hyperlink{classutilities_1_1_list_generator}{ListGenerator}}\{}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{827   \textcolor{keyword}{private}:}
+\DoxyCodeLine{828 }
+\DoxyCodeLine{829                   \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}};}
+\DoxyCodeLine{830 }
+\DoxyCodeLine{831                   \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}=std::nan(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{832                   \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}}=0.;}
+\DoxyCodeLine{833                   \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}}=2E30;}
+\DoxyCodeLine{834 }
+\DoxyCodeLine{835                   std::vector<double> \mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}};}
+\DoxyCodeLine{836                   std::vector<double>::iterator \mbox{\hyperlink{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}{begin}};}
+\DoxyCodeLine{837                   std::vector<double>::iterator \mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}};}
+\DoxyCodeLine{838                   std::vector<double>::iterator  \mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}};}
+\DoxyCodeLine{839                   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}{end\_of\_list}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{840 }
+\DoxyCodeLine{841                   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}{initialise\_tlist\_iterators}}()\{}
+\DoxyCodeLine{842                       \mbox{\hyperlink{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}{begin}}=\mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}.begin();}
+\DoxyCodeLine{843                       \mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}}=\mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}.end();}
+\DoxyCodeLine{844                       \mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}}=\mbox{\hyperlink{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}{begin}};}
+\DoxyCodeLine{845                   \}}
+\DoxyCodeLine{846   \textcolor{keyword}{public}:}
+\DoxyCodeLine{847                   \mbox{\hyperlink{classutilities_1_1_list_generator_ad387d3f6653373fbc176d06967433c96}{ListGenerator}}()\{}
+\DoxyCodeLine{848                       \mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}=\{\};}
+\DoxyCodeLine{849                       \mbox{\hyperlink{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}{initialise\_tlist\_iterators}}();}
+\DoxyCodeLine{850                   \}}
+\DoxyCodeLine{851 }
+\DoxyCodeLine{859                   \textcolor{keyword}{explicit} \mbox{\hyperlink{classutilities_1_1_list_generator_a86ee7bc0e5a30992aff1e7e6b11bac90}{ListGenerator}}(\textcolor{keywordtype}{double} \_vstep, \textcolor{keywordtype}{double} \_vstep\_max=std::nan(\textcolor{stringliteral}{"{}"{}}), \textcolor{keywordtype}{double} \_vstep\_min=std::nan(\textcolor{stringliteral}{"{}"{}}))}
+\DoxyCodeLine{860                   : \mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}\{\_vstep\}, \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}}\{\_vstep\_min\}, \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}}\{\_vstep\_max\} \{}
+\DoxyCodeLine{861 }
+\DoxyCodeLine{862                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}<=0)}
+\DoxyCodeLine{863                           \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}ListGenerator::vstep cannot be negative or zero"{}});}
+\DoxyCodeLine{864                       \textcolor{keywordflow}{if} (std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}}))}
+\DoxyCodeLine{865                           \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}}=\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}};}
+\DoxyCodeLine{866                       \textcolor{keywordflow}{if} (std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}}))}
+\DoxyCodeLine{867                           \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}}=2E30;}
+\DoxyCodeLine{868 }
+\DoxyCodeLine{869                       \textcolor{keywordflow}{if}(\mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}} >= \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}})}
+\DoxyCodeLine{870                           \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}ListGenerator::vmin cannot be larger than ListGenerator::vmax"{}});}
+\DoxyCodeLine{871 }
+\DoxyCodeLine{872                       \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}=\mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}};}
+\DoxyCodeLine{873                   \}}
+\DoxyCodeLine{874 }
+\DoxyCodeLine{880                   \textcolor{keyword}{explicit} \mbox{\hyperlink{classutilities_1_1_list_generator_acc5bfae58cd052935b4e603bd4489897}{ListGenerator}}(\textcolor{keyword}{const} std::vector<double>\& \_tlist) : \mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}\{\_tlist\} \{}
+\DoxyCodeLine{881 }
+\DoxyCodeLine{882                       \textcolor{keywordflow}{if} (!std::is\_sorted(\mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}.begin(),\mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}.end()))}
+\DoxyCodeLine{883                           \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}The input vector in the ListGenerator constructor is not sorted"{}});}
+\DoxyCodeLine{884 }
+\DoxyCodeLine{885                       \mbox{\hyperlink{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}{initialise\_tlist\_iterators}}();}
+\DoxyCodeLine{886                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}.empty())\{}
+\DoxyCodeLine{887                           \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}=*\mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}};}
+\DoxyCodeLine{888                           \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}}=*\mbox{\hyperlink{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}{begin}};}
+\DoxyCodeLine{889                           \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}}=*(\mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}}-\/1);}
+\DoxyCodeLine{890                       \}}
+\DoxyCodeLine{891                   \}}
+\DoxyCodeLine{892 }
+\DoxyCodeLine{893                   \textcolor{keyword}{static} std::unique\_ptr<ListGenerator> \mbox{\hyperlink{classutilities_1_1_list_generator_a3e7aa4be7268095f27836f13ce2d3790}{make\_unique}}(\textcolor{keywordtype}{double} \_vstep, \textcolor{keywordtype}{double} \_vstep\_max=std::nan(\textcolor{stringliteral}{"{}"{}}), \textcolor{keywordtype}{double} \_vstep\_min=std::nan(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{894                   \textcolor{keyword}{static} std::unique\_ptr<ListGenerator> \mbox{\hyperlink{classutilities_1_1_list_generator_a3e7aa4be7268095f27836f13ce2d3790}{make\_unique}}(std::vector<double> \_vlist);}
+\DoxyCodeLine{895 }
+\DoxyCodeLine{896                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}{get}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{897                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty}}())}
+\DoxyCodeLine{898                           \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}The list of times reached the end. The current value is undefined"{}});}
+\DoxyCodeLine{899                       \textcolor{keywordflow}{return} \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}};}
+\DoxyCodeLine{900                   \}}
+\DoxyCodeLine{901                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a96fdbdc6bcc259e9dd2adcf94ac65210}{get\_max}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}};\}}
+\DoxyCodeLine{902                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a98bb57b9427a864b35da11ab25b70fc8}{get\_min}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}};\}}
+\DoxyCodeLine{903 }
+\DoxyCodeLine{904                   \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}{end\_of\_list}};\}}
+\DoxyCodeLine{905                   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next}}()\{}
+\DoxyCodeLine{906                       \textcolor{comment}{//If empty just throw an out\_of\_range error}}
+\DoxyCodeLine{907                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty}}())}
+\DoxyCodeLine{908                           \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}The list of times reached the end. The next value is undefined"{}});}
+\DoxyCodeLine{909                       \textcolor{comment}{//If we are using the vstep implementation and the next step is  going beyond vmax flag end\_of\_list}}
+\DoxyCodeLine{910                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}) and \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}+\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}>\mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}})}
+\DoxyCodeLine{911                           \mbox{\hyperlink{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}{end\_of\_list}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{912                       \textcolor{comment}{//If we are using the vstep implementation and the next step is  not going beyond vmax just increment vcurrent}}
+\DoxyCodeLine{913                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}))}
+\DoxyCodeLine{914                           \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}+=\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}};}
+\DoxyCodeLine{915                       \textcolor{comment}{//Now start with the vlist implementation check}}
+\DoxyCodeLine{916                       \textcolor{comment}{//Update the iterator and check if we   reach the end}}
+\DoxyCodeLine{917                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(++\mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}}==\mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}})\{}
+\DoxyCodeLine{918                           \mbox{\hyperlink{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}{end\_of\_list}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{919                       \}}
+\DoxyCodeLine{920                       \textcolor{comment}{//If we are here We are still inside the list, update the iterator and vcurrent.}}
+\DoxyCodeLine{921                       \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{922                           \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}=*\mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}};}
+\DoxyCodeLine{923                       \}}
+\DoxyCodeLine{924                   \}}
+\DoxyCodeLine{925                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_adfda3818723ed747babda66b1555e3c7}{operator++}}()\{}
+\DoxyCodeLine{926                       \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next}}();}
+\DoxyCodeLine{927                       \textcolor{keywordflow}{return} \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}};}
+\DoxyCodeLine{928                   \}}
+\DoxyCodeLine{929                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a3f1d306a2900c813fe6d65627249dd7d}{operator++}}(\textcolor{keywordtype}{int})\{}
+\DoxyCodeLine{930                       \textcolor{keywordtype}{double} old\_t=\mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}};}
+\DoxyCodeLine{931                       \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next}}();}
+\DoxyCodeLine{932                       \textcolor{keywordflow}{return} old\_t;}
+\DoxyCodeLine{933                   \}}
+\DoxyCodeLine{938                   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classutilities_1_1_list_generator_a73b1ac59f79feb8647081e3fa4bed84f}{forecast}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{939                       \textcolor{comment}{//If empty just throw an out\_of\_range error}}
+\DoxyCodeLine{940                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty}}())}
+\DoxyCodeLine{941                           \textcolor{keywordflow}{return} std::nan(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{942                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}) and \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}+\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}>\mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}})}
+\DoxyCodeLine{943                           \textcolor{keywordflow}{return} std::nan(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{944                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!std::isnan(\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}}))}
+\DoxyCodeLine{945                           \textcolor{keywordflow}{return}  \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}+\mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}};}
+\DoxyCodeLine{946                       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}}+1==\mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}})}
+\DoxyCodeLine{947                           \textcolor{keywordflow}{return} std::nan(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{948                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{949                           \textcolor{keywordflow}{return} *(\mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}}+1);}
+\DoxyCodeLine{950                   \}}
+\DoxyCodeLine{951 }
+\DoxyCodeLine{952               \};}
+\DoxyCodeLine{953 }
+\DoxyCodeLine{954 }
+\DoxyCodeLine{955 }
+\DoxyCodeLine{956 \}}
+\DoxyCodeLine{957 }
+\DoxyCodeLine{958 }
+\DoxyCodeLine{959 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_REVISED\_UTILITIES\_H}}
+\DoxyCodeLine{960 }
+
+\end{DoxyCode}

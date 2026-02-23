@@ -1,0 +1,115 @@
+\hypertarget{lambda__nanjing_8h_source}{}\doxysection{lambda\+\_\+nanjing.\+h}
+\label{lambda__nanjing_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/lambdas/lambda\_nanjing.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/lambdas/lambda\_nanjing.h}}
+\mbox{\hyperlink{lambda__nanjing_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 12/14/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_LAMBDA\_NANJING\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_LAMBDA\_NANJING\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lambda__base_8h}{lambda\_base.h}}>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_o}{IO}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{class_lambda___nanjing}{Lambda\_Nanjing}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_lambda___base}{Lambda\_Base}} \{}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_lambda___nanjing_ac660046f783586326626a520fecb87ce}{Lambda\_Nanjing}}()\{\};}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_lambda___nanjing_ae024840ea896ed423aade415cb74a219}{Lambda\_Nanjing}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}} *s)\{\};}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_lambda___nanjing_a141f94fc62a871d1150384786da14ea9}{Lambda\_Nanjing}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_i_o}{IO}} *io)\{\};}
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lambda___nanjing_a2f8279fd74c565b2f941d43d8dee494a}{\string~Lambda\_Nanjing}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a5b1d5c4cbe4dd90203a7384c3dc16500}{operator() }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{override};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a4b72a0e8e1142368e34848375be4f9a0}{lambda\_Giant}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a626e0e07ad9e8745ff9a0e27c41bedcd}{lambda\_Cheb}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_afa8e83aa824581e372a55e772dfceffc}{lambda\_AGB}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a76caa80e76185de504348ed2ec7430d2}{lambda\_pureHe}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{//Properly estimated the two lambdas, they call set\_coeff** to set the coefficients of the fittin equations}}
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a5612a52a04191c6aa3f91f366ec560d2}{lambda\_Giant}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} lambda\_th);}
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a962a0190d056ac1cfc458607302e177e}{lambda\_Cheb}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} lambda\_th);}
+\DoxyCodeLine{78     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_ac67837a70ee4dc2e826124d75a09fc07}{lambda\_AGB}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} lambda\_th);}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a759feb471f1bdbe0393427ed41d310e0}{lambda\_pureHe}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mzams, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} Z, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Menv, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} lambda\_th);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{//Set the coefficient of the lambda fitting equations}}
+\DoxyCodeLine{82     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\_status}};}
+\DoxyCodeLine{83     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\_status}} \mbox{\hyperlink{class_lambda___nanjing_a4bc5350c096287f5808b3973740ef840}{set\_coeff\_Giant}}(\textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}});  \textcolor{comment}{//From HG::CalculateLambdaNanjing in HG.cpp in COMPAS}}
+\DoxyCodeLine{84     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\_status}} \mbox{\hyperlink{class_lambda___nanjing_a8e2928259d81b95d026ee1e07126dab0}{set\_coeff\_Cheb}}(\textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}});   \textcolor{comment}{//From CHeB::CalculateLambdaNanjing in CHeb.cpp in COMPAS}}
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lambda___nanjing_ac7a2bb9a73ee2523a638a75475873813}{coeff\_status}} \mbox{\hyperlink{class_lambda___nanjing_a0ca8790696c0f70566d35126fde90075}{set\_coeff\_AGB}}(\textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}});    \textcolor{comment}{//From EAGB::CalculateLambdaNanjing in EAGB.cpp in COMPAS}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92     std::vector<double> \mbox{\hyperlink{class_lambda___nanjing_ad6027122d529645428db1aac08b37c1b}{fitting\_equation}}(\textcolor{keywordtype}{double} x)\{}
+\DoxyCodeLine{93         \textcolor{keywordtype}{double} x2 = x * x;}
+\DoxyCodeLine{94         \textcolor{keywordtype}{double} x3 = x2 * x;}
+\DoxyCodeLine{95         \textcolor{keywordtype}{double} x4 = x2 * x2;}
+\DoxyCodeLine{96         \textcolor{keywordtype}{double} x5 = x3 * x2;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         \textcolor{keywordtype}{double} y1 = \mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[0] + (\mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[1] * x) + (\mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[2] * x2) + (\mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[3] * x3) + (\mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[4] * x4) + (\mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}[5] * x5);}
+\DoxyCodeLine{99         \textcolor{keywordtype}{double} y2 = \mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[0] + (\mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[1] * x) + (\mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[2] * x2) + (\mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[3] * x3) + (\mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[4] * x4) + (\mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}[5] * x5);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         std::vector<double> y\_vec = \{y1,y2\};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} y\_vec;}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}} \mbox{\hyperlink{class_lambda___nanjing_aa3927c4a34c542e1d089390959d8a251}{svlog}};}
+\DoxyCodeLine{107     std::vector<double> \mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}; }
+\DoxyCodeLine{108     std::vector<double> \mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}; }
+\DoxyCodeLine{109     std::vector<double> \mbox{\hyperlink{class_lambda___nanjing_ab22c8d6457af0aa77d2505965767f201}{maxBG}} = \{\};  }
+\DoxyCodeLine{110     std::vector<double> \mbox{\hyperlink{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}{lambdaBG}} = \{\}; }
+\DoxyCodeLine{116     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lambda___nanjing_a5bb581d811d424265ed1133cf5c92e8d}{reset}}()\{}
+\DoxyCodeLine{117          \mbox{\hyperlink{class_lambda___nanjing_a2402db8cada79a64530b93383cba6182}{coeff\_lambdab}}.clear();}
+\DoxyCodeLine{118          \mbox{\hyperlink{class_lambda___nanjing_addf6021953f7553436017a71fc1ed0a2}{coeff\_lambdag}}.clear();}
+\DoxyCodeLine{119          \mbox{\hyperlink{class_lambda___nanjing_ab22c8d6457af0aa77d2505965767f201}{maxBG}}.clear();}
+\DoxyCodeLine{120          \mbox{\hyperlink{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}{lambdaBG}}.clear();}
+\DoxyCodeLine{121          \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{122      \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{private}:}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_ad8de41960b5cd688d71df52739f91a8f}{ZpopI}} = 0.0085; }
+\DoxyCodeLine{127     \textcolor{keyword}{constexpr} \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lambda___nanjing_a52dfc2a04b0e037180817bad7e31d989}{COEF\_SET}} = 1;}
+\DoxyCodeLine{128     \textcolor{keyword}{constexpr} \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lambda___nanjing_ac8f967aa97369cc5d49f76439116980b}{COEF\_NOT\_SET}} = 0;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{135     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing_a7734dc5a204286559c48b92e3963fbb2}{lambda\_estimate}}(\textcolor{keywordtype}{double} lambda\_th)\{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} lambda\_th*\mbox{\hyperlink{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}{lambdaBG}}[0] + (1-\/lambda\_th)*\mbox{\hyperlink{class_lambda___nanjing_af4914b8114ac860589339f44ad5c310b}{lambdaBG}}[1];}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 \};}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 }
+\DoxyCodeLine{153 \textcolor{keyword}{class }\mbox{\hyperlink{class_lambda___nanjing__interpolator}{Lambda\_Nanjing\_interpolator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_lambda___nanjing}{Lambda\_Nanjing}}\{}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{keyword}{public}:}
+\DoxyCodeLine{156     \mbox{\hyperlink{class_lambda___nanjing__interpolator_a86cb47d635568a4af0cf7508edd0daab}{Lambda\_Nanjing\_interpolator}}()\{\};}
+\DoxyCodeLine{157     \mbox{\hyperlink{class_lambda___nanjing__interpolator_aefe5015297c45381fc55f83a4ceab546}{Lambda\_Nanjing\_interpolator}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}} *s)\{\};}
+\DoxyCodeLine{158     \mbox{\hyperlink{class_lambda___nanjing__interpolator_a82c2d2159bd35480c0b61139f1be8411}{Lambda\_Nanjing\_interpolator}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_i_o}{IO}} *io)\{\};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing__interpolator_ad834d6613dd55493f6fdbc4939ca077d}{operator() }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{override};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing__interpolator_ad834d6613dd55493f6fdbc4939ca077d}{operator() }}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_phase}{Phase}}, \textcolor{keywordtype}{double} Mzams, \textcolor{keywordtype}{double} Z, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}, \textcolor{keywordtype}{double} Menv, \textcolor{keywordtype}{double} lambda\_th);}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keyword}{static} std::vector<double> \mbox{\hyperlink{class_lambda___nanjing__interpolator_a847c5d49e2b6dae192886380841056c9}{Mzams\_list}};  }
+\DoxyCodeLine{168     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing__interpolator_a5439170f86192d456458f81d5945fbf0}{Mzams\_cache}}\{0\}, \mbox{\hyperlink{class_lambda___nanjing__interpolator_aeace58db699dedb4502f8701a7a3491a}{Z\_cache}}\{0\}; }
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lambda___nanjing__interpolator_a1caa48e90e9b35b13d634535b97ebbdf}{find\_interpolators}}(\textcolor{keywordtype}{double} Mzams);}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{keyword}{private}:}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing__interpolator_ae86f5f13ad2d61500bd1c5a3617b05c2}{Mzams\_interpolators}} [2] = \{0.,0.\}; }
+\DoxyCodeLine{175     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_lambda___nanjing__interpolator_aa6e35d58dade479632d58db68f794148}{wM}} [2] = \{0., 0.\}; }
+\DoxyCodeLine{177 \};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_LAMBDA\_NANJING\_H}}
+
+\end{DoxyCode}

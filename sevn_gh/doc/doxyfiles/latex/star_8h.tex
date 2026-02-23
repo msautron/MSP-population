@@ -1,0 +1,62 @@
+\hypertarget{star_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/star.h File Reference}
+\label{star_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/star.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/star.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$IO.\+h$>$}\newline
+{\ttfamily \#include $<$lookup\+\_\+and\+\_\+phases.\+h$>$}\newline
+{\ttfamily \#include $<$property.\+h$>$}\newline
+{\ttfamily \#include $<$errhand.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$params.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_star}{Star}}
+\item 
+class \mbox{\hyperlink{class_star__auxiliary}{Star\+\_\+auxiliary}}
+\item 
+class \mbox{\hyperlink{class_empty}{Empty}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{star_8h_a329b96af5624ee916134e354a3a90125}{FOR4}}~for(size\+\_\+t \+\_\+i = 0; \+\_\+i $<$ 4; \+\_\+i++)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{star_8h_aec08323dfc27c16bc383f9ac13bb08a2}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_star}{Star}} \&s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{star_8h_a329b96af5624ee916134e354a3a90125}\label{star_8h_a329b96af5624ee916134e354a3a90125}} 
+\index{star.h@{star.h}!FOR4@{FOR4}}
+\index{FOR4@{FOR4}!star.h@{star.h}}
+\doxysubsubsection{\texorpdfstring{FOR4}{FOR4}}
+{\footnotesize\ttfamily \#define FOR4~for(size\+\_\+t \+\_\+i = 0; \+\_\+i $<$ 4; \+\_\+i++)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{star_8h_aec08323dfc27c16bc383f9ac13bb08a2}\label{star_8h_aec08323dfc27c16bc383f9ac13bb08a2}} 
+\index{star.h@{star.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!star.h@{star.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{class_star}{Star}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overlead of the ostream opeator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} to make a custome print of the class star. 
+\begin{DoxyParams}{Parameters}
+{\em os} & ostream operator \\
+\hline
+{\em s} & object of class star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an ostream with the star infos (Name, Mzams, Z, sn\+\_\+type, tfinale, dt out) 
+\end{DoxyReturn}

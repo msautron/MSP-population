@@ -1,0 +1,1167 @@
+\hypertarget{_orbit_8h_source}{}\doxysection{Orbit.\+h}
+\label{_orbit_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/Orbit.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/Orbit.h}}
+\mbox{\hyperlink{_orbit_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by spera on 21/02/19.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_ORBIT\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_ORBIT\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{errhand_8h}{errhand.h}}>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{star_8h}{star.h}}>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_m_tstability_8h}{MTstability.h}}>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_UNUSED \_\_attribute\_\_ ((unused))}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{/*}}
+\DoxyCodeLine{23 \textcolor{comment}{\#ifdef HAVE\_STD\_\_MAKE\_UNIQUE}}
+\DoxyCodeLine{24 \textcolor{comment}{    using std::make\_unique;}}
+\DoxyCodeLine{25 \textcolor{comment}{\#else}}
+\DoxyCodeLine{26 \textcolor{comment}{    using utilities::make\_unique;}}
+\DoxyCodeLine{27 \textcolor{comment}{\#endif}}
+\DoxyCodeLine{28 \textcolor{comment}{*/}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_process}{Process}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{35 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_qcrit}{Qcrit}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change}{Orbital\_change}}  \{}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_orbital__change_a7bc966725b8d4fc8cd807cfd7b410a2f}{Orbital\_change}}()\{\}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change_af9ad1b26193c988f3f6b2303f9f8364f}{\string~Orbital\_change}}()\{}
+\DoxyCodeLine{47         \textcolor{comment}{//std::cout<<"{}Orb "{}<<  this << std::endl;}}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_orbital__change_adf2244e62bcf25ab4478dfa5f6498aa1}{Orbital\_change}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\& \mbox{\hyperlink{class_orbital__change_a64d1b9d4c1e505e47d0f3ccdf9a6f168}{operator= }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \mbox{\hyperlink{class_orbital__change_a4861e62d5cb2b5417e78db660d321644}{Orbital\_change}}( \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} std::string argv)\{}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change_ab24ef0207a5065c4aa8376a0478b2504}{name}}()\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change (generic)"{}};\}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change_adeb58a2c147ad895d313159a59b24487}{init}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \{\}}
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change_ae7d7e0628e5047a3d810380afb079e14}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID)\{ \textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change_adc54ac8c6290228dcec5d6dfdb9eec51}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID)\{ \textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change_a802983c4798625dcb0319be0b971695d}{DM}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} starID)\{ \textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change_accdda03f7f2e38feae3995ea9b2cdb6c}{DAngMomSpin}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} starID)\{ \textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76      \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change_a9b10dd053f3b74652cfad5f58064c0e1}{is\_process\_ongoing}}()\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change_a3425194ee18f327bbe9751aaca12df1b}{speciale\_evolve}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{ \textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change_ab647fbd4fa38d29098cd8e0173391b54}{set\_options}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}}* \_io)\{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{90     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}};}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{/**********WINDS*****************/}}
+\DoxyCodeLine{95 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}} \{}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{public}:}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \mbox{\hyperlink{class_orbital__change___wind_ac51dcee37787298399aa506d03946ef7}{Orbital\_change\_Wind}}()\{}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___wind_a308916b6475b00ff4f713db34a571461}{\string~Orbital\_change\_Wind}}() \{}
+\DoxyCodeLine{104         \textcolor{comment}{//std::cout<<"{}Wind "{}<<  this << std::endl;}}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}} *\mbox{\hyperlink{class_orbital__change___wind_aa9af92acfe270a7868d0639f8e9f01ce}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}}  *\mbox{\hyperlink{class_orbital__change___wind_a9b10015bec8cf096e139260c5eee4f6b}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___wind_a11577fab56df78006f45e6cb543cd6ae}{name}});}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___wind_a11577fab56df78006f45e6cb543cd6ae}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change Winds"{}};\}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___wind_aa8b054420b1078c9200866fdc5b79a1c}{Register}}(\mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{119         \mbox{\hyperlink{class_orbital__change___wind_a2f8118fb28c939655f9a1dff47f73a3d}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{120         \mbox{\hyperlink{class_orbital__change___wind_a167f5aff25188a471f3ce86e061fe9dc}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___wind_a2f8118fb28c939655f9a1dff47f73a3d}{GetStaticMap}}().size());}
+\DoxyCodeLine{121         \mbox{\hyperlink{class_orbital__change___wind_a167f5aff25188a471f3ce86e061fe9dc}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___wind_a167f5aff25188a471f3ce86e061fe9dc}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{private}:}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Wind *> \& \mbox{\hyperlink{class_orbital__change___wind_a2f8118fb28c939655f9a1dff47f73a3d}{GetStaticMap}}()\{}
+\DoxyCodeLine{127         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Wind *> \_locmap;}
+\DoxyCodeLine{128         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___wind_a167f5aff25188a471f3ce86e061fe9dc}{GetUsed}}()\{}
+\DoxyCodeLine{132         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled__winds}{disabled\_winds}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}} \{}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{public}:}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \mbox{\hyperlink{classdisabled__winds_a0dea7c81a3af17de506d69a8b57b7b9a}{disabled\_winds}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{144             \mbox{\hyperlink{class_orbital__change___wind_aa8b054420b1078c9200866fdc5b79a1c}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled__winds_ade065395525d0939d55d5644f042d996}{name}}());}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146     \};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \mbox{\hyperlink{classdisabled__winds}{disabled\_winds}} * \mbox{\hyperlink{classdisabled__winds_a21c58d5ccdd8fe2dbfb7422870e38e64}{instance}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled__winds}{disabled\_winds}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled__winds}{disabled\_winds}} \mbox{\hyperlink{classdisabled__winds_a0f2573cbb00eeae04296296ee8d12287}{\_disabled\_winds}};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled__winds_ade065395525d0939d55d5644f042d996}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a842962d685f2e1f53fba72430a139254}{Lookup::windsmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957af89a467351eccbef6388ff4939c8fe00}{Lookup::WindsMode::\_Wdisabled}}); \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled__winds_ad0c9613490aa8d57239048110f78d0e0}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{class }\mbox{\hyperlink{class_hurley__winds}{Hurley\_winds}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___wind}{Orbital\_change\_Wind}} \{}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{keyword}{public}:}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     \mbox{\hyperlink{class_hurley__winds_ac40ce53f1c083d8fb7007a69417d91e2}{Hurley\_winds}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{165             \mbox{\hyperlink{class_orbital__change___wind_aa8b054420b1078c9200866fdc5b79a1c}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hurley__winds_a0b92eb66a525b0cf0eedb5b01a12b472}{name}}());}
+\DoxyCodeLine{166         \}}
+\DoxyCodeLine{167     \};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \mbox{\hyperlink{class_hurley__winds}{Hurley\_winds}} * \mbox{\hyperlink{class_hurley__winds_a3f5acce5accdfd67ac429e5be8c268e0}{instance}}()\textcolor{keyword}{  override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_hurley__winds}{Hurley\_winds}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     \mbox{\hyperlink{class_hurley__winds_a8c1326b53992289e51fa9fac957606db}{\string~Hurley\_winds}}()\{}
+\DoxyCodeLine{172         \textcolor{comment}{//std::cout<<"{}H wind "{}<<  this << std::endl;}}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keyword}{static} \mbox{\hyperlink{class_hurley__winds}{Hurley\_winds}} \mbox{\hyperlink{class_hurley__winds_ad501f0900bd0985babec238597507c35}{\_Hurley\_winds}};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{180     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hurley__winds_a0b92eb66a525b0cf0eedb5b01a12b472}{name}}()  \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a842962d685f2e1f53fba72430a139254}{Lookup::windsmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_aa852b96d97ca397c875a280e02945957ac58a5a816f22b14ab0660cb904f3d6d7}{Lookup::WindsMode::\_WHurley}});\}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__winds_a04814a9cd985de0f31fc74011d0f1e56}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__winds_a74abc8183287d06303cbf8dd5e6b3ffd}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hurley__winds_ad959a95d6918851c39ccb760d5591a39}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \};}
+\DoxyCodeLine{189 \textcolor{comment}{/***************************/}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{comment}{/**********Tides*****************/}}
+\DoxyCodeLine{193 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}} \{}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{keyword}{public}:}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \mbox{\hyperlink{class_orbital__change___tides_abc9e0bbbaeca0e6e4715eb61894a1546}{Orbital\_change\_Tides}}()\{}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___tides_a3b8e51b6cd9f4a96d0c36f5de45708e6}{\string~Orbital\_change\_Tides}}()\{}
+\DoxyCodeLine{202         \textcolor{comment}{//std::cout<<"{}Tid "{}<<  this << std::endl;}}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}} *\mbox{\hyperlink{class_orbital__change___tides_aa6276ca3036eb829dfce11f4eb120482}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}}  *\mbox{\hyperlink{class_orbital__change___tides_a7baed3ed0b7f2bcbcb6f60802fd360bd}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___tides_a475ba78c9819037c2c52d076fbcacb13}{name}});}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___tides_a475ba78c9819037c2c52d076fbcacb13}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change Tides"{}};\}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___tides_a2317048f0ca28750d7b8e9cbb01e9ee4}{Register}}(\mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{215         \mbox{\hyperlink{class_orbital__change___tides_a6e0603b9b0e59ba19a872a0be938d191}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{216         \mbox{\hyperlink{class_orbital__change___tides_a70436d948d5536a2e67acdb46c39e853}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___tides_a6e0603b9b0e59ba19a872a0be938d191}{GetStaticMap}}().size());}
+\DoxyCodeLine{217         \mbox{\hyperlink{class_orbital__change___tides_a70436d948d5536a2e67acdb46c39e853}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___tides_a70436d948d5536a2e67acdb46c39e853}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{218     \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a8f38d2e1d44a29fe6d382e8574b0ec19}{f1}}(\textcolor{keywordtype}{double} e2) \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} 1+e2*(15.5+e2*(31.875+e2*(11.5625+e2*0.390625)));}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a18535a57dd591d564805d0eed08a63e1}{f2}}(\textcolor{keywordtype}{double} e2) \{}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} 1.0+e2*(7.5+e2*(5.625+e2*0.3125));}
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a3c620fb8d2fd90afff4f1ef34771f6c8}{f3}}(\textcolor{keywordtype}{double} e2) \{}
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} 1.0+e2*(3.75+e2*(1.875+e2*7.8125e-\/02));}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_adfe72e825df7cafa9f05c508783ef3db}{f4}}(\textcolor{keywordtype}{double} e2) \{}
+\DoxyCodeLine{230         \textcolor{keywordflow}{return} 1+e2*(1.5+e2*0.125);}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a37413c159dec4e4221126167cb68f7aa}{f5}}(\textcolor{keywordtype}{double} e2) \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{return} 1.0+e2*(3.+e2*0.375);}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a7ad6195b7ccc86acfd90db1cc9447704}{pseudosync\_spin}}(\textcolor{keywordtype}{double} e2, \textcolor{keywordtype}{double} omegaorb) \{}
+\DoxyCodeLine{236         \textcolor{keywordtype}{double} syncspin = \mbox{\hyperlink{class_orbital__change___tides_a18535a57dd591d564805d0eed08a63e1}{f2}}(e2) / (\mbox{\hyperlink{class_orbital__change___tides_a37413c159dec4e4221126167cb68f7aa}{f5}}(e2) *  pow(1.0 -\/ e2, 1.5)) * omegaorb;}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} syncspin;}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{241     \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_ab8820d2b129146bddd8cea2dbd684df8}{get\_tconv}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \{\textcolor{keywordflow}{return} 1.0;\}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{251     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_ae7da17a3883f0e69463f6ebfc3f2bbc7}{compute\_kt\_zahn\_conv}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_mass}{Mass}}, \textcolor{keywordtype}{double} Menv\_cnv, \textcolor{keywordtype}{double} t\_cnv, \textcolor{keywordtype}{double} tide\_freq);}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{256     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a999ab299d4763e6467886dd9f3da4eed}{compute\_kt\_zahn\_conv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260 }
+\DoxyCodeLine{264     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a10195b89f83579568f3adbd95d59d0ef}{compute\_kt\_zahn\_rad}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_star}{Star}} *star\_pert, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{265     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_aeed36f4b270c5771f03936e7f8cce83a}{compute\_tconv\_rasio96}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{266     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a23816bb3fc48e0512ba01e1b87429670}{compute\_tconv\_pwheel18}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{267     \textcolor{comment}{//inline double get\_tconv\_grom\_tracks(Star *star\_wtides) \{return star\_wtides-\/>getp(Tconv::ID) \}}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{272     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a0f46e4abfacc568d6d84edf6e58b7c68}{dadt\_hut}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_star}{Star}} *star\_pert, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keywordtype}{double} kt, \textcolor{keywordtype}{double} spin);}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{277     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a21bf94680d7f779c344a4f94e4f5e3ce}{dedt\_hut}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_star}{Star}} *star\_pert, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keywordtype}{double} kt, \textcolor{keywordtype}{double} spin);}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{282     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a00a924f6ef52d5c8fad21e2f682ac0a4}{dspindt\_hut}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_star}{Star}} *star\_pert, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keywordtype}{double} kt, \textcolor{keywordtype}{double} spin);}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{288     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_abc8d72f2f05eeb24bcf6ef4155eb2f38}{Mcnv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides) \textcolor{keyword}{const};}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{294     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___tides_a21b3e60ab0c4da6d6146ca4ffc299ead}{Dcnv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides) \textcolor{keyword}{const};}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{keyword}{private}:}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Tides *> \& \mbox{\hyperlink{class_orbital__change___tides_a6e0603b9b0e59ba19a872a0be938d191}{GetStaticMap}}()\{}
+\DoxyCodeLine{299         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Tides *> \_locmap;}
+\DoxyCodeLine{300         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{301     \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___tides_a70436d948d5536a2e67acdb46c39e853}{GetUsed}}()\{}
+\DoxyCodeLine{304         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{305         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{306     \}}
+\DoxyCodeLine{307 \};}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled__tides}{disabled\_tides}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}} \{}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311 \textcolor{keyword}{public}:}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     \mbox{\hyperlink{classdisabled__tides_a60e5ddfc8e5b4f16b99f6f68d2f66a80}{disabled\_tides}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{314         \textcolor{keywordflow}{if} (reg) \mbox{\hyperlink{class_orbital__change___tides_a2317048f0ca28750d7b8e9cbb01e9ee4}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled__tides_aea3d3d34726a4723b81897bb3cc13265}{name}}());}
+\DoxyCodeLine{315     \};}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317     \mbox{\hyperlink{classdisabled__tides}{disabled\_tides}} * \mbox{\hyperlink{classdisabled__tides_a5a124dddaf26d9c715be38102a0eab22}{instance}}()\textcolor{keyword}{  override }\{ \textcolor{keywordflow}{return}  \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled__tides}{disabled\_tides}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled__tides}{disabled\_tides}} \mbox{\hyperlink{classdisabled__tides_af8239491ce5f3fa2510662ad9a5eef02}{\_disabled\_tides}};}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled__tides_aea3d3d34726a4723b81897bb3cc13265}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a294a33caf6d9bacdeb0520182ea6cff7}{Lookup::tidesmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8a0f51bdd2c5c923f14428dac010f5439b}{Lookup::TidesMode::\_Tdisabled}});\}}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled__tides_a2807ec88424040efe04cd372d09292d8}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \};}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327 \textcolor{keyword}{class }\mbox{\hyperlink{class_tides__simple}{Tides\_simple}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___tides}{Orbital\_change\_Tides}} \{}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 \textcolor{keyword}{public}:}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331     \mbox{\hyperlink{class_tides__simple_a6a84e3acb466107fb2604f796fd190b6}{Tides\_simple}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{332         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{333             \mbox{\hyperlink{class_orbital__change___tides_a2317048f0ca28750d7b8e9cbb01e9ee4}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_tides__simple_adaa8cae41b9751c8890d59de0b61d317}{name}}());}
+\DoxyCodeLine{334         \}}
+\DoxyCodeLine{335     \};}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337     \mbox{\hyperlink{class_tides__simple_ac4122cd949fa942b62e60d01df8947b3}{\string~Tides\_simple}}()\{}
+\DoxyCodeLine{338         \textcolor{comment}{//std::cout<<"{}T simple "{}<<  this << std::endl;}}
+\DoxyCodeLine{339     \}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341     \mbox{\hyperlink{class_tides__simple}{Tides\_simple}} * \mbox{\hyperlink{class_tides__simple_aeda43fc356df43310dcd6c038f8cf21d}{instance}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_tides__simple}{Tides\_simple}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343     \textcolor{keyword}{static} \mbox{\hyperlink{class_tides__simple}{Tides\_simple}} \mbox{\hyperlink{class_tides__simple_a7a1b7f6e2991c2cda80fb99bbaeac5b6}{\_Tides\_simple}};}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tides__simple_adebeb2bbf6d4491c0e60ecf1edde860f}{init}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{346     }
+\DoxyCodeLine{347     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_tides__simple_adaa8cae41b9751c8890d59de0b61d317}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a294a33caf6d9bacdeb0520182ea6cff7}{Lookup::tidesmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8ae9c41262927dc7e2aedc8f955d935328}{Lookup::TidesMode::\_Tsimple}});\}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a1c253afe87774829882e254a22a84010}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a247a30c599221228353c1b4984a95881}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a96cc63e0e423becb25e727ea9ea741f8}{DAngMomSpin}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} starID) \textcolor{keyword}{override};}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{359     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a1564c1a46887d310484067dba5757abb}{get\_tconv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides, \mbox{\hyperlink{class_binstar}{Binstar}} *b)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___tides_aeed36f4b270c5771f03936e7f8cce83a}{compute\_tconv\_rasio96}}(star\_wtides,b); \}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_ab30e8fa7a346f12ba13b25cd7f3cc121}{kt}}[2];}
+\DoxyCodeLine{362     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_ae85447953f38c3f9c3a2ec46b4d8431c}{syncspin}};}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a9f0fc356d33111b9b2f6f734cda5a263}{\_DA}}=0.,\mbox{\hyperlink{class_tides__simple_ae179bf5b4f8e13584351d451a146a5c1}{\_DE}}=0.;}
+\DoxyCodeLine{365     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple_a2110e73def5cfc79e5c088b02844d9ed}{\_DLspin}}[2]=\{0.,0.\};}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367 \};}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 \textcolor{keyword}{class }\mbox{\hyperlink{class_tides__simple__notab}{Tides\_simple\_notab}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_tides__simple}{Tides\_simple}}\{}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 \textcolor{keyword}{public}:}
+\DoxyCodeLine{372     \mbox{\hyperlink{class_tides__simple__notab_a9eb0d17a013fe8a057ec73a1d801321b}{Tides\_simple\_notab}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{373         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{374             \mbox{\hyperlink{class_orbital__change___tides_a2317048f0ca28750d7b8e9cbb01e9ee4}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_tides__simple__notab_afbcf62b7ad7c560a121a1e02e164e3f5}{name}}());}
+\DoxyCodeLine{375         \}}
+\DoxyCodeLine{376     \};}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     \mbox{\hyperlink{class_tides__simple__notab_a0238898a991c93ec5e0dc6a6020180de}{\string~Tides\_simple\_notab}}()\{}
+\DoxyCodeLine{379         \textcolor{comment}{//std::cout<<"{}T simple "{}<<  this << std::endl;}}
+\DoxyCodeLine{380     \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382     \mbox{\hyperlink{class_tides__simple__notab}{Tides\_simple\_notab}} * \mbox{\hyperlink{class_tides__simple__notab_a60525bec61f87a64182fb5560cb9c488}{instance}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_tides__simple__notab}{Tides\_simple\_notab}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384     \textcolor{keyword}{static} \mbox{\hyperlink{class_tides__simple__notab}{Tides\_simple\_notab}} \mbox{\hyperlink{class_tides__simple__notab_a73cd9ba5984b5c0089c9986effa8a061}{\_Tides\_simple\_notab}};}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_tides__simple__notab_afbcf62b7ad7c560a121a1e02e164e3f5}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a294a33caf6d9bacdeb0520182ea6cff7}{Lookup::tidesmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_a3a0db0055d6e95328c7c7dd745b7bbb8a78385f6c8995dbb3f1c343f0c7e73d61}{Lookup::TidesMode::\_Tsimple\_notab}});\}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{394     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple__notab_a89a05fd7a2814638a5a181becdf177f5}{Mcnv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides) \textcolor{keyword}{const override};}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{400     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_tides__simple__notab_a9d07ac15930a146d320d824d81a71d08}{Dcnv}}(\mbox{\hyperlink{class_star}{Star}} *star\_wtides) \textcolor{keyword}{const override};}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402 \};}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404 \textcolor{comment}{/***************************/}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406 \textcolor{comment}{/**********GW*****************/}}
+\DoxyCodeLine{407 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\{}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409 \textcolor{keyword}{public}:}
+\DoxyCodeLine{410     \mbox{\hyperlink{class_orbital__change___g_w_a22ad3f02bc689f8fd719d12c18b68736}{Orbital\_change\_GW}}()\{\}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___g_w_a110ad2c4961e10cfc1940775dbf27fb7}{\string~Orbital\_change\_GW}}()\{}
+\DoxyCodeLine{413         \textcolor{comment}{//std::cout<<"{}Orb GW "{}<<  this << std::endl;}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415     \}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}} *\mbox{\hyperlink{class_orbital__change___g_w_a87075308a49a3d53f4f311e8b74f987b}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{419     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}}  *\mbox{\hyperlink{class_orbital__change___g_w_abfc6b84011ce3478d9a5b7c511047ba2}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___g_w_ab3f5dd577272b6905472225f4943f0e7}{name}});}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___g_w_ab3f5dd577272b6905472225f4943f0e7}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change GW"{}};\}}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___g_w_aa4be476e5a40e9a68415ae915b0a7f8a}{Register}}(\mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{427         \mbox{\hyperlink{class_orbital__change___g_w_a82ce4b3e4b18d1dcd9d56d58573c2898}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{428         \mbox{\hyperlink{class_orbital__change___g_w_aa062cc01e0f5126b37179f2f9554ac94}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___g_w_a82ce4b3e4b18d1dcd9d56d58573c2898}{GetStaticMap}}().size());}
+\DoxyCodeLine{429         \mbox{\hyperlink{class_orbital__change___g_w_aa062cc01e0f5126b37179f2f9554ac94}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___g_w_aa062cc01e0f5126b37179f2f9554ac94}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{430     \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{keyword}{private}:}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_GW *> \& \mbox{\hyperlink{class_orbital__change___g_w_a82ce4b3e4b18d1dcd9d56d58573c2898}{GetStaticMap}}()\{}
+\DoxyCodeLine{435         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_GW *> \_locmap;}
+\DoxyCodeLine{436         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{437     \}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___g_w_aa062cc01e0f5126b37179f2f9554ac94}{GetUsed}}()\{}
+\DoxyCodeLine{440         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{441         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{442     \}}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444 \};}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled__gw}{disabled\_gw}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}} \{}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 \textcolor{keyword}{public}:}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{450     \mbox{\hyperlink{classdisabled__gw_a0175e1831d51482e9666db48462c5d21}{disabled\_gw}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{451         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{452             \mbox{\hyperlink{class_orbital__change___g_w_aa4be476e5a40e9a68415ae915b0a7f8a}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled__gw_acf88e11dbf5569894b05c2cc7f8ceb75}{name}}());}
+\DoxyCodeLine{453         \}}
+\DoxyCodeLine{454     \};}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456     \mbox{\hyperlink{classdisabled__gw}{disabled\_gw}} * \mbox{\hyperlink{classdisabled__gw_a377adca3e8e140716e4b0aac912051bb}{instance}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled__gw}{disabled\_gw}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{458     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled__gw}{disabled\_gw}} \mbox{\hyperlink{classdisabled__gw_a947a91a4772003c5f6b911b598a2c634}{\_disabled\_gw}};}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{460     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled__gw_acf88e11dbf5569894b05c2cc7f8ceb75}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a19d4e2e5f3aa67fc2e1ee0999de7d8ad}{Lookup::gwmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_afa3b1f8dcf05443fde72386e958e3f8ead17d09a10cd0473c0abb21e5bf92a030}{Lookup::GWMode::\_GWdisabled}}); \}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled__gw_ae7127c762c2993c0ca3fb278a08fc8ad}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \};}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 \textcolor{keyword}{class }\mbox{\hyperlink{class_peters__gw}{Peters\_gw}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___g_w}{Orbital\_change\_GW}}\{}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468     \mbox{\hyperlink{class_peters__gw_a1b432a4d6b7753efd13674646a6448c1}{Peters\_gw}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{469         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{470             \mbox{\hyperlink{class_orbital__change___g_w_aa4be476e5a40e9a68415ae915b0a7f8a}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_peters__gw_a343d2f401e614d37b97de667af5ce8ca}{name}}());}
+\DoxyCodeLine{471         \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474     \};}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{476     \mbox{\hyperlink{class_peters__gw_ae00a1eebc6d0887e40cf21043b6ee545}{\string~Peters\_gw}}()\{}
+\DoxyCodeLine{477         \textcolor{comment}{//std::cout<<"{}Orb GW Peters "{}<<  this << std::endl;}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479     \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481     \mbox{\hyperlink{class_peters__gw}{Peters\_gw}} * \mbox{\hyperlink{class_peters__gw_a834f1917b6d0b241ed0125b08812a964}{instance}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_peters__gw}{Peters\_gw}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483     \textcolor{keyword}{static} \mbox{\hyperlink{class_peters__gw}{Peters\_gw}} \mbox{\hyperlink{class_peters__gw_aa383fd895e7e84cda9a4be6264bb49c3}{\_peters\_gw}};}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_peters__gw_a343d2f401e614d37b97de667af5ce8ca}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_a19d4e2e5f3aa67fc2e1ee0999de7d8ad}{Lookup::gwmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_afa3b1f8dcf05443fde72386e958e3f8ea52be8b81a4da7326bee1837c661e29f3}{Lookup::GWMode::\_GWPeters}}); \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{493     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a4e111d12dacae3b07b6a27111957c12b}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{501     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a7832b8daaeeb0d5a778dc113c5268faa}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506     \textcolor{comment}{//G\string^3/c\string^5 in sun units}}
+\DoxyCodeLine{507     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a9799d2db550eafa379b6775655c0d0f7}{G3\_over\_c5}}=\mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{utilities::G3\_over\_c5}};}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511     \textcolor{comment}{//dat/dt/a =  -\/K\_a*G3\_over\_c5*m1*m2*(m1+m2)/(a\string^4 * (1-\/e\string^2)\string^7/2) * (1+c2\_a*e\string^2+c4\_a*e\string^4) (Eq. 5.6 Peter64)}}
+\DoxyCodeLine{512     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_aeb2664922d99ef806ec2e58100b3af47}{K\_a}}=64./5., \mbox{\hyperlink{class_peters__gw_acfdd2225d7cdb45a09d5a105279934db}{c2\_a}}=73./24., \mbox{\hyperlink{class_peters__gw_a6a87072654da235151337d29579485c8}{c4\_a}}=37./96.;}
+\DoxyCodeLine{513     \textcolor{comment}{// det/dt/e =  -\/K\_e*G3\_over\_c5*m1*m2*(m1+m2)/(a\string^4 * (1-\/e\string^2)\string^5/2) * (1+c2\_e*e\string^2) (Eq. 5.7 Peter64)}}
+\DoxyCodeLine{514     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_aceb5e298d977799f78eab53521a81417}{K\_e}}=304./15., \mbox{\hyperlink{class_peters__gw_aabf8ce844d47cafd1adae7f5c60942aa}{c2\_e}}=121./304.;}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{523     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a247473a89b54d8cfd4cc4f42b6324b77}{function\_core}}(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} a)\{}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525         \textcolor{keywordtype}{double} a4=a*a*a*a;}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{527         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_peters__gw_a9799d2db550eafa379b6775655c0d0f7}{G3\_over\_c5}}*M1*M2*(M1+M2)/a4;}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529     \}}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531 }
+\DoxyCodeLine{540     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a1173db0424a83d4ea360c1255f912c3a}{Peters\_GW\_de}}(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} e)\{}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542         \textcolor{keywordtype}{double} cost=\mbox{\hyperlink{class_peters__gw_aceb5e298d977799f78eab53521a81417}{K\_e}}*\mbox{\hyperlink{class_peters__gw_a247473a89b54d8cfd4cc4f42b6324b77}{function\_core}}(M1, M2, a);}
+\DoxyCodeLine{543         \textcolor{keywordtype}{double} e2=e*e;}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545         \textcolor{keywordtype}{double} num=(1+\mbox{\hyperlink{class_peters__gw_aabf8ce844d47cafd1adae7f5c60942aa}{c2\_e}}*e2);}
+\DoxyCodeLine{546         \textcolor{keywordtype}{double} den=(1-\/e2);}
+\DoxyCodeLine{547         den=std::sqrt(den*den*den*den*den); \textcolor{comment}{//(1-\/e\string^2)\string^(5/2)}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549         \textcolor{keywordflow}{return} -\/cost*num/den;}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551     \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553 }
+\DoxyCodeLine{562     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_peters__gw_a993ec34937fdb29b2bd462145dd69931}{Peters\_GW\_da}}(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} e)\{}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564         \textcolor{keywordtype}{double} cost=\mbox{\hyperlink{class_peters__gw_aeb2664922d99ef806ec2e58100b3af47}{K\_a}}*\mbox{\hyperlink{class_peters__gw_a247473a89b54d8cfd4cc4f42b6324b77}{function\_core}}(M1, M2, a);}
+\DoxyCodeLine{565         \textcolor{keywordtype}{double} e2=e*e;}
+\DoxyCodeLine{566         \textcolor{keywordtype}{double} e4=e2*e2;}
+\DoxyCodeLine{567         \textcolor{keywordtype}{double} den=(1-\/e2);}
+\DoxyCodeLine{568         den=std::sqrt(den*den*den*den*den*den*den); \textcolor{comment}{//(1-\/e\string^2)\string^(7/2)}}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{570         \textcolor{keywordtype}{double} num=(1+\mbox{\hyperlink{class_peters__gw_acfdd2225d7cdb45a09d5a105279934db}{c2\_a}}*e2+\mbox{\hyperlink{class_peters__gw_a6a87072654da235151337d29579485c8}{c4\_a}}*e4);}
+\DoxyCodeLine{571 }
+\DoxyCodeLine{572         \textcolor{keywordflow}{return} -\/cost*num/den;}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{574     \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576 }
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578 }
+\DoxyCodeLine{579 \};}
+\DoxyCodeLine{580 \textcolor{comment}{/***************************/}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582 \textcolor{comment}{/**********Roche Lobe*****************/}}
+\DoxyCodeLine{583 }
+\DoxyCodeLine{584 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\{}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586 \textcolor{keyword}{public}:}
+\DoxyCodeLine{587     \mbox{\hyperlink{class_orbital__change___r_l_a58dc2f798cd98e100ca46b9dfaf293b8}{Orbital\_change\_RL}}()\{\}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___r_l_ac4e655c091a97e9658ff2564c9e42ea8}{\string~Orbital\_change\_RL}}()\{}
+\DoxyCodeLine{590         \textcolor{comment}{//std::cout<<"{}Orb RL "{}<<  this << std::endl;}}
+\DoxyCodeLine{591         \textcolor{keyword}{delete} \mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\_stability}};}
+\DoxyCodeLine{592         \mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\_stability}}= \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{593     \}}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}} *\mbox{\hyperlink{class_orbital__change___r_l_a851a0bde2c1d3b131b2ec980ec78b36a}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}}  *\mbox{\hyperlink{class_orbital__change___r_l_aff651cbfacae07701396145cf483273d}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}});}
+\DoxyCodeLine{598 }
+\DoxyCodeLine{599     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_a1ce2338c7fdd8ea32d07c6a2da9dd8e1}{set\_options}}(\mbox{\hyperlink{class_i_o}{IO}}* \_io)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{601         \textcolor{comment}{//Set MTstability pointer}}
+\DoxyCodeLine{602         std::string mtstability\_option = \_io-\/>\mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}rlo\_stability"{}});}
+\DoxyCodeLine{603         \mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\_stability}} = \mbox{\hyperlink{class_m_tstability_a1352dbce732d5ee8210358cfa6191631}{MTstability::Instance}}(mtstability\_option);}
+\DoxyCodeLine{604         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\_stability}} == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{605             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Unknown mtstability option: ["{}} + mtstability\_option + \textcolor{stringliteral}{"{}]"{}}, \_\_FILE\_\_, \_\_LINE\_\_,}
+\DoxyCodeLine{606                            \mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{607     \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change RL"{}};\}}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{615     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_a11ab8a6d32a65eb5fbeb067085188c4c}{init}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\textcolor{keyword}{ override }\{\};}
+\DoxyCodeLine{616 }
+\DoxyCodeLine{617     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a4a02a804b53de60843325c00b805f435}{speciale\_evolve}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{618 }
+\DoxyCodeLine{619     \textcolor{keyword}{inline} \textcolor{keywordtype}{double}  \mbox{\hyperlink{class_orbital__change___r_l_a70e9aa1a31ae1806fa7f70d34887983f}{get\_DM}}(\textcolor{keywordtype}{int} ID)\{}
+\DoxyCodeLine{620         \textcolor{keywordflow}{if} (ID!=0 \&\& ID!=1)}
+\DoxyCodeLine{621             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Stars ID in binary can be only 0 or 1, current value "{}}+}
+\DoxyCodeLine{622                            \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(ID,\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}());}
+\DoxyCodeLine{623 }
+\DoxyCodeLine{624         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\_DM}}[ID];}
+\DoxyCodeLine{625     \};}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{627     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}{DM}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} starID)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{628         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___r_l_a70e9aa1a31ae1806fa7f70d34887983f}{get\_DM}}(starID);}
+\DoxyCodeLine{629     \}}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{631     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a96ad212c1c2b4a1d16dc7b1d09a6ef48}{is\_swallowed}}(\textcolor{keywordtype}{int} starID)\{}
+\DoxyCodeLine{632         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[starID];}
+\DoxyCodeLine{633     \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{635     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_ac56327550fc0ee1e7f10b05ea7b1c031}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}{\_is\_RLO\_happening}};\}}
+\DoxyCodeLine{636     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_ae7b3736de74633c8ffccda3be001b625}{is\_colliding}}()  \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}{\_is\_colliding}};\}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638 }
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a63ab1a0582353128fa45dc8504276397}{get\_mt\_value}}()\textcolor{keyword}{ const }\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}get\_q not implemented for class Orbital\_change\_RL"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{640         \textcolor{keywordflow}{return}  0.0;\}}
+\DoxyCodeLine{641 }
+\DoxyCodeLine{642     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a608ca67199d2e5c24b4a803e231f1030}{get\_mt\_tshold}}()\textcolor{keyword}{ const }\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}get\_qcrit not implemented for class Orbital\_change\_RL"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{sevnstd::notimplemented\_error}}());}
+\DoxyCodeLine{643         \textcolor{keywordflow}{return}  0.0;\}}
+\DoxyCodeLine{644 }
+\DoxyCodeLine{645     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a312c60e7b072e1fb51ec50e5e15eab3c}{novae}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{646     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_ae6723ce6514fe3ace7be4c9a6f67c03a}{super\_eddington}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{647 }
+\DoxyCodeLine{648 }
+\DoxyCodeLine{649 }
+\DoxyCodeLine{650 }
+\DoxyCodeLine{651 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{652     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}}(\mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}} *ptr, \textcolor{keyword}{const} std::string \&\_name)\{}
+\DoxyCodeLine{653         \mbox{\hyperlink{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{654         \mbox{\hyperlink{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}{GetStaticMap}}().size());}
+\DoxyCodeLine{655         \mbox{\hyperlink{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{656     \}}
+\DoxyCodeLine{657 }
+\DoxyCodeLine{658     \mbox{\hyperlink{class_m_tstability}{MTstability}} *\mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\_stability}};}
+\DoxyCodeLine{659 }
+\DoxyCodeLine{666     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_adb1e99472f7296e1f5e4f92c01c32ae5}{RLO}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\};}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{668 }
+\DoxyCodeLine{675     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_aeeddb701fca47cbeadb340acb6e49c27}{fRL\_radius}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* star, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}fRL not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_orbital__change___r_l_ac363e569ff6d6cc0f86db00bb80016ff}{set\_DM}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}{DM}},\textcolor{keywordtype}{int} starID)\{}
+\DoxyCodeLine{678         \textcolor{keywordflow}{if} (starID!=0 \&\& starID!=1) \{}
+\DoxyCodeLine{679             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Stars ID in binary can be only 0 or 1, current value "{}} +}
+\DoxyCodeLine{680                            \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(starID, \_\_FILE\_\_, \_\_LINE\_\_), \_\_FILE\_\_, \_\_LINE\_\_, \mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}());}
+\DoxyCodeLine{681         \}}
+\DoxyCodeLine{682         \mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\_DM}}[starID] = \mbox{\hyperlink{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}{DM}};}
+\DoxyCodeLine{683         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{684     \};}
+\DoxyCodeLine{685     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_orbital__change___r_l_a3f62e1fb1daae61308f02edd8a3ab538}{reset\_DM}}()\{}
+\DoxyCodeLine{686         \mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\_DM}}[0]=\mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\_DM}}[1]=0;}
+\DoxyCodeLine{687     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{688     \}}
+\DoxyCodeLine{689 }
+\DoxyCodeLine{690     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a404c2d3566a22b2f62c22b86215451b0}{set\_swallowed}}(\textcolor{keywordtype}{int} starID)\{}
+\DoxyCodeLine{691         \textcolor{keywordflow}{if} (starID!=0 \&\& starID!=1) \{}
+\DoxyCodeLine{692             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Stars ID in binary can be only 0 or 1, current value "{}} +}
+\DoxyCodeLine{693                            \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(starID, \_\_FILE\_\_, \_\_LINE\_\_), \_\_FILE\_\_, \_\_LINE\_\_, \mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}());}
+\DoxyCodeLine{694         \}}
+\DoxyCodeLine{695         \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[starID]=\textcolor{keyword}{true};}
+\DoxyCodeLine{696         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{697     \}}
+\DoxyCodeLine{698     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_aea1b0d9c52aac3686dc70572cf543bd8}{reset\_swallowed}}(\textcolor{keywordtype}{int} starID)\{}
+\DoxyCodeLine{699         \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[starID]=\textcolor{keyword}{false};}
+\DoxyCodeLine{700         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{701     \}}
+\DoxyCodeLine{702     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_aa068f080d138a0b832a2f8ddbb79b1d5}{reset\_swallowed}}()\{}
+\DoxyCodeLine{703         \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[0]=\mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[1]=\textcolor{keyword}{false};}
+\DoxyCodeLine{704         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{705     \}}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{707     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_a6b8aac096e0caaa482adcd870b7a7b39}{set\_mix}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}{mix}}= \textcolor{keyword}{true};\}}
+\DoxyCodeLine{708     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_ad163f18dae76f627d5b115eabdd3d28a}{unset\_mix}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}{mix}}= \textcolor{keyword}{false};\}}
+\DoxyCodeLine{709     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a3cf29e9a32155ff44d74e1313cda8d07}{get\_mix}}()\{ \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}{mix}};\}}
+\DoxyCodeLine{710     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_adb7e6a9a65869bab5b0073f207c288ce}{set\_comenv}}()\{\mbox{\hyperlink{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}{comenv}}= \textcolor{keyword}{true};\}}
+\DoxyCodeLine{711     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_a195b8bbfae9841b2437e098fbdde1d31}{unset\_comenv}}()\{\mbox{\hyperlink{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}{comenv}}= \textcolor{keyword}{false};\}}
+\DoxyCodeLine{712     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a0890d2b801754a9de725155065a09d02}{get\_comenv}}()\{ \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}{comenv}};\}}
+\DoxyCodeLine{713     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_a2982eb020f8d166b3f506db117d5e3af}{set\_is\_RLO\_happening}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}{\_is\_RLO\_happening}} = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{714     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_aaa4150f4daf7688b9f2ef60fec4a1fec}{unset\_is\_RLO\_happening}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}{\_is\_RLO\_happening}} = \textcolor{keyword}{false};\}}
+\DoxyCodeLine{715     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_ae3d57f30d54d86cb83fbfc4168dda7f0}{set\_is\_colliding}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}{\_is\_colliding}} = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{716     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___r_l_ab6edb5bdaa42f9153f34cdaf693b8c30}{unset\_is\_colliding}}()\{\mbox{\hyperlink{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}{\_is\_colliding}} = \textcolor{keyword}{false};\}}
+\DoxyCodeLine{717 }
+\DoxyCodeLine{719 }
+\DoxyCodeLine{724     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_abea59eac117348d2d9d199e843711647}{dynamic\_swallowing}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{725 }
+\DoxyCodeLine{726 }
+\DoxyCodeLine{728 }
+\DoxyCodeLine{734     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a7db95456d5f1a3961eef3e3bf21c0128}{estimate\_q}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor);}
+\DoxyCodeLine{735 }
+\DoxyCodeLine{737 }
+\DoxyCodeLine{743     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a64e736640bbf784395b40e2c294c3344}{outcome\_double\_RLO}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}outcome\_double\_RLO not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{750     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a6a4a1d344fa61014e1796444b6aa33c2}{outcome\_collision}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}outcome\_collision not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{757     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a82c6085a5235e50e2ba944e80e66e290}{outcome\_collision}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}outcome\_collision not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{764     \textcolor{keyword}{virtual}  \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_aabe9746081cca9fe15b4a3bd56328c18}{Hfrac}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{765 }
+\DoxyCodeLine{772     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a6a048f35984ddb2c55cc36afa17a1f29}{dMdt\_eddington}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{773 }
+\DoxyCodeLine{779     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_ad930c3f5f29d661ad01097702a9a5049}{is\_giant\_like}}(\textcolor{keywordtype}{int} star\_type\_bse)\{}
+\DoxyCodeLine{780 }
+\DoxyCodeLine{781         \textcolor{keywordflow}{if} (star\_type\_bse>=2 \&\& star\_type\_bse<=9 \&\& star\_type\_bse!=7)}
+\DoxyCodeLine{782             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{783         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{784             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{786         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{787     \}}
+\DoxyCodeLine{788 }
+\DoxyCodeLine{789 }
+\DoxyCodeLine{791 }
+\DoxyCodeLine{800     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a719768b11539fce6db296c0c81733e75}{dynamic\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}dynamic\_dmdmt not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\};}
+\DoxyCodeLine{809     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a0faa1d3c373326ebf1557b573856ac03}{nuclear\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}nuclear\_dmdt not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{818     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a49cc6096e94eb3c3dfa49d0ac5bf209a}{thermal\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}thermal\_dmdt not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{819 }
+\DoxyCodeLine{827     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_aada490573be564fa1f57220e0e2877d0}{thermal\_nuclear\_accreted\_mass}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} DM\_donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b)\{\mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}accreted mass not implemented for this RLO option ("{}}+\mbox{\hyperlink{class_orbital__change___r_l_ad3cbd9b35730ecbf0cdd9c9b6ba21447}{name}}()+\textcolor{stringliteral}{"{})"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}()); \textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{828 }
+\DoxyCodeLine{830 }
+\DoxyCodeLine{836     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a74e378836c6ba35836cdac83ab6d9f8d}{kelvin\_helmotz\_tscale}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{837 }
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a01f264685108eec723b3d6618641da5b}{dynamic\_tscale}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{845 }
+\DoxyCodeLine{847 }
+\DoxyCodeLine{855     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_orbital__change___r_l_a40ab5de097a2e67c9938929e5d2e0006}{check\_compact\_accretor}}(\textcolor{keywordtype}{int} donor\_type\_bse, \textcolor{keywordtype}{int} accretor\_type\_bse)\{}
+\DoxyCodeLine{856 }
+\DoxyCodeLine{857 }
+\DoxyCodeLine{858         \textcolor{keywordflow}{if} (donor\_type\_bse>=10 \&\& donor\_type\_bse<=12 \&\& accretor\_type\_bse<10)}
+\DoxyCodeLine{859             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}RLO with a donor with bse type "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(donor\_type\_bse,\_\_FILE\_\_,\_\_LINE\_\_)+}
+\DoxyCodeLine{860                            \textcolor{stringliteral}{"{} and accretor with bse type "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(accretor\_type\_bse,\_\_FILE\_\_,\_\_LINE\_\_)+\textcolor{stringliteral}{"{} is not expected!"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}());}
+\DoxyCodeLine{861         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (donor\_type\_bse>=13 \&\& accretor\_type\_bse<donor\_type\_bse)}
+\DoxyCodeLine{862             \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}RLO with a donor with bse type "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(donor\_type\_bse,\_\_FILE\_\_,\_\_LINE\_\_)+}
+\DoxyCodeLine{863             \textcolor{stringliteral}{"{} and accretor with bse type "{}}+\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(accretor\_type\_bse,\_\_FILE\_\_,\_\_LINE\_\_)+\textcolor{stringliteral}{"{} is not expected!"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd::rl\_error}}());}
+\DoxyCodeLine{864 }
+\DoxyCodeLine{865         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{866 }
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{868 }
+\DoxyCodeLine{869 }
+\DoxyCodeLine{870 }
+\DoxyCodeLine{871 }
+\DoxyCodeLine{872 \textcolor{keyword}{private}:}
+\DoxyCodeLine{873 }
+\DoxyCodeLine{874 }
+\DoxyCodeLine{875     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_RL *> \& \mbox{\hyperlink{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}{GetStaticMap}}()\{}
+\DoxyCodeLine{876         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_RL *> \_locmap;}
+\DoxyCodeLine{877         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{878     \}}
+\DoxyCodeLine{879     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}{GetUsed}}()\{}
+\DoxyCodeLine{880         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{881         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{882     \}}
+\DoxyCodeLine{883     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\_DM}}[2]=\{0,0\};}
+\DoxyCodeLine{884     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\_is\_swallowed}}[2]=\{\textcolor{keyword}{false}, \textcolor{keyword}{false}\}; }
+\DoxyCodeLine{885     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}{mix}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{886     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}{comenv}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{887     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}{\_is\_RLO\_happening}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{888     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}{\_is\_colliding}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{889 }
+\DoxyCodeLine{890 }
+\DoxyCodeLine{891 }
+\DoxyCodeLine{892 }
+\DoxyCodeLine{893 \};}
+\DoxyCodeLine{894 }
+\DoxyCodeLine{895 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled__rl}{disabled\_rl}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}} \{}
+\DoxyCodeLine{896 }
+\DoxyCodeLine{897 \textcolor{keyword}{public}:}
+\DoxyCodeLine{898     \mbox{\hyperlink{classdisabled__rl_ad87f0fe0e6ce254e36979885101d1da8}{disabled\_rl}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{899         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{900             \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled__rl_a945c64fd94e6fa0f4ab3dd7dad15a045}{name}}());}
+\DoxyCodeLine{901         \}}
+\DoxyCodeLine{902     \}}
+\DoxyCodeLine{903 }
+\DoxyCodeLine{904     \mbox{\hyperlink{classdisabled__rl_a40e1ca59a37f3188f0eee4a7570f3746}{\string~disabled\_rl}}()\{}
+\DoxyCodeLine{905         \textcolor{comment}{//std::cout<<"{}Orb RL dis "{}<<  this << std::endl;}}
+\DoxyCodeLine{906 }
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{908 }
+\DoxyCodeLine{909     \mbox{\hyperlink{classdisabled__rl}{disabled\_rl}} * \mbox{\hyperlink{classdisabled__rl_ab86dc56c4943f5c698aa210989c0109f}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled__rl}{disabled\_rl}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{910 }
+\DoxyCodeLine{911     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled__rl}{disabled\_rl}} \mbox{\hyperlink{classdisabled__rl_af8e2ca7bfcd08e10854046e5eb5d4fd0}{\_disabled\_rl}};}
+\DoxyCodeLine{912 }
+\DoxyCodeLine{913     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled__rl_a945c64fd94e6fa0f4ab3dd7dad15a045}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup::rlmap\_name}}.at(Lookup::RLMode ::\_RLdisabled); \}}
+\DoxyCodeLine{914 }
+\DoxyCodeLine{915     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled__rl_a6bb125ae2f2f98ab62827ab490856d9a}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{916 }
+\DoxyCodeLine{917 }
+\DoxyCodeLine{918 }
+\DoxyCodeLine{919 \};}
+\DoxyCodeLine{920 }
+\DoxyCodeLine{921 \textcolor{keyword}{class }\mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\_change\_RL}} \{}
+\DoxyCodeLine{922 }
+\DoxyCodeLine{923 \textcolor{keyword}{public}:}
+\DoxyCodeLine{924 }
+\DoxyCodeLine{925     \mbox{\hyperlink{class_hurley__rl_aedd2aaa942a1fdd01215ab0f253a420a}{Hurley\_rl}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{926         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{927             \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hurley__rl_a5c3afbe2076611f9f963fe127dd8e1ab}{name}}());}
+\DoxyCodeLine{928         \}}
+\DoxyCodeLine{929         \textcolor{comment}{//std::cout<<"{}Make Orb RL H "{}<<  this << std::endl;}}
+\DoxyCodeLine{930 }
+\DoxyCodeLine{931 }
+\DoxyCodeLine{932     \}}
+\DoxyCodeLine{933 }
+\DoxyCodeLine{934     \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}}* \mbox{\hyperlink{class_hurley__rl_abe0cbb138622158542924cfa9bcdcdf2}{instance}}()\textcolor{keyword}{ override  }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{935 }
+\DoxyCodeLine{936     \mbox{\hyperlink{class_hurley__rl_acbc8c4edaa5fd72a71648e289d7a8e6b}{\string~Hurley\_rl}}()\{}
+\DoxyCodeLine{937         \textcolor{comment}{//std::cout<<"{}Orb RL H "{}<<  this << std::endl;}}
+\DoxyCodeLine{938 }
+\DoxyCodeLine{939     \}}
+\DoxyCodeLine{940 }
+\DoxyCodeLine{941     \textcolor{keyword}{static} \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}} \mbox{\hyperlink{class_hurley__rl_a1f3fbb85a05d54ec4ca2d74b65cb75b7}{\_Hurley\_rl}};}
+\DoxyCodeLine{942 }
+\DoxyCodeLine{943     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hurley__rl_a5c3afbe2076611f9f963fe127dd8e1ab}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup::rlmap\_name}}.at(Lookup::RLMode ::\_RLHurley); \}}
+\DoxyCodeLine{944 }
+\DoxyCodeLine{945     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_ac033f2acd3ad59a90d41596b9c1a84b1}{init}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{946 }
+\DoxyCodeLine{947     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{948 }
+\DoxyCodeLine{949     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{950 }
+\DoxyCodeLine{951     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a52d54c16022c0b01515b90e8c3b1b5d1}{DAngMomSpin}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} starID) \textcolor{keyword}{override};}
+\DoxyCodeLine{952 }
+\DoxyCodeLine{953 }
+\DoxyCodeLine{954 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{955 }
+\DoxyCodeLine{962     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_ace764f6f2f47ee24834facd046de49d1}{init\_common\_variable}}(\mbox{\hyperlink{class_star}{Star}} *donor\_star, \mbox{\hyperlink{class_star}{Star}} *accretor\_star, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{963 }
+\DoxyCodeLine{965 }
+\DoxyCodeLine{971     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hurley__rl_a439804e4eed178e3f8c358b48e273b25}{check\_doubleRLO}}(\mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{972 }
+\DoxyCodeLine{979     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hurley__rl_a6b3690decc533054d3b2872dd5bf17cc}{check\_collision\_at\_periastron}}(\mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{980 }
+\DoxyCodeLine{987     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_a71fb8187e773b5adbe8d0fc6d43e8049}{outcome\_double\_RLO}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{996     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_a011b54038d8fd1057e52040cc4399550}{outcome\_collision}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{1004     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_a011b54038d8fd1057e52040cc4399550}{outcome\_collision}}(\mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1005 }
+\DoxyCodeLine{1006 }
+\DoxyCodeLine{1017     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_a055ca0edd33300359c563d405c46e5d8}{RLO}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{1018 }
+\DoxyCodeLine{1019     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_a9f5bce4114ffeb50524e0be1dcc0f408}{set\_orbital}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{1020 }
+\DoxyCodeLine{1022 }
+\DoxyCodeLine{1030     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a63cd9af01fb243847e7ea940e2da6f79}{dynamic\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1038     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a5dd70b779d29bda9503cfc89dfb66b38}{nuclear\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1048     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_aa348c37d1e944257eab4d969d9529bab}{thermal\_dmdt}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1055     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_af3516df0859136cd8f498d74e4dc3da6}{dynamic\_swallowing}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1056 }
+\DoxyCodeLine{1067     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a3d2e2fe65854f911bf28473dcd340768}{thermal\_nuclear\_accreted\_mass}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} DM\_donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1068 }
+\DoxyCodeLine{1069 }
+\DoxyCodeLine{1076     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a27cd206e59dd5b41bf98fcc32f5d7929}{fRL\_radius}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* star,\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1077 }
+\DoxyCodeLine{1078 }
+\DoxyCodeLine{1084     \mbox{\hyperlink{class_star}{Star}}* \mbox{\hyperlink{class_hurley__rl_a478441e41732bdf61242497190a036bd}{get\_donor}}()\{ \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}};\}}
+\DoxyCodeLine{1085     \mbox{\hyperlink{class_star}{Star}}* \mbox{\hyperlink{class_hurley__rl_aeab3d0999537f666c6383950ceedc07d}{get\_accretor}}()\{ \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}};\}}
+\DoxyCodeLine{1086     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a5a9d68710fcf40042f17df1f3f395bcf}{get\_rldonor}}()\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hurley__rl_a60aad4cbb8770a37364b3c63f7ce1f9a}{rl1}};\}}
+\DoxyCodeLine{1087     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_adc53bea67b4ac2aad13793f6ee8fa878}{set\_DA}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}{DA}})\{\mbox{\hyperlink{class_hurley__rl_a010206bef3d03fb0380545071d48d272}{\_DA}}=\mbox{\hyperlink{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}{DA}};\}}
+\DoxyCodeLine{1088     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__rl_a7f2f1a354a159c7ba76872fafc4d34d4}{set\_DE}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}{DE}})\{\mbox{\hyperlink{class_hurley__rl_afec5c938c2e658fa85808bbf0abd9de6}{\_DE}}=\mbox{\hyperlink{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}{DE}};\}}
+\DoxyCodeLine{1089 }
+\DoxyCodeLine{1090     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a3f7a6416ff0833e12a0e9bf0f3900eed}{get\_mt\_value}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{class_hurley__rl_a8f296983ad8438126d54022461a1b38d}{mt\_value}};\}}
+\DoxyCodeLine{1091 }
+\DoxyCodeLine{1092     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a16d60c6caceb1ba8df198d36451dd5e6}{get\_mt\_tshold}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{class_hurley__rl_a26ffa7979a8f015f5e87496466035516}{mt\_tshold}};\}}
+\DoxyCodeLine{1093 }
+\DoxyCodeLine{1094 \textcolor{comment}{    /***Define common variables ***/}}
+\DoxyCodeLine{1095     \textcolor{comment}{//Stars}}
+\DoxyCodeLine{1096     \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}};}
+\DoxyCodeLine{1097     \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}};}
+\DoxyCodeLine{1098     \textcolor{comment}{//BSE type (1 for donor, 2 for accretor)}}
+\DoxyCodeLine{1099     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_a89a5bfe0528efa634bcaa35c5ad78238}{star\_type1}} = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities::NULL\_INT}};}
+\DoxyCodeLine{1100     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl_ae80a24a3a14f179f007ee7e25c72c13f}{star\_type2}} = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities::NULL\_INT}};}
+\DoxyCodeLine{1101     \textcolor{comment}{//Radii}}
+\DoxyCodeLine{1102     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a2c049b439a66f9f6e3601af672a4785b}{frl1}}    = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{// RL over R1}}
+\DoxyCodeLine{1103     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a60aad4cbb8770a37364b3c63f7ce1f9a}{rl1}}     = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//Radius of the Roche Lobe for the donor}}
+\DoxyCodeLine{1104     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hurley__rl_aa0d3037a2afc0780d7c99f663bb0a902}{is\_RL\_in\_core}} = \textcolor{keyword}{false}; \textcolor{comment}{//Is the RL inside the Core?}}
+\DoxyCodeLine{1108 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a8f296983ad8438126d54022461a1b38d}{mt\_value}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}};  \textcolor{comment}{//Mdonor/Maccretore}}
+\DoxyCodeLine{1109     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a26ffa7979a8f015f5e87496466035516}{mt\_tshold}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//qcrit for dynamic mass transfer}}
+\DoxyCodeLine{1110 }
+\DoxyCodeLine{1112     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_adcf2d302e046849d2207876687d87c92}{f\_MT}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//Mass accretion efficenciecy}}
+\DoxyCodeLine{1113     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_aee256f2413578f03de8cf2013846dd93}{dmdt\_edd}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//Eddingtont rate of the accretion on the accretor}}
+\DoxyCodeLine{1114 }
+\DoxyCodeLine{1116     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a72abe5985af3d9b23ed8287b7ad39189}{dt}}    = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}};\textcolor{comment}{//Equations are in yr}}
+\DoxyCodeLine{1117     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a75889cda85a34630e295cfd211f52338}{tkh1}}  = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}};\textcolor{comment}{//KH timescale of the star filling the RL}}
+\DoxyCodeLine{1118     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a1f6c1a4fba153f380e6330135d2a9236}{tdyn1}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//Dynamical timescale of the star filling the RL}}
+\DoxyCodeLine{1119     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a5b4c2dbcdeeda2e30b064e92ac981189}{taum}}  = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//Time scale for dynamic Mass Loss through RL //TODO Why? Why not just tdyn1 as in Hurley, Time scale for Mass loss through}}
+\DoxyCodeLine{1120     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a0cbc8ecc975dbdbba0842e1893e98ab3}{tkh2}}  = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}}; \textcolor{comment}{//KH timescale of the accretor}}
+\DoxyCodeLine{1121 }
+\DoxyCodeLine{1122     \textcolor{comment}{//Orbital}}
+\DoxyCodeLine{1123     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a010206bef3d03fb0380545071d48d272}{\_DA}} = 0;}
+\DoxyCodeLine{1124     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_afec5c938c2e658fa85808bbf0abd9de6}{\_DE}} = 0;}
+\DoxyCodeLine{1125 }
+\DoxyCodeLine{1126     \textcolor{comment}{//Spin}}
+\DoxyCodeLine{1127     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl_a6944321eb6bb28e2df1e8f5aa3d44b9a}{\_DLspin}}[2]=\{0.,0.\};}
+\DoxyCodeLine{1128 }
+\DoxyCodeLine{1129 }
+\DoxyCodeLine{1130 \textcolor{comment}{    /********************************/}}
+\DoxyCodeLine{1131 }
+\DoxyCodeLine{1132 }
+\DoxyCodeLine{1133 }
+\DoxyCodeLine{1134 \};}
+\DoxyCodeLine{1135 }
+\DoxyCodeLine{1136 \textcolor{keyword}{class }\mbox{\hyperlink{class_hurley__rl__bse}{Hurley\_rl\_bse}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}}\{}
+\DoxyCodeLine{1137 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1138 }
+\DoxyCodeLine{1139     \mbox{\hyperlink{class_hurley__rl__bse_af3c5a13597103be33dd696d9f52c90a8}{Hurley\_rl\_bse}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{1140         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1141             \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}{name}}());}
+\DoxyCodeLine{1142         \}}
+\DoxyCodeLine{1143     \}}
+\DoxyCodeLine{1144 }
+\DoxyCodeLine{1145     \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\_rl\_bse}}* \mbox{\hyperlink{class_hurley__rl__bse_a4c88464a25e0f64ec0e335e56d1eb127}{instance}}()\textcolor{keyword}{ override  }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\_rl\_bse}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1146 }
+\DoxyCodeLine{1147     \mbox{\hyperlink{class_hurley__rl__bse_a7651b79653e7ec17f1279ca85565cfdc}{\string~Hurley\_rl\_bse}}()\{}
+\DoxyCodeLine{1148     \}}
+\DoxyCodeLine{1149 }
+\DoxyCodeLine{1150     \textcolor{keyword}{static} \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\_rl\_bse}} \mbox{\hyperlink{class_hurley__rl__bse_af064ac2ca6810c57a85bd7aa66695cfd}{\_Hurley\_rl\_bse}};}
+\DoxyCodeLine{1151 }
+\DoxyCodeLine{1152     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup::rlmap\_name}}.at(Lookup::RLMode ::\_RLHurleyBSE);\}}
+\DoxyCodeLine{1153 }
+\DoxyCodeLine{1154 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1165     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley__rl__bse_a6d781bc08a54228a59c3538546ac5a55}{thermal\_nuclear\_accreted\_mass}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} DM\_donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1166 }
+\DoxyCodeLine{1167 }
+\DoxyCodeLine{1173      \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley__rl__bse_a222d641b706c3df058efc09a7ed03ed1}{dynamic\_swallowing}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1174 }
+\DoxyCodeLine{1175 \};}
+\DoxyCodeLine{1176 }
+\DoxyCodeLine{1177 \textcolor{keyword}{class }\mbox{\hyperlink{class_hurley__mod__rl}{Hurley\_mod\_rl}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}} \{}
+\DoxyCodeLine{1178 }
+\DoxyCodeLine{1179 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1180 }
+\DoxyCodeLine{1181     \mbox{\hyperlink{class_hurley__mod__rl_aa1b6d5590e6683b12d8ffd86af9a737e}{Hurley\_mod\_rl}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{1182         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1183             \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hurley__mod__rl_ad61550db43389ad59444213de5affb02}{name}}());}
+\DoxyCodeLine{1184         \}}
+\DoxyCodeLine{1185     \}}
+\DoxyCodeLine{1186 }
+\DoxyCodeLine{1187     \mbox{\hyperlink{class_hurley__mod__rl}{Hurley\_mod\_rl}}* \mbox{\hyperlink{class_hurley__mod__rl_a7499c8f4c79ba0e8bcba0efa7d6c71f8}{instance}}()\textcolor{keyword}{ override  }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_hurley__mod__rl}{Hurley\_mod\_rl}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1188 }
+\DoxyCodeLine{1189     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hurley__mod__rl_ad61550db43389ad59444213de5affb02}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup::rlmap\_name}}.at(Lookup::RLMode ::\_RLHurleymod); \}}
+\DoxyCodeLine{1190 }
+\DoxyCodeLine{1191     \textcolor{keyword}{static} \mbox{\hyperlink{class_hurley__mod__rl}{Hurley\_mod\_rl}} \mbox{\hyperlink{class_hurley__mod__rl_acc3bf1f866feaf99764d0bf911ebe24a}{\_Hurley\_mod\_rl}};}
+\DoxyCodeLine{1192 }
+\DoxyCodeLine{1193 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1194 }
+\DoxyCodeLine{1195     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley__mod__rl_ac1f8435553a5bcf144e3760b2ece2cd1}{set\_orbital}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1196 }
+\DoxyCodeLine{1197 \};}
+\DoxyCodeLine{1198 \textcolor{comment}{/*************************************/}}
+\DoxyCodeLine{1199 }
+\DoxyCodeLine{1200 \textcolor{comment}{/**********Mix*****************/}}
+\DoxyCodeLine{1201 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}}\{}
+\DoxyCodeLine{1202 }
+\DoxyCodeLine{1203 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1204 }
+\DoxyCodeLine{1205     \mbox{\hyperlink{class_orbital__change___mix_aba421175bfea5ce897fe43affe8c70ca}{Orbital\_change\_Mix}}()\{\}}
+\DoxyCodeLine{1206 }
+\DoxyCodeLine{1207     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___mix_a0357323d592be5ae9c08f4d79c868171}{\string~Orbital\_change\_Mix}}()\{}
+\DoxyCodeLine{1208         \textcolor{comment}{//std::cout<<"{}Orbital\_change\_Mix "{}<<  this << std::endl;}}
+\DoxyCodeLine{1209 }
+\DoxyCodeLine{1210     \}}
+\DoxyCodeLine{1211 }
+\DoxyCodeLine{1212     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}} *\mbox{\hyperlink{class_orbital__change___mix_a08b2155c96305a411467e6fe791cdf06}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{1213 }
+\DoxyCodeLine{1214     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}}  *\mbox{\hyperlink{class_orbital__change___mix_a4ab9369e688d5b89dc892f816b1932d7}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___mix_a09e657632c0cf090be5dc93bb3fc09db}{name}});}
+\DoxyCodeLine{1215 }
+\DoxyCodeLine{1216     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___mix_a09e657632c0cf090be5dc93bb3fc09db}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change Mix"{}};\}}
+\DoxyCodeLine{1217 }
+\DoxyCodeLine{1218 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1219 }
+\DoxyCodeLine{1220     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___mix_a59a35de94c46c3eeabae46c6a668e764}{Register}}(\mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{1221         \mbox{\hyperlink{class_orbital__change___mix_a71424b6ad0b121dc3cb81e939845b081}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{1222         \mbox{\hyperlink{class_orbital__change___mix_a0574e56ec9f5c67cd57695bacc036ead}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___mix_a71424b6ad0b121dc3cb81e939845b081}{GetStaticMap}}().size());}
+\DoxyCodeLine{1223         \mbox{\hyperlink{class_orbital__change___mix_a0574e56ec9f5c67cd57695bacc036ead}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___mix_a0574e56ec9f5c67cd57695bacc036ead}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{1224     \}}
+\DoxyCodeLine{1225 }
+\DoxyCodeLine{1226 }
+\DoxyCodeLine{1227 \textcolor{keyword}{private}:}
+\DoxyCodeLine{1228 }
+\DoxyCodeLine{1229     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Mix *> \& \mbox{\hyperlink{class_orbital__change___mix_a71424b6ad0b121dc3cb81e939845b081}{GetStaticMap}}()\{}
+\DoxyCodeLine{1230         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_Mix *> \_locmap;}
+\DoxyCodeLine{1231         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{1232     \}}
+\DoxyCodeLine{1233 }
+\DoxyCodeLine{1234     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___mix_a0574e56ec9f5c67cd57695bacc036ead}{GetUsed}}()\{}
+\DoxyCodeLine{1235         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{1236         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{1237     \}}
+\DoxyCodeLine{1238 }
+\DoxyCodeLine{1239 \};}
+\DoxyCodeLine{1240 }
+\DoxyCodeLine{1241 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled__mix}{disabled\_mix}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}}\{}
+\DoxyCodeLine{1242 }
+\DoxyCodeLine{1243 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1244     \mbox{\hyperlink{classdisabled__mix_a2aa5547a5948e862f74e9f0f06677676}{disabled\_mix}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1245         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1246             \mbox{\hyperlink{class_orbital__change___mix_a59a35de94c46c3eeabae46c6a668e764}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled__mix_a966e28186cdbfdd0f496df7a23218e93}{name}}());}
+\DoxyCodeLine{1247         \}}
+\DoxyCodeLine{1248     \}}
+\DoxyCodeLine{1249 }
+\DoxyCodeLine{1250     \mbox{\hyperlink{classdisabled__mix}{disabled\_mix}} * \mbox{\hyperlink{classdisabled__mix_adc71884c2b23cc83d4c81cc580aadde7}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled__mix}{disabled\_mix}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1251 }
+\DoxyCodeLine{1252     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled__mix}{disabled\_mix}} \mbox{\hyperlink{classdisabled__mix_ac0c9236d08d5d1ea310490c7851aca19}{\_disabled\_mix}};}
+\DoxyCodeLine{1253 }
+\DoxyCodeLine{1254     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled__mix_a966e28186cdbfdd0f496df7a23218e93}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae0f707b925fb15f1621deaaba1d21aef}{Lookup::mixmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_aadeab44dcabde024dcc91e7121f9136dad72223e0cc64014ed8a74bff9abcb583}{Lookup::MixMode::\_Mixdisabled}}); \}}
+\DoxyCodeLine{1255 }
+\DoxyCodeLine{1256     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled__mix_a0793c012bf295025f9992065cb940cbe}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{1257 }
+\DoxyCodeLine{1258 }
+\DoxyCodeLine{1259 \};}
+\DoxyCodeLine{1260 }
+\DoxyCodeLine{1261 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__mix}{simple\_mix}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___mix}{Orbital\_change\_Mix}}\{}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1263 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1264     \mbox{\hyperlink{classsimple__mix_a8f58738928e72790199debcdb46103f0}{simple\_mix}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1265         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1266             \mbox{\hyperlink{class_orbital__change___mix_a59a35de94c46c3eeabae46c6a668e764}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classsimple__mix_aed2c6b2e74c2c750a1e00cbd3490e915}{name}}());}
+\DoxyCodeLine{1267         \}}
+\DoxyCodeLine{1268     \}}
+\DoxyCodeLine{1269 }
+\DoxyCodeLine{1270     \mbox{\hyperlink{classsimple__mix_a7f381e96c0508dccfd4ad786377ee34c}{\string~simple\_mix}}()\{}
+\DoxyCodeLine{1271         \textcolor{comment}{//std::cout<<"{}simple mix "{}<<  this << std::endl;}}
+\DoxyCodeLine{1272 }
+\DoxyCodeLine{1273     \}}
+\DoxyCodeLine{1274 }
+\DoxyCodeLine{1275     \mbox{\hyperlink{classsimple__mix}{simple\_mix}} * \mbox{\hyperlink{classsimple__mix_ab4b5f1625eb2ea590f956cdbfafcc92f}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classsimple__mix}{simple\_mix}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1276 }
+\DoxyCodeLine{1277     \textcolor{keyword}{static} \mbox{\hyperlink{classsimple__mix}{simple\_mix}} \mbox{\hyperlink{classsimple__mix_a228001b052048ab2b0003550f3e07401}{\_simple\_mix}};}
+\DoxyCodeLine{1278 }
+\DoxyCodeLine{1279     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsimple__mix_aed2c6b2e74c2c750a1e00cbd3490e915}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae0f707b925fb15f1621deaaba1d21aef}{Lookup::mixmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_aadeab44dcabde024dcc91e7121f9136da6389167506afd1811a3045d39e69fbb5}{Lookup::MixMode::\_Mixsimple}}); \}}
+\DoxyCodeLine{1280 }
+\DoxyCodeLine{1281 }
+\DoxyCodeLine{1282 }
+\DoxyCodeLine{1283 \};}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1285 \textcolor{comment}{/**********SN kicks*****************/}}
+\DoxyCodeLine{1286 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change}{Orbital\_change}} \{}
+\DoxyCodeLine{1287 }
+\DoxyCodeLine{1288 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1289 }
+\DoxyCodeLine{1290     \mbox{\hyperlink{class_orbital__change___s_n_kicks_a8ece6474c8e3ee36edca37c3d562a626}{Orbital\_change\_SNKicks}}()\{\}}
+\DoxyCodeLine{1291 }
+\DoxyCodeLine{1292     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___s_n_kicks_aa35511b9d3b2b297daf079cb731ac8bc}{\string~Orbital\_change\_SNKicks}}()\{}
+\DoxyCodeLine{1293         \textcolor{comment}{//std::cout<<"{}orb sn "{}<<  this << std::endl;}}
+\DoxyCodeLine{1294 }
+\DoxyCodeLine{1295     \}}
+\DoxyCodeLine{1296 }
+\DoxyCodeLine{1297     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}} *\mbox{\hyperlink{class_orbital__change___s_n_kicks_ad9d64f19b4f981f67c97d362a93e98d0}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{1298 }
+\DoxyCodeLine{1299     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}}  *\mbox{\hyperlink{class_orbital__change___s_n_kicks_a1af9e4a9fb5a167aca75940e6c16fa4c}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___s_n_kicks_abe5216aaf21f3da037daa7f401f350ee}{name}});}
+\DoxyCodeLine{1300 }
+\DoxyCodeLine{1301     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___s_n_kicks_abe5216aaf21f3da037daa7f401f350ee}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change SNKicks"{}};\}}
+\DoxyCodeLine{1302 }
+\DoxyCodeLine{1303     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a3d392dd57fcfa5422b9ddf87047449cc}{get\_cos\_nu}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad611fcf6e02c9a62b76d1d1edfce2ef8}{cos\_nu}};\}}
+\DoxyCodeLine{1304     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a97b2c2d6b409f7dd459abbceafcdb409}{get\_vcom}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a4977c0e6bcc7467b38c14242530e75ac}{vcom}};\}}
+\DoxyCodeLine{1305 }
+\DoxyCodeLine{1306 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1307 }
+\DoxyCodeLine{1308     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad2c47390cdd35bae409e8bbf6858ccab}{Register}}(\mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{1309         \mbox{\hyperlink{class_orbital__change___s_n_kicks_a9c475ba159d680bad633ba7a9c5038e8}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{1310         \mbox{\hyperlink{class_orbital__change___s_n_kicks_ac27b749920e0d1d4ba76ace593401655}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___s_n_kicks_a9c475ba159d680bad633ba7a9c5038e8}{GetStaticMap}}().size());}
+\DoxyCodeLine{1311         \mbox{\hyperlink{class_orbital__change___s_n_kicks_ac27b749920e0d1d4ba76ace593401655}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___s_n_kicks_ac27b749920e0d1d4ba76ace593401655}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{1312     \}}
+\DoxyCodeLine{1313 }
+\DoxyCodeLine{1314     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a1aef52a56d835603c1edb380b8649e11}{set\_cos\_nu}}(\textcolor{keywordtype}{double} \_cos\_nu)  \{  \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad611fcf6e02c9a62b76d1d1edfce2ef8}{cos\_nu}}=\_cos\_nu; \textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{1315     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a830b76b08add5a01d759a4b453c1bd33}{set\_vcom}}(\textcolor{keywordtype}{double} \_vcom)  \{  \mbox{\hyperlink{class_orbital__change___s_n_kicks_a4977c0e6bcc7467b38c14242530e75ac}{vcom}}=\_vcom; \textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{1316 }
+\DoxyCodeLine{1317 \textcolor{keyword}{private}:}
+\DoxyCodeLine{1318 }
+\DoxyCodeLine{1319     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_SNKicks *> \& \mbox{\hyperlink{class_orbital__change___s_n_kicks_a9c475ba159d680bad633ba7a9c5038e8}{GetStaticMap}}()\{}
+\DoxyCodeLine{1320         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_SNKicks *> \_locmap;}
+\DoxyCodeLine{1321         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{1322     \}}
+\DoxyCodeLine{1323 }
+\DoxyCodeLine{1324     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___s_n_kicks_ac27b749920e0d1d4ba76ace593401655}{GetUsed}}()\{}
+\DoxyCodeLine{1325         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{1326         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{1327     \}}
+\DoxyCodeLine{1328 }
+\DoxyCodeLine{1329     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad611fcf6e02c9a62b76d1d1edfce2ef8}{cos\_nu}}; \textcolor{comment}{//Angle between old and new ang mom}}
+\DoxyCodeLine{1330     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_orbital__change___s_n_kicks_a4977c0e6bcc7467b38c14242530e75ac}{vcom}}; \textcolor{comment}{//New centre-\/of-\/mas velocity}}
+\DoxyCodeLine{1331 }
+\DoxyCodeLine{1332 \};}
+\DoxyCodeLine{1333 }
+\DoxyCodeLine{1334 \textcolor{comment}{/***}}
+\DoxyCodeLine{1335 \textcolor{comment}{ * Implement disabled SNkicks, i.e. does not apply the kicks and does not change orbital parameters}}
+\DoxyCodeLine{1336 \textcolor{comment}{ */}}
+\DoxyCodeLine{1337 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled___s_n_kicks}{disabled\_SNKicks}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}}\{}
+\DoxyCodeLine{1338 }
+\DoxyCodeLine{1339 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1340     \mbox{\hyperlink{classdisabled___s_n_kicks_abf559f0b1a5813ab4d783bfa8c598d9c}{disabled\_SNKicks}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1341         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1342             \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad2c47390cdd35bae409e8bbf6858ccab}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled___s_n_kicks_a3811e2eabbb049039cf5254e2fb69d80}{name}}());}
+\DoxyCodeLine{1343         \}}
+\DoxyCodeLine{1344     \}}
+\DoxyCodeLine{1345 }
+\DoxyCodeLine{1346     \mbox{\hyperlink{classdisabled___s_n_kicks}{disabled\_SNKicks}} * \mbox{\hyperlink{classdisabled___s_n_kicks_af556e4234f89c0b2d28f70fcb816b238}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled___s_n_kicks}{disabled\_SNKicks}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1347 }
+\DoxyCodeLine{1348     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled___s_n_kicks}{disabled\_SNKicks}} \mbox{\hyperlink{classdisabled___s_n_kicks_a3b9292523b895524738c31aa25601459}{\_disabled\_SNKicks}};}
+\DoxyCodeLine{1349 }
+\DoxyCodeLine{1350     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled___s_n_kicks_a3811e2eabbb049039cf5254e2fb69d80}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae577447b0fb0c18ce28942292ab21f0f}{Lookup::snkmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_ab61a6a1513502b713c0da485397549b1a330fd53b0640ca60125933e21476a73f}{Lookup::SNKickMode::\_SNKickdisabled}}); \}}
+\DoxyCodeLine{1351 }
+\DoxyCodeLine{1352     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdisabled___s_n_kicks_a0bbf3d0d404cbc320e22b1f7be3b64f6}{is\_process\_ongoing}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{1353 }
+\DoxyCodeLine{1354 \};}
+\DoxyCodeLine{1355 }
+\DoxyCodeLine{1356 \textcolor{keyword}{class }\mbox{\hyperlink{class_hurley___s_n_kicks}{Hurley\_SNKicks}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_orbital__change___s_n_kicks}{Orbital\_change\_SNKicks}}\{}
+\DoxyCodeLine{1357 }
+\DoxyCodeLine{1358 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1359     \mbox{\hyperlink{class_hurley___s_n_kicks_a6eaa798193808967ede377573d880eb6}{Hurley\_SNKicks}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1360         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1361             \mbox{\hyperlink{class_orbital__change___s_n_kicks_ad2c47390cdd35bae409e8bbf6858ccab}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hurley___s_n_kicks_ae75ba2d22069b0382e89da3352aa373d}{name}}());}
+\DoxyCodeLine{1362         \}}
+\DoxyCodeLine{1363     \}}
+\DoxyCodeLine{1364 }
+\DoxyCodeLine{1365     \mbox{\hyperlink{class_hurley___s_n_kicks_a881e04c1602581a31bb8379376a22e8a}{\string~Hurley\_SNKicks}}()\{}
+\DoxyCodeLine{1366         \textcolor{comment}{//std::cout<<"{}orb sn  hu "{}<<  this << std::endl;}}
+\DoxyCodeLine{1367 }
+\DoxyCodeLine{1368     \}}
+\DoxyCodeLine{1369 }
+\DoxyCodeLine{1370     \mbox{\hyperlink{class_hurley___s_n_kicks}{Hurley\_SNKicks}} * \mbox{\hyperlink{class_hurley___s_n_kicks_a65d619cb54b314dfda87616869cf564e}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_hurley___s_n_kicks}{Hurley\_SNKicks}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1371 }
+\DoxyCodeLine{1372     \textcolor{keyword}{static} \mbox{\hyperlink{class_hurley___s_n_kicks}{Hurley\_SNKicks}} \mbox{\hyperlink{class_hurley___s_n_kicks_ab903f48cf1a9ab61d7d12d2d69099183}{\_Hurley\_SNKicks}};}
+\DoxyCodeLine{1373 }
+\DoxyCodeLine{1374     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hurley___s_n_kicks_ae75ba2d22069b0382e89da3352aa373d}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae577447b0fb0c18ce28942292ab21f0f}{Lookup::snkmap\_name}}.at(\mbox{\hyperlink{namespace_lookup_ab61a6a1513502b713c0da485397549b1a9f5781acf1ff27d14a47ec3efde40f36}{Lookup::SNKickMode::\_SNKickHurley}}); \}}
+\DoxyCodeLine{1375 }
+\DoxyCodeLine{1376     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley___s_n_kicks_a8ecb6647430b695ffe0df9f38f61be30}{init}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b) \textcolor{keyword}{override};}
+\DoxyCodeLine{1377 }
+\DoxyCodeLine{1378     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a3ac735527e8258bcd71baa1e25d6c526}{DA}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{1379 }
+\DoxyCodeLine{1380     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a5583a9ee3a6d7f2074637e1645aa549c}{DE}}(\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{int} procID) \textcolor{keyword}{override};}
+\DoxyCodeLine{1381 }
+\DoxyCodeLine{1382 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1383 }
+\DoxyCodeLine{1393     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hurley___s_n_kicks_a9664b2779c71786a8a4668ef8422f6f6}{kick\_star}}(\mbox{\hyperlink{class_star}{Star}} *sn, \mbox{\hyperlink{class_star}{Star}} *other, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keywordtype}{double} \&a\_fin, \textcolor{keywordtype}{double} \&ecc\_fin);}
+\DoxyCodeLine{1394 }
+\DoxyCodeLine{1395     \textcolor{comment}{//double Vorb(double Mass1, double Mass2, );}}
+\DoxyCodeLine{1396 }
+\DoxyCodeLine{1397     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a5a912750c4bed331208af93250b665e6}{G}} = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{utilities::G}};}
+\DoxyCodeLine{1398 }
+\DoxyCodeLine{1399 \textcolor{keyword}{private}:}
+\DoxyCodeLine{1400 }
+\DoxyCodeLine{1401     std::uniform\_real\_distribution<double> \mbox{\hyperlink{class_hurley___s_n_kicks_a3ac07d7f1501cb56ec71bd50f9128952}{\_uniform\_real}};}
+\DoxyCodeLine{1402 }
+\DoxyCodeLine{1403     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley___s_n_kicks_a51c3cb2a8746d3407e0afdc74b990adf}{set\_DA}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a3ac735527e8258bcd71baa1e25d6c526}{DA}})\{\mbox{\hyperlink{class_hurley___s_n_kicks_a68cb7843fb16fa9fe9699a74cc374d6b}{\_DA}}=\mbox{\hyperlink{class_hurley___s_n_kicks_a3ac735527e8258bcd71baa1e25d6c526}{DA}};\}}
+\DoxyCodeLine{1404     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hurley___s_n_kicks_a9a2599eb9401862ac1ceec07b0b1ce68}{set\_DE}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a5583a9ee3a6d7f2074637e1645aa549c}{DE}})\{\mbox{\hyperlink{class_hurley___s_n_kicks_a8b76f9d5b02dbbe37667efc9d3347f18}{\_DE}}=\mbox{\hyperlink{class_hurley___s_n_kicks_a5583a9ee3a6d7f2074637e1645aa549c}{DE}};\}}
+\DoxyCodeLine{1405 }
+\DoxyCodeLine{1406     \textcolor{comment}{//Orbital}}
+\DoxyCodeLine{1407     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a68cb7843fb16fa9fe9699a74cc374d6b}{\_DA}} = 0;}
+\DoxyCodeLine{1408     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hurley___s_n_kicks_a8b76f9d5b02dbbe37667efc9d3347f18}{\_DE}} = 0;}
+\DoxyCodeLine{1409 \};}
+\DoxyCodeLine{1410 \textcolor{comment}{/*************************************/}}
+\DoxyCodeLine{1411 }
+\DoxyCodeLine{1412 \textcolor{comment}{/**********Common Envelope*****************/}}
+\DoxyCodeLine{1413 \textcolor{keyword}{class }\mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_orbital__change}{Orbital\_change}} \{}
+\DoxyCodeLine{1414 }
+\DoxyCodeLine{1415 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1416 }
+\DoxyCodeLine{1417     \mbox{\hyperlink{class_orbital__change___c_e_a700cde2a780c83ef6d79fe18fc248557}{Orbital\_change\_CE}}()\{\}}
+\DoxyCodeLine{1418 }
+\DoxyCodeLine{1419     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___c_e_abc228f03095c9480d1939c86f62842e4}{\string~Orbital\_change\_CE}}()\{}
+\DoxyCodeLine{1420         \textcolor{comment}{//std::cout<<"{}orb ce "{}<<  this << std::endl;}}
+\DoxyCodeLine{1421 }
+\DoxyCodeLine{1422     \}}
+\DoxyCodeLine{1423 }
+\DoxyCodeLine{1424     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}} *\mbox{\hyperlink{class_orbital__change___c_e_a424e6cf05c7bda82367ec01a797a71a0}{instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{1425 }
+\DoxyCodeLine{1426     \textcolor{keyword}{static} \mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}}  *\mbox{\hyperlink{class_orbital__change___c_e_a26f390cf2a7756ce996d70f77d086ff0}{Instance}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_orbital__change___c_e_a04a901671b46b941809581dcf3c9fb70}{name}});}
+\DoxyCodeLine{1427 }
+\DoxyCodeLine{1428     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_orbital__change___c_e_a04a901671b46b941809581dcf3c9fb70}{name}}()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Orbital change CE"{}};\}}
+\DoxyCodeLine{1429 }
+\DoxyCodeLine{1430 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1431 }
+\DoxyCodeLine{1432     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_orbital__change___c_e_a43de6b4f55e5dd91516ccde047ec6c99}{Register}}(\mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{1433         \mbox{\hyperlink{class_orbital__change___c_e_abcc3a1164cb1e983d9709cbb2f8a642d}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{1434         \mbox{\hyperlink{class_orbital__change___c_e_a8588efa9f0eab69bb15fa41c5b543aee}{GetUsed}}().resize(\mbox{\hyperlink{class_orbital__change___c_e_abcc3a1164cb1e983d9709cbb2f8a642d}{GetStaticMap}}().size());}
+\DoxyCodeLine{1435         \mbox{\hyperlink{class_orbital__change___c_e_a8588efa9f0eab69bb15fa41c5b543aee}{GetUsed}}()[\mbox{\hyperlink{class_orbital__change___c_e_a8588efa9f0eab69bb15fa41c5b543aee}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{1436     \}}
+\DoxyCodeLine{1437 }
+\DoxyCodeLine{1438 \textcolor{keyword}{private}:}
+\DoxyCodeLine{1439 }
+\DoxyCodeLine{1440     \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_CE *> \& \mbox{\hyperlink{class_orbital__change___c_e_abcc3a1164cb1e983d9709cbb2f8a642d}{GetStaticMap}}()\{}
+\DoxyCodeLine{1441         \textcolor{keyword}{static} std::map<std::string, Orbital\_change\_CE *> \_locmap;}
+\DoxyCodeLine{1442         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{1443     \}}
+\DoxyCodeLine{1444 }
+\DoxyCodeLine{1445     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_orbital__change___c_e_a8588efa9f0eab69bb15fa41c5b543aee}{GetUsed}}()\{}
+\DoxyCodeLine{1446         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{1447         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{1448     \}}
+\DoxyCodeLine{1449 \};}
+\DoxyCodeLine{1450 }
+\DoxyCodeLine{1451 \textcolor{keyword}{class }\mbox{\hyperlink{classenergy___c_e}{energy\_CE}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}}\{}
+\DoxyCodeLine{1452 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1453     \mbox{\hyperlink{classenergy___c_e_a353852a53d3f104101857998bd6033aa}{energy\_CE}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1454         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1455             \mbox{\hyperlink{class_orbital__change___c_e_a43de6b4f55e5dd91516ccde047ec6c99}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classenergy___c_e_aebbd63b8ae59a9307f46229405ada1a9}{name}}());}
+\DoxyCodeLine{1456         \}}
+\DoxyCodeLine{1457     \}}
+\DoxyCodeLine{1458 }
+\DoxyCodeLine{1459     \mbox{\hyperlink{classenergy___c_e_ab75b18fcdf005f5a8cce24562bcd7297}{\string~energy\_CE}}()\{}
+\DoxyCodeLine{1460         \textcolor{comment}{//std::cout<<"{}orb CE  energy "{}<<  this << std::endl;}}
+\DoxyCodeLine{1461 }
+\DoxyCodeLine{1462     \}}
+\DoxyCodeLine{1463 }
+\DoxyCodeLine{1464     \mbox{\hyperlink{classenergy___c_e}{energy\_CE}} * \mbox{\hyperlink{classenergy___c_e_abe50d2211cffbc31d4036b8d16424dae}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classenergy___c_e}{energy\_CE}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1465 }
+\DoxyCodeLine{1466     \textcolor{keyword}{static} \mbox{\hyperlink{classenergy___c_e}{energy\_CE}} \mbox{\hyperlink{classenergy___c_e_af0de42117c686a84942dbcc4772b4d64}{\_energy\_CE}};}
+\DoxyCodeLine{1467 }
+\DoxyCodeLine{1468     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classenergy___c_e_aebbd63b8ae59a9307f46229405ada1a9}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae2b4919081f4cbd2cb81d08d06779804}{Lookup::cemap\_name}}.at(\mbox{\hyperlink{namespace_lookup_a0e9f65a092f0daaf39b5f091e09368b3aa86100e4a4f969c0c5489b48502d1d2c}{Lookup::CEMode::\_CEEnergy}}); \}}
+\DoxyCodeLine{1469 }
+\DoxyCodeLine{1470 \};}
+\DoxyCodeLine{1471 }
+\DoxyCodeLine{1472 \textcolor{keyword}{class }\mbox{\hyperlink{classdisabled___c_e}{disabled\_CE}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_orbital__change___c_e}{Orbital\_change\_CE}}\{}
+\DoxyCodeLine{1473 \textcolor{keyword}{public}:}
+\DoxyCodeLine{1474     \mbox{\hyperlink{classdisabled___c_e_a018881a989af1b607ba28c78f677bac7}{disabled\_CE}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{1475         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{1476             \mbox{\hyperlink{class_orbital__change___c_e_a43de6b4f55e5dd91516ccde047ec6c99}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{classdisabled___c_e_a3e7947c36a913a21b46f12731e9042b1}{name}}());}
+\DoxyCodeLine{1477         \}}
+\DoxyCodeLine{1478     \}}
+\DoxyCodeLine{1479 }
+\DoxyCodeLine{1480     \mbox{\hyperlink{classdisabled___c_e_a9c8be28c24b32c38a08d2fa5843ee40b}{\string~disabled\_CE}}()\{}
+\DoxyCodeLine{1481         \textcolor{comment}{//std::cout<<"{}orb CE  disabled "{}<<  this << std::endl;}}
+\DoxyCodeLine{1482 }
+\DoxyCodeLine{1483     \}}
+\DoxyCodeLine{1484 }
+\DoxyCodeLine{1485     \mbox{\hyperlink{classdisabled___c_e}{disabled\_CE}} * \mbox{\hyperlink{classdisabled___c_e_acfaa4d376852b3960002e633bb034083}{instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classdisabled___c_e}{disabled\_CE}}(\textcolor{keyword}{false});\}}
+\DoxyCodeLine{1486 }
+\DoxyCodeLine{1487     \textcolor{keyword}{static} \mbox{\hyperlink{classdisabled___c_e}{disabled\_CE}} \mbox{\hyperlink{classdisabled___c_e_ae57881678777a1ceacb7137a1b645dd8}{\_disabled\_CE}};}
+\DoxyCodeLine{1488 }
+\DoxyCodeLine{1489     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdisabled___c_e_a3e7947c36a913a21b46f12731e9042b1}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_lookup_ae2b4919081f4cbd2cb81d08d06779804}{Lookup::cemap\_name}}.at(\mbox{\hyperlink{namespace_lookup_a0e9f65a092f0daaf39b5f091e09368b3aa86100e4a4f969c0c5489b48502d1d2c}{Lookup::CEMode::\_CEEnergy}}); \}}
+\DoxyCodeLine{1490 }
+\DoxyCodeLine{1491 \};}
+\DoxyCodeLine{1492 \textcolor{comment}{/*************************************/}}
+\DoxyCodeLine{1493 }
+\DoxyCodeLine{1494 }
+\DoxyCodeLine{1495 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_ORBIT\_H}}
+
+\end{DoxyCode}

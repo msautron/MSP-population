@@ -1,0 +1,222 @@
+\hypertarget{supernova_8h_source}{}\doxysection{supernova.\+h}
+\label{supernova_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/supernova.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/supernova.h}}
+\mbox{\hyperlink{supernova_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Created by spera on 30/12/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{Module for SN models, it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{ -\/ Class supernova: Base class for SN models}}
+\DoxyCodeLine{5 \textcolor{comment}{ -\/ Class PisnON:  auxiliary  class-\/option used to enable pair instability at compile time}}
+\DoxyCodeLine{6 \textcolor{comment}{ -\/ Class PisnOFF: auxiliary class-\/option used to disable pair instability at compile time}}
+\DoxyCodeLine{7 \textcolor{comment}{ -\/ Class NeutrinoMassLossOFF: auxiliary class-\/option used to disable neutrino mass loss at compile time}}
+\DoxyCodeLine{8 \textcolor{comment}{ -\/ Class NSfromGau: auxiliary class-\/option used to force to draw Neutron Star masses from a Gaussian}}
+\DoxyCodeLine{9 \textcolor{comment}{*/}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef SEVN\_SUPERNOVA\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define SEVN\_SUPERNOVA\_H}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{neutrinomassloss_8h}{neutrinomassloss.h}}>}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{250 \textcolor{keyword}{class }\mbox{\hyperlink{class_pair_instability}{PairInstability}};}
+\DoxyCodeLine{251 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define \_UNUSED \_\_attribute\_\_ ((unused))}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{keyword}{class }\mbox{\hyperlink{classsupernova}{supernova}} \{}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 \textcolor{comment}{/***** For Developers that want to add new supernova models: ******/}}
+\DoxyCodeLine{264 \textcolor{keyword}{public}:}
+\DoxyCodeLine{266     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsupernova_aecfde7c287c15e5a64fcb67c4dff3dee}{name}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}GenericSupernova"{}}; \}}
+\DoxyCodeLine{271     \textcolor{keyword}{virtual} \mbox{\hyperlink{classsupernova}{supernova}} *\mbox{\hyperlink{classsupernova_af645812b6c116c9f290a2fd1c00e3e80}{instance}}(\mbox{\hyperlink{supernova_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{283     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a3f9dd4c9349d4f8598927fc2a2cb5ca5}{explosion}}(\mbox{\hyperlink{class_star}{Star}} *s) = 0;}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{288 }
+\DoxyCodeLine{297 }
+\DoxyCodeLine{300 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{312     \textcolor{keyword}{virtual} \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup::Remnants}}  \mbox{\hyperlink{classsupernova_a7179077f559ff2f185aefe61c2f8ff81}{set\_remnant\_type\_after\_explosion}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} mremnant, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup::SNExplosionType}} sntype);}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{323     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a5aec6b66c1c4026775a025f2ef88f9c6}{CCexplosion}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{336     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a40513a1817a93ebdfa879e7d1932262f}{ECSN}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{347     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a73cbb800bdc37a7f78f2b34631cccc22}{WDformation}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{354 \textcolor{comment}{    /***** STOP: DO NOT CHANGE THE REST OF THE CODE IF YOU ARE NOT FULLY AWARE OF WHAT  YOU ARE DOING ******/}}
+\DoxyCodeLine{355 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{356 \textcolor{keyword}{public}:}
+\DoxyCodeLine{357     \textcolor{comment}{//TODO Since Star is passed to the constructor, it can be stored as a pointer and the Star* s can be removed}}
+\DoxyCodeLine{358     \textcolor{comment}{//in the other function calls}}
+\DoxyCodeLine{359     \mbox{\hyperlink{classsupernova}{supernova}}(\mbox{\hyperlink{class_star}{Star}} *s = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classsupernova_a14b62484e9d8a4bd2f399f026a33e43b}{\string~supernova}}();}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363     \textcolor{keyword}{static} \mbox{\hyperlink{classsupernova}{supernova}} *\mbox{\hyperlink{classsupernova_a4741e8561220ace7431651a310efd09a}{Instance}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{classsupernova_aecfde7c287c15e5a64fcb67c4dff3dee}{name}}, \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a82621281b90ad1674746f7669469920c}{main}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{374     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a2020707651dd86bafb16a0fbae3c00b2}{initialise\_remnant}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mass\_remnant, \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup::Remnants}} Remnant\_type);}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a3640adb555576f05fa896d1bc1f8a1c8}{get\_fallback\_frac}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_ac3939da4275dba435d64099875f42ff7}{fallback\_frac}}; \}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a5f088d1e9cbce64a22bddb51a3f6f04c}{get\_pisncorrection}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a3c4813c7127705ed06159f0a0644e4e4}{pisn\_correction}}; \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_ad78083b7aabfd6012d0c7156fedea959}{get\_M\_neutrinos}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a53c8cd04e83de52c5b2a0f0718209843}{M\_neutrinos}}; \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a9480a10710b8b4d706798251e7678b63}{get\_Mremnant}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a629362e8ea1b7ffc8dfed5000caae654}{Mremnant}}; \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385 \textcolor{comment}{    /*** Return the Mass of the remnant before the pisn and neutrino mass loss correction ***/}}
+\DoxyCodeLine{386     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a987054f3d31e3e5d640e52e161e6a789}{get\_Mremnant\_preCorrection}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{387         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a93f3caaef9db48f48bfaad29bd9d00c5}{Mremnant\_preCorrection}}<0 ? \mbox{\hyperlink{classsupernova_a629362e8ea1b7ffc8dfed5000caae654}{Mremnant}} : \mbox{\hyperlink{classsupernova_a93f3caaef9db48f48bfaad29bd9d00c5}{Mremnant\_preCorrection}};}
+\DoxyCodeLine{388     \}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a303039a1454376f98db44ccc8f558c23}{get\_AverageRemnant}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_ad7567d6f9473c113ab73843ab2d56dfb}{Average\_remnant}}; \}}
+\DoxyCodeLine{391     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_ab00046b841ea92441ddab961600432cb}{get\_AverageEjected}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_ad23daa4ad50906de1139c24bcc955b6b}{Average\_ejected}}; \}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a0ba404e280bf7618669b6bfd7ad914c1}{get\_Mejected}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a11c36829508ef0ef9c66254baae0fa3b}{Mejected}}; \}}
+\DoxyCodeLine{394     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a9809edb0596248c571044a609f407c70}{get\_remnant\_type}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsupernova_a3a675cd751f07fbead0635e881a80eaf}{remnant\_type}}; \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 }
+\DoxyCodeLine{401     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a33488665b1a91340653cec32f2a7135d}{explosion\_SNI}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{408     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a33488665b1a91340653cec32f2a7135d}{explosion\_SNI}}(\mbox{\hyperlink{class_star}{Star}} *s, \mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{415     \textcolor{keywordtype}{double}  \mbox{\hyperlink{classsupernova_a9e346de597c3e16c606b9102de08ad4d}{get\_preSN\_Mass}}(\textcolor{keywordtype}{size\_t} massid) \textcolor{keyword}{const};}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{419     \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_ac3939da4275dba435d64099875f42ff7}{fallback\_frac}}, \mbox{\hyperlink{classsupernova_a53c8cd04e83de52c5b2a0f0718209843}{M\_neutrinos}};}
+\DoxyCodeLine{420     \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a3c4813c7127705ed06159f0a0644e4e4}{pisn\_correction}};}
+\DoxyCodeLine{421     \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a629362e8ea1b7ffc8dfed5000caae654}{Mremnant}}, \mbox{\hyperlink{classsupernova_a11c36829508ef0ef9c66254baae0fa3b}{Mejected}}, \mbox{\hyperlink{classsupernova_a93f3caaef9db48f48bfaad29bd9d00c5}{Mremnant\_preCorrection}};}
+\DoxyCodeLine{422     \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_ad23daa4ad50906de1139c24bcc955b6b}{Average\_ejected}}, \mbox{\hyperlink{classsupernova_ad7567d6f9473c113ab73843ab2d56dfb}{Average\_remnant}};}
+\DoxyCodeLine{423     \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup::Remnants}} \mbox{\hyperlink{classsupernova_a3a675cd751f07fbead0635e881a80eaf}{remnant\_type}};}
+\DoxyCodeLine{424     \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup::SNExplosionType}} \mbox{\hyperlink{classsupernova_a82c78606531f2a9d22a3f96f93d0f75a}{sn\_type}}=\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfba6363c57bc650e9d97a3a7218be1e94ec}{Lookup::SNExplosionType::Unknown}}; \textcolor{comment}{//initialised to Unknown}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a4daef0b63db7ae24820dabb5b7eec301}{Register}}(\mbox{\hyperlink{classsupernova}{supernova}} *ptr) \{}
+\DoxyCodeLine{427         \textcolor{comment}{//Register only if the name is not already in the map,}}
+\DoxyCodeLine{428         \textcolor{comment}{//this is necessary to avoid multiple registration of the same model when the constructor is called from}}
+\DoxyCodeLine{429         \textcolor{comment}{//inherited classes}}
+\DoxyCodeLine{430         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classsupernova_af747aeb255aa7483d3bd54008c4b1eec}{GetStaticMap}}().find(ptr-\/>\mbox{\hyperlink{classsupernova_aecfde7c287c15e5a64fcb67c4dff3dee}{name}}())==\mbox{\hyperlink{classsupernova_af747aeb255aa7483d3bd54008c4b1eec}{GetStaticMap}}().end())\{}
+\DoxyCodeLine{431             \mbox{\hyperlink{classsupernova_af747aeb255aa7483d3bd54008c4b1eec}{GetStaticMap}}().insert(std::make\_pair(ptr-\/>\mbox{\hyperlink{classsupernova_aecfde7c287c15e5a64fcb67c4dff3dee}{name}}(), ptr));}
+\DoxyCodeLine{432             \mbox{\hyperlink{classsupernova_aa217d12a58f010804f4502a2b953e9bb}{GetUsed}}().resize(\mbox{\hyperlink{classsupernova_af747aeb255aa7483d3bd54008c4b1eec}{GetStaticMap}}().size());}
+\DoxyCodeLine{433             \mbox{\hyperlink{classsupernova_aa217d12a58f010804f4502a2b953e9bb}{GetUsed}}()[\mbox{\hyperlink{classsupernova_aa217d12a58f010804f4502a2b953e9bb}{GetUsed}}().size() -\/ 1] = 0;}
+\DoxyCodeLine{434         \}}
+\DoxyCodeLine{435     \}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 }
+\DoxyCodeLine{444     \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_ac8973e73e7fcf42c46bfd3ff4e4a2d19}{Mass\_corrections\_after\_explosion}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{452     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a838f507b12d2378b702d30339a3a372f}{pisn}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s) = 0;}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454     \textcolor{keyword}{const} \mbox{\hyperlink{class_pair_instability}{PairInstability}}* \mbox{\hyperlink{classsupernova_a0a51e9ef46ce46b74140aef23715997f}{get\_pairinstability}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{classsupernova_a27fd5c2e6e3e74fa447cfba6136f0fd6}{pairinstability}};\}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{463     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classsupernova_a5716517ae1b61183ba119adb18584714}{neutrino\_mass\_loss}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{471     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a7c39354eabe74e7ef6c780f161325595}{set\_Average\_for\_Unified}}(\mbox{\hyperlink{class_star}{Star}}* s, \textcolor{keywordtype}{double} default\_Average\_Mremnant, \textcolor{keywordtype}{double} default\_Average\_Mejected);}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{classsupernova_aff304960a50ea1e16135167e3b8e140c}{svlog}};}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{479     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsupernova_ace5a15ab24698f28b2a3616d22beaa78}{set\_preSN\_Masses}}(\mbox{\hyperlink{class_star}{Star}} *s) = 0;}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481     \textcolor{keywordtype}{int} \mbox{\hyperlink{classsupernova_a5ef4d352432975f3e4da9b97d0083fe6}{\_set\_preSN\_Masses}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{bool} allow\_pisn);}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485 \textcolor{keyword}{private}:}
+\DoxyCodeLine{486     \mbox{\hyperlink{class_kicks}{Kicks}} *\mbox{\hyperlink{classsupernova_a40f1aea1f5992f36220e503a8d985731}{kick}};}
+\DoxyCodeLine{487     \mbox{\hyperlink{class_pair_instability}{PairInstability}} *\mbox{\hyperlink{classsupernova_a27fd5c2e6e3e74fa447cfba6136f0fd6}{pairinstability}};}
+\DoxyCodeLine{488     \mbox{\hyperlink{class_neutrino_mass_loss}{NeutrinoMassLoss}} *\mbox{\hyperlink{classsupernova_afed78b84fd13f6ade1bdd9177578808a}{neutrinomassloss}};}
+\DoxyCodeLine{489     \textcolor{comment}{//std::unique\_ptr<Kicks> *kick;}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491     \textcolor{comment}{//preSN Mass container}}
+\DoxyCodeLine{492     \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities::MassContainer}}* \mbox{\hyperlink{classsupernova_aa275f4f99c0d9c21709c076ca83a0f5f}{Mass\_preSN}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494     \textcolor{keyword}{static} std::map<std::string, supernova *> \&\mbox{\hyperlink{classsupernova_af747aeb255aa7483d3bd54008c4b1eec}{GetStaticMap}}() \{}
+\DoxyCodeLine{495         \textcolor{keyword}{static} std::map<std::string, supernova *> \_locmap;}
+\DoxyCodeLine{496         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{497     \}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499     \textcolor{keyword}{static} std::vector<int> \&\mbox{\hyperlink{classsupernova_aa217d12a58f010804f4502a2b953e9bb}{GetUsed}}() \{}
+\DoxyCodeLine{500         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{501         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{502     \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a308aecc1a743dfd89129206a7dcdb9ab}{remnant\_properties}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{511     \textcolor{keywordtype}{void} \mbox{\hyperlink{classsupernova_a69cda84e50efbfcf3cc202a35de6f365}{set\_staremnant}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513 }
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515 \};}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517 }
+\DoxyCodeLine{521 \textcolor{keyword}{class }\mbox{\hyperlink{class_pisn_o_n}{PisnON}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}}\{}
+\DoxyCodeLine{522 \textcolor{keyword}{public}:}
+\DoxyCodeLine{523     \mbox{\hyperlink{class_pisn_o_n_afba3bbd9ad75635ce0cf751debfafaf7}{PisnON}}()\{\}}
+\DoxyCodeLine{524 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{528     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_pisn_o_n_a310ea46607ed41692baa297709e631c3}{set\_preSN\_Masses}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_pisn_o_n_afecdecc3c4b663723e303f1025b53bd5}{pisn}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532 \};}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{537 \textcolor{keyword}{class }\mbox{\hyperlink{class_pisn_o_f_f}{PisnOFF}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}}\{}
+\DoxyCodeLine{538 \textcolor{keyword}{public}:}
+\DoxyCodeLine{539     \mbox{\hyperlink{class_pisn_o_f_f_ac706288ea692c47d0bcdc05b67e2a7ea}{PisnOFF}}()\{\}}
+\DoxyCodeLine{540 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{544     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_pisn_o_f_f_a0d7a30949b9166b40fbf1e895151380e}{set\_preSN\_Masses}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_pisn_o_f_f_a096bf4d8aa14b704acb6514c9c9aa0ff}{pisn}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{548 \};}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{553 \textcolor{keyword}{class }\mbox{\hyperlink{class_neutrino_mass_loss_o_f_f}{NeutrinoMassLossOFF}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}}\{}
+\DoxyCodeLine{554 \textcolor{keyword}{public}:}
+\DoxyCodeLine{555     \mbox{\hyperlink{class_neutrino_mass_loss_o_f_f_a00bdf2e9e9a17522e9fb0ddfb2d8fca8}{NeutrinoMassLossOFF}}()\{\}}
+\DoxyCodeLine{556     \mbox{\hyperlink{class_neutrino_mass_loss_o_f_f_abfcddfce0e92e006ecf5008c058066b0}{NeutrinoMassLossOFF}}(\mbox{\hyperlink{supernova_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\{\}}
+\DoxyCodeLine{557 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{558     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_neutrino_mass_loss_o_f_f_a95272b53ea55ecb68f09dcffe0faf91f}{neutrino\_mass\_loss}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{supernova_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{  const override }\{\textcolor{keywordflow}{return}  mass;\}}
+\DoxyCodeLine{559 \};}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{564 \textcolor{keyword}{class }\mbox{\hyperlink{class_n_sfrom_gau}{NSfromGau}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}} \{}
+\DoxyCodeLine{565 \textcolor{keyword}{public}:}
+\DoxyCodeLine{566     \mbox{\hyperlink{class_n_sfrom_gau_a697ef5ba5806426d2ea1b361252f9e4c}{NSfromGau}}()\{\}}
+\DoxyCodeLine{567     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_n_sfrom_gau_af322085de29707b231748208cdc808f7}{ECSN}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{568     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_sfrom_gau_af82d2b77d5404762d7d7181efa87c4b0}{get\_NS\_mass}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{570 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{571     std::normal\_distribution<double> \mbox{\hyperlink{class_n_sfrom_gau_ac46c57101482039076c6264e36198e0c}{normal\_dist}}\{0.,1.\};}
+\DoxyCodeLine{572     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_sfrom_gau_ad0bbbce0f393048533fb13cac07880af}{generate\_random\_gau}}(\textcolor{keywordtype}{double} mean, \textcolor{keywordtype}{double} std)\{}
+\DoxyCodeLine{573       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_n_sfrom_gau_ac46c57101482039076c6264e36198e0c}{normal\_dist}}(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}})*std + mean;}
+\DoxyCodeLine{574     \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{583      \textcolor{keywordtype}{void} \mbox{\hyperlink{class_n_sfrom_gau_ab1b9af9e535d8ee9cd0df071bf4a4400}{CCexplosion}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{585 \};}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{587 }
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591 }
+\DoxyCodeLine{592 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_SUPERNOVA\_H}}
+
+\end{DoxyCode}

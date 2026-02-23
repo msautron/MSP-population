@@ -1,0 +1,266 @@
+\hypertarget{utilities_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/utilities.h File Reference}
+\label{utilities_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/utilities.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/utilities.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}}
+\item 
+class \mbox{\hyperlink{classutilities_1_1_list_generator}{utilities\+::\+List\+Generator}}
+\begin{DoxyCompactList}\small\item\em Class to handle the generation of a list of values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceutilities}{utilities}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utilities_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}}~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((unused))
+\item 
+\#define \mbox{\hyperlink{utilities_8h_a5f82bfe244592d0cbc88fff86a55f980}{openfile}}(a,  b)~\mbox{\hyperlink{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}{utilities\+::\+\_\+openfile}}(a, b, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}{utilities\+::evolution}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}{utilities\+::jump\+\_\+convergence}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{utilities\+::sn\+\_\+explosion}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}{utilities\+::rlo}}
+\item 
+typedef bool \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{utilities\+::bse\+\_\+evolution}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespaceutilities_ade38453232303159b98bc41b7cc62d39}{utilities\+::maxwellian\+\_\+cdf}} (double x, double sigma)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a8dfa02151562fe4907d07c05ed469d61}{utilities\+::maxwellian\+\_\+pdf}} (double x, double sigma)
+\item 
+double \mbox{\hyperlink{namespaceutilities_ab0f49bc367ee398c0d0c743e2885fc3c}{utilities\+::\+R\+\_\+\+Schwarzschild}} (double \mbox{\hyperlink{class_mass}{Mass}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\const std\+::string \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities\+::n2s}} (T val, const char $\ast$file\+\_\+input, const int line\+\_\+input, const unsigned int precision=6)
+\item 
+double \mbox{\hyperlink{namespaceutilities_afcca65bc160a7b86fecf33c7eb284365}{utilities\+::roche\+\_\+lobe\+\_\+\+Eg}} (double Mass\+\_\+primary, double Mass\+\_\+secondary, double a)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a3f43c17cef43eb800adb11f8149fb8fa}{utilities\+::\+R\+\_\+\+Alfven}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s, double \mbox{\hyperlink{classd_mdt}{d\+Mdt}}, bool get0=false)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a2fbe4f78d85628cbec9a1ba4282ad539}{utilities\+::\+Hfrac}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{namespaceutilities_aa7afa3b720a62f078bb377c1b82b75c9}{utilities\+::d\+Mdt\+\_\+\+Eddington\+\_\+accretion}} (\mbox{\hyperlink{class_star}{Star}} $\ast$donor, \mbox{\hyperlink{class_star}{Star}} $\ast$accretor, double eddfact=1.\+0)
+\item 
+static double \mbox{\hyperlink{namespaceutilities_a3258eafe01d806f8fdc9106f4d37c2ac}{utilities\+::omega\+\_\+crit}} (double \mbox{\hyperlink{class_mass}{Mass}}, double Rpolar)
+\item 
+void \mbox{\hyperlink{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}{utilities\+::hardwait}} ()
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{namespaceutilities_ad0b2ac4fcd7e8c2111f3b71c55219732}{utilities\+::hardwait}} (T head, Tail... tail)
+\item 
+void \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{utilities\+::wait}} ()
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{namespaceutilities_a7356afcc4bc488e637d3dcd073822eab}{utilities\+::wait}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} T head, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} Tail... tail)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{utilities\+::get\+\_\+name}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+long \mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{utilities\+::get\+\_\+\+ID}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a1dc87268e528c0e7ea55a458ce468029}{utilities\+::get\+\_\+name}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+long \mbox{\hyperlink{namespaceutilities_af7b6bc69dedb769125520b3beda9dbe6}{utilities\+::get\+\_\+\+ID}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{utilities\+::get\+\_\+current\+\_\+time}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{namespaceutilities_ad7eb01abed1a206afc0d63309c512d29}{utilities\+::get\+\_\+current\+\_\+time}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{utilities\+::\+\_\+log\+\_\+print\+\_\+core}} (std\+::stringstream \&ss, T t)
+\item 
+{\footnotesize template$<$typename T , typename... ListP$>$ }\\void \mbox{\hyperlink{namespaceutilities_a0bdaf3c825b214e12e46b288eb6c1d6c}{utilities\+::\+\_\+log\+\_\+print\+\_\+core}} (std\+::stringstream \&ss, T t, List\+P... args)
+\item 
+{\footnotesize template$<$class System , typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{utilities\+::common\+\_\+log\+\_\+print}} (const std\+::string \&label, System $\ast$system, List\+P... args)
+\item 
+{\footnotesize template$<$class System , typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_a3c4d5ffa4be75603c7a4fa3ded276b78}{utilities\+::common\+\_\+log\+\_\+print}} (const std\+::string \&label, System $\ast$system)
+\item 
+{\footnotesize template$<$typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}{utilities\+::log\+\_\+print}} (const std\+::string \&label, \mbox{\hyperlink{class_star}{Star}} $\ast$star, List\+P... args)
+\item 
+{\footnotesize template$<$typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_ac85dd844bb2a32af1c1f2ac25b3ef3f2}{utilities\+::log\+\_\+print}} (const std\+::string \&label, \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar, List\+P... args)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_ad4595aef0bc3c65e955fa3a9bf23b9c8}{utilities\+::log\+\_\+star\+\_\+info}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s, bool oldstep=false)
+\item 
+unsigned long \mbox{\hyperlink{namespaceutilities_ae3cb027b183de132627565f2336f7baa}{utilities\+::gen\+\_\+rseed}} ()
+\item 
+unsigned long \mbox{\hyperlink{namespaceutilities_a71e899351c4e06c39c9d4c6ac079005f}{utilities\+::gen\+\_\+rseed}} (std\+::random\+\_\+device \&rd)
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_a78da5ab9c9281a8a6a7e75e26c3083db}{utilities\+::random\+\_\+keygen}} (std\+::mt19937\+\_\+64 $\ast$mtrand)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceutilities_a93f0a7d7bbb9abbf583c034a0ba36831}{utilities\+::split}} (const std\+::string \&s, char delimiter)
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \mbox{\hyperlink{namespaceutilities_ae574463a42faed78d4047d64c4c68306}{utilities\+::isifstream}} ()
+\item 
+template$<$$>$ bool \mbox{\hyperlink{namespaceutilities_ae7b4c3d9c59d57b613a0b3c29593c992}{utilities\+::isifstream$<$ std\+::ifstream $>$}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{utilities\+::binary\+\_\+search}} (T $\ast$array, const size\+\_\+t left, const size\+\_\+t right, const T value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespaceutilities_af67ca3b2a7fbf1eb97cd0841fa74de4d}{utilities\+::string\+\_\+is\+\_\+number}} (std\+::string str)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a23da6a4ec38109d21322e28fc95224a8}{utilities\+::kepler}} (const double \&ecc, const double \&m, const double tol=1e-\/6, const int maxit=50)
+\item 
+{\footnotesize template$<$typename T $>$ }\\const T \mbox{\hyperlink{namespaceutilities_aebdd1c18ee6b1e45259452cdf35433ef}{utilities\+::s2n}} (std\+::string \&str, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}{utilities\+::\+\_\+openfile}} (T \&in, const std\+::string f, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+bool \mbox{\hyperlink{namespaceutilities_adec8bc9cd6d6ca58ceb366d35e149cf0}{utilities\+::way\+To\+Sort}} (int i, int j)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceutilities_abc62a2b904b601c04ed9c5835db161c4}{utilities\+::dirname2n}} (std\+::string str, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_ae858919d32c2141749f28c6c766b9d2e}{utilities\+::print\+\_\+vector}} (const std\+::vector$<$ T $>$ \&v)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}{utilities\+::gen\+\_\+filename}} (const std\+::string \&\+\_\+folder, const std\+::string \&\+\_\+fname, bool print\+\_\+threads=true)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}{utilities\+::get\+\_\+absolute\+\_\+\+SEVN\+\_\+path}} ()
+\item 
+int \mbox{\hyperlink{namespaceutilities_a72e0ffe5e40b23cf4da701b0cc7783bc}{utilities\+::find\+\_\+line}} (const double \&x1, const double \&x2, const double \&y1, const double \&y2, double \&slope, double \&intercept)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{namespaceutilities_aed157133573e489cc7274532f561a5dd}{utilities\+::rel\+\_\+difference}} (T val1, T val2)
+\item 
+void \mbox{\hyperlink{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}{utilities\+::swap\+\_\+stars}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\&s1, \mbox{\hyperlink{class_star}{Star}} $\ast$\&s2)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a0e9dc09eefcd89601a54d42b4312fd57}{utilities\+::trim}} (const std\+::string \&s)
+\item 
+{\footnotesize template$<$typename T , typename Iter $>$ }\\bool \mbox{\hyperlink{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}{utilities\+::isinlist}} (T element, Iter it, Iter end)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a334289d9ad6ce25d13324134b0739ee1}{utilities\+::make\+\_\+pfile\+\_\+str}} (const double plife, const size\+\_\+t \mbox{\hyperlink{class_phase}{Phase}}, const unsigned int min\+\_\+precision=6)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceutilities_a24db937086b3a175ab295e3b8457e101}{utilities\+::interpolate\+\_\+1D}} (T xp, std\+::vector$<$ T $>$ \&x\+\_\+interp, std\+::vector$<$ T $>$ \&y\+\_\+interp, bool equispaced\+\_\+interval=false, bool ext\+\_\+raise=false)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_af6c19ca97db0520e36ecbc316fcea155}{utilities\+::get\+\_\+subpath}} (std\+::string path, std\+::string split\+\_\+string, bool include\+\_\+split\+\_\+string=true)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_a9db8059c417fcc3e00c964b205dfd10c}{utilities\+::transpose}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&MatrixT, std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&Matrix)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceutilities_a87976691f0e05cda8ae21158c0a8f414}{utilities\+::find\+In\+Vector}} (const std\+::vector$<$ T $>$ \&vec\+Of\+Elements, const T \&element)
+\item 
+{\footnotesize template$<$typename Key , typename Value $>$ }\\std\+::map$<$ Value, Key $>$ \mbox{\hyperlink{namespaceutilities_a418f3150143150ba35d09e34659261bd}{utilities\+::flip\+\_\+map}} (const std\+::map$<$ Key, Value $>$ \&original\+\_\+map)
+\item 
+bool \mbox{\hyperlink{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}{utilities\+::are\+Equal}} (double x, double y)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a28bd246e784a216570ec90d73248581b}{utilities\+::smallest\+Significative\+Step}} (double x)
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\std\+::unique\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{namespaceutilities_ad68bd867b8840d57e9e377174b5720c3}{utilities\+::make\+\_\+unique}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937\+\_\+64 \mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities\+::mtrand}}
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ac437c3804f9e4432bba9696d0e7d7d66}{utilities\+::\+SEVN\+\_\+\+NAME}} = \char`\"{}SEVN\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{utilities\+::G}} = 3.\+925125598496094e8
+\begin{DoxyCompactList}\small\item\em Fundamental quantitis. \end{DoxyCompactList}\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{utilities\+::yr\+\_\+cgs}} = 3.\+1557600e7
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{utilities\+::parsec\+\_\+cgs}} = 3.\+085677581491367e+18
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{utilities\+::\+Rsun\+\_\+cgs}} = 6.\+95700e10
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{utilities\+::\+Msun\+\_\+cgs}} = 1.\+988409870698051e+33
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a28e44bb0489aab3ef84fd095d3753b0d}{utilities\+::\+G\+\_\+cgs}} = G$\ast$Rsun\+\_\+cgs$\ast$Rsun\+\_\+cgs$\ast$Rsun\+\_\+cgs/(Msun\+\_\+cgs$\ast$yr\+\_\+cgs$\ast$yr\+\_\+cgs)
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a47fe906e6b7da76e22a464334578dc97}{utilities\+::\+Sigma\+\_\+\+Stef\+Boltz}} = 7.\+1694165533435e-\/17
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a017d164aee676c18711c233161112a09}{utilities\+::\+Myr\+\_\+to\+\_\+yr}} = 1.\+0e6
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{utilities\+::yr\+\_\+to\+\_\+\+Myr}} = 1.\+0e-\/6
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ad4395607216c892cc3e20865ab082365}{utilities\+::\+AU\+\_\+to\+\_\+\+RSun}} = 215.\+03215567054764
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a4ef76ced1a466cc37ee8097b0828e2c0}{utilities\+::kms\+\_\+to\+\_\+\+RSunyr}} = 45.\+360931435963785
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a975b6ee31de7176975ea5b8cfd7fcc2b}{utilities\+::\+LSun\+\_\+to\+\_\+\+Solar}} = 12.\+500687924182579
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{utilities\+::c}} = 1.\+3598865132357053e7
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}{utilities\+::km\+\_\+to\+\_\+\+RSun}} = 1.\+4374011786689665e-\/06
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a6dd95f51ac5d6ad655ba6a7dc3c4d14a}{utilities\+::parsec\+\_\+to\+\_\+\+Rsun}} = parsec\+\_\+cgs/Rsun\+\_\+cgs
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a77816d4fdac32f98db24cd8ee9d270da}{utilities\+::g\+\_\+to\+\_\+\+MSun}} = 5.\+029144215870041e-\/34
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}{utilities\+::\+G\+\_\+over\+\_\+c2}} = G / (c$\ast$c)
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{utilities\+::\+G3\+\_\+over\+\_\+c5}} = (G$\ast$G$\ast$G)/(c$\ast$c$\ast$c$\ast$c$\ast$c)
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a6e13bd44f0a215efb6ec383635f18beb}{utilities\+::tH}} = 13.\+7$\ast$1e3
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_abcfcb4adf8c53a518c1faac8ba588df4}{utilities\+::\+Mchandra}} = 1.\+41
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ab29d5142bf0cfab8afdfac3ba1bff74e}{utilities\+::\+PLACEHOLDER}} =\char`\"{}xxx\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}} = -\/9e30
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities\+::\+NULL\+\_\+\+INT}} = -\/999999999
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{namespaceutilities_a437549a34ca4e945d0af00dbeadf132f}{utilities\+::\+NULL\+\_\+\+SINT}} = 999999999
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ab5a36637937008a46b2a3ed133c14607}{utilities\+::\+NULL\+\_\+\+STR}} = \char`\"{}FORZAROMA\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_af0789923452446c33f1de7668680b695}{utilities\+::\+DIFF\+\_\+\+TOLL}} = 1e-\/10
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_af6ff0e3a92481bc39762efddcefcc111}{utilities\+::\+LARGE}} = 1e30
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}{utilities\+::\+TINY}} = 1e-\/15
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a3b51ca9508e01917e4f6b41ba0d22b55}{utilities\+::\+DOUBLE\+\_\+\+EPS}} = std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a3aaa090f3fe0bd1146914efa3a597e01}{utilities\+::\+SINGLE\+\_\+\+STEP\+\_\+\+EVOLUTION}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a5f79261e9e274d212bc3df7b41153218}{utilities\+::\+REPEATED\+\_\+\+EVOLUTION}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ad82ee12f43249cb733cccfbae3457445}{utilities\+::\+JUMP\+\_\+\+CONVERGE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a95931a56320767f90a608451e0e0646e}{utilities\+::\+JUMP}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_aea36271797cd62a5821e150266445ea7}{utilities\+::\+NO\+\_\+\+JUMP}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ace17a566ecd2a1007126044f4bf8f90b}{utilities\+::\+SNIA\+\_\+\+EXPLODE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a0308cd173253f4c6fd076ab6d8f4700c}{utilities\+::\+SNII\+\_\+\+EXPLODE}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ac4f5b28bd822b418e1fe464fff7aec00}{utilities\+::\+SN\+\_\+\+NOT\+\_\+\+EXPLODE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a33e76025a31389355ff5d92499994b80}{utilities\+::\+RLO\+\_\+\+FALSE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a723786f902084fec38340605e9a2e5c7}{utilities\+::\+RLO\+\_\+\+TRUE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a61af3ef55d9ed97bdfff3f17cb56371c}{utilities\+::\+BIN\+\_\+\+EV\+\_\+\+DONE}} = 1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a689d03c171ad7069be73d26d5ce532f8}{utilities\+::\+BIN\+\_\+\+EV\+\_\+\+NOT\+\_\+\+DONE}} = 0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a63375849a06208aac4f477564869ec83}{utilities\+::\+BIN\+\_\+\+EV\+\_\+\+SETBROKEN}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utilities_8h_a44145f6f9805df57da735ea6ac0f1dbb}\label{utilities_8h_a44145f6f9805df57da735ea6ac0f1dbb}} 
+\index{utilities.h@{utilities.h}!\_UNUSED@{\_UNUSED}}
+\index{\_UNUSED@{\_UNUSED}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{\_UNUSED}{\_UNUSED}}
+{\footnotesize\ttfamily \#define \+\_\+\+UNUSED~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((unused))}
+
+\mbox{\Hypertarget{utilities_8h_a5f82bfe244592d0cbc88fff86a55f980}\label{utilities_8h_a5f82bfe244592d0cbc88fff86a55f980}} 
+\index{utilities.h@{utilities.h}!openfile@{openfile}}
+\index{openfile@{openfile}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{openfile}{openfile}}
+{\footnotesize\ttfamily \#define openfile(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\mbox{\hyperlink{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}{utilities\+::\+\_\+openfile}}(a, b, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+)}
+

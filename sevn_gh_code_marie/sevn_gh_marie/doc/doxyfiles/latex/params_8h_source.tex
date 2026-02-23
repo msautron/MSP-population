@@ -1,0 +1,857 @@
+\hypertarget{params_8h_source}{}\doxysection{params.\+h}
+\label{params_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/params.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/params.h}}
+\mbox{\hyperlink{params_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 16/03/20.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_PARAMS\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_PARAMS\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{errhand_8h}{errhand.h}}>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{17 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_lookup}{Lookup}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{/***}}
+\DoxyCodeLine{22 \textcolor{comment}{ * This class stores and handles the various parameters used in SEVN.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * The parameters are divided in two big groups:}}
+\DoxyCodeLine{25 \textcolor{comment}{ *      -\/ params\_num: these are numerical parameters stored as doubles (even if they are integer);}}
+\DoxyCodeLine{26 \textcolor{comment}{ *      -\/ params\_str: these are litteral parameters stored as strings.}}
+\DoxyCodeLine{27 \textcolor{comment}{ *      -\/ params\_bool:}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ *  Each parameter is composed by three value:}}
+\DoxyCodeLine{30 \textcolor{comment}{ *      -\/ a name (string),}}
+\DoxyCodeLine{31 \textcolor{comment}{ *      -\/ a value (double for params\_num and string in params\_str),}}
+\DoxyCodeLine{32 \textcolor{comment}{ *      -\/ a short documentation (string).}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * The parameters are also divided in groups depending on their "{}set"{} behaviour:}}
+\DoxyCodeLine{35 \textcolor{comment}{ *      -\/ NOT SETTABLE: these parameters cannot be changed at runtime and have to be hardcoded in the class;}}
+\DoxyCodeLine{36 \textcolor{comment}{ *      -\/ PRIVATE SETTABLE: these parameters cannot be set directly at runtime, but through auxilary methods (e.g. load);}}
+\DoxyCodeLine{37 \textcolor{comment}{ *      -\/ PUBLIC SETTABLE: these parameters can be set directly at runtime with the method set(name, value).}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ *  In order to retrieve a given parameter there are two get methods:}}
+\DoxyCodeLine{40 \textcolor{comment}{ *      -\/ get\_num(name) to retrieve a numerical parameter,}}
+\DoxyCodeLine{41 \textcolor{comment}{ *      -\/ get\_str(name) to retrieve a str parameter.}}
+\DoxyCodeLine{42 \textcolor{comment}{ *      -\/ get\_str(bool) to retrieve a str parameter.}}
+\DoxyCodeLine{43 \textcolor{comment}{ *}}
+\DoxyCodeLine{44 \textcolor{comment}{ *  This class contains also an override version of the operator <<, so that it can print in a fancy way the}}
+\DoxyCodeLine{45 \textcolor{comment}{ *  current value of the parameters.}}
+\DoxyCodeLine{46 \textcolor{comment}{ *}}
+\DoxyCodeLine{47 \textcolor{comment}{ *  @note There is a safety check in the constructors so that only one instance of this class can be present in code}}
+\DoxyCodeLine{48 \textcolor{comment}{ *  (to avoid to have different istance with different parameters value).}}
+\DoxyCodeLine{49 \textcolor{comment}{ */}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{typedef} std::pair<double, std::string> \mbox{\hyperlink{params_8h_a7deb7d39b59f9e050994361a63262882}{num\_entry}};}
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} std::pair<std::string, std::string> \mbox{\hyperlink{params_8h_af44afba556e50d05f11b7a27a043eb31}{str\_entry}};}
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} std::pair<bool, std::string> \mbox{\hyperlink{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}{bool\_entry}};}
+\DoxyCodeLine{54 \textcolor{keyword}{typedef} std::map<std::string, num\_entry> \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\_num}};}
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} std::map<std::string, str\_entry> \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\_str}};}
+\DoxyCodeLine{56 \textcolor{keyword}{typedef} std::map<std::string, bool\_entry> \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\_bool}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{class }\mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}}\{}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{public}:}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{66     \mbox{\hyperlink{class_s_e_v_npar_a8db4b9caca8f24bb9f80e9e8ecb59c57}{SEVNpar}}()\{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if} (++\mbox{\hyperlink{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}{instance\_counter}}<2)}
+\DoxyCodeLine{68             \mbox{\hyperlink{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}{init}}();}
+\DoxyCodeLine{69         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{70             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Only one active instance of SEVNpar is allowed"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{77     \mbox{\hyperlink{class_s_e_v_npar_a8a0337290f1115ef710bccf275f514e6}{SEVNpar}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)\{}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if} (++\mbox{\hyperlink{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}{instance\_counter}}<2)}
+\DoxyCodeLine{79             \mbox{\hyperlink{class_s_e_v_npar_a5e5a4155f090718bfabd650454a9ea50}{load}}(argc,argv,\textcolor{keyword}{true});}
+\DoxyCodeLine{80         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{81             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Only one active instance of SEVNpar is allowed"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_s_e_v_npar_a6ab20078787075549602e31415495598}{\string~SEVNpar}}() \{\mbox{\hyperlink{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}{instance\_counter}}-\/-\/;\}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{//load}}
+\DoxyCodeLine{100 \textcolor{comment}{}    \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a5e5a4155f090718bfabd650454a9ea50}{load}}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{char} **val, \textcolor{keywordtype}{bool} initialise=\textcolor{keyword}{false});}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 }
+\DoxyCodeLine{104     \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\_num}}\& \mbox{\hyperlink{class_s_e_v_npar_a2772deb1fe7410826b4ebe96a59ee057}{get\_num\_map}}()\{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}};}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\_str}}\& \mbox{\hyperlink{class_s_e_v_npar_ab7f2356aa64df57f79bf9dbc1f6bc484}{get\_str\_map}}()\{}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}};}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\_bool}}\& \mbox{\hyperlink{class_s_e_v_npar_a5cd2d2574d9a4dc8954fcd8735b96ae2}{get\_bool\_map}}()\{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}};}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{124     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(std::string name)\{}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         \textcolor{keyword}{auto} it=\mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}.find(name); \textcolor{comment}{//Check if the key is in the map}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}.end())}
+\DoxyCodeLine{129             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[name].first;}
+\DoxyCodeLine{130         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{131             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}key "{}} + name + \textcolor{stringliteral}{"{} not present"{}}, \_\_FILE\_\_, \_\_LINE\_\_, \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{132             \textcolor{keywordflow}{return} -\/1.0;}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{142     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(std::string name)\{}
+\DoxyCodeLine{143         \textcolor{keyword}{auto} it=\mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}.find(name); \textcolor{comment}{//Check if the key is in the map}}
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}.end())}
+\DoxyCodeLine{145             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[name].first;}
+\DoxyCodeLine{146         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{147             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}key "{}} + name + \textcolor{stringliteral}{"{} not present"{}}, \_\_FILE\_\_, \_\_LINE\_\_, \mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{148             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}error"{}};}
+\DoxyCodeLine{149         \}}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{158     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\_bool}}(std::string name)\{}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160         \textcolor{keyword}{auto} it=\mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}.find(name); \textcolor{comment}{//Check if the key is in the map}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}.end())}
+\DoxyCodeLine{163             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}[name].first;}
+\DoxyCodeLine{164         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{165             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}key "{}}+name+\textcolor{stringliteral}{"{} not present"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{177     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a64a987aa2d321c57608ee31eebb4eb49}{get}}(std::string name, \textcolor{keywordtype}{double}\& val)\{}
+\DoxyCodeLine{178         val=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(name);}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{185     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a70d85009c82fef62bdbbe9fc84d4f4f8}{get}}(std::string name, std::string\& val)\{}
+\DoxyCodeLine{186         val=\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(name);}
+\DoxyCodeLine{187         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{188     \}}
+\DoxyCodeLine{193     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a477c236e4cc4ac9fd5359c88525be47c}{get}}(std::string name, \textcolor{keywordtype}{bool}\& val)\{}
+\DoxyCodeLine{194         val=\mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\_bool}}(name);}
+\DoxyCodeLine{195         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{196     \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{202     std::vector<std::string> \mbox{\hyperlink{class_s_e_v_npar_a8a72936f687bcea786f05ab494426676}{keys}}()\{}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204         std::vector<std::string> keys\_list;}
+\DoxyCodeLine{205         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& key :  \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}})}
+\DoxyCodeLine{206             keys\_list.push\_back(key.first);}
+\DoxyCodeLine{207         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& key :  \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}})}
+\DoxyCodeLine{208             keys\_list.push\_back(key.first);}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210         \textcolor{keywordflow}{return} keys\_list;}
+\DoxyCodeLine{211     \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214     \textcolor{comment}{//These sets are only available for properties listed in public\_settable}}
+\DoxyCodeLine{227 \textcolor{comment}{}    \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a109b288d346f818a46bdd86a058ce71a}{set}}(std::string name, \textcolor{keywordtype}{double} val)\{}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{keyword}{auto} it=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(name); \textcolor{comment}{//Check if the key is in the map}}
+\DoxyCodeLine{230         \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end())}
+\DoxyCodeLine{231             \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[name].first=val;}
+\DoxyCodeLine{232         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{233             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to set key "{}}+name+\textcolor{stringliteral}{"{}. The key is not present or it is not directly settable"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}{check}}())\{}
+\DoxyCodeLine{236             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Check failed"{}}, \_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{237         \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{245     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a769dbcaf16ff90e29ad1fef36214d537}{set}}(std::string name, std::string val)\{}
+\DoxyCodeLine{246         \textcolor{keyword}{auto} it=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(name); \textcolor{comment}{//Check if the key is in the map}}
+\DoxyCodeLine{247         \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end())}
+\DoxyCodeLine{248             \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[name].first=val;}
+\DoxyCodeLine{249         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{250             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to set key "{}}+name+\textcolor{stringliteral}{"{}. The key is not present"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}{check}}())\{}
+\DoxyCodeLine{253             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Check failed"{}}, \_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{254         \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{261 }
+\DoxyCodeLine{272     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a2471ebbaf87293e0a87e0beaa2abf1b0}{set\_zlimit}}(\textcolor{keyword}{const} std::vector<double >\& Zlist)\{}
+\DoxyCodeLine{273         \textcolor{comment}{//Direct set}}
+\DoxyCodeLine{274         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}min\_z"{}}].first=*std::min\_element(Zlist.begin(), Zlist.end());}
+\DoxyCodeLine{275         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}max\_z"{}}].first=*std::max\_element(Zlist.begin(), Zlist.end());}
+\DoxyCodeLine{276         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}{check\_z}}())}
+\DoxyCodeLine{277             \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{278         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{279             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Paramters check failed while settin min\_Z, max\_Z"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     \}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{295     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_aaf40e1bbc5b6ccd7257ea7390e7fc051}{set\_zlimit\_HE}}(\textcolor{keyword}{const} std::vector<double >\& Zlist\_HE)\{}
+\DoxyCodeLine{296         \textcolor{comment}{//Direct set}}
+\DoxyCodeLine{297         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}min\_z\_he"{}}].first=*std::min\_element(Zlist\_HE.begin(), Zlist\_HE.end());}
+\DoxyCodeLine{298         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}max\_z\_he"{}}].first=*std::max\_element(Zlist\_HE.begin(), Zlist\_HE.end());}
+\DoxyCodeLine{299         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a28f5e7dce9c0d5895ba3044bc983abfe}{check\_z\_he}}())}
+\DoxyCodeLine{300             \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{301         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{302             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Paramters check failed while setting min\_Z\_he, max\_Z\_he"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306     \}}
+\DoxyCodeLine{318     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ad9463d00efd559af8e7eb41ef14be15a}{set\_zams\_limit}}(\textcolor{keyword}{const} std::vector<std::vector<double>>\& Zams\_list)\{}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321         \textcolor{comment}{// Notice: the max Zams is the minimum between the zams upper limits considering all the metallicites.}}
+\DoxyCodeLine{322         \textcolor{comment}{// The min zams is the maximum between the zams lower limits.}}
+\DoxyCodeLine{323         \textcolor{keywordtype}{double} minzams=-\/1e30, maxzams=1e30;}
+\DoxyCodeLine{324         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& zams\_at\_Z : Zams\_list)\{}
+\DoxyCodeLine{325             \textcolor{keywordtype}{size\_t} last\_track = zams\_at\_Z.size();}
+\DoxyCodeLine{326             minzams = zams\_at\_Z[0]>minzams ? zams\_at\_Z[0] : minzams;}
+\DoxyCodeLine{327             maxzams = zams\_at\_Z[last\_track-\/1]<maxzams ? zams\_at\_Z[last\_track-\/1] : maxzams;}
+\DoxyCodeLine{328         \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}min\_zams"{}}].first=minzams;}
+\DoxyCodeLine{331         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}max\_zams"{}}].first=maxzams;}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}{check\_mzams}}())}
+\DoxyCodeLine{334             \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{335         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{336             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Paramters check failed while settin min\_zams, max\_zams"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{339     \}}
+\DoxyCodeLine{351     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ae43dfbd2e377e009f298e8a41dc4d698}{set\_zams\_limit\_he}}(\textcolor{keyword}{const} std::vector<std::vector<double>>\& Zams\_list\_HE)\{}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354         \textcolor{comment}{// Notice: the max Zams is the minimum between the zams upper limits considering all the metallicites.}}
+\DoxyCodeLine{355         \textcolor{comment}{// The min zams is the maximum between the zams lower limits.}}
+\DoxyCodeLine{356         \textcolor{keywordtype}{double} minzams=-\/1e30, maxzams=1e30;}
+\DoxyCodeLine{357         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& zams\_at\_Z : Zams\_list\_HE)\{}
+\DoxyCodeLine{358             \textcolor{keywordtype}{size\_t} last\_track = zams\_at\_Z.size();}
+\DoxyCodeLine{359             minzams = zams\_at\_Z[0]>minzams ? zams\_at\_Z[0] : minzams;}
+\DoxyCodeLine{360             maxzams = zams\_at\_Z[last\_track-\/1]<maxzams ? zams\_at\_Z[last\_track-\/1] : maxzams;}
+\DoxyCodeLine{361         \}}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}min\_zams\_he"{}}].first=minzams;}
+\DoxyCodeLine{364         \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[\textcolor{stringliteral}{"{}max\_zams\_he"{}}].first=maxzams;}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a4dcb3882abfc70ae5ce256fb5a9e64bc}{check\_mzams\_he}}())}
+\DoxyCodeLine{367             \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{368         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{369             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Paramters check failed while settin min\_zams\_he, max\_zams\_he"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \}}
+\DoxyCodeLine{381     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ada0620cfd977e7961dc856050111a4a9}{set\_myself}}()\{}
+\DoxyCodeLine{382         \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[\textcolor{stringliteral}{"{}myself"{}}].first=\mbox{\hyperlink{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}{utilities::get\_absolute\_SEVN\_path}}()+\textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{383         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{384     \}}
+\DoxyCodeLine{390     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a4d7f1216475d4bad3bcf810493c54f91}{set\_tables}}(std::string tables)\{}
+\DoxyCodeLine{391         \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[\textcolor{stringliteral}{"{}tables"{}}].first=tables;}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{394     \}}
+\DoxyCodeLine{400     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_acbdf756830947fa9fe80a5f9d0de4067}{set\_tablesHE}}(std::string tablesHE)\{}
+\DoxyCodeLine{401         \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[\textcolor{stringliteral}{"{}tables\_HE"{}}].first=tablesHE;}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{404     \}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406 }
+\DoxyCodeLine{417     std::string \mbox{\hyperlink{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}{print}}(\textcolor{keywordtype}{bool} use\_default=\textcolor{keyword}{false})\{}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{419         \textcolor{keywordtype}{int} col\_width = 35;}
+\DoxyCodeLine{420         std::ostringstream out;}
+\DoxyCodeLine{421         std::string header;}
+\DoxyCodeLine{422         \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\_num}}  saved\_params\_num;}
+\DoxyCodeLine{423         \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\_str}}  saved\_params\_str;}
+\DoxyCodeLine{424         \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\_bool}} saved\_params\_bool;}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427         \textcolor{keywordflow}{if} (use\_default)\{}
+\DoxyCodeLine{428             header=\textcolor{stringliteral}{"{}\#DEFAULT PARAMS"{}};}
+\DoxyCodeLine{429             saved\_params\_num  = \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}};}
+\DoxyCodeLine{430             saved\_params\_str  = \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}};}
+\DoxyCodeLine{431             saved\_params\_bool = \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}};}
+\DoxyCodeLine{432             \mbox{\hyperlink{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}{init}}();}
+\DoxyCodeLine{433         \}}
+\DoxyCodeLine{434         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{435             header=\textcolor{stringliteral}{"{}\#USED PARAMS"{}};}
+\DoxyCodeLine{436         \}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438         \textcolor{comment}{//Header}}
+\DoxyCodeLine{439         out<<header<<std::endl;}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441         std::string info\_set;}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& element :  \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}})\{}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{445             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end())}
+\DoxyCodeLine{446                 info\_set=\textcolor{stringliteral}{"{}[N][S] "{}};}
+\DoxyCodeLine{447             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.end())}
+\DoxyCodeLine{448                 info\_set=\textcolor{stringliteral}{"{}[N][PS] "{}};}
+\DoxyCodeLine{449             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{450                 info\_set=\textcolor{stringliteral}{"{}[N][NS] "{}};}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452             out<<std::setw(col\_width)<<std::left<<element.first+\textcolor{stringliteral}{"{}: "{}}<<}
+\DoxyCodeLine{453                std::setw(col\_width)<<element.second.first<<\textcolor{stringliteral}{"{}//"{}}+info\_set+element.second.second<<std::endl;}
+\DoxyCodeLine{454         \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& element :  \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}})\{}
+\DoxyCodeLine{457             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end())}
+\DoxyCodeLine{458                 info\_set=\textcolor{stringliteral}{"{}[L][S] "{}};}
+\DoxyCodeLine{459             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.end())}
+\DoxyCodeLine{460                 info\_set=\textcolor{stringliteral}{"{}[L][PS] "{}};}
+\DoxyCodeLine{461             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{462                 info\_set=\textcolor{stringliteral}{"{}[L][NS] "{}};}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464             out<<std::setw(col\_width)<<std::left<<element.first+\textcolor{stringliteral}{"{}: "{}}<<}
+\DoxyCodeLine{465                std::setw(col\_width)<<element.second.first<<\textcolor{stringliteral}{"{}//"{}}+info\_set+element.second.second<<std::endl;}
+\DoxyCodeLine{466         \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& element : \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}})\{}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end())}
+\DoxyCodeLine{471                 info\_set=\textcolor{stringliteral}{"{}[B][S] "{}};}
+\DoxyCodeLine{472             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.find(element.first)!=\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.end())}
+\DoxyCodeLine{473                 info\_set=\textcolor{stringliteral}{"{}[B][PS] "{}};}
+\DoxyCodeLine{474             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{475                 info\_set=\textcolor{stringliteral}{"{}[B][NS] "{}};}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477             std::string val = element.second.first==\textcolor{keyword}{true} ? \textcolor{stringliteral}{"{}true"{}} : \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479             out<<std::setw(col\_width)<<std::left<<element.first+\textcolor{stringliteral}{"{}: "{}}<<}
+\DoxyCodeLine{480                std::setw(col\_width)<<val<<\textcolor{stringliteral}{"{}//"{}}+info\_set+element.second.second<<std::endl;}
+\DoxyCodeLine{481         \}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484         \textcolor{keywordflow}{if} (use\_default)\{}
+\DoxyCodeLine{485             \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}  = saved\_params\_num;}
+\DoxyCodeLine{486             \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}  = saved\_params\_str;}
+\DoxyCodeLine{487             \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}} = saved\_params\_bool;}
+\DoxyCodeLine{488         \}}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490         \textcolor{keywordflow}{return} out.str();}
+\DoxyCodeLine{491     \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493     \textcolor{comment}{//NB, since it is a friend function it not a method of the class}}
+\DoxyCodeLine{501 \textcolor{comment}{}    \textcolor{keyword}{friend} \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{class_s_e_v_npar_aeecd1e9dbc6bd81e408e99213897dec1}{operator<< }}(std::ostream \&os,  \mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}} \&svpar)\{}
+\DoxyCodeLine{502         os<<svpar.\mbox{\hyperlink{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}{print}}();}
+\DoxyCodeLine{503         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{504     \}}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506 \textcolor{keyword}{public}:}
+\DoxyCodeLine{507     \textcolor{comment}{//TODO Call all the parameters in that way, so that it can help IDE}}
+\DoxyCodeLine{509 \textcolor{comment}{}    \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_s_e_v_npar_a3e74f501b41569b54683b14171ac4ab9}{ts\_maximum\_variation}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_maximum\_variation"{}});\}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511 }
+\DoxyCodeLine{512 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{513 }
+\DoxyCodeLine{514     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}; }
+\DoxyCodeLine{515     \textcolor{keyword}{static} std::size\_t \mbox{\hyperlink{class_s_e_v_npar_a3bc2ffd272da1085c4a3dee1c8dc99a6}{instance\_counter}}; }
+\DoxyCodeLine{517 \textcolor{keyword}{private}:}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520     \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\_num}}  \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}};   }
+\DoxyCodeLine{521     \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\_str}}  \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}};   }
+\DoxyCodeLine{522     \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\_bool}} \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}};  }
+\DoxyCodeLine{524     \textcolor{comment}{//set are faster than vector}}
+\DoxyCodeLine{525     \textcolor{keyword}{static} std::set<std::string> \mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}; }
+\DoxyCodeLine{526     \textcolor{keyword}{static} std::set<std::string> \mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}; }
+\DoxyCodeLine{529 }
+\DoxyCodeLine{540     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}{prv\_set}}(std::string name, \textcolor{keywordtype}{double} val)\{}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}{is\_num\_par}}(name))}
+\DoxyCodeLine{543             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to set the num key "{}}+name+\textcolor{stringliteral}{"{}. The key is not present"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}{is\_settable}}(name))}
+\DoxyCodeLine{546             \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}[name].first=val;}
+\DoxyCodeLine{547         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{548             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(\textcolor{stringliteral}{"{}Trying to set the num key "{}}+name+\textcolor{stringliteral}{"{}. The key is non settable "{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{549             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{550         \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{552         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{553     \};}
+\DoxyCodeLine{559     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ab27f9c1e3e4054dd4bbd2427d665372a}{prv\_set}}(std::string name, std::string val)\{}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{561         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}{is\_str\_par}}(name))}
+\DoxyCodeLine{562             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to set the str key "{}}+name+\textcolor{stringliteral}{"{}. The key is not present"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}{is\_settable}}(name))}
+\DoxyCodeLine{565             \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}[name].first=val;}
+\DoxyCodeLine{566         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{567             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(\textcolor{stringliteral}{"{}Trying to set the str key "{}}+name+\textcolor{stringliteral}{"{}. The key is non settable "{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{568             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{569         \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{572     \}}
+\DoxyCodeLine{578     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a820dd6a1fc71158c7bafac84e20bc58c}{prv\_set}}(std::string name, \textcolor{keywordtype}{bool} val)\{}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}{is\_bool\_par}}(name))}
+\DoxyCodeLine{581             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to set the boolean key "{}}+name+\textcolor{stringliteral}{"{}. The key is not present"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{583         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}{is\_settable}}(name))}
+\DoxyCodeLine{584             \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}[name].first=val;}
+\DoxyCodeLine{585         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{586             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(\textcolor{stringliteral}{"{}Trying to set the boolean key "{}}+name+\textcolor{stringliteral}{"{}. The key is non settable "{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{587             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{588         \}}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{591     \}}
+\DoxyCodeLine{607     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ad68c8a8561ef7caec53838368ec77660}{set\_from\_string}}(std::string name, std::string val)\{}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609         \textcolor{keywordtype}{int} ret;}
+\DoxyCodeLine{610         std::string svalue=val;}
+\DoxyCodeLine{611         \textcolor{comment}{//transform to lower letter}}
+\DoxyCodeLine{612         \textcolor{comment}{//std::transform(svalue.begin(), svalue.end(), svalue.begin(),}}
+\DoxyCodeLine{613         \textcolor{comment}{//               [](unsigned char c)\{ return std::tolower(c); \});}}
+\DoxyCodeLine{614         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}{is\_num\_par}}(name)) \{}
+\DoxyCodeLine{615             \textcolor{keywordtype}{double} value;}
+\DoxyCodeLine{616             value = utilities::s2n<double>(svalue, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{617             ret = \mbox{\hyperlink{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}{prv\_set}}(name, value); \textcolor{comment}{//EXIT\_SUCCESS if the value is settable (publicly or private)}}
+\DoxyCodeLine{618             \textcolor{keywordflow}{if} (ret==EXIT\_FAILURE)}
+\DoxyCodeLine{619                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}The num key "{}}+name+\textcolor{stringliteral}{"{} is not settable at runtime"{}});}
+\DoxyCodeLine{620         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}{is\_str\_par}}(name)) \{}
+\DoxyCodeLine{621             ret = \mbox{\hyperlink{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}{prv\_set}}(name, svalue);  \textcolor{comment}{//EXIT\_SUCCESS if the value is settable (publicly or private)}}
+\DoxyCodeLine{622             \textcolor{keywordflow}{if} (ret==EXIT\_FAILURE)}
+\DoxyCodeLine{623                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}The str key "{}}+name+\textcolor{stringliteral}{"{} is not settable at runtime"{}});}
+\DoxyCodeLine{624         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}{is\_bool\_par}}(name)) \{}
+\DoxyCodeLine{625             \textcolor{keywordtype}{bool} value;}
+\DoxyCodeLine{626             \textcolor{keywordflow}{if} (val==\textcolor{stringliteral}{"{}true"{}} || val==\textcolor{stringliteral}{"{}t"{}} || val==\textcolor{stringliteral}{"{}yes"{}} || val==\textcolor{stringliteral}{"{}y"{}}) value=\textcolor{keyword}{true};}
+\DoxyCodeLine{627             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (val==\textcolor{stringliteral}{"{}false"{}} || val==\textcolor{stringliteral}{"{}f"{}} || val==\textcolor{stringliteral}{"{}no"{}} || val==\textcolor{stringliteral}{"{}yn"{}}) value=\textcolor{keyword}{false};}
+\DoxyCodeLine{628             \textcolor{keywordflow}{else} \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}A boolean parameter can be set only with a string: (t)rue, (y)es,"{}}}
+\DoxyCodeLine{629                                 \textcolor{stringliteral}{"{}(f)alse, (n)o"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{630             ret = \mbox{\hyperlink{class_s_e_v_npar_a1cb5a317a7dd260daca242e7d8e8ce65}{prv\_set}}(name, value);}
+\DoxyCodeLine{631             \textcolor{keywordflow}{if} (ret==EXIT\_FAILURE)}
+\DoxyCodeLine{632                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}The bool key "{}}+name+\textcolor{stringliteral}{"{} is not settable at runtime"{}});}
+\DoxyCodeLine{633         \}}
+\DoxyCodeLine{634         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{635             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{636         \}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{639     \}}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641     \textcolor{comment}{//aux}}
+\DoxyCodeLine{647 \textcolor{comment}{}    \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_ac7d82e7971128660ee3af0960dafb095}{is\_public\_settable}}(std::string name)\{}
+\DoxyCodeLine{648         \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.find(name)!=\mbox{\hyperlink{class_s_e_v_npar_a6c75fc5a3bd3aa559bd97dfcfaf9ef9f}{public\_settable}}.end();}
+\DoxyCodeLine{649     \}}
+\DoxyCodeLine{655     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_ac3c0ae03b0ac31021922d8128ec9f855}{is\_private\_settable}}(std::string name)\{}
+\DoxyCodeLine{656         \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.find(name)!=\mbox{\hyperlink{class_s_e_v_npar_a7ee68ebcfd6392bbbd3aa1a806843db4}{private\_settable}}.end();}
+\DoxyCodeLine{657     \}}
+\DoxyCodeLine{663     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_a6f3bccd83582e3171c001da8a22a5887}{is\_settable}}(std::string name)\{}
+\DoxyCodeLine{664         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_ac7d82e7971128660ee3af0960dafb095}{is\_public\_settable}}(name)||\mbox{\hyperlink{class_s_e_v_npar_ac3c0ae03b0ac31021922d8128ec9f855}{is\_private\_settable}}(name);}
+\DoxyCodeLine{665     \}}
+\DoxyCodeLine{671     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}{is\_num\_par}}(std::string name)\{}
+\DoxyCodeLine{672         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}.find(name)!=\mbox{\hyperlink{class_s_e_v_npar_aaf82d73c45cf80a2711bbc90cda242d3}{params\_num}}.end();}
+\DoxyCodeLine{673     \}}
+\DoxyCodeLine{679     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}{is\_str\_par}}(std::string name)\{}
+\DoxyCodeLine{680         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}.find(name)!=\mbox{\hyperlink{class_s_e_v_npar_a8d5269f7e55f87b75f4e46971b821b10}{params\_str}}.end();}
+\DoxyCodeLine{681     \}}
+\DoxyCodeLine{687     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}{is\_bool\_par}}(std::string name)\{}
+\DoxyCodeLine{688         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}.find(name)!=\mbox{\hyperlink{class_s_e_v_npar_ae401dbe6617892eabc78a513d237f424}{params\_bool}}.end();}
+\DoxyCodeLine{689     \}}
+\DoxyCodeLine{695     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_s_e_v_npar_ac79650c9b0480876b01d70704cb14538}{is\_par}}(std::string name)\{}
+\DoxyCodeLine{696         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_e_v_npar_acb21c83f9aec93f03a19f1bb0d37f029}{is\_num\_par}}(name) || \mbox{\hyperlink{class_s_e_v_npar_a46d47552d462116cab33e00c2cbfad0f}{is\_str\_par}}(name) || \mbox{\hyperlink{class_s_e_v_npar_aed8fafd929613d8df55fc59422d3bf93}{is\_bool\_par}}(name);}
+\DoxyCodeLine{697     \}}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{700 }
+\DoxyCodeLine{706     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a564f9b78802a89ce0253124c92b6c667}{default\_value\_num}}();}
+\DoxyCodeLine{713     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ad3562704eba535ded152d1b04af0073a}{default\_value\_str}}();}
+\DoxyCodeLine{720     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_ad205ad95e2b8b79fb9d0fc43c978c746}{default\_value\_bool}}();}
+\DoxyCodeLine{721 }
+\DoxyCodeLine{728     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_s_e_v_npar_a19579af8326707919fbd44e1b72d8f10}{init}}()\{}
+\DoxyCodeLine{729         \mbox{\hyperlink{class_s_e_v_npar_a564f9b78802a89ce0253124c92b6c667}{default\_value\_num}}();}
+\DoxyCodeLine{730         \mbox{\hyperlink{class_s_e_v_npar_ad3562704eba535ded152d1b04af0073a}{default\_value\_str}}();}
+\DoxyCodeLine{731         \mbox{\hyperlink{class_s_e_v_npar_ad205ad95e2b8b79fb9d0fc43c978c746}{default\_value\_bool}}();}
+\DoxyCodeLine{732         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}{check}}())}
+\DoxyCodeLine{733             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Parameters check failed"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{734         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{735     \}}
+\DoxyCodeLine{736 }
+\DoxyCodeLine{737 }
+\DoxyCodeLine{739 }
+\DoxyCodeLine{746     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a08e1c5978db55011637b04187f54adb2}{check}}()\{}
+\DoxyCodeLine{747         \textcolor{keywordtype}{bool} ret=\textcolor{keyword}{true};}
+\DoxyCodeLine{748         ret=ret \&\& \mbox{\hyperlink{class_s_e_v_npar_aabdb32f4ea55e3ad4e0918958a337f52}{check\_star}}();}
+\DoxyCodeLine{749         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a238325fa911e70f84b4060ef1704b398}{check\_ns}}();}
+\DoxyCodeLine{750         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a6e80845ac203bc4973d62d91580029f4}{check\_timestep}}();}
+\DoxyCodeLine{751         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a41e85acc8abbdb5a9b26755f40530678}{check\_GW}}();}
+\DoxyCodeLine{752         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}{check\_mzams}}();}
+\DoxyCodeLine{753         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}{check\_z}}();}
+\DoxyCodeLine{754         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_ac522536c6889a4e630eddb783f8514ce}{check\_jtrack}}();}
+\DoxyCodeLine{755         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a8c32b4dad4e20527b9448a62b757d059}{check\_rlobe}}();}
+\DoxyCodeLine{756         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a57be1b67e235092bfb38f3f9e9ff859d}{check\_accretion}}();}
+\DoxyCodeLine{757         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a5e3beafe6851aa1e70278ef2ce0ef371}{check\_sn}}();}
+\DoxyCodeLine{758         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a469469cc46520042acbccb3d9ddf114b}{check\_winds}}();}
+\DoxyCodeLine{759         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a549f6a57c2c01e2743a42c8f502a1347}{check\_ce}}();}
+\DoxyCodeLine{760         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_afb100dc429d84f7239df21ebb153fe3b}{check\_hard}}();}
+\DoxyCodeLine{761         ret=ret \&\& \mbox{\hyperlink{class_s_e_v_npar_a30c5305cd77a049df950af75192ea210}{check\_parameters}}();}
+\DoxyCodeLine{762         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_abe7703201506f657a673ee2b649a752d}{check\_option\_mode}}();}
+\DoxyCodeLine{763         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_ab7bd60080793ad5b41ebc0af0261f901}{check\_log}}();}
+\DoxyCodeLine{764         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_af6aa28b0a3c636ae6ef6753eb37b0216}{check\_ev}}();}
+\DoxyCodeLine{765         ret=ret \&\&\mbox{\hyperlink{class_s_e_v_npar_a87161d4269621e29b7486ee4054b567a}{check\_systems}}();}
+\DoxyCodeLine{766         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{767     \}}
+\DoxyCodeLine{768 }
+\DoxyCodeLine{769     \textcolor{comment}{//TODO put together check\_star, mzams z}}
+\DoxyCodeLine{770     \textcolor{comment}{//Star}}
+\DoxyCodeLine{777 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_aabdb32f4ea55e3ad4e0918958a337f52}{check\_star}}()\{}
+\DoxyCodeLine{778         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})<0. and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/1 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/11 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/12 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/13 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/2 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/21}
+\DoxyCodeLine{779                                                                                                                                                                                                         and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/3 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/31}
+\DoxyCodeLine{780                                                                                                                                                                                                         and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/4 and  \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/41}
+\DoxyCodeLine{781                                                                                                                                                                                                         and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/5 and  \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})!=-\/51)}
+\DoxyCodeLine{782             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}star\_lambda>0 or star\_lambda=(-\/1,-\/11,-\/12,-\/13,-\/2,-\/21,-\/3,-\/31,-\/4,-\/41,,-\/5,-\/51), current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}star\_lambda"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{783         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda\_pureHe"{}})<=0)}
+\DoxyCodeLine{784             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}star\_lambda\_pureHe>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}star\_lambda\_pureHe"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{785         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda\_fth"{}})<0. or \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda\_fth"{}})>1.)}
+\DoxyCodeLine{786             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}0<=star\_lambda\_fth<=1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}star\_lambda\_fth"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{787         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda"{}})>0 and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_lambda\_fth"{}})!=0)}
+\DoxyCodeLine{788             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(\textcolor{stringliteral}{"{}The parameter star\_lambda\_fth is larger than 0, but the parameter star\_lambda is not -\/1. The star\_lambda\_fth will not be used!"{}},}
+\DoxyCodeLine{789                           \_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{790         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_tshold\_WR\_envelope"{}})<0 or \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}star\_tshold\_WR\_envelope"{}})>1)}
+\DoxyCodeLine{791             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}0<=star\_tshold\_WR\_envelope<=1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}star\_tshold\_WR\_envelope"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{792 }
+\DoxyCodeLine{793 }
+\DoxyCodeLine{794 }
+\DoxyCodeLine{795         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{796     \}}
+\DoxyCodeLine{797 }
+\DoxyCodeLine{798     \textcolor{comment}{//NS}}
+\DoxyCodeLine{799     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a238325fa911e70f84b4060ef1704b398}{check\_ns}}()\{}
+\DoxyCodeLine{800         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ns\_magnetic\_tscale"{}})<=0.)}
+\DoxyCodeLine{801             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ns\_magnetic\_tscale>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ns\_magnetic\_tscale"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{802         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ns\_magnetic\_mscale"{}})<=0.)}
+\DoxyCodeLine{803             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ns\_magnetic\_mscale>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ns\_magnetic\_mscale"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{805         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{806     \}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{808     \textcolor{comment}{//SN}}
+\DoxyCodeLine{809     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a5e3beafe6851aa1e70278ef2ce0ef371}{check\_sn}}()\{}
+\DoxyCodeLine{810         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn"{}})<=0)}
+\DoxyCodeLine{811             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{812         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_ecsn"{}})<=0)}
+\DoxyCodeLine{813             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_ecsn>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_ecsn"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{814         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_ecsn"{}})>\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn"{}}))}
+\DoxyCodeLine{815             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn>sn\_co\_lower\_ecsn, current value are "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_sn"{}})+\textcolor{stringliteral}{"{} and "{}} +\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_co\_lower\_ecsn"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{816         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_max\_ns\_mass"{}})<=0)}
+\DoxyCodeLine{817             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_max\_ns\_mass>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_max\_ns\_mass"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{818         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mchandra"{}})<=0.)}
+\DoxyCodeLine{819             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_Mchandra>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_Mchandra"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{820         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_compact\_csi25\_tshold"{}})<0. and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_compact\_csi25\_tshold"{}})!=-\/1)}
+\DoxyCodeLine{821             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_compact\_csi25\_tshold>0 or -\/1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_compact\_csi25\_tshold"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{822         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average\_NS"{}})<=0.)}
+\DoxyCodeLine{823             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average\_NS>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average\_NS"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{824         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_std\_NS"{}})>\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_max\_ns\_mass"{}}))}
+\DoxyCodeLine{825             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}M\_mean for NS mass distribution is larger than the maximum ns mass, this means that more than 50\% of the sample will be rejected. Please use a different the input distribution."{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{826         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_std\_NS"{}})<=0.)}
+\DoxyCodeLine{827             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_std\_NS>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_std\_NS"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{828         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_compact\_fallback"{}})<0. or \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_compact\_fallback"{}})>1.)}
+\DoxyCodeLine{829             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}0.<sn\_compact\_fallback<1., current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_compact\_fallback"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{830         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average"{}})<=0. and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average"{}})!=-\/1.)}
+\DoxyCodeLine{831             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average>0 (or -\/1), current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{832         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mejected\_average"{}})<=0. and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}sn\_Mremnant\_average"{}})!=-\/1.)}
+\DoxyCodeLine{833             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}sn\_Mejected\_average>0 (or -\/1), current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}sn\_Mejected\_average"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{834 }
+\DoxyCodeLine{835         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{836     \}}
+\DoxyCodeLine{837     \textcolor{comment}{//Timestep}}
+\DoxyCodeLine{844 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a6e80845ac203bc4973d62d91580029f4}{check\_timestep}}()\{}
+\DoxyCodeLine{845 }
+\DoxyCodeLine{846         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_min\_dt"{}})<0. \&\& \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_min\_dt"{}})!=-\/1.0)}
+\DoxyCodeLine{847             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ts\_min\_dt>0 or ts\_min\_dt=-\/1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ts\_min\_dt"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{848         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}})<0. \&\& \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}})!=-\/1.0)}
+\DoxyCodeLine{849             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ts\_max\_dt>0 or ts\_max\_dt=-\/1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{850         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}})<\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_min\_dt"{}}) and \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}})!=-\/1.0)}
+\DoxyCodeLine{851             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ts\_max\_dt>ts\_min\_dt, current values are ts\_max\_dt= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ts\_max\_dt"{}})+}
+\DoxyCodeLine{852                     \textcolor{stringliteral}{"{} and ts\_min\_dt= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ts\_min\_dt"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{853 }
+\DoxyCodeLine{854         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{855     \};}
+\DoxyCodeLine{856     \textcolor{comment}{//Mass}}
+\DoxyCodeLine{863 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a1bd089c41a7825491d0303097bd660e4}{check\_mzams}}()\{}
+\DoxyCodeLine{864 }
+\DoxyCodeLine{865         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MIN\_ZAMS=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}min\_zams"{}});}
+\DoxyCodeLine{866         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MAX\_ZAMS=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}max\_zams"{}});}
+\DoxyCodeLine{867 }
+\DoxyCodeLine{868         \textcolor{keywordflow}{if} (MIN\_ZAMS<0)}
+\DoxyCodeLine{869             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MIN\_ZAMS>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MIN\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{870         \textcolor{keywordflow}{if} (MAX\_ZAMS<0)}
+\DoxyCodeLine{871             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_ZAMS>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAX\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{872         \textcolor{keywordflow}{if} (MAX\_ZAMS<MIN\_ZAMS)}
+\DoxyCodeLine{873             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_ZAMS>MIN\_ZAMS, current values are: MAX\_ZAMS= "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAX\_ZAMS)}
+\DoxyCodeLine{874                     +\textcolor{stringliteral}{"{}, MIN\_ZAMS= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MIN\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{875 }
+\DoxyCodeLine{876         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{877     \}}
+\DoxyCodeLine{878     \textcolor{comment}{//Mass HE}}
+\DoxyCodeLine{885 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a4dcb3882abfc70ae5ce256fb5a9e64bc}{check\_mzams\_he}}()\{}
+\DoxyCodeLine{886 }
+\DoxyCodeLine{887         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MIN\_ZAMS=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}min\_zams\_he"{}});}
+\DoxyCodeLine{888         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MAX\_ZAMS=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}max\_zams\_he"{}});}
+\DoxyCodeLine{889 }
+\DoxyCodeLine{890         \textcolor{keywordflow}{if} (MIN\_ZAMS<0)}
+\DoxyCodeLine{891             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MIN\_ZAMS\_HE>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MIN\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{892         \textcolor{keywordflow}{if} (MAX\_ZAMS<0)}
+\DoxyCodeLine{893             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_ZAMS\_HE>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAX\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{894         \textcolor{keywordflow}{if} (MAX\_ZAMS<MIN\_ZAMS)}
+\DoxyCodeLine{895             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_ZAMS\_HE>MIN\_ZAMS\_HE, current values are: MAX\_ZAMS\_HE= "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAX\_ZAMS)}
+\DoxyCodeLine{896                            +\textcolor{stringliteral}{"{}, MIN\_ZAMS\_HE= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MIN\_ZAMS),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{897 }
+\DoxyCodeLine{898         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{899     \}}
+\DoxyCodeLine{900     \textcolor{comment}{//Z}}
+\DoxyCodeLine{907 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_acd9ca625cafda37dfd6da6e4d83c1fd5}{check\_z}}()\{}
+\DoxyCodeLine{908 }
+\DoxyCodeLine{909         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MINZ=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}min\_z"{}});}
+\DoxyCodeLine{910         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MAXZ=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}max\_z"{}});}
+\DoxyCodeLine{911 }
+\DoxyCodeLine{912         \textcolor{keywordflow}{if} (MINZ<0)}
+\DoxyCodeLine{913             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MIN\_Z>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MINZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{914         \textcolor{keywordflow}{if} (MAXZ<0)}
+\DoxyCodeLine{915             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_Z>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAXZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{916         \textcolor{keywordflow}{if} (MAXZ<MINZ)}
+\DoxyCodeLine{917             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_Z>MIN\_Z, current values are: MAX\_Z= "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAXZ)}
+\DoxyCodeLine{918                            +\textcolor{stringliteral}{"{}, MIN\_Z= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MINZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{919 }
+\DoxyCodeLine{920         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{921 }
+\DoxyCodeLine{922     \}}
+\DoxyCodeLine{923     \textcolor{comment}{//Z}}
+\DoxyCodeLine{930 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a28f5e7dce9c0d5895ba3044bc983abfe}{check\_z\_he}}()\{}
+\DoxyCodeLine{931 }
+\DoxyCodeLine{932         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MINZ=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}min\_z\_he"{}});}
+\DoxyCodeLine{933         \textcolor{keyword}{const} \textcolor{keywordtype}{double} MAXZ=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}max\_z\_he"{}});}
+\DoxyCodeLine{934 }
+\DoxyCodeLine{935         \textcolor{keywordflow}{if} (MINZ<0)}
+\DoxyCodeLine{936             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MIN\_Z\_HE>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MINZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{937         \textcolor{keywordflow}{if} (MAXZ<0)}
+\DoxyCodeLine{938             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_Z\_HE>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAXZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{939         \textcolor{keywordflow}{if} (MAXZ<MINZ)}
+\DoxyCodeLine{940             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}MAX\_Z\_HE>MIN\_Z\_HE, current values are: MAX\_Z\_HE= "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MAXZ)}
+\DoxyCodeLine{941                            +\textcolor{stringliteral}{"{}, MIN\_Z\_HE= "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(MINZ),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{942 }
+\DoxyCodeLine{943         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{944 }
+\DoxyCodeLine{945     \}}
+\DoxyCodeLine{946     \textcolor{comment}{//jtrack}}
+\DoxyCodeLine{953 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_ac522536c6889a4e630eddb783f8514ce}{check\_jtrack}}()\{}
+\DoxyCodeLine{954 }
+\DoxyCodeLine{955 }
+\DoxyCodeLine{956         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_tshold\_dm\_rel"{}})<=0)}
+\DoxyCodeLine{957             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_tshold\_dm\_rel>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_tshold\_dm\_rel"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{958         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_h\_err\_rel\_max"{}})<=0)}
+\DoxyCodeLine{959             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_h\_err\_rel\_max>0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_h\_err\_rel\_max"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{960         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor"{}})<0)}
+\DoxyCodeLine{961             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor>=0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{962         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_min\_dm\_factor"{}})<0)}
+\DoxyCodeLine{963             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_min\_dm\_factor>=0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_min\_dm\_factor"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{964         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_max\_iteration"{}})<=0)}
+\DoxyCodeLine{965             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_max\_iteration>=0, current value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_max\_iteration"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{966         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor"{}})<=\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_min\_dm\_factor"{}}))}
+\DoxyCodeLine{967             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor>jtrack\_min\_dm\_factor, current values are: jtrack\_max\_dm\_factor="{}}+}
+\DoxyCodeLine{968             \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_max\_dm\_factor"{}})+\textcolor{stringliteral}{"{} jtrack\_min\_dm\_factor="{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_min\_dm\_factor"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{969         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}jtrack\_dm\_step"{}})<=0)}
+\DoxyCodeLine{970             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}jtrack\_dm\_step>0, currenta value is "{}}+ \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}jtrack\_dm\_step"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{971 }
+\DoxyCodeLine{972         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{973 }
+\DoxyCodeLine{974     \}}
+\DoxyCodeLine{975     \textcolor{comment}{//RLO}}
+\DoxyCodeLine{982 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a8c32b4dad4e20527b9448a62b757d059}{check\_rlobe}}()\{}
+\DoxyCodeLine{983         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_f\_mass\_accreted"{}})<0 || \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_f\_mass\_accreted"{}})>1)}
+\DoxyCodeLine{984             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}0<rlo\_f\_mass\_accreted<1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}rlo\_f\_mass\_accreted"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{985         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_eps\_nova"{}})<0 || \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_eps\_nova"{}})>1)}
+\DoxyCodeLine{986             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}0<rlo\_eps\_nova<1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}rlo\_eps\_nova"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{987 }
+\DoxyCodeLine{988         \textcolor{keywordtype}{bool} negative\_gamma\_ok = (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}})==-\/1.0) || (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}})==-\/2.0);}
+\DoxyCodeLine{989         \textcolor{keywordflow}{if} ( (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}})<0) \&\& (negative\_gamma\_ok==\textcolor{keyword}{false}) )}
+\DoxyCodeLine{990             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom>0 or rlo\_gamma\_angmom=-\/1 or rlo\_gamma\_angmom=-\/2, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{991         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}})>1)}
+\DoxyCodeLine{992             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom<=1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}rlo\_gamma\_angmom"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{993 }
+\DoxyCodeLine{994         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}rlo\_max\_nuclearmt"{}})<0)}
+\DoxyCodeLine{995             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}rlo\_max\_nuclearmt>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}rlo\_max\_nuclearmt"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{996 }
+\DoxyCodeLine{997 }
+\DoxyCodeLine{998         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{999     \}}
+\DoxyCodeLine{1000     \textcolor{comment}{//GW}}
+\DoxyCodeLine{1007 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a41e85acc8abbdb5a9b26755f40530678}{check\_GW}}()\{}
+\DoxyCodeLine{1008 }
+\DoxyCodeLine{1009         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}gw\_tshold"{}})<0)}
+\DoxyCodeLine{1010             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}gw\_tshold>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}gw\_tshold"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1011         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1012     \}}
+\DoxyCodeLine{1013     \textcolor{comment}{//Wind}}
+\DoxyCodeLine{1020 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a469469cc46520042acbccb3d9ddf114b}{check\_winds}}()\{}
+\DoxyCodeLine{1021 }
+\DoxyCodeLine{1022         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}w\_alpha"{}})<0.)}
+\DoxyCodeLine{1023             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}w\_alpha>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}w\_alpha"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1024         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}w\_beta"{}})<0.)}
+\DoxyCodeLine{1025             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}w\_beta>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}w\_beta"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1026 }
+\DoxyCodeLine{1027 }
+\DoxyCodeLine{1028         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1029     \}}
+\DoxyCodeLine{1030     \textcolor{comment}{//General accretion}}
+\DoxyCodeLine{1031     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a57be1b67e235092bfb38f3f9e9ff859d}{check\_accretion}}()\{}
+\DoxyCodeLine{1032         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}eddington\_factor"{}})<0)}
+\DoxyCodeLine{1033             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}eddington\_factor>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}eddington\_factor"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1034 }
+\DoxyCodeLine{1035         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1036     \}}
+\DoxyCodeLine{1037     \textcolor{comment}{//CE}}
+\DoxyCodeLine{1044 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a549f6a57c2c01e2743a42c8f502a1347}{check\_ce}}()\{}
+\DoxyCodeLine{1045 }
+\DoxyCodeLine{1046 }
+\DoxyCodeLine{1047         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_alpha"{}})<0.)}
+\DoxyCodeLine{1048             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ce\_alpha>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ce\_alpha"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1049 }
+\DoxyCodeLine{1050 }
+\DoxyCodeLine{1051         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_kce"{}})!=-\/1)\{}
+\DoxyCodeLine{1052             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_kce"{}})<0. || \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_kce"{}})>1.)}
+\DoxyCodeLine{1053                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ce\_kce within [0,1] or -\/1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ce\_kce"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1054         \}}
+\DoxyCodeLine{1055         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_knce"{}})!=-\/1)\{}
+\DoxyCodeLine{1056             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_knce"{}})<0. || \mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ce\_kce"{}})>1.)}
+\DoxyCodeLine{1057                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ce\_knce within [0,1] or -\/1, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ce\_knce"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1058         \}}
+\DoxyCodeLine{1059 }
+\DoxyCodeLine{1060 }
+\DoxyCodeLine{1061         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1062     \}}
+\DoxyCodeLine{1063     \textcolor{comment}{//Hardening}}
+\DoxyCodeLine{1070 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_afb100dc429d84f7239df21ebb153fe3b}{check\_hard}}()\{}
+\DoxyCodeLine{1071 }
+\DoxyCodeLine{1072         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}hard\_rhoc"{}})<0.)}
+\DoxyCodeLine{1073             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}hard\_rhoc>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}hard\_rhoc"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1074         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}hard\_sigma"{}})<0.)}
+\DoxyCodeLine{1075             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}hard\_sigma>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}hard\_sigma"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1076         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}hard\_xi"{}})<0.)}
+\DoxyCodeLine{1077             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}hard\_xi>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}hard\_xi"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1078         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}hard\_kappa"{}})<0.)}
+\DoxyCodeLine{1079             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}hard\_kappa>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}hard\_kappa"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1080         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}hard\_mass\_average"{}})<0.)}
+\DoxyCodeLine{1081             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}hard\_mass\_average>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}hard\_mass\_average"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1082 }
+\DoxyCodeLine{1083         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1084     \}}
+\DoxyCodeLine{1085     \textcolor{comment}{//Parameters}}
+\DoxyCodeLine{1086     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a30c5305cd77a049df950af75192ea210}{check\_parameters}}()\{}
+\DoxyCodeLine{1087 }
+\DoxyCodeLine{1088         \textcolor{keywordflow}{if}( \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}})!=\textcolor{stringliteral}{"{}list"{}}  and !utilities::string\_is\_number<double>(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}})))\{}
+\DoxyCodeLine{1089             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}spin has to be 'list' or a number, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1090         \}}
+\DoxyCodeLine{1091         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}})!=\textcolor{stringliteral}{"{}list"{}})\{}
+\DoxyCodeLine{1092             std::string s=\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}});}
+\DoxyCodeLine{1093             \textcolor{keywordtype}{double} spin = utilities::s2n<double>(s,\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{1094             \textcolor{keywordflow}{if}(spin<0 or spin>1)\{}
+\DoxyCodeLine{1095                 \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}spin (Omega/Omega\_crit) has to be in the range [0,1] current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}spin"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1096             \}}
+\DoxyCodeLine{1097         \}}
+\DoxyCodeLine{1098 }
+\DoxyCodeLine{1099         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1100     \}}
+\DoxyCodeLine{1101     \textcolor{comment}{//Omode}}
+\DoxyCodeLine{1102     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_abe7703201506f657a673ee2b649a752d}{check\_option\_mode}}()\{}
+\DoxyCodeLine{1103 }
+\DoxyCodeLine{1104         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ac84b1d6e9b93d22f24866ae18006a718}{windsmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}wmode"{}}))==0)}
+\DoxyCodeLine{1105             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Winds mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}wmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1106         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ad23517187bf8c77c9febf03ad602055d}{rlmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}rlmode"{}}))==0)}
+\DoxyCodeLine{1107             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Roche Lobe mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}rlmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1108         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ae547e773b9b695a0cd572677e5a1ba40}{tidesmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}tmode"{}}))==0)}
+\DoxyCodeLine{1109             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Tides  mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}tmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1110         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_a02168e15376d126e214ae1ff69805792}{gwmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}gwmode"{}}))==0)}
+\DoxyCodeLine{1111             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Gravitational Wave mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}gwmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1112         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_af85e37d422054a14c1387a48bb897afc}{mixmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}mixmode"{}}))==0)}
+\DoxyCodeLine{1113             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Mix mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}mixmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1114         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_a6a83abfff1ebe2361901ccf4dcbfba40}{snkmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}kmode"{}}))==0)}
+\DoxyCodeLine{1115             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}SN kick mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}kmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1116         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ae9148572c44b53ed259b561938969da4}{cemap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}cemode"{}}))==0)}
+\DoxyCodeLine{1117             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}CE mode \(\backslash\)"{}"{}}+ \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}cemode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1118         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ac55f693d4648a2e00c8fd886ecbab785}{outputmap}}.count(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}omode"{}}))==0)}
+\DoxyCodeLine{1119             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Output mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}omode"{}}) +\textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1120 \textcolor{preprocessor}{        \#ifndef H5OUT}}
+\DoxyCodeLine{1121         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_lookup_ac55f693d4648a2e00c8fd886ecbab785}{outputmap}}.at(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}omode"{}}))==OutputOption::\_hdf5)}
+\DoxyCodeLine{1122             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Output mode set to  \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}omode"{}}) +\textcolor{stringliteral}{"{}\(\backslash\)"{}  but hdf5 is not available (you can make it available with the option -\/Dh5=ON in cmake)"{}}, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{1123 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{1124         \textcolor{keywordflow}{if} (std::find(\mbox{\hyperlink{namespace_lookup_acb0bbf377ec31f8822ab803cd7b1d118}{Lookup::xspinmodes}}.begin(), \mbox{\hyperlink{namespace_lookup_acb0bbf377ec31f8822ab803cd7b1d118}{Lookup::xspinmodes}}.end(), \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}xspinmode"{}})) == \mbox{\hyperlink{namespace_lookup_acb0bbf377ec31f8822ab803cd7b1d118}{Lookup::xspinmodes}}.end())}
+\DoxyCodeLine{1125             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Black Hole Xspin mode \(\backslash\)"{}"{}} + \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}xspinmode"{}}) + \textcolor{stringliteral}{"{}\(\backslash\)"{} not available"{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1127         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1128 }
+\DoxyCodeLine{1129     \}}
+\DoxyCodeLine{1130     \textcolor{comment}{//Evolution}}
+\DoxyCodeLine{1137 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_af6aa28b0a3c636ae6ef6753eb37b0216}{check\_ev}}()\{}
+\DoxyCodeLine{1138 }
+\DoxyCodeLine{1139         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ev\_max\_repetitions"{}})<=0)}
+\DoxyCodeLine{1140             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_max\_repetitions>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ev\_max\_repetitions"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1141         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ev\_Nchunk"{}})<=0)}
+\DoxyCodeLine{1142             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_Nchunk>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ev\_Nchunk"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1143         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}ev\_naked\_tshold"{}})>1e-\/4)}
+\DoxyCodeLine{1144             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_naked\_tshold<=1e-\/4, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}ev\_naked\_tshold"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1145 }
+\DoxyCodeLine{1146         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM"{}})!=\textcolor{stringliteral}{"{}linear"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM"{}})!=\textcolor{stringliteral}{"{}rational"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM"{}})!=\textcolor{stringliteral}{"{}log"{}})\{}
+\DoxyCodeLine{1147             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_setwM option "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM"{}}) + \textcolor{stringliteral}{"{} not available"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1148         \}}
+\DoxyCodeLine{1149         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_log"{}})!=\textcolor{stringliteral}{"{}linear"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_log"{}})!=\textcolor{stringliteral}{"{}rational"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_log"{}})!=\textcolor{stringliteral}{"{}log"{}})\{}
+\DoxyCodeLine{1150             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_setwM\_log option "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_log"{}}) + \textcolor{stringliteral}{"{} not available"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1151         \}}
+\DoxyCodeLine{1152         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_tphase"{}})!=\textcolor{stringliteral}{"{}linear"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_tphase"{}})!=\textcolor{stringliteral}{"{}rational"{}} and \mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_tphase"{}})!=\textcolor{stringliteral}{"{}log"{}})\{}
+\DoxyCodeLine{1153             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}ev\_setwM\_tphase option "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}ev\_setwM\_tphase"{}}) + \textcolor{stringliteral}{"{} not available"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1154         \}}
+\DoxyCodeLine{1155 }
+\DoxyCodeLine{1156 }
+\DoxyCodeLine{1157         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1158     \}}
+\DoxyCodeLine{1159     \textcolor{comment}{//LOG}}
+\DoxyCodeLine{1160     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_ab7bd60080793ad5b41ebc0af0261f901}{check\_log}}()\{}
+\DoxyCodeLine{1161 }
+\DoxyCodeLine{1162         std::string allowed\_log[5]=\{\textcolor{stringliteral}{"{}debug"{}},\textcolor{stringliteral}{"{}info"{}},\textcolor{stringliteral}{"{}warning"{}},\textcolor{stringliteral}{"{}error"{}},\textcolor{stringliteral}{"{}critical"{}}\};}
+\DoxyCodeLine{1163 }
+\DoxyCodeLine{1164         \textcolor{keywordflow}{if}( !\mbox{\hyperlink{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}{utilities::isinlist}}(\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}log\_level"{}}),std::begin(allowed\_log),std::end(allowed\_log)) )}
+\DoxyCodeLine{1165             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Loglevel "{}}+\mbox{\hyperlink{class_s_e_v_npar_ae0d84ef028b19e9b88d10d0389599f9d}{get\_str}}(\textcolor{stringliteral}{"{}log\_level"{}})+\textcolor{stringliteral}{"{} not allowed. The possible options are"{}}}
+\DoxyCodeLine{1166                                                            \textcolor{stringliteral}{"{}: debug, info, warning, error"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1167         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1168     \}}
+\DoxyCodeLine{1169     \textcolor{comment}{//Systems}}
+\DoxyCodeLine{1170     \textcolor{keywordtype}{bool} \textcolor{keyword}{inline} \mbox{\hyperlink{class_s_e_v_npar_a87161d4269621e29b7486ee4054b567a}{check\_systems}}()\{}
+\DoxyCodeLine{1171         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(\textcolor{stringliteral}{"{}nthreads"{}})<=0)}
+\DoxyCodeLine{1172             \mbox{\hyperlink{class_s_e_v_npar_a1cd17dbdb3381a837995f41a393361f4}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}nthreads>0, current value is "{}}+\mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(\textcolor{stringliteral}{"{}nthreads"{}}),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1params__error}{sevnstd::params\_error}}());}
+\DoxyCodeLine{1173 }
+\DoxyCodeLine{1174         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1175     \}}
+\DoxyCodeLine{1176 }
+\DoxyCodeLine{1182     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_s_e_v_npar_a67d2be6310be77944d7158e95a5f2dac}{n2s}}(std::string name)\{}
+\DoxyCodeLine{1183         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_s_e_v_npar_a37b766d71676b17aaa71c8295371a2a8}{get\_num}}(name),\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{1184     \}}
+\DoxyCodeLine{1190     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_s_e_v_npar_a60bbb1a5a34f7433fcf1acb2f6e1ac71}{n2s}}(\textcolor{keywordtype}{double} val)\{}
+\DoxyCodeLine{1191         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(val,\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{1192     \}}
+\DoxyCodeLine{1193 }
+\DoxyCodeLine{1194 }
+\DoxyCodeLine{1195 \};}
+\DoxyCodeLine{1196 }
+\DoxyCodeLine{1197 }
+\DoxyCodeLine{1198 }
+\DoxyCodeLine{1199 }
+\DoxyCodeLine{1200 }
+\DoxyCodeLine{1201 }
+\DoxyCodeLine{1202 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_PARAMS\_H}}
+
+\end{DoxyCode}

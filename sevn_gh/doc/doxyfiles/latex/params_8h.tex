@@ -1,0 +1,71 @@
+\hypertarget{params_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/params.h File Reference}
+\label{params_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/params.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/params.h}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$errhand.\+h$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+{\ttfamily \#include $<$lookup\+\_\+and\+\_\+phases.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::pair$<$ double, std\+::string $>$ \mbox{\hyperlink{params_8h_a7deb7d39b59f9e050994361a63262882}{num\+\_\+entry}}
+\item 
+typedef std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{params_8h_af44afba556e50d05f11b7a27a043eb31}{str\+\_\+entry}}
+\item 
+typedef std\+::pair$<$ bool, std\+::string $>$ \mbox{\hyperlink{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}{bool\+\_\+entry}}
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{params_8h_a7deb7d39b59f9e050994361a63262882}{num\+\_\+entry}} $>$ \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}}
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{params_8h_af44afba556e50d05f11b7a27a043eb31}{str\+\_\+entry}} $>$ \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}}
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}{bool\+\_\+entry}} $>$ \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}\label{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}} 
+\index{params.h@{params.h}!bool\_entry@{bool\_entry}}
+\index{bool\_entry@{bool\_entry}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{bool\_entry}{bool\_entry}}
+{\footnotesize\ttfamily typedef std\+::pair$<$bool, std\+::string$>$ \mbox{\hyperlink{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}{bool\+\_\+entry}}}
+
+\mbox{\Hypertarget{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}\label{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}} 
+\index{params.h@{params.h}!map\_bool@{map\_bool}}
+\index{map\_bool@{map\_bool}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{map\_bool}{map\_bool}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{params_8h_a4795b02e036fc79cb64b70ebd1a6ccb2}{bool\+\_\+entry}}$>$ \mbox{\hyperlink{params_8h_a568dfa0cffdf6364b2aba0cb5f886833}{map\+\_\+bool}}}
+
+\mbox{\Hypertarget{params_8h_aed17aa4721a557774eab643d09ad21cd}\label{params_8h_aed17aa4721a557774eab643d09ad21cd}} 
+\index{params.h@{params.h}!map\_num@{map\_num}}
+\index{map\_num@{map\_num}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{map\_num}{map\_num}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{params_8h_a7deb7d39b59f9e050994361a63262882}{num\+\_\+entry}}$>$ \mbox{\hyperlink{params_8h_aed17aa4721a557774eab643d09ad21cd}{map\+\_\+num}}}
+
+\mbox{\Hypertarget{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}\label{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}} 
+\index{params.h@{params.h}!map\_str@{map\_str}}
+\index{map\_str@{map\_str}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{map\_str}{map\_str}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{params_8h_af44afba556e50d05f11b7a27a043eb31}{str\+\_\+entry}}$>$ \mbox{\hyperlink{params_8h_aecf1b557f6ffc280a89b0f80a6739fd6}{map\+\_\+str}}}
+
+\mbox{\Hypertarget{params_8h_a7deb7d39b59f9e050994361a63262882}\label{params_8h_a7deb7d39b59f9e050994361a63262882}} 
+\index{params.h@{params.h}!num\_entry@{num\_entry}}
+\index{num\_entry@{num\_entry}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{num\_entry}{num\_entry}}
+{\footnotesize\ttfamily typedef std\+::pair$<$double, std\+::string$>$ \mbox{\hyperlink{params_8h_a7deb7d39b59f9e050994361a63262882}{num\+\_\+entry}}}
+
+\mbox{\Hypertarget{params_8h_af44afba556e50d05f11b7a27a043eb31}\label{params_8h_af44afba556e50d05f11b7a27a043eb31}} 
+\index{params.h@{params.h}!str\_entry@{str\_entry}}
+\index{str\_entry@{str\_entry}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{str\_entry}{str\_entry}}
+{\footnotesize\ttfamily typedef std\+::pair$<$std\+::string, std\+::string$>$ \mbox{\hyperlink{params_8h_af44afba556e50d05f11b7a27a043eb31}{str\+\_\+entry}}}
+

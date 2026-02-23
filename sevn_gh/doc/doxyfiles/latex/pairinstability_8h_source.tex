@@ -1,0 +1,108 @@
+\hypertarget{pairinstability_8h_source}{}\doxysection{pairinstability.\+h}
+\label{pairinstability_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pairinstability.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pairinstability.h}}
+\mbox{\hyperlink{pairinstability_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/25/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{Module for Pair instability models, it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Struct PISNreturn: a simple struct containing a double and a Lookup::SNExplosionType (enum) to handle some function returns}}
+\DoxyCodeLine{5 \textcolor{comment}{-\/ Class PairInstability:  Base class for PairInstability models}}
+\DoxyCodeLine{6 \textcolor{comment}{-\/ Class PIDisabled: Simple PairInstability model, just disable the pair instability correction}}
+\DoxyCodeLine{7 \textcolor{comment}{*/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef SEVN\_PAIRINSTABILITY\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define SEVN\_PAIRINSTABILITY\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{115 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{120 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}}\{}
+\DoxyCodeLine{121     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_p_i_s_nreturn_abb53deda5a2bd40cf22b1d189b476faf}{Mremnant\_after\_pisn}}; \textcolor{comment}{//Mass of the remnant after the correction}}
+\DoxyCodeLine{122     \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup::SNExplosionType}} \mbox{\hyperlink{struct_p_i_s_nreturn_a5e1777373a94120bd67c5ef2d2fca456}{SNType}}; \textcolor{comment}{//Type of SNexplosion considering pairinstability}}
+\DoxyCodeLine{123 \};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{129 \textcolor{keyword}{class }\mbox{\hyperlink{class_pair_instability}{PairInstability}} \{}
+\DoxyCodeLine{130 \textcolor{comment}{/***** For Developers that want to add new PairInstability models: ******/}}
+\DoxyCodeLine{134 \textcolor{keyword}{public}:}
+\DoxyCodeLine{136     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}{name}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PairInstability"{}};\}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{142     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pair_instability}{PairInstability}} *\mbox{\hyperlink{class_pair_instability_af376f9740f888b60d7893930726914df}{instance}}() = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{148 \textcolor{keyword}{public}:}
+\DoxyCodeLine{162     \textcolor{keyword}{virtual}  \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities::MassContainer}} \mbox{\hyperlink{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}{apply\_beforeSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{const};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{179     \textcolor{keyword}{virtual}  \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_pair_instability_a46fba941a123d6d28285b2e895e71837}{apply\_afterSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} mremnant) \textcolor{keyword}{const};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{184 \textcolor{comment}{    /***** STOP: DO NOT CHANGE THE REST OF THE CODE IF YOU ARE NOT FULLY AWARE OF WHAT  YOU ARE DOING ******/}}
+\DoxyCodeLine{185 \textcolor{comment}{    /*********************************************************************************************************/}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{keyword}{public}:}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{comment}{//Constructor -\/ Destructor}}
+\DoxyCodeLine{190     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_pair_instability_a7e8f9cf378952e61812231ca7cd06938}{PairInstability}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{\};}
+\DoxyCodeLine{191     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pair_instability_a47f11874a7d9fc3dcb9651e3a62730bc}{\string~PairInstability}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{comment}{//Create instance}}
+\DoxyCodeLine{199 \textcolor{comment}{}    \textcolor{keyword}{static} \mbox{\hyperlink{class_pair_instability}{PairInstability}} *\mbox{\hyperlink{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}{Instance}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}{name}});}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{comment}{//Remove cp and mv, we don't need to copy or mv, therefore to avoid unexpected behaviour we just delete them}}
+\DoxyCodeLine{202     \mbox{\hyperlink{class_pair_instability_a44c4b4ea22bd6c919c8c7b3ea5f0b816}{PairInstability}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_pair_instability}{PairInstability}}\&) = \textcolor{keyword}{delete}; \textcolor{comment}{//copy constructor}}
+\DoxyCodeLine{203     \mbox{\hyperlink{class_pair_instability}{PairInstability}}\& \mbox{\hyperlink{class_pair_instability_a60f55469d0a726ef10c27df885320bee}{operator= }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_pair_instability}{PairInstability}}\&) = \textcolor{keyword}{delete}; \textcolor{comment}{//copy assignment}}
+\DoxyCodeLine{204     \mbox{\hyperlink{class_pair_instability_a22dcfb8370ba5230b87d4c4f6852eb08}{PairInstability}} (\mbox{\hyperlink{class_pair_instability}{PairInstability}}\&\& other) = \textcolor{keyword}{delete}; \textcolor{comment}{//mv constructor}}
+\DoxyCodeLine{205     \mbox{\hyperlink{class_pair_instability}{PairInstability}}\& \mbox{\hyperlink{class_pair_instability_a60f55469d0a726ef10c27df885320bee}{operator= }}(\mbox{\hyperlink{class_pair_instability}{PairInstability}}\&\& other) = \textcolor{keyword}{delete}; \textcolor{comment}{//mv assignement}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{212     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}{Register}}(\mbox{\hyperlink{class_pair_instability}{PairInstability}} *ptr);}
+\DoxyCodeLine{213     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_pair_instability_aec6c8468a7b58c439e4207815a198416}{svlog}};}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{keyword}{private}:}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{218     \textcolor{comment}{//TODO We are using this Register-\/StaticMap formalism a lot, maybe we have to create a base template class containing}}
+\DoxyCodeLine{219     \textcolor{comment}{//all these methods (GetStaticMap,Register,GetUsed) to have only one definition of these functions}}
+\DoxyCodeLine{220     \textcolor{keyword}{static} std::map<std::string, PairInstability *> \&\mbox{\hyperlink{class_pair_instability_af1f27fb15caef9513f847080d009857b}{GetStaticMap}}() \{}
+\DoxyCodeLine{221         \textcolor{comment}{//First time call the function create the map, since c++11 this is thread safe}}
+\DoxyCodeLine{222         \textcolor{keyword}{static} std::map<std::string, PairInstability *> \_locmap;}
+\DoxyCodeLine{223         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{224     \}}
+\DoxyCodeLine{226     \textcolor{keyword}{static} std::vector<int> \&\mbox{\hyperlink{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}{GetUsed}}() \{}
+\DoxyCodeLine{227         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{228         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{229     \}}
+\DoxyCodeLine{230 \};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{236 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_i_disabled}{PIDisabled}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_pair_instability}{PairInstability}}\{}
+\DoxyCodeLine{237 \textcolor{keyword}{public}:}
+\DoxyCodeLine{238     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{239     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_p_i_disabled}{PIDisabled}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{242     \textcolor{keyword}{static} \mbox{\hyperlink{class_p_i_disabled}{PIDisabled}} \mbox{\hyperlink{class_p_i_disabled_a16bb6f0daa02e54f748e50f23b71fef7}{\_pidisabled}};}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \textcolor{comment}{//name}}
+\DoxyCodeLine{245     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_p_i_disabled_aac95f3f9d122f8123f8e7185d31b204d}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}disabled"{}};\}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{248     \mbox{\hyperlink{class_p_i_disabled}{PIDisabled}}* \mbox{\hyperlink{class_p_i_disabled_ae3e14a4275124ad37113de246ba99730}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{249         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_p_i_disabled}{PIDisabled}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{250     \}}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252 \};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_PAIRINSTABILITY\_H}}
+
+\end{DoxyCode}

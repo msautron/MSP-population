@@ -1,0 +1,587 @@
+\hypertarget{_i_o_8h_source}{}\doxysection{IO.\+h}
+\label{_i_o_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/IO.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/IO.h}}
+\mbox{\hyperlink{_i_o_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 13/11/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_REVISED\_IO\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_REVISED\_IO\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <dirent.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{starparameter_8h}{starparameter.h}}>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <numeric>} \textcolor{comment}{//for iota function}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{24 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{27 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_lookup}{Lookup}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_8h}{params.h}}>}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#ifdef H5OUT}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <H5out.h>}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{using }sevnstd::H5out;}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include <sys/stat.h>} \textcolor{comment}{//GI271119: moved here from region inside ifdef H5OUT }}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/*}}
+\DoxyCodeLine{48 \textcolor{comment}{NB:  Every IO constructor needs to call set\_init\_variable() at the beginning to properly set the following}}
+\DoxyCodeLine{49 \textcolor{comment}{-\/ tablesloaded = 0; Otherwise it will never load the tables even if load is called}}
+\DoxyCodeLine{50 \textcolor{comment}{-\/ nthreads = 1;}}
+\DoxyCodeLine{51 \textcolor{comment}{-\/  ntables = \_Ntables;}}
+\DoxyCodeLine{52 \textcolor{comment}{ */}}
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_o}{IO}} \{}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{public}:}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \mbox{\hyperlink{class_i_o_a49b27a2ee79bce0de4e3ef163cbebd30}{IO}}()\{}
+\DoxyCodeLine{58         \mbox{\hyperlink{class_i_o_aa1820f89166c62a2fd33daee24d2de1a}{set\_init\_variables}}();}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \mbox{\hyperlink{class_i_o_a22f459df27d51574a058a56ec0caa55a}{IO}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)\{}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \mbox{\hyperlink{class_i_o_aa1820f89166c62a2fd33daee24d2de1a}{set\_init\_variables}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \mbox{\hyperlink{class_i_o_a6f56823f20c05fc9b7fb74b27c28d963}{load}}(argc, argv);}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_i_o_a8208e360fe14ca4f4d35f258ad8e6963}{load\_stars}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_i_o_ac95aad84d1b1e0d3613eb9e4981a5331}{get\_output\_folder\_name}}().empty())}
+\DoxyCodeLine{71             \mbox{\hyperlink{class_i_o_afae6e76c754113671a661cd5142589bb}{create\_folder}}(\mbox{\hyperlink{class_i_o_ac95aad84d1b1e0d3613eb9e4981a5331}{get\_output\_folder\_name}}());}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}Output folder name is "{}}+\mbox{\hyperlink{class_i_o_ac95aad84d1b1e0d3613eb9e4981a5331}{get\_output\_folder\_name}}());}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \mbox{\hyperlink{class_i_o_a44861ff225d351615179f0f24cb8d7f6}{\string~IO}}()\{}
+\DoxyCodeLine{80             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_a77a375b43764c0bf47b620f8a4a13d47}{liststars}}.is\_open())}
+\DoxyCodeLine{81                 \mbox{\hyperlink{class_i_o_a77a375b43764c0bf47b620f8a4a13d47}{liststars}}.close();}
+\DoxyCodeLine{82             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_a4ee9ffbe59e507aa5dae7d2bda25a796}{failedstars}}.is\_open())}
+\DoxyCodeLine{83                 \mbox{\hyperlink{class_i_o_a4ee9ffbe59e507aa5dae7d2bda25a796}{failedstars}}.close();}
+\DoxyCodeLine{84             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_a4fd150be4fbad55ec4721a85fae50fb6}{outputfile}}.is\_open())}
+\DoxyCodeLine{85                 \mbox{\hyperlink{class_i_o_a4fd150be4fbad55ec4721a85fae50fb6}{outputfile}}.close();}
+\DoxyCodeLine{86             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_a897148662639fad729bdf1bd1787d696}{logfile}}.is\_open())}
+\DoxyCodeLine{87                 \mbox{\hyperlink{class_i_o_a897148662639fad729bdf1bd1787d696}{logfile}}.close();}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{/* LOAD METHODS */}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a8208e360fe14ca4f4d35f258ad8e6963}{load\_stars}}();}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a6f56823f20c05fc9b7fb74b27c28d963}{load}}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{char}** val);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     std::string \mbox{\hyperlink{class_i_o_a9f5c2e0c9648433e9a5f92e4168e958d}{get\_logstring}}()\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_i_o_a6ddb82c59853fd8707ba7e1e2002adaa}{logstring}};\};}
+\DoxyCodeLine{106     \textcolor{keyword}{inline} \textcolor{keywordtype}{void}  \mbox{\hyperlink{class_i_o_a78259bd15f283fb29a0fd1b9d520736b}{reset\_log}}()\{\mbox{\hyperlink{class_i_o_a6ddb82c59853fd8707ba7e1e2002adaa}{logstring}}.clear();\}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a033b19c4a742f3b1c0197db003f63755}{fill\_matrix\_test}}(std::vector< std::vector<T> > \&matrix, std::ifstream \&file)\{}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110         std::vector<T> vline;}
+\DoxyCodeLine{111         std::string line, value;}
+\DoxyCodeLine{112         std::istringstream stream;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         std::cout<<\textcolor{stringliteral}{"{} Filling matrix "{}}<<std::endl;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \textcolor{keywordflow}{for}(;;)\{}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118             vline.erase(vline.begin(), vline.end());}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120             getline(file, line);}
+\DoxyCodeLine{121             \textcolor{keywordflow}{if}(file.eof() || line.length()==0 ) \textcolor{keywordflow}{break}; \textcolor{comment}{//break if end of file or if a blank line is included.}}
+\DoxyCodeLine{122             stream.clear();}
+\DoxyCodeLine{123             stream.str(line);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125             \textcolor{comment}{//If it is a comment do not read}}
+\DoxyCodeLine{126             \textcolor{keywordflow}{if}(line[0]==\textcolor{charliteral}{'/'} or line[0]==\textcolor{charliteral}{'\#'})}
+\DoxyCodeLine{127                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130             \textcolor{keywordflow}{for}(;;)\{ \textcolor{comment}{//keep reading the line till its last element}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132                 \textcolor{keywordflow}{if}(stream >> value)\{}
+\DoxyCodeLine{133                     vline.push\_back(utilities::s2n<T>(value, \_\_FILE\_\_, \_\_LINE\_\_));}
+\DoxyCodeLine{134                     stream.clear();}
+\DoxyCodeLine{135                 \}}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{137                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{138             \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140             matrix.push\_back(vline);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{comment}{//tables[ID][i][j][k]:}}
+\DoxyCodeLine{148     \textcolor{comment}{//ID = taken from enum lookup\_names. It tells what kind of matrix you want to access}}
+\DoxyCodeLine{149     \textcolor{comment}{// i = metallicity index}}
+\DoxyCodeLine{150     \textcolor{comment}{// j = track number}}
+\DoxyCodeLine{151     \textcolor{comment}{// k = time on the j-\/th track}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     std::vector<std::vector<std::vector<std::vector<double>>>> \mbox{\hyperlink{class_i_o_ad1642c3766821d0ef9dcfa2e54aebc72}{tables}},\mbox{\hyperlink{class_i_o_a90f14c95a96dedbfda32a7b02d94d9f2}{tables\_HE}};}
+\DoxyCodeLine{158     std::vector<double> \mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}}, \mbox{\hyperlink{class_i_o_ad894a210155a726d323b4f91fd114d55}{Z\_HE}};}
+\DoxyCodeLine{159     std::vector<std::vector<double>> \mbox{\hyperlink{class_i_o_a99dac6d688185986f5811a3bbcbd24f7}{allzams}}, \mbox{\hyperlink{class_i_o_acc1f5242fe349ff0f42ff8efbab97aa5}{allzams\_HE}};}
+\DoxyCodeLine{160     std::vector< std::vector<std::string> > \mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     std::random\_device \mbox{\hyperlink{class_i_o_a1440350ee5aa95d339103dd77df6b755}{rd}};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{comment}{//TODO Let the user select the output columns (not just what add to the default one)}}
+\DoxyCodeLine{165     std::vector<std::string> \mbox{\hyperlink{class_i_o_afeeda6890b171d3ee1740898233f9cc1}{printcolumns\_star}};   }
+\DoxyCodeLine{168     std::vector<std::string> \mbox{\hyperlink{class_i_o_a13566b115648e8dd8d7d84c413c4962a}{printcolumns\_binary}}; \textcolor{comment}{/*< As above, but for the properties of the binary system. Use -\/bcol flag to let the user add more columns}}
+\DoxyCodeLine{169 \textcolor{comment}{ * to the default defined in IO::list\_cols\_binary*/}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     std::vector<size\_t> \mbox{\hyperlink{class_i_o_a9d9508e411fb8ea9a8ee7f86260c34fa}{printIDs\_star}};}
+\DoxyCodeLine{172     std::vector<size\_t> \mbox{\hyperlink{class_i_o_a76e7189db5b97005fa199ca0ae6fb19c}{printIDs\_binary}};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_i_o_a95c786b97f2781158479418eb6c198fa}{ntables}};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordtype}{int}         \mbox{\hyperlink{class_i_o_a77a4905e7d35bee2deda850455e05afc}{nthreads}};}
+\DoxyCodeLine{178     std::string \mbox{\hyperlink{class_i_o_a204e3df440bcc0034664ef5d86a31133}{output\_mode}};     }
+\DoxyCodeLine{179     std::string \mbox{\hyperlink{class_i_o_abadbf7d7e979b1b4515dfe8b47a30722}{binput\_mode}};     }
+\DoxyCodeLine{180     std::string \mbox{\hyperlink{class_i_o_a4ac766acaf307359f5facbf62bbf3f70}{winds\_mode}};      }
+\DoxyCodeLine{181     std::string \mbox{\hyperlink{class_i_o_ac33e1ec6a721c92b6d7c057fbd71b3cc}{RL\_mode}};         }
+\DoxyCodeLine{182     std::string \mbox{\hyperlink{class_i_o_a3ee5533182fed7d49d1026dad0bbc79e}{tides\_mode}};      }
+\DoxyCodeLine{183     std::string \mbox{\hyperlink{class_i_o_a15e0862f7603931b6b9e87f4b3638e25}{GW\_mode}};         }
+\DoxyCodeLine{184     std::string \mbox{\hyperlink{class_i_o_ac1be29dc01b59b7d8ac8e4bbac33e3df}{mix\_mode}};         }
+\DoxyCodeLine{185     std::string \mbox{\hyperlink{class_i_o_ad944f3177811ae525b26445421a51f95}{COLL\_mode}};         }
+\DoxyCodeLine{186     std::string \mbox{\hyperlink{class_i_o_abafb03588541dd58c04ad4e50eaa92f9}{HARD\_mode}};         }
+\DoxyCodeLine{187     std::string \mbox{\hyperlink{class_i_o_a548f57aba17d7fc29d9e108999d307e8}{CIRC\_mode}};         }
+\DoxyCodeLine{188     std::string \mbox{\hyperlink{class_i_o_a8beed7ecd8cd6104baea317c014f4fad}{SNK\_mode}};         }
+\DoxyCodeLine{189     std::string \mbox{\hyperlink{class_i_o_aa10cbde61a00ee4994d624013656d425}{CE\_mode}};         }
+\DoxyCodeLine{190     std::string \mbox{\hyperlink{class_i_o_add1f5fa1c7960b91f47f0b91bb5bd1ae}{SEVNpath}};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194     \textcolor{comment}{//TODO Transform all the paramters to parameters call}}
+\DoxyCodeLine{195     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_i_o_a865cff47863a99f5e102ad9ef205db83}{rseed\_provided}}()\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_a3db213cd0a1180a894ba5692f92ed4e1}{get\_bool}}(\textcolor{stringliteral}{"{}rseed"{}});\}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \mbox{\hyperlink{class_s_e_v_npar}{SEVNpar}} \mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}};}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{comment}{//variable to check if look-\/up tables have already been loaded}}
+\DoxyCodeLine{202     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_i_o_abb939263e352fb61e877e259c0dbf677}{tablesloaded}};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_ad44f6bad3b0963512e2ef78f264e214e}{print\_output}}(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint=\textcolor{keyword}{false});}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a0b6c0c34c5c9f20a78fb23776674baa7}{print\_formatted\_output}}(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint=\textcolor{keyword}{false})\{}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209         \textcolor{comment}{//This is not needed since the print\_evolved\_summary is called inside the call of binstar or star}}
+\DoxyCodeLine{210         \textcolor{comment}{//print\_evolved\_summary(\_name, \_rseed, \_ID);}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212         \textcolor{comment}{//TODO change the way we choose among different outputs. New class structure IO -\/-\/> PRINT (virtual with instances) -\/-\/> -\/-\/ ASCII, HDF5, CSV}}
+\DoxyCodeLine{213         \textcolor{comment}{// here we will just call PRINT.do()}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215         \mbox{\hyperlink{namespace_lookup_a2a82295939898e20b2646c6dcf7b7341}{OutputOption}} out = \mbox{\hyperlink{namespace_lookup_ac55f693d4648a2e00c8fd886ecbab785}{outputmap}}.at(\mbox{\hyperlink{class_i_o_a204e3df440bcc0034664ef5d86a31133}{output\_mode}});}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217         \textcolor{keywordflow}{if}(out == OutputOption::\_ascii)}
+\DoxyCodeLine{218             \mbox{\hyperlink{class_i_o_a8d13a4015d72c79eb1e24d893b3ec9c9}{print\_ascii}}(\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \_name, \_rseed, \_ID, binaryprint);}
+\DoxyCodeLine{219         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (out == OutputOption::\_csv)}
+\DoxyCodeLine{220             \mbox{\hyperlink{class_i_o_a71d6ea6c039105cf0efdd6eafc06da13}{print\_csv}}(\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \_name, \_rseed, \_ID, binaryprint);}
+\DoxyCodeLine{221         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (out == OutputOption::\_binary)}
+\DoxyCodeLine{222             \mbox{\hyperlink{class_i_o_a96c2bd80f31f7972f875dcf7ce74d37c}{print\_bin}}(\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \_name, \_rseed, \_ID, binaryprint);}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#ifdef H5OUT}}
+\DoxyCodeLine{224             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (out == OutputOption::\_hdf5)}
+\DoxyCodeLine{225         print\_hdf5(\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \_name, binaryprint);}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{227         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{228             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Output option not recognized: ["{}} + \mbox{\hyperlink{class_i_o_a204e3df440bcc0034664ef5d86a31133}{output\_mode}} +\textcolor{stringliteral}{"{}] "{}}, \_\_FILE\_\_, \_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 }
+\DoxyCodeLine{240     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a05104d92ec20c809ec5816829a9433bd}{print\_evolved\_summary}}(\textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID);}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{248     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a3ca54354ff5ec1562bcaba6802b32c9a}{print\_failed\_summary}}(\textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a9810b918c80b14367202e45dca06a8f5}{print\_failed\_initilisation\_summary}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID);}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_aec8fcece0c9d7a8e9cdb69ec215deaa0}{print\_params}}(std::string filename=\textcolor{stringliteral}{"{}used\_params.svpar"{}})\{}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254         std::string fname = \mbox{\hyperlink{class_i_o_ac95aad84d1b1e0d3613eb9e4981a5331}{get\_output\_folder\_name}}()+\textcolor{stringliteral}{"{}/"{}}+filename;}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256         std::ofstream output\_file;}
+\DoxyCodeLine{257         output\_file.open(fname);}
+\DoxyCodeLine{258         output\_file<< \mbox{\hyperlink{class_i_o_a41a5770e39f8a3df8ab4b550b427f2c0}{svpar}}.\mbox{\hyperlink{class_s_e_v_npar_a28f021918fcc44abbfbd19355b78639e}{print}}();}
+\DoxyCodeLine{259         output\_file.close();}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{266      \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a1c2f0b12a9a1bfffdd7d7129eb37c7b8}{print\_log}}(std::string filename=\textcolor{stringliteral}{"{}logfile.dat"{}});}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 }
+\DoxyCodeLine{273     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a7e37248890d47aaf46fc0a32c9758187}{log\_put}}(std::string\& loginfo);}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#ifdef DEBUG}}
+\DoxyCodeLine{283     \textcolor{keywordtype}{void} print\_timelog(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_afae6e76c754113671a661cd5142589bb}{create\_folder}}(\textcolor{keyword}{const} std::string \&name) \{}
+\DoxyCodeLine{288 \textcolor{preprocessor}{        \#if defined(\_\_linux\_\_)}}
+\DoxyCodeLine{289         \textcolor{keywordtype}{int} results = mkdir(name.c\_str(), 0777);}
+\DoxyCodeLine{290 \textcolor{preprocessor}{        \#else}}
+\DoxyCodeLine{291         \textcolor{comment}{//The above code seems to not work properly for certain path name on  macOS}}
+\DoxyCodeLine{292         \textcolor{keywordtype}{int} results = system((\textcolor{stringliteral}{"{}mkdir -\/p "{}}+name).c\_str());}
+\DoxyCodeLine{293 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295         \textcolor{keywordflow}{if}(results)\{}
+\DoxyCodeLine{296             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}{pdebug}}(\textcolor{stringliteral}{"{}Directory exist"{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{297         \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299         \textcolor{comment}{//GI: this was extremely dangerous because it removes everything inside the folder}}
+\DoxyCodeLine{300         \textcolor{comment}{//if it already exists.}}
+\DoxyCodeLine{301         \textcolor{comment}{/*}}
+\DoxyCodeLine{302 \textcolor{comment}{        if(results)\{}}
+\DoxyCodeLine{303 \textcolor{comment}{            svlog.pdebug("{}Directory exist"{},\_\_FILE\_\_,\_\_LINE\_\_);}}
+\DoxyCodeLine{304 \textcolor{comment}{}}
+\DoxyCodeLine{305 \textcolor{comment}{            DIR *theFolder = opendir(name.c\_str());}}
+\DoxyCodeLine{306 \textcolor{comment}{            struct dirent *next\_file;}}
+\DoxyCodeLine{307 \textcolor{comment}{}}
+\DoxyCodeLine{308 \textcolor{comment}{            while ( (next\_file = readdir(theFolder)) != nullptr )\{}}
+\DoxyCodeLine{309 \textcolor{comment}{                std::string path = name + "{}/"{} + next\_file-\/>d\_name;}}
+\DoxyCodeLine{310 \textcolor{comment}{                remove(path.c\_str());}}
+\DoxyCodeLine{311 \textcolor{comment}{            \}}}
+\DoxyCodeLine{312 \textcolor{comment}{}}
+\DoxyCodeLine{313 \textcolor{comment}{            closedir(theFolder);}}
+\DoxyCodeLine{314 \textcolor{comment}{        \}}}
+\DoxyCodeLine{315 \textcolor{comment}{        */}}
+\DoxyCodeLine{316     \}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318     \textcolor{comment}{//GET}}
+\DoxyCodeLine{319     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_i_o_ac95aad84d1b1e0d3613eb9e4981a5331}{get\_output\_folder\_name}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_i_o_a867eecd7111719c707202b4ce1418a6d}{output\_folder\_name}};\}}
+\DoxyCodeLine{320     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_i_o_aeaf729745bde95f7deadecb98f4d3f01}{get\_SEVNpath}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_i_o_add1f5fa1c7960b91f47f0b91bb5bd1ae}{SEVNpath}};\}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \textcolor{comment}{//load}}
+\DoxyCodeLine{330 \textcolor{comment}{}    std::vector<std::vector<double>> \mbox{\hyperlink{class_i_o_a4723148152bb5e16b1e85a271c6506ac}{load\_auxiliary\_table}}(std::string name)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332         std::ifstream table\_file;}
+\DoxyCodeLine{333         std::vector<std::vector<double>> Matrix;}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335 \textcolor{preprocessor}{        \#ifdef \_OPENMP}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{        \#pragma omp critical}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{338         \{}
+\DoxyCodeLine{339             table\_file.open(\mbox{\hyperlink{class_i_o_aeaf729745bde95f7deadecb98f4d3f01}{get\_SEVNpath}}() + \textcolor{stringliteral}{"{}auxiliary\_data/"{}} + name);}
+\DoxyCodeLine{340             \textcolor{comment}{//std::cout<<get\_SEVNpath() + "{}auxiliary\_data/"{} + name<<std::endl;}}
+\DoxyCodeLine{341             \textcolor{keywordflow}{if} (table\_file.is\_open()) \{}
+\DoxyCodeLine{342                 \mbox{\hyperlink{class_i_o_ad758825a2b8402ce5d47206e406f4598}{fill\_matrix}}(Matrix, table\_file);}
+\DoxyCodeLine{343                 table\_file.close();}
+\DoxyCodeLine{344             \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{345                 \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Raised an error reading auxiliary table file "{}} + name +}
+\DoxyCodeLine{346                                \textcolor{stringliteral}{"{}. Check if the file exist, if you specified the right path in the run script, and if you have reading permission."{}},}
+\DoxyCodeLine{347                                \_\_FILE\_\_, \_\_LINE\_\_,}
+\DoxyCodeLine{348                                \mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{349         \}}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351         \textcolor{keywordflow}{return} Matrix;}
+\DoxyCodeLine{352     \}}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{355     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_aa1820f89166c62a2fd33daee24d2de1a}{set\_init\_variables}}()\{}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357         \mbox{\hyperlink{class_i_o_abb939263e352fb61e877e259c0dbf677}{tablesloaded}} = 0;}
+\DoxyCodeLine{358         \mbox{\hyperlink{class_i_o_a95c786b97f2781158479418eb6c198fa}{ntables}} = \mbox{\hyperlink{namespace_lookup_a5c4e15aee97253d7a5d34991691ba060af27cc67259157b892faafb883a675a1a}{\_Ntables}};}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     \};}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365 \textcolor{keyword}{private}:}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#ifdef H5OUT}}
+\DoxyCodeLine{368         \textcolor{keyword}{static} H5out h5; \textcolor{comment}{//used by each thread to print the HDF5 dataset}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{    \#pragma omp threadprivate(IO::h5)}}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{371     \textcolor{keyword}{static} std::ofstream \mbox{\hyperlink{class_i_o_a77a375b43764c0bf47b620f8a4a13d47}{liststars}};}
+\DoxyCodeLine{372     \textcolor{keyword}{static} std::ofstream \mbox{\hyperlink{class_i_o_a4ee9ffbe59e507aa5dae7d2bda25a796}{failedstars}};}
+\DoxyCodeLine{373     \textcolor{keyword}{static} std::ofstream \mbox{\hyperlink{class_i_o_a0d16dc87519aa1f3de5942dbffd3d199}{failedinits}};}
+\DoxyCodeLine{374     \textcolor{keyword}{static} std::ofstream \mbox{\hyperlink{class_i_o_a4fd150be4fbad55ec4721a85fae50fb6}{outputfile}}; \textcolor{comment}{//GI 81119: File where to save the (non h5) output.}}
+\DoxyCodeLine{375     \textcolor{keyword}{static} std::ofstream \mbox{\hyperlink{class_i_o_a897148662639fad729bdf1bd1787d696}{logfile}}; \textcolor{comment}{//File to output the log}}
+\DoxyCodeLine{376     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_i_o_a6ddb82c59853fd8707ba7e1e2002adaa}{logstring}}; \textcolor{comment}{//File to store info to output in log, declared threadprivate}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{379 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::liststars)}}
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::failedstars)}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::failedinits)}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::outputfile)}}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::logfile)}}
+\DoxyCodeLine{384 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::logstring)}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#ifdef DEBUG}}
+\DoxyCodeLine{388     \textcolor{keyword}{static} std::ofstream timelog;}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#pragma omp threadprivate(IO::timelog)}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_i_o_a1e8e2977478237b557347bbf5993e58b}{load\_called}} = \textcolor{keyword}{false};  }
+\DoxyCodeLine{396     \textcolor{keyword}{static} std::vector<std::string> \mbox{\hyperlink{class_i_o_a5cf54d071f2b9250e88bf6d78a94328c}{labels\_STARMATRIX}}; }
+\DoxyCodeLine{398     std::string \mbox{\hyperlink{class_i_o_a867eecd7111719c707202b4ce1418a6d}{output\_folder\_name}}=\textcolor{stringliteral}{"{}output"{}};}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401     std::vector<std::vector<double>> \mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}};}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}};}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406     \textcolor{comment}{//main}}
+\DoxyCodeLine{407     std::string \mbox{\hyperlink{class_i_o_ac1d1616d42388e6a72fab4a2aa43be0e}{tables\_dir}}, \mbox{\hyperlink{class_i_o_a87475d8749c2bb0f2b92604ee4933f3a}{tables\_dir\_HE}}, \mbox{\hyperlink{class_i_o_a64bbe89ff4b744049da60893f42ba256}{list\_file}}; \textcolor{comment}{//folder where to find all the look-\/up tables}}
+\DoxyCodeLine{408     std::string \mbox{\hyperlink{class_i_o_adafa7aa9fc3a50f0a7e32524ee533304}{list\_cols\_star}};  }
+\DoxyCodeLine{409     std::string \mbox{\hyperlink{class_i_o_abcc7edabe3d0811bc46a9c68b8e8b6ec}{list\_cols\_binary}}; }
+\DoxyCodeLine{412     \textcolor{comment}{//auxiliaryload}}
+\DoxyCodeLine{413     std::ifstream \mbox{\hyperlink{class_i_o_ab001a2bb8a47811ac999d0eb5814585f}{in}};}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415     std::vector<std::string> \mbox{\hyperlink{class_i_o_a193891ac41ed11bffceae0b9ee0d9040}{zstring}}, \mbox{\hyperlink{class_i_o_a64d53b30721d067efe2fd1f4f407ee63}{zstring\_HE}};}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{423     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a8c4f4ceb3bfc6eb04f44fb1d54e136e1}{columns\_to\_print}}(std::string \&list\_cols, std::vector<std::string> \&printcolumns);}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a12be794007f9ae21f6d4a2ee922caa9d}{read}}(std::vector<std::vector<std::vector<std::vector<double>>>>\& \mbox{\hyperlink{class_i_o_ad1642c3766821d0ef9dcfa2e54aebc72}{tables}},}
+\DoxyCodeLine{426               \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_i_o_ac1d1616d42388e6a72fab4a2aa43be0e}{tables\_dir}}, \textcolor{keyword}{const} std::vector<std::string>\& \mbox{\hyperlink{class_i_o_a193891ac41ed11bffceae0b9ee0d9040}{zstring}},  std::vector<double>\& \mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}});}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{428     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_aee3cfa2b1755f02312b293fb4bb46f7a}{read\_tables}}()\{}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430         \mbox{\hyperlink{class_i_o_a12be794007f9ae21f6d4a2ee922caa9d}{read}}(\mbox{\hyperlink{class_i_o_ad1642c3766821d0ef9dcfa2e54aebc72}{tables}},\mbox{\hyperlink{class_i_o_ac1d1616d42388e6a72fab4a2aa43be0e}{tables\_dir}},\mbox{\hyperlink{class_i_o_a193891ac41ed11bffceae0b9ee0d9040}{zstring}},\mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}});}
+\DoxyCodeLine{431         \mbox{\hyperlink{class_i_o_a12be794007f9ae21f6d4a2ee922caa9d}{read}}(\mbox{\hyperlink{class_i_o_a90f14c95a96dedbfda32a7b02d94d9f2}{tables\_HE}},\mbox{\hyperlink{class_i_o_a87475d8749c2bb0f2b92604ee4933f3a}{tables\_dir\_HE}},\mbox{\hyperlink{class_i_o_a64d53b30721d067efe2fd1f4f407ee63}{zstring\_HE}},\mbox{\hyperlink{class_i_o_ad894a210155a726d323b4f91fd114d55}{Z\_HE}});}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433     \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a9557f43d3af7e85545627a06d2a12d9d}{inspect\_tables}}();}
+\DoxyCodeLine{436     \textcolor{comment}{//It loads all the available tables, at all metallicities}}
+\DoxyCodeLine{437     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a35556aa0b6afcaf09a97d82767040898}{load\_tables}}();}
+\DoxyCodeLine{438     \textcolor{comment}{//It loads all the available tables for pure-\/HE stars (if any), at all metallicities}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{447     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_ad758825a2b8402ce5d47206e406f4598}{fill\_matrix}}(std::vector< std::vector<T> > \&matrix, std::ifstream \&file, \textcolor{keywordtype}{bool} reset=\textcolor{keyword}{false})\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449         std::vector<T> vline;}
+\DoxyCodeLine{450         std::string line, value;}
+\DoxyCodeLine{451         std::istringstream stream;}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453         \textcolor{keywordflow}{if} (reset)\{}
+\DoxyCodeLine{454             matrix.clear();}
+\DoxyCodeLine{455         \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457         \textcolor{keywordflow}{for}(;;)\{}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459             vline.erase(vline.begin(), vline.end());}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461             getline(file, line);}
+\DoxyCodeLine{462             \textcolor{keywordflow}{if}(file.eof() || line.length()==0 ) \textcolor{keywordflow}{break}; \textcolor{comment}{//break if end of file or if a blank line is included.}}
+\DoxyCodeLine{463             stream.clear();}
+\DoxyCodeLine{464             stream.str(line);}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466             \textcolor{comment}{//Skip comments}}
+\DoxyCodeLine{467             \textcolor{keywordflow}{if} (line[0]==\textcolor{charliteral}{'\#'} or line[0]==\textcolor{charliteral}{'/'})}
+\DoxyCodeLine{468                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471             \textcolor{keywordflow}{for}(;;)\{ \textcolor{comment}{//keep reading the line till its last element}}
+\DoxyCodeLine{472                 \textcolor{keywordflow}{if}(stream >> value and stream.str()[0]!=\textcolor{charliteral}{'/'} and stream.str()[0]!=\textcolor{charliteral}{'\#'})\{}
+\DoxyCodeLine{473                     vline.push\_back(utilities::s2n<T>(value, \_\_FILE\_\_, \_\_LINE\_\_));}
+\DoxyCodeLine{474                     stream.clear();}
+\DoxyCodeLine{475                 \}}
+\DoxyCodeLine{476                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{477                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{478             \}}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480             matrix.push\_back(vline);}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482         \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484     \}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_abb4ac678e2c667c97c1d18a9b66a70e1}{print\_list\_summary}}(std::ofstream\& outstream, std::string basename, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID);}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490     \textcolor{comment}{//GI 81119: specific functions to be called by print\_output depending on the output type}}
+\DoxyCodeLine{491     \textcolor{comment}{//void print\_evolved\_summary(const std::string \&\_name, const size\_t \&\_ID);}}
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#ifdef H5OUT}}
+\DoxyCodeLine{493     \textcolor{keywordtype}{void} print\_hdf5(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint);}
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{512     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a660204e9dfd4157969d3dc7f7ab05471}{print\_formatted\_ascii}}(\textcolor{keyword}{const} std::string \&filename,std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint, \textcolor{keyword}{const} std::string \&separator,}
+\DoxyCodeLine{513                                    \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_w\_id, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_w\_name, \textcolor{keyword}{const}  \textcolor{keywordtype}{size\_t} \&\_w\_header, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_precision, \textcolor{keyword}{const} std::string \&comment);}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a8d13a4015d72c79eb1e24d893b3ec9c9}{print\_ascii}}(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint);}
+\DoxyCodeLine{516     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a71d6ea6c039105cf0efdd6eafc06da13}{print\_csv}}(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint);}
+\DoxyCodeLine{517     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a96c2bd80f31f7972f875dcf7ce74d37c}{print\_bin}}(std::vector<std::vector<double>> \&\mbox{\hyperlink{class_i_o_ac85fd3d98c79fb9d772476657181a095}{printmatrix}}, \textcolor{keyword}{const} std::string \&\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \&\_rseed, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\_ID, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} binaryprint);}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a9808f559683213cb37d355fe25fc2f6a}{inspect\_dirs}}()\{}
+\DoxyCodeLine{521         \mbox{\hyperlink{class_i_o_a0954cffb8bf4f8e7be8308f69cbbb92a}{inspect\_dir}}(\mbox{\hyperlink{class_i_o_ac1d1616d42388e6a72fab4a2aa43be0e}{tables\_dir}},\mbox{\hyperlink{class_i_o_a193891ac41ed11bffceae0b9ee0d9040}{zstring}},\mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}});}
+\DoxyCodeLine{522         \mbox{\hyperlink{class_i_o_a0954cffb8bf4f8e7be8308f69cbbb92a}{inspect\_dir}}(\mbox{\hyperlink{class_i_o_a87475d8749c2bb0f2b92604ee4933f3a}{tables\_dir\_HE}},\mbox{\hyperlink{class_i_o_a64d53b30721d067efe2fd1f4f407ee63}{zstring\_HE}},\mbox{\hyperlink{class_i_o_ad894a210155a726d323b4f91fd114d55}{Z\_HE}});}
+\DoxyCodeLine{523     \}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a0954cffb8bf4f8e7be8308f69cbbb92a}{inspect\_dir}}(\textcolor{keyword}{const} std::string \&motherdir, std::vector<std::string>\& \_zstring, std::vector<double>\& \_Z,std::string inspectdir=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{527         std::string dir = motherdir + \textcolor{stringliteral}{"{}/"{}} + inspectdir;}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529         \textcolor{comment}{//std::cout<<"{} inspectig dir = "{}<<dir<<std::endl;}}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531         \textcolor{keywordflow}{if}(dir.empty())}
+\DoxyCodeLine{532             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}You are trying to inspect an empty directory: "{}} + dir, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{534         dir += \textcolor{stringliteral}{"{}/"{}}; \textcolor{comment}{//safe instruction.. if the user forgets to add the / at the end of the directory string}}
+\DoxyCodeLine{535         \textcolor{keyword}{auto} directory = opendir(dir.c\_str()); \textcolor{comment}{//from dirent.h}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538         \textcolor{keywordflow}{if}(\textcolor{keyword}{nullptr} == directory)}
+\DoxyCodeLine{539             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Cannot open directory "{}} + dir, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{541         dirent *gotobject = readdir(directory); \textcolor{comment}{//get the first object inside the directory}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544         \textcolor{keywordflow}{while}(gotobject != \textcolor{keyword}{nullptr}) \{ \textcolor{comment}{//inspect all the objects inside the current directory}}
+\DoxyCodeLine{545             \mbox{\hyperlink{class_i_o_a20cc18b6629da511093a232b3aeabc42}{inspect\_object}}(gotobject, motherdir,\_zstring,\_Z);}
+\DoxyCodeLine{546             gotobject = readdir(directory);}
+\DoxyCodeLine{547         \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551         closedir(directory);}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553     \}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_a20cc18b6629da511093a232b3aeabc42}{inspect\_object}}(dirent *\textcolor{keywordtype}{object}, \textcolor{keyword}{const} std::string \&motherdir, std::vector<std::string>\& \_zstring, std::vector<double>\& \_Z) \{}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{557 }
+\DoxyCodeLine{558         \textcolor{keywordflow}{if} (object-\/>d\_name[0] == \textcolor{charliteral}{'.'}) \{ \textcolor{comment}{//exclude . and ..}}
+\DoxyCodeLine{559             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{560         \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562         \textcolor{keywordflow}{if} (object-\/>d\_type == DT\_DIR) \{\textcolor{comment}{//the object is a directory}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564             \_zstring.emplace\_back(object-\/>d\_name); \textcolor{comment}{//Vector containing the name of all the metallicity folders (GI why not directly casted from Z?)}}
+\DoxyCodeLine{565             \textcolor{comment}{//it's a directory, so process it... it should be a metallicity dir}}
+\DoxyCodeLine{566             \_Z.push\_back(utilities::dirname2n<double>(std::string(object-\/>d\_name), \_\_FILE\_\_, \_\_LINE\_\_)); \textcolor{comment}{//save the metallicity value... use the string\_to\_number function}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568             \textcolor{comment}{//\_tables\_file.resize(\_Z.size());}}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{570             \mbox{\hyperlink{class_i_o_a0954cffb8bf4f8e7be8308f69cbbb92a}{inspect\_dir}}(motherdir, \_zstring, \_Z, std::string(object-\/>d\_name));\textcolor{comment}{//process a directory (a sub\_directory)}}
+\DoxyCodeLine{571             \textcolor{keywordflow}{return}; \textcolor{comment}{//done inspection in the current sub-\/folder}}
+\DoxyCodeLine{572         \}}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575         \textcolor{comment}{//for each metallicity we fill the "{}tables\_file vector... it contains all the tables we have for each different metallicity"{}}}
+\DoxyCodeLine{576         \textcolor{keywordflow}{if} (object-\/>d\_type == DT\_REG) \{}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578             std::string filename = motherdir + \textcolor{stringliteral}{"{}/"{}} + \_zstring[\_zstring.size()-\/1] + \textcolor{stringliteral}{"{}/"{}} + std::string(object-\/>d\_name);}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580             \textcolor{comment}{//GI: Do not read files that are not defined in filemap}}
+\DoxyCodeLine{581             \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespace_lookup_a34dc3dad6af684ef09be13e5f3e70bc6}{filemap}}.find(std::string(object-\/>d\_name)) == \mbox{\hyperlink{namespace_lookup_a34dc3dad6af684ef09be13e5f3e70bc6}{filemap}}.end() and \mbox{\hyperlink{namespace_lookup_a9785968b3957a67037226fb5945a30ba}{filemap\_optional}}.find(std::string(object-\/>d\_name)) == \mbox{\hyperlink{namespace_lookup_a9785968b3957a67037226fb5945a30ba}{filemap\_optional}}.end())\{}
+\DoxyCodeLine{582                 \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(\textcolor{stringliteral}{"{}The unexpected file '"{}}+std::string(object-\/>d\_name)+\textcolor{stringliteral}{"{}' has been found  in the directory "{}}+}
+\DoxyCodeLine{583                                       motherdir + \textcolor{stringliteral}{"{}/"{}} + \_zstring[\_zstring.size()-\/1] + \textcolor{stringliteral}{"{}. It will be not loaded. Check if this is a misspelled table."{}}}
+\DoxyCodeLine{584                                       ,\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{585                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{586             \}}
+\DoxyCodeLine{587 }
+\DoxyCodeLine{588             \textcolor{keywordflow}{if}(filename.empty())}
+\DoxyCodeLine{589                 \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}This filename should not be empty: "{}} + filename, \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591 }
+\DoxyCodeLine{592             \textcolor{keywordflow}{return}; \textcolor{comment}{//return the name of the file}}
+\DoxyCodeLine{593         \}}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595 }
+\DoxyCodeLine{596         \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}This is nor a file or a directory: "{}} + std::string(object-\/>d\_name), \_\_FILE\_\_, \_\_LINE\_\_);}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{598     \}}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{600 }
+\DoxyCodeLine{601 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{603 }
+\DoxyCodeLine{604 }
+\DoxyCodeLine{609     \textcolor{comment}{//TODO probably this can be made void (no need to return bool?)}}
+\DoxyCodeLine{610     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_i_o_aaf0c343feed69efb211f069fb11bb071}{check\_sorted}}()\{}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612         \textcolor{comment}{//Z}}
+\DoxyCodeLine{613         \textcolor{keywordflow}{if} (!std::is\_sorted(\mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}}.begin(),\mbox{\hyperlink{class_i_o_ae94ed649736fdfb01ea7dcf41484cd47}{Z}}.end()))}
+\DoxyCodeLine{614             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Z table is not sorted"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{615         \textcolor{comment}{//ZHE}}
+\DoxyCodeLine{616         \textcolor{keywordflow}{if} (!std::is\_sorted(\mbox{\hyperlink{class_i_o_ad894a210155a726d323b4f91fd114d55}{Z\_HE}}.begin(),\mbox{\hyperlink{class_i_o_ad894a210155a726d323b4f91fd114d55}{Z\_HE}}.end()))}
+\DoxyCodeLine{617             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Z\_HE table is not sorted"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{618         \textcolor{comment}{//Mass}}
+\DoxyCodeLine{619         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& zams\_table : \mbox{\hyperlink{class_i_o_a99dac6d688185986f5811a3bbcbd24f7}{allzams}})\{}
+\DoxyCodeLine{620             \textcolor{keywordflow}{if} (!std::is\_sorted(zams\_table.begin(),zams\_table.end()))}
+\DoxyCodeLine{621                 \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}zams table is not sorted"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{622         \}}
+\DoxyCodeLine{623         \textcolor{comment}{//Mass HE}}
+\DoxyCodeLine{624         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& zams\_table : \mbox{\hyperlink{class_i_o_acc1f5242fe349ff0f42ff8efbab97aa5}{allzams\_HE}})\{}
+\DoxyCodeLine{625             \textcolor{keywordflow}{if} (!std::is\_sorted(zams\_table.begin(),zams\_table.end()))}
+\DoxyCodeLine{626                 \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}zams\_HE table is not sorted"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{627         \}}
+\DoxyCodeLine{628 }
+\DoxyCodeLine{629         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{631     \}}
+\DoxyCodeLine{632 }
+\DoxyCodeLine{637     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_o_af47ce59953800d15b807549fcfedc459}{set\_STARMATRIX\_labels}}()\{}
+\DoxyCodeLine{638         \textcolor{comment}{//TODO We should have a flag to understand if we are dealing with a binary or not.}}
+\DoxyCodeLine{639         \textcolor{comment}{//TODO 8 is hardcoded for now;}}
+\DoxyCodeLine{640         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} N\_expected = 8;}
+\DoxyCodeLine{641         \textcolor{keywordtype}{bool} is\_binary = \mbox{\hyperlink{class_i_o_a2cd285232510801d44e35f5db87ed7dd}{STARS\_MATRIX}}[0].size()>N\_expected;}
+\DoxyCodeLine{642         \textcolor{keywordtype}{int} inchoice=\mbox{\hyperlink{namespace_lookup_a94eac4b6a4a62070069fa1073a6bc8df}{inputmapbin}}.at(\mbox{\hyperlink{class_i_o_abadbf7d7e979b1b4515dfe8b47a30722}{binput\_mode}}).first;}
+\DoxyCodeLine{643 }
+\DoxyCodeLine{644         \textcolor{keywordflow}{if} (is\_binary and inchoice==InputBinaryOption::\_new)\{}
+\DoxyCodeLine{645             \mbox{\hyperlink{class_i_o_a5cf54d071f2b9250e88bf6d78a94328c}{labels\_STARMATRIX}}=\{\textcolor{stringliteral}{"{}Mass\_0"{}},\textcolor{stringliteral}{"{}Z\_0"{}},\textcolor{stringliteral}{"{}spin\_0"{}}, \textcolor{stringliteral}{"{}SN\_0"{}}, \textcolor{stringliteral}{"{}Tstart\_0"{}},}
+\DoxyCodeLine{646                                \textcolor{stringliteral}{"{}Mass\_1"{}},\textcolor{stringliteral}{"{}Z\_1"{}},\textcolor{stringliteral}{"{}spin\_1"{}}, \textcolor{stringliteral}{"{}SN\_1"{}}, \textcolor{stringliteral}{"{}Tstart\_1"{}},}
+\DoxyCodeLine{647                                \textcolor{stringliteral}{"{}a"{}},\textcolor{stringliteral}{"{}e"{}},\textcolor{stringliteral}{"{}Tend"{}}, \textcolor{stringliteral}{"{}Dtout"{}}\};}
+\DoxyCodeLine{648         \}}
+\DoxyCodeLine{649         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (is\_binary and inchoice==InputBinaryOption::\_legacy)}
+\DoxyCodeLine{650             \mbox{\hyperlink{class_i_o_a5cf54d071f2b9250e88bf6d78a94328c}{labels\_STARMATRIX}}=\{\textcolor{stringliteral}{"{}Mass\_0"{}},\textcolor{stringliteral}{"{}Mass\_1"{}},\textcolor{stringliteral}{"{}Z\_0"{}},\textcolor{stringliteral}{"{}Z\_1"{}},\textcolor{stringliteral}{"{}spin\_0"{}},\textcolor{stringliteral}{"{}spin\_1"{}},}
+\DoxyCodeLine{651                                \textcolor{stringliteral}{"{}a"{}},\textcolor{stringliteral}{"{}e"{}},\textcolor{stringliteral}{"{}Tend"{}}, \textcolor{stringliteral}{"{}Tstart"{}}, \textcolor{stringliteral}{"{}dt"{}},\textcolor{stringliteral}{"{}SN\_0"{}},\textcolor{stringliteral}{"{}SN\_1"{}},\textcolor{stringliteral}{"{}Dtout"{}}\};}
+\DoxyCodeLine{652         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!is\_binary)\{}
+\DoxyCodeLine{653             \mbox{\hyperlink{class_i_o_a5cf54d071f2b9250e88bf6d78a94328c}{labels\_STARMATRIX}}=\{\textcolor{stringliteral}{"{}Mass"{}},\textcolor{stringliteral}{"{}Z"{}},\textcolor{stringliteral}{"{}spin"{}}, \textcolor{stringliteral}{"{}SN"{}}, \textcolor{stringliteral}{"{}Tstart"{}}, \textcolor{stringliteral}{"{}Tend"{}}, \textcolor{stringliteral}{"{}Dtout"{}}\};}
+\DoxyCodeLine{654         \}}
+\DoxyCodeLine{655         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{656             \mbox{\hyperlink{class_i_o_abf8c66e267377a1952a2b91ac33e93b9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Option unkown"{}},\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}());}
+\DoxyCodeLine{657     \}}
+\DoxyCodeLine{658 }
+\DoxyCodeLine{659     \textcolor{comment}{//TODO Put a safe get starmatrix table? It check if is has been initialised (i.e. is not empty) or not}}
+\DoxyCodeLine{660 }
+\DoxyCodeLine{661 \};}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{663 }
+\DoxyCodeLine{664 }
+\DoxyCodeLine{665 }
+\DoxyCodeLine{666 }
+\DoxyCodeLine{667 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_REVISED\_IO\_H}}
+
+\end{DoxyCode}

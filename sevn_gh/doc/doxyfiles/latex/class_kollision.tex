@@ -1,0 +1,512 @@
+\hypertarget{class_kollision}{}\doxysection{Kollision Class Reference}
+\label{class_kollision}\index{Kollision@{Kollision}}
+
+
+{\ttfamily \#include $<$Collision.\+h$>$}
+
+Inheritance diagram for Kollision\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_kollision}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}{collision\+\_\+outcome}}
+\item 
+typedef std\+::map$<$ std\+::string, size\+\_\+t $>$ \mbox{\hyperlink{class_process_a38ef601981b5f2feeffbf4cb0906f222}{\+\_\+\+Print\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kollision_a7f739238d868ef039276437aafc35e18}{Kollision}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$\+\_\+io=nullptr, bool reg=true)
+\item 
+std\+::string \mbox{\hyperlink{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}{name}} () override
+\item 
+\mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ \mbox{\hyperlink{class_kollision_ab214f4e7c126bcc3ab4e6b6c65278f7f}{Instance}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$\+\_\+io) override
+\item 
+virtual \mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ \mbox{\hyperlink{class_kollision_a5b90ba37a3950d7d1f1efd1c4874fb54}{instance}} ()
+\item 
+bool \mbox{\hyperlink{class_kollision_a9e5bf740a46dc94c3b2e7a7ae69f97aa}{is\+\_\+process\+\_\+ongoing}} () const override
+\item 
+virtual int \mbox{\hyperlink{class_process_a9bb9b7d157239ca6b09b49ce7e5f9253}{evolve}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\item 
+virtual int \mbox{\hyperlink{class_process_a40a3d2a9f51c66ad664119b5835c3266}{special\+\_\+evolve}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\item 
+double \mbox{\hyperlink{class_process_ac9249ff51c5989b28144f3554418af0c}{get}} (const size\+\_\+t \&id)
+\item 
+double \mbox{\hyperlink{class_process_ad09210bc293fb21331f331c8c6eb2152}{get\+\_\+var}} (const size\+\_\+t \&star\+ID, const size\+\_\+t \&prop\+ID)
+\item 
+std\+::string \& \mbox{\hyperlink{class_process_a0476f3a6dd357131c550d271ebf1aa94}{get\+\_\+msg}} ()
+\item 
+void \mbox{\hyperlink{class_process_ad89d46b229414c2cd8077312b06e06cc}{restore}} ()
+\item 
+int \mbox{\hyperlink{class_process_ac8f8936087d36a0f819ee52aac4f7ee0}{modify\+\_\+\+Semimajor\+DV\+\_\+by\+\_\+a\+\_\+factor}} (double factor)
+\item 
+int \mbox{\hyperlink{class_process_ae9e6f863b7cbba6d89b8f4ec58d6a884}{modify\+\_\+\+Eccentricity\+DV\+\_\+by\+\_\+a\+\_\+factor}} (double factor)
+\item 
+bool \mbox{\hyperlink{class_process_a45ecf35e14d1479d369c740561a4f5ea}{is\+\_\+mass\+\_\+transfer\+\_\+happening}} ()
+\item 
+void \mbox{\hyperlink{class_process_acd1dc21ce40d2db9765ce77b0e52cdfb}{set\+\_\+event}} (double code)
+\begin{DoxyCompactList}\small\item\em Events handling. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_process_ab775bed2f34e1f7084f90ad91d69670e}{get\+\_\+event}} ()
+\item 
+void \mbox{\hyperlink{class_process_aa770b4d8d9500a06caed88fa4b1a63d3}{reset\+\_\+event}} ()
+\item 
+void \mbox{\hyperlink{class_process_a8af93dedd4c8c423005349fef53e17aa}{special\+\_\+evolution\+\_\+alarm\+\_\+switch\+\_\+on}} ()
+\begin{DoxyCompactList}\small\item\em Three methods to handle the private member special\+\_\+evolution\+\_\+alarm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_process_a4a4ddc360029522541e5b3d84eebc8b9}{special\+\_\+evolution\+\_\+alarm\+\_\+switch\+\_\+off}} ()
+\item 
+bool \mbox{\hyperlink{class_process_a4f121f649572dff8fe919f704455fa17}{is\+\_\+special\+\_\+evolution\+\_\+alarm\+\_\+on}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_kollision_a2d6f92bd7624f1407cb30f656f52d630}{log\+\_\+message}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{class_kollision_a6c45296d668b61d738b35fec6e008aac}{ID}}
+\item 
+static \mbox{\hyperlink{class_kollision}{Kollision}} \mbox{\hyperlink{class_kollision_a72dfec57ca5fe9aca57ed6a9168897b7}{\+\_\+kollision}}
+\item 
+static constexpr int \mbox{\hyperlink{class_kollision_aeee0a8fd3cd11e6d80bb98a8b8cd3a11}{NO\+\_\+\+COLLISION}} =0
+\item 
+static constexpr int \mbox{\hyperlink{class_kollision_a7b6eb46cc8d0feac1dc7129d94e7b74b}{COLLISION\+\_\+\+CE}} =1
+\item 
+static constexpr int \mbox{\hyperlink{class_kollision_ac3f92e267d9553d06844dcd890952208}{COLLISION\+\_\+\+MIX}} =2
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_process}{Process}} $\ast$ $>$ \mbox{\hyperlink{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}{all}}
+\item 
+static \mbox{\hyperlink{class_process_a38ef601981b5f2feeffbf4cb0906f222}{\+\_\+\+Print\+Map}} \mbox{\hyperlink{class_process_a332d0f6431c087d40da2931c491937d2}{Print\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_process_a22775758327708f0135eb29387eb6e63}{Register}} (\mbox{\hyperlink{class_process}{Process}} $\ast$\+\_\+p, size\+\_\+t $\ast$id, const std\+::string \&\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_process_abd2dbb16d25845cb4b320a01f31b8958}{set}} (const size\+\_\+t \&id, const double \&value)
+\item 
+void \mbox{\hyperlink{class_process_aadf068fa44c66ac0a9ada4527d175038}{set\+\_\+var}} (const size\+\_\+t \&star\+ID, const size\+\_\+t \&prop\+ID, const double \&value)
+\item 
+void \mbox{\hyperlink{class_process_ae5974e7f0b6dd61aba4580a7aa7134a3}{set\+\_\+msg}} (const std\+::string \&str)
+\item 
+void \mbox{\hyperlink{class_process_a784cc5cb052f07a0b1b5b6aa9c2b618a}{set\+\_\+\+V\+\_\+to\+\_\+0}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ $>$ \& \mbox{\hyperlink{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}{Get\+Static\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Notice this stuff are here and used only for the process \mbox{\hyperlink{class_kollision}{Kollision}}. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_kollision_af41b1356aacb186ff0bc33507779185d}{Get\+Used}} ()
+\item 
+static void \mbox{\hyperlink{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}{Register\+\_\+specific}} (\mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_process_a2a114019fa8e3620ca38b2d925748cd8}{donor}} = nullptr
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_process_aa3d88fef38cee969b3d94db346195958}{accretor}} = nullptr
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_process_ae5c441df6c15bccdf5a739be870741ea}{svlog}}
+\item 
+\mbox{\hyperlink{class_orbital__change}{Orbital\+\_\+change}} $\ast$ \mbox{\hyperlink{class_process_a9e684d72ffd74456362e8a25fd65976c}{orb\+\_\+change}} = nullptr
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_process_a4e208c4db3aa8052aa289a8b90e9ea96}{\+\_\+uniform\+\_\+real}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_process_a0cc53752eadae992d1817b18da5a5246}{VB}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_process_aab93990b3cb70e865eeaeee66c407040}{VS}}
+\item 
+std\+::string \mbox{\hyperlink{class_process_ad63ddf091a10c4a07444b5b60cd0720b}{message}}
+\item 
+double \mbox{\hyperlink{class_process_afe7db7aeba6d1e4cc49b11d3047e604b}{event\+\_\+code}} =-\/1
+\item 
+bool \mbox{\hyperlink{class_process_adc5e6a26f0e6aa1ce538a19087fd5de7}{special\+\_\+evolution\+\_\+alarm}} =false
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{class_process_a95c3723ba5175dbcff4298597322fc6d}{size}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_process_a38ef601981b5f2feeffbf4cb0906f222}\label{class_process_a38ef601981b5f2feeffbf4cb0906f222}} 
+\index{Kollision@{Kollision}!\_PrintMap@{\_PrintMap}}
+\index{\_PrintMap@{\_PrintMap}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{\_PrintMap}{\_PrintMap}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string,size\+\_\+t$>$ \mbox{\hyperlink{class_process_a38ef601981b5f2feeffbf4cb0906f222}{Process\+::\+\_\+\+Print\+Map}}\hspace{0.3cm}{\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}\label{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}} 
+\index{Kollision@{Kollision}!collision\_outcome@{collision\_outcome}}
+\index{collision\_outcome@{collision\_outcome}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{collision\_outcome}{collision\_outcome}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}{Kollision\+::collision\+\_\+outcome}}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kollision_a7f739238d868ef039276437aafc35e18}\label{class_kollision_a7f739238d868ef039276437aafc35e18}} 
+\index{Kollision@{Kollision}!Kollision@{Kollision}}
+\index{Kollision@{Kollision}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{Kollision()}{Kollision()}}
+{\footnotesize\ttfamily Kollision\+::\+Kollision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{\+\_\+io = {\ttfamily nullptr},  }\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_process_a9bb9b7d157239ca6b09b49ce7e5f9253}\label{class_process_a9bb9b7d157239ca6b09b49ce7e5f9253}} 
+\index{Kollision@{Kollision}!evolve@{evolve}}
+\index{evolve@{evolve}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{evolve()}{evolve()}}
+{\footnotesize\ttfamily virtual int Process\+::evolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_circularisation_disabled_ad555f9fba46f05ad3f598ea2846ceca2}{Circularisation\+Disabled}}, \mbox{\hyperlink{class_standard_circularisation_afee695c6fce4ab4f1d443100678f0274}{Standard\+Circularisation}}, \mbox{\hyperlink{class_kollision_disabled_ad9c8c74b462c23b1b8ef0004f3cf054c}{Kollision\+Disabled}}, \mbox{\hyperlink{class_kollision_hurley_ac9a031b0ec7553b65cce9c041649e9e0}{Kollision\+Hurley}}, \mbox{\hyperlink{class_hardening_disabled_a4722a2b9b3e61811fa376812e2c5c4d8}{Hardening\+Disabled}}, and \mbox{\hyperlink{class_hardening_fast_cluster_a038418b5b46eacd65057daacc2f2e12d}{Hardening\+Fast\+Cluster}}.
+
+\mbox{\Hypertarget{class_process_ac9249ff51c5989b28144f3554418af0c}\label{class_process_ac9249ff51c5989b28144f3554418af0c}} 
+\index{Kollision@{Kollision}!get@{get}}
+\index{get@{get}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double Process\+::get (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_ab775bed2f34e1f7084f90ad91d69670e}\label{class_process_ab775bed2f34e1f7084f90ad91d69670e}} 
+\index{Kollision@{Kollision}!get\_event@{get\_event}}
+\index{get\_event@{get\_event}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{get\_event()}{get\_event()}}
+{\footnotesize\ttfamily double Process\+::get\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a0476f3a6dd357131c550d271ebf1aa94}\label{class_process_a0476f3a6dd357131c550d271ebf1aa94}} 
+\index{Kollision@{Kollision}!get\_msg@{get\_msg}}
+\index{get\_msg@{get\_msg}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{get\_msg()}{get\_msg()}}
+{\footnotesize\ttfamily std\+::string \& Process\+::get\+\_\+msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_ad09210bc293fb21331f331c8c6eb2152}\label{class_process_ad09210bc293fb21331f331c8c6eb2152}} 
+\index{Kollision@{Kollision}!get\_var@{get\_var}}
+\index{get\_var@{get\_var}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{get\_var()}{get\_var()}}
+{\footnotesize\ttfamily double Process\+::get\+\_\+var (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{star\+ID,  }\item[{const size\+\_\+t \&}]{prop\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}\label{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}} 
+\index{Kollision@{Kollision}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ $>$ \& Kollision\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Notice this stuff are here and used only for the process \mbox{\hyperlink{class_kollision}{Kollision}}. 
+
+\mbox{\Hypertarget{class_kollision_af41b1356aacb186ff0bc33507779185d}\label{class_kollision_af41b1356aacb186ff0bc33507779185d}} 
+\index{Kollision@{Kollision}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Kollision\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kollision_a5b90ba37a3950d7d1f1efd1c4874fb54}\label{class_kollision_a5b90ba37a3950d7d1f1efd1c4874fb54}} 
+\index{Kollision@{Kollision}!instance@{instance}}
+\index{instance@{instance}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ Kollision\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_kollision_disabled_af24394c6163e7705532ec7d94e8d771e}{Kollision\+Disabled}}, and \mbox{\hyperlink{class_kollision_hurley_a682db0caa1ecfccc7ab4340f8fd10b55}{Kollision\+Hurley}}.
+
+\mbox{\Hypertarget{class_kollision_ab214f4e7c126bcc3ab4e6b6c65278f7f}\label{class_kollision_ab214f4e7c126bcc3ab4e6b6c65278f7f}} 
+\index{Kollision@{Kollision}!Instance@{Instance}}
+\index{Instance@{Instance}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kollision}{Kollision}} $\ast$ Kollision\+::\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{\+\_\+io }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_process_a342344d8d78ef27ba55668875a650665}{Process}}.
+
+\mbox{\Hypertarget{class_process_a45ecf35e14d1479d369c740561a4f5ea}\label{class_process_a45ecf35e14d1479d369c740561a4f5ea}} 
+\index{Kollision@{Kollision}!is\_mass\_transfer\_happening@{is\_mass\_transfer\_happening}}
+\index{is\_mass\_transfer\_happening@{is\_mass\_transfer\_happening}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{is\_mass\_transfer\_happening()}{is\_mass\_transfer\_happening()}}
+{\footnotesize\ttfamily bool Process\+::is\+\_\+mass\+\_\+transfer\+\_\+happening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Check if this process is changing the mass \begin{DoxyReturn}{Returns}
+false if the DV regarding the \mbox{\hyperlink{class_mass}{Mass}} of both stars is currently set to 0, true otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kollision_a9e5bf740a46dc94c3b2e7a7ae69f97aa}\label{class_kollision_a9e5bf740a46dc94c3b2e7a7ae69f97aa}} 
+\index{Kollision@{Kollision}!is\_process\_ongoing@{is\_process\_ongoing}}
+\index{is\_process\_ongoing@{is\_process\_ongoing}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{is\_process\_ongoing()}{is\_process\_ongoing()}}
+{\footnotesize\ttfamily bool Kollision\+::is\+\_\+process\+\_\+ongoing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Check if the current process is ongoing \begin{DoxyReturn}{Returns}
+true if the process is ongoing, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_process_aafd367f64a9d1715054bd5ef3a8ade18}{Process}}.
+
+\mbox{\Hypertarget{class_process_a4f121f649572dff8fe919f704455fa17}\label{class_process_a4f121f649572dff8fe919f704455fa17}} 
+\index{Kollision@{Kollision}!is\_special\_evolution\_alarm\_on@{is\_special\_evolution\_alarm\_on}}
+\index{is\_special\_evolution\_alarm\_on@{is\_special\_evolution\_alarm\_on}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{is\_special\_evolution\_alarm\_on()}{is\_special\_evolution\_alarm\_on()}}
+{\footnotesize\ttfamily bool Process\+::is\+\_\+special\+\_\+evolution\+\_\+alarm\+\_\+on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_a2d6f92bd7624f1407cb30f656f52d630}\label{class_kollision_a2d6f92bd7624f1407cb30f656f52d630}} 
+\index{Kollision@{Kollision}!log\_message@{log\_message}}
+\index{log\_message@{log\_message}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{log\_message()}{log\_message()}}
+{\footnotesize\ttfamily std\+::string Kollision\+::log\+\_\+message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_process_ae9e6f863b7cbba6d89b8f4ec58d6a884}\label{class_process_ae9e6f863b7cbba6d89b8f4ec58d6a884}} 
+\index{Kollision@{Kollision}!modify\_EccentricityDV\_by\_a\_factor@{modify\_EccentricityDV\_by\_a\_factor}}
+\index{modify\_EccentricityDV\_by\_a\_factor@{modify\_EccentricityDV\_by\_a\_factor}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{modify\_EccentricityDV\_by\_a\_factor()}{modify\_EccentricityDV\_by\_a\_factor()}}
+{\footnotesize\ttfamily int Process\+::modify\+\_\+\+Eccentricity\+DV\+\_\+by\+\_\+a\+\_\+factor (\begin{DoxyParamCaption}\item[{double}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Correct the VB cell containing the \mbox{\hyperlink{class_eccentricity}{Eccentricity}} variation 
+\begin{DoxyParams}{Parameters}
+{\em factor} & correction factor the new DE will be DE$\ast$factor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_process_ac8f8936087d36a0f819ee52aac4f7ee0}\label{class_process_ac8f8936087d36a0f819ee52aac4f7ee0}} 
+\index{Kollision@{Kollision}!modify\_SemimajorDV\_by\_a\_factor@{modify\_SemimajorDV\_by\_a\_factor}}
+\index{modify\_SemimajorDV\_by\_a\_factor@{modify\_SemimajorDV\_by\_a\_factor}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{modify\_SemimajorDV\_by\_a\_factor()}{modify\_SemimajorDV\_by\_a\_factor()}}
+{\footnotesize\ttfamily int Process\+::modify\+\_\+\+Semimajor\+DV\+\_\+by\+\_\+a\+\_\+factor (\begin{DoxyParamCaption}\item[{double}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Correct the VB cell containing the \mbox{\hyperlink{class_semimajor}{Semimajor}} variation 
+\begin{DoxyParams}{Parameters}
+{\em factor} & correction factor the new DA will be DA$\ast$factor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}\label{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}} 
+\index{Kollision@{Kollision}!name@{name}}
+\index{name@{name}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Kollision\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_process_a1c19334f4e746d3410e4cfad66053035}{Process}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_kollision_disabled_a73442a8c06c185f5f218ff5d88096334}{Kollision\+Disabled}}, and \mbox{\hyperlink{class_kollision_hurley_a2e0998f59da2878d70f4a269c5ffd1b6}{Kollision\+Hurley}}.
+
+\mbox{\Hypertarget{class_process_a22775758327708f0135eb29387eb6e63}\label{class_process_a22775758327708f0135eb29387eb6e63}} 
+\index{Kollision@{Kollision}!Register@{Register}}
+\index{Register@{Register}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Process\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_process}{Process}} $\ast$}]{\+\_\+p,  }\item[{size\+\_\+t $\ast$}]{id,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}\label{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}} 
+\index{Kollision@{Kollision}!Register\_specific@{Register\_specific}}
+\index{Register\_specific@{Register\_specific}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{Register\_specific()}{Register\_specific()}}
+{\footnotesize\ttfamily static void Kollision\+::\+Register\+\_\+specific (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kollision}{Kollision}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_process_aa770b4d8d9500a06caed88fa4b1a63d3}\label{class_process_aa770b4d8d9500a06caed88fa4b1a63d3}} 
+\index{Kollision@{Kollision}!reset\_event@{reset\_event}}
+\index{reset\_event@{reset\_event}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{reset\_event()}{reset\_event()}}
+{\footnotesize\ttfamily void Process\+::reset\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_ad89d46b229414c2cd8077312b06e06cc}\label{class_process_ad89d46b229414c2cd8077312b06e06cc}} 
+\index{Kollision@{Kollision}!restore@{restore}}
+\index{restore@{restore}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{restore()}{restore()}}
+{\footnotesize\ttfamily void Process\+::restore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_abd2dbb16d25845cb4b320a01f31b8958}\label{class_process_abd2dbb16d25845cb4b320a01f31b8958}} 
+\index{Kollision@{Kollision}!set@{set}}
+\index{set@{set}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void Process\+::set (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id,  }\item[{const double \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_acd1dc21ce40d2db9765ce77b0e52cdfb}\label{class_process_acd1dc21ce40d2db9765ce77b0e52cdfb}} 
+\index{Kollision@{Kollision}!set\_event@{set\_event}}
+\index{set\_event@{set\_event}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{set\_event()}{set\_event()}}
+{\footnotesize\ttfamily void Process\+::set\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Events handling. 
+
+\mbox{\Hypertarget{class_process_ae5974e7f0b6dd61aba4580a7aa7134a3}\label{class_process_ae5974e7f0b6dd61aba4580a7aa7134a3}} 
+\index{Kollision@{Kollision}!set\_msg@{set\_msg}}
+\index{set\_msg@{set\_msg}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{set\_msg()}{set\_msg()}}
+{\footnotesize\ttfamily void Process\+::set\+\_\+msg (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a784cc5cb052f07a0b1b5b6aa9c2b618a}\label{class_process_a784cc5cb052f07a0b1b5b6aa9c2b618a}} 
+\index{Kollision@{Kollision}!set\_V\_to\_0@{set\_V\_to\_0}}
+\index{set\_V\_to\_0@{set\_V\_to\_0}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{set\_V\_to\_0()}{set\_V\_to\_0()}}
+{\footnotesize\ttfamily void Process\+::set\+\_\+\+V\+\_\+to\+\_\+0 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_aadf068fa44c66ac0a9ada4527d175038}\label{class_process_aadf068fa44c66ac0a9ada4527d175038}} 
+\index{Kollision@{Kollision}!set\_var@{set\_var}}
+\index{set\_var@{set\_var}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{set\_var()}{set\_var()}}
+{\footnotesize\ttfamily void Process\+::set\+\_\+var (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{star\+ID,  }\item[{const size\+\_\+t \&}]{prop\+ID,  }\item[{const double \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a4a4ddc360029522541e5b3d84eebc8b9}\label{class_process_a4a4ddc360029522541e5b3d84eebc8b9}} 
+\index{Kollision@{Kollision}!special\_evolution\_alarm\_switch\_off@{special\_evolution\_alarm\_switch\_off}}
+\index{special\_evolution\_alarm\_switch\_off@{special\_evolution\_alarm\_switch\_off}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{special\_evolution\_alarm\_switch\_off()}{special\_evolution\_alarm\_switch\_off()}}
+{\footnotesize\ttfamily void Process\+::special\+\_\+evolution\+\_\+alarm\+\_\+switch\+\_\+off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a8af93dedd4c8c423005349fef53e17aa}\label{class_process_a8af93dedd4c8c423005349fef53e17aa}} 
+\index{Kollision@{Kollision}!special\_evolution\_alarm\_switch\_on@{special\_evolution\_alarm\_switch\_on}}
+\index{special\_evolution\_alarm\_switch\_on@{special\_evolution\_alarm\_switch\_on}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{special\_evolution\_alarm\_switch\_on()}{special\_evolution\_alarm\_switch\_on()}}
+{\footnotesize\ttfamily void Process\+::special\+\_\+evolution\+\_\+alarm\+\_\+switch\+\_\+on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Three methods to handle the private member special\+\_\+evolution\+\_\+alarm. 
+
+\mbox{\Hypertarget{class_process_a40a3d2a9f51c66ad664119b5835c3266}\label{class_process_a40a3d2a9f51c66ad664119b5835c3266}} 
+\index{Kollision@{Kollision}!special\_evolve@{special\_evolve}}
+\index{special\_evolve@{special\_evolve}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{special\_evolve()}{special\_evolve()}}
+{\footnotesize\ttfamily virtual int Process\+::special\+\_\+evolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_standard_circularisation_a91930838747f88f918106a594f75df14}{Standard\+Circularisation}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_kollision_a72dfec57ca5fe9aca57ed6a9168897b7}\label{class_kollision_a72dfec57ca5fe9aca57ed6a9168897b7}} 
+\index{Kollision@{Kollision}!\_kollision@{\_kollision}}
+\index{\_kollision@{\_kollision}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{\_kollision}{\_kollision}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kollision}{Kollision}} Kollision\+::\+\_\+kollision\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_process_a4e208c4db3aa8052aa289a8b90e9ea96}\label{class_process_a4e208c4db3aa8052aa289a8b90e9ea96}} 
+\index{Kollision@{Kollision}!\_uniform\_real@{\_uniform\_real}}
+\index{\_uniform\_real@{\_uniform\_real}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{\_uniform\_real}{\_uniform\_real}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Process\+::\+\_\+uniform\+\_\+real\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_aa3d88fef38cee969b3d94db346195958}\label{class_process_aa3d88fef38cee969b3d94db346195958}} 
+\index{Kollision@{Kollision}!accretor@{accretor}}
+\index{accretor@{accretor}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{accretor}{accretor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}}$\ast$ Process\+::accretor = nullptr\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}\label{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}} 
+\index{Kollision@{Kollision}!all@{all}}
+\index{all@{all}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{all}{all}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_process}{Process}} $\ast$ $>$ Process\+::all\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_a7b6eb46cc8d0feac1dc7129d94e7b74b}\label{class_kollision_a7b6eb46cc8d0feac1dc7129d94e7b74b}} 
+\index{Kollision@{Kollision}!COLLISION\_CE@{COLLISION\_CE}}
+\index{COLLISION\_CE@{COLLISION\_CE}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{COLLISION\_CE}{COLLISION\_CE}}
+{\footnotesize\ttfamily constexpr int Kollision\+::\+COLLISION\+\_\+\+CE =1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{class_kollision_ac3f92e267d9553d06844dcd890952208}\label{class_kollision_ac3f92e267d9553d06844dcd890952208}} 
+\index{Kollision@{Kollision}!COLLISION\_MIX@{COLLISION\_MIX}}
+\index{COLLISION\_MIX@{COLLISION\_MIX}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{COLLISION\_MIX}{COLLISION\_MIX}}
+{\footnotesize\ttfamily constexpr int Kollision\+::\+COLLISION\+\_\+\+MIX =2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{class_process_a2a114019fa8e3620ca38b2d925748cd8}\label{class_process_a2a114019fa8e3620ca38b2d925748cd8}} 
+\index{Kollision@{Kollision}!donor@{donor}}
+\index{donor@{donor}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{donor}{donor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}}$\ast$ Process\+::donor = nullptr\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_afe7db7aeba6d1e4cc49b11d3047e604b}\label{class_process_afe7db7aeba6d1e4cc49b11d3047e604b}} 
+\index{Kollision@{Kollision}!event\_code@{event\_code}}
+\index{event\_code@{event\_code}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{event\_code}{event\_code}}
+{\footnotesize\ttfamily double Process\+::event\+\_\+code =-\/1\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_a6c45296d668b61d738b35fec6e008aac}\label{class_kollision_a6c45296d668b61d738b35fec6e008aac}} 
+\index{Kollision@{Kollision}!ID@{ID}}
+\index{ID@{ID}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily size\+\_\+t Kollision\+::\+ID\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_process_ad63ddf091a10c4a07444b5b60cd0720b}\label{class_process_ad63ddf091a10c4a07444b5b60cd0720b}} 
+\index{Kollision@{Kollision}!message@{message}}
+\index{message@{message}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily std\+::string Process\+::message\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kollision_aeee0a8fd3cd11e6d80bb98a8b8cd3a11}\label{class_kollision_aeee0a8fd3cd11e6d80bb98a8b8cd3a11}} 
+\index{Kollision@{Kollision}!NO\_COLLISION@{NO\_COLLISION}}
+\index{NO\_COLLISION@{NO\_COLLISION}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{NO\_COLLISION}{NO\_COLLISION}}
+{\footnotesize\ttfamily constexpr int Kollision\+::\+NO\+\_\+\+COLLISION =0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{class_process_a9e684d72ffd74456362e8a25fd65976c}\label{class_process_a9e684d72ffd74456362e8a25fd65976c}} 
+\index{Kollision@{Kollision}!orb\_change@{orb\_change}}
+\index{orb\_change@{orb\_change}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{orb\_change}{orb\_change}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_orbital__change}{Orbital\+\_\+change}}$\ast$ Process\+::orb\+\_\+change = nullptr\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a332d0f6431c087d40da2931c491937d2}\label{class_process_a332d0f6431c087d40da2931c491937d2}} 
+\index{Kollision@{Kollision}!PrintMap@{PrintMap}}
+\index{PrintMap@{PrintMap}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{PrintMap}{PrintMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_process_a38ef601981b5f2feeffbf4cb0906f222}{Process\+::\+\_\+\+Print\+Map}} Process\+::\+Print\+Map\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a95c3723ba5175dbcff4298597322fc6d}\label{class_process_a95c3723ba5175dbcff4298597322fc6d}} 
+\index{Kollision@{Kollision}!size@{size}}
+\index{size@{size}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily size\+\_\+t Process\+::size = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Instruction for adding new property PROC 1-\/ Add the size\+\_\+t PROC\+::\+ID 2-\/ Initialise the static (fake) instance PROC PROC\+::\+\_\+proc. NB\+: take care of the order of initialisation. The processes will be evolved exactly in the same order in which they are initialised here Define\+: @size\+: total number of instances of \mbox{\hyperlink{class_process}{Process}} and derived classes (both fake and real). @all\+: vector containing all the (pointers) to the processes. @\+Print\+Map\+: map containing the pair (process\+\_\+name, process\+\_\+id) for output purpose. Note all and Print\+Map are filled during the instantiation of the fake Processes (see below) \mbox{\Hypertarget{class_process_adc5e6a26f0e6aa1ce538a19087fd5de7}\label{class_process_adc5e6a26f0e6aa1ce538a19087fd5de7}} 
+\index{Kollision@{Kollision}!special\_evolution\_alarm@{special\_evolution\_alarm}}
+\index{special\_evolution\_alarm@{special\_evolution\_alarm}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{special\_evolution\_alarm}{special\_evolution\_alarm}}
+{\footnotesize\ttfamily bool Process\+::special\+\_\+evolution\+\_\+alarm =false\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Member used to check if a special evolution is required \mbox{\Hypertarget{class_process_ae5c441df6c15bccdf5a739be870741ea}\label{class_process_ae5c441df6c15bccdf5a739be870741ea}} 
+\index{Kollision@{Kollision}!svlog@{svlog}}
+\index{svlog@{svlog}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Process\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_process_a0cc53752eadae992d1817b18da5a5246}\label{class_process_a0cc53752eadae992d1817b18da5a5246}} 
+\index{Kollision@{Kollision}!VB@{VB}}
+\index{VB@{VB}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{VB}{VB}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Process\+::\+VB\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+values of the properties of the binary system (e.\+g. processes change eccentricity, semimajor...) \mbox{\Hypertarget{class_process_aab93990b3cb70e865eeaeee66c407040}\label{class_process_aab93990b3cb70e865eeaeee66c407040}} 
+\index{Kollision@{Kollision}!VS@{VS}}
+\index{VS@{VS}!Kollision@{Kollision}}
+\doxysubsubsection{\texorpdfstring{VS}{VS}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Process\+::\+VS\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+variations of the single star parameters due to binary stellar evolution processes (e.\+g. mass, radius...) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/procs/\mbox{\hyperlink{_collision_8h}{Collision.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/procs/\mbox{\hyperlink{_collision_8cpp}{Collision.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

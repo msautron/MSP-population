@@ -1,0 +1,89 @@
+\hypertarget{_m_tstability_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\+MTstability.h File Reference}
+\label{_m_tstability_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/MTstability.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/MTstability.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_m_tstability}{MTstability}}
+\item 
+class \mbox{\hyperlink{class_m_t___stable}{MT\+\_\+\+Stable}}
+\item 
+class \mbox{\hyperlink{class_m_t___un_stable}{MT\+\_\+\+Un\+Stable}}
+\item 
+class \mbox{\hyperlink{class_m_t___qcrit}{MT\+\_\+\+Qcrit}}
+\item 
+class \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\+\_\+\+Hurley}}
+\item 
+class \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\+\_\+\+Hurley\+\_\+\+Webbink}}
+\item 
+class \mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\+\_\+\+Hurley\+\_\+\+Webbink\+\_\+\+Shao}}
+\item 
+class \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\+\_\+\+COSMIC\+\_\+\+Neijssel}}
+\item 
+class \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\+\_\+\+COSMIC\+\_\+\+Claeys}}
+\item 
+class \mbox{\hyperlink{class_qcrit___star_track}{Qcrit\+\_\+\+Star\+Track}}
+\item 
+class \mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\+\_\+\+Radiative\+\_\+\+Stable}}
+\item 
+class \mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\+\_\+\+HRadiative\+\_\+\+Stable}}
+\item 
+class \mbox{\hyperlink{class_m_t___zeta}{MT\+\_\+\+Zeta}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_m_tstability_8h_a22ae17d707f675482876158f4f176f24}{set\+\_\+prop}}(star,  prop,  old)~old ? star-\/$>$getp\+\_\+0(prop\+::\+ID) \+:  star-\/$>$getp(prop\+::\+ID)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_m_tstability_8h_a22ae17d707f675482876158f4f176f24}\label{_m_tstability_8h_a22ae17d707f675482876158f4f176f24}} 
+\index{MTstability.h@{MTstability.h}!set\_prop@{set\_prop}}
+\index{set\_prop@{set\_prop}!MTstability.h@{MTstability.h}}
+\doxysubsubsection{\texorpdfstring{set\_prop}{set\_prop}}
+{\footnotesize\ttfamily \#define set\+\_\+prop(\begin{DoxyParamCaption}\item[{}]{star,  }\item[{}]{prop,  }\item[{}]{old }\end{DoxyParamCaption})~old ? star-\/$>$getp\+\_\+0(prop\+::\+ID) \+:  star-\/$>$getp(prop\+::\+ID)}
+
+The class \mbox{\hyperlink{class_m_tstability}{MTstability}} is used to estimate the stability of the RLO mass transfer. The idea behind the class is that the instability is \char`\"{}in general\char`\"{} checked through the condition\+: value \texorpdfstring{$>$}{>} tshold (or \texorpdfstring{$<$}{<} tshold). For example in a classical qcrit implementation, q \texorpdfstring{$>$}{>} qcrit is the condition for unstable mass transfer. The key methods are\+:
+\begin{DoxyItemize}
+\item bool mt\+\_\+unstable(\+Star $\ast$donor, Star $\ast$accretor, Binstar $\ast$ binary)\+: This is the method that returns true if the condition of instability is satisfied.
+\item bool get(\+Star $\ast$donor, Star $\ast$accretor, Binstar $\ast$ binary)\+: This method returns the value used to check the stability, e.\+g. for the classical qcrit formalism, get returns q=Mdonor/\+Maccretor
+\item bool get\+\_\+tshold(\+Star $\ast$donor, Star $\ast$accretor, Binstar $\ast$ binary)\+: this method returns the threshold value used in the comparison, e.\+g. for the classical qcrit formalism, get\+\_\+tshold returns qcrit.
+\end{DoxyItemize}
+
+NOTICE\+: WE ASSUME that \mbox{\hyperlink{class_m_tstability}{MTstability}} and the inherited classes are used during the BInary processes RLO, therefore the stellar properties ARE THE OBTAINED WITH GETP\+\_\+0 (properties at the previous sse step), while the binary properties are always OBTAINED WITH GETP HOW TO ADD A NEW \mbox{\hyperlink{class_m_tstability}{MTstability}} IMPLEMENTATION
+
+1-\/ Define the new class, public inherited from \mbox{\hyperlink{class_m_tstability}{MTstability}}, or another class (e.\+g. \mbox{\hyperlink{class_m_t___qcrit}{MT\+\_\+\+Qcrit}}) e.\+g. class \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\+\_\+\+Hurley}} \+: public \mbox{\hyperlink{class_m_t___qcrit}{MT\+\_\+\+Qcrit}}
+
+2-\/ Implement the constructor e.\+g. \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\+\_\+\+Hurley}}(bool reg = true)\{ if (reg)\{ Register(this, name()); \} \}
+
+3-\/ Override the method name, it returns the name of this MT\+\_\+stability option NOTICE this will be the same name used to choice this MT formalism through the parameter rlo\+\_\+stability. e.\+g. inline std\+::string name() override \{ return \char`\"{}qcrit\+\_\+hurley\char`\"{}; \} this particular MT formalism can be called with -\/rlo\+\_\+stability qcrit\+\_\+hurley.
+
+4-\/ Define a static class member that is an instance of the same class we are defining e.\+g. static \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\+\_\+\+Hurley}} \+\_\+qcrit\+\_\+hurley;
+
+5-\/ Define the method instance that return a new a pointer to a dinamically allocated instance of the class e.\+g. \begin{DoxyVerb}Qcrit_Hurley* instance() {
+ return (new Qcrit_Hurley(false));
+\end{DoxyVerb}
+ \} NOTICE\+: remember to use false when calling the constructor here
+
+6-\/ If the class is derived directly from MT\+\_\+stability, you have to define the following public pure virtual classes
+\begin{DoxyItemize}
+\item mt\+\_\+unstable(\+Star $\ast$donor, Star $\ast$accretor, \+\_\+\+UNUSED Binstar $\ast$binary)  const override;
+\item double get\+\_\+tshold(\+Star $\ast$donor, Star $\ast$accretor, \+\_\+\+UNUSED Binstar $\ast$binary) const override;
+\item double get(\+Star $\ast$donor, Star $\ast$accretor, \+\_\+\+UNUSED Binstar $\ast$binary) const override; If the class is derived from a subclass of MT\+\_\+stability check what are the methods to be overrided. e.\+g. Qcrit\+\_\+\+Hurely is derived from \mbox{\hyperlink{class_m_t___qcrit}{MT\+\_\+\+Qcrit}} that already overidde mt\+\_\+unstable, get and get\+\_\+tshold, however there are two virtual protected methods\+:
+\begin{DoxyItemize}
+\item double q(\+Star $\ast$donor, Star $\ast$accretor) const;
+\item virtual double qcrit(\+Star $\ast$donor, Star $\ast$accretor) const = 0; In particular qcrit is a pure virtual method that has to be implemented in the derived classes.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+7-\/ Add the static class member in general/static\+\_\+main.\+h e.\+g. \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\+\_\+\+Hurley}} \mbox{\hyperlink{class_qcrit___hurley_af746a8c2e33be5f74b22e4d55cf5e7fe}{Qcrit\+\_\+\+Hurley\+::\+\_\+qcrit\+\_\+hurley}};
+
+
+\begin{DoxyItemize}
+\item NOTICE\+: WE ASSUME that \mbox{\hyperlink{class_m_tstability}{MTstability}} and the inherited classes are used during the BInary processes RLO, therefore the stellar properties ARE THE OBTAINED WITH GETP\+\_\+0 (properties at the previous sse step), while the binary properties are always OBTAINED WITH GETP 
+\end{DoxyItemize}

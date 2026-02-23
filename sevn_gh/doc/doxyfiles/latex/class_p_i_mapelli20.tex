@@ -1,0 +1,239 @@
+\hypertarget{class_p_i_mapelli20}{}\doxysection{PIMapelli20 Class Reference}
+\label{class_p_i_mapelli20}\index{PIMapelli20@{PIMapelli20}}
+
+
+{\ttfamily \#include $<$pimapelli20.\+h$>$}
+
+Inheritance diagram for PIMapelli20\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_i_mapelli20}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_mapelli20_aa703342456e2f5cd53fd4fdcf8620349}{PIMapelli20}} (bool reg=true)
+\begin{DoxyCompactList}\small\item\em Mapelli20model. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}{name}} () const override
+\item 
+\mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} $\ast$ \mbox{\hyperlink{class_p_i_mapelli20_a577f54ac2902549776bfafdc96dd171f}{instance}} () override
+\item 
+\mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_p_i_mapelli20_a8954aa1b4fbf1ecb14fe1abb9cf0bff2}{apply\+\_\+after\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double mremnant) const override
+\item 
+virtual \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} \mbox{\hyperlink{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}{apply\+\_\+before\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ \mbox{\hyperlink{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}{name}})
+\begin{DoxyCompactList}\small\item\em Base class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} \mbox{\hyperlink{class_p_i_mapelli20_a45c561fe943a41e121ce1d983cf722fc}{\+\_\+pimapelli20}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_p_i_mapelli20_af506acd53d1073696565ea066b42502a}{pisn\+\_\+correction}} (const double mass, \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} \&sntype)
+\item 
+static void \mbox{\hyperlink{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}{Register}} (\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_pair_instability_aec6c8468a7b58c439e4207815a198416}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& \mbox{\hyperlink{class_pair_instability_af1f27fb15caef9513f847080d009857b}{Get\+Static\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Option handling. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}{Get\+Used}} ()
+\begin{DoxyCompactList}\small\item\em TODO we are never using this method, we should remove it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+mapelli20 option
+
+Fit (based on the pre\+SN \mbox{\hyperlink{class_m_h_e}{MHE}} core mass) to the Woosley17 tables as reported in the Appendix of Mapelli+20 (see also Spera+17) see\+:
+\begin{DoxyItemize}
+\item Mapelli+20\+: \href{https://ui.adsabs.harvard.edu/abs/2020ApJ...888...76M/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2020\+Ap\+J...\+888...\+76\+M/abstract}}
+\item Spera+17\+: \href{https://ui.adsabs.harvard.edu/abs/2017MNRAS.470.4739S/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2017\+MNRAS.\+470.\+4739\+S/abstract}}
+\item Woosley+17\+: \href{https://ui.adsabs.harvard.edu/abs/2017ApJ...836..244W/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2017\+Ap\+J...\+836..\+244\+W/abstract}}
+\end{DoxyItemize}
+
+Modification with respect to the standard
+\begin{DoxyItemize}
+\item apply\+\_\+before\+SN\+: no modifications
+\item apply\+\_\+after\+SN\+: apply corrections based on finale core He mass, correct Mremnant and set sn\+\_\+type Approximately\+: 32\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}64 PPISN SN, 64\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}135 PISN (no remnant) (the fit depends also on MHE/\+MTOT) 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_i_mapelli20_aa703342456e2f5cd53fd4fdcf8620349}\label{class_p_i_mapelli20_aa703342456e2f5cd53fd4fdcf8620349}} 
+\index{PIMapelli20@{PIMapelli20}!PIMapelli20@{PIMapelli20}}
+\index{PIMapelli20@{PIMapelli20}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{PIMapelli20()}{PIMapelli20()}}
+{\footnotesize\ttfamily PIMapelli20\+::\+PIMapelli20 (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Mapelli20model. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_i_mapelli20_a8954aa1b4fbf1ecb14fe1abb9cf0bff2}\label{class_p_i_mapelli20_a8954aa1b4fbf1ecb14fe1abb9cf0bff2}} 
+\index{PIMapelli20@{PIMapelli20}!apply\_afterSN@{apply\_afterSN}}
+\index{apply\_afterSN@{apply\_afterSN}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{apply\_afterSN()}{apply\_afterSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} PIMapelli20\+::apply\+\_\+after\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{mremnant }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+PISN correction based on the Fit (based on the pre\+SN \mbox{\hyperlink{class_m_h_e}{MHE}} core mass) to the Woosley17 tables as reported in the Appendix of Mapelli+20 (see also Spera+17). Approximately\+: 32\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}64 PPISN SN 64\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}135 PISN (no remnant) 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+{\em mremnant} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair isntability correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PISNeturn with only two members\+:
+\begin{DoxyItemize}
+\item Mremnant\+\_\+after\+\_\+pi, \mbox{\hyperlink{class_mass}{Mass}} of the remnant after the application of pi
+\item SNType\+: SN explosion type an object of the enum \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} (Electron\+Capture, Core\+Collapse, PPISN,PISN) 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_pair_instability_a46fba941a123d6d28285b2e895e71837}{Pair\+Instability}}.
+
+\mbox{\Hypertarget{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}\label{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}} 
+\index{PIMapelli20@{PIMapelli20}!apply\_beforeSN@{apply\_beforeSN}}
+\index{apply\_beforeSN@{apply\_beforeSN}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{apply\_beforeSN()}{apply\_beforeSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} Pair\+Instability\+::apply\+\_\+before\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Methods that can be customized in new models\+: NOTICE these are the two methods that actually estimate the pisn corrections. By default they do nothing (indeed they are not changed in the disabled model) You may want to change one or both of them Main function to call to apply the pulsation pair instability before the SN explosion The function return a structure containing the modified pre\+SN stellar mass(es) (total mass, \mbox{\hyperlink{class_m_h_e}{MHE}}, \mbox{\hyperlink{class_m_c_o}{MCO}}) due to the pulsation pair instability. This function should be called before estimating the final mass in the explosion method in the Supernova classes The method of the base class just copy the \mbox{\hyperlink{class_mass}{Mass}},\mbox{\hyperlink{class_m_h_e}{MHE}} and \mbox{\hyperlink{class_m_c_o}{MCO}} NOTICE\+: the default method does nothing, just initialise the \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} with the current stellar mass properties 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PPISNMass with only three members\+:
+\begin{DoxyItemize}
+\item Mass\+\_\+after\+\_\+ppi, \mbox{\hyperlink{class_mass}{Mass}} of the star before the explosion due to the pulsation pair instability
+\item MHE\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the HE core of the star before the explosion due to the pulsation pair instability
+\item MCO\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the CO core of the star before the explosion due to the pulsation pair instability 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}{PIIorio22}}.
+
+\mbox{\Hypertarget{class_pair_instability_af1f27fb15caef9513f847080d009857b}\label{class_pair_instability_af1f27fb15caef9513f847080d009857b}} 
+\index{PIMapelli20@{PIMapelli20}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& Pair\+Instability\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Option handling. 
+
+\mbox{\Hypertarget{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}\label{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}} 
+\index{PIMapelli20@{PIMapelli20}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Pair\+Instability\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+TODO we are never using this method, we should remove it. 
+
+\mbox{\Hypertarget{class_p_i_mapelli20_a577f54ac2902549776bfafdc96dd171f}\label{class_p_i_mapelli20_a577f54ac2902549776bfafdc96dd171f}} 
+\index{PIMapelli20@{PIMapelli20}!instance@{instance}}
+\index{instance@{instance}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} $\ast$ PIMapelli20\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create an instance of the class allocated on the heap \begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_pair_instability_af376f9740f888b60d7893930726914df}{Pair\+Instability}}.
+
+\mbox{\Hypertarget{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}\label{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}} 
+\index{PIMapelli20@{PIMapelli20}!Instance@{Instance}}
+\index{Instance@{Instance}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ Pair\+Instability\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Base class. 
+
+Generic method to call an instance based on name 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}\label{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}} 
+\index{PIMapelli20@{PIMapelli20}!name@{name}}
+\index{name@{name}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string PIMapelli20\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Remember that each new proper \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model has to have a public static class instance to define in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} e.\+g. static My\+Model \+\_\+mymodel; (in the class) and My\+Model My\+Model\+::\+\_\+mymodel; in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} Methods that must be customized in new models Name of the \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model, this will be use at runtime to select the given model 
+
+Reimplemented from \mbox{\hyperlink{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}{Pair\+Instability}}.
+
+\mbox{\Hypertarget{class_p_i_mapelli20_af506acd53d1073696565ea066b42502a}\label{class_p_i_mapelli20_af506acd53d1073696565ea066b42502a}} 
+\index{PIMapelli20@{PIMapelli20}!pisn\_correction@{pisn\_correction}}
+\index{pisn\_correction@{pisn\_correction}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{pisn\_correction()}{pisn\_correction()}}
+{\footnotesize\ttfamily double PIMapelli20\+::pisn\+\_\+correction (\begin{DoxyParamCaption}\item[{const double}]{mass,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} \&}]{sntype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+PISN correction based on the Fit (based on the pre\+SN \mbox{\hyperlink{class_m_h_e}{MHE}} core mass) to the Woosley17 tables as reported in the Appendix of Mapelli+20 (see also Spera+17). Approximately\+: 32\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}64 PPISN SN 64\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}135 PISN (no remnant) 
+\begin{DoxyParams}{Parameters}
+{\em mass} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair isntability correction \\
+\hline
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+{\em sntype} & reference to a variable of type \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}}, after the correction, this variable stores the type of triggered supernova. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}\label{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}} 
+\index{PIMapelli20@{PIMapelli20}!Register@{Register}}
+\index{Register@{Register}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Pair\+Instability\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Register function, to be called inside the option constructor to register the given option 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_p_i_mapelli20_a45c561fe943a41e121ce1d983cf722fc}\label{class_p_i_mapelli20_a45c561fe943a41e121ce1d983cf722fc}} 
+\index{PIMapelli20@{PIMapelli20}!\_pimapelli20@{\_pimapelli20}}
+\index{\_pimapelli20@{\_pimapelli20}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{\_pimapelli20}{\_pimapelli20}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} PIMapelli20\+::\+\_\+pimapelli20\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_pair_instability_aec6c8468a7b58c439e4207815a198416}\label{class_pair_instability_aec6c8468a7b58c439e4207815a198416}} 
+\index{PIMapelli20@{PIMapelli20}!svlog@{svlog}}
+\index{svlog@{svlog}!PIMapelli20@{PIMapelli20}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Pair\+Instability\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{pimapelli20_8h}{pimapelli20.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{pimapelli20_8cpp}{pimapelli20.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,244 @@
+\hypertarget{classutilities_1_1_list_generator}{}\doxysection{utilities\+::List\+Generator Class Reference}
+\label{classutilities_1_1_list_generator}\index{utilities::ListGenerator@{utilities::ListGenerator}}
+
+
+Class to handle the generation of a list of values.  
+
+
+
+
+{\ttfamily \#include $<$utilities.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutilities_1_1_list_generator_ad387d3f6653373fbc176d06967433c96}{List\+Generator}} ()
+\item 
+\mbox{\hyperlink{classutilities_1_1_list_generator_a86ee7bc0e5a30992aff1e7e6b11bac90}{List\+Generator}} (double \+\_\+vstep, double \+\_\+vstep\+\_\+max=std\+::nan(\char`\"{}\char`\"{}), double \+\_\+vstep\+\_\+min=std\+::nan(\char`\"{}\char`\"{}))
+\item 
+\mbox{\hyperlink{classutilities_1_1_list_generator_acc5bfae58cd052935b4e603bd4489897}{List\+Generator}} (const std\+::vector$<$ double $>$ \&\+\_\+tlist)
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}{get}} () const
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a96fdbdc6bcc259e9dd2adcf94ac65210}{get\+\_\+max}} () const
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a98bb57b9427a864b35da11ab25b70fc8}{get\+\_\+min}} () const
+\item 
+bool \mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty}} () const
+\item 
+void \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next}} ()
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_adfda3818723ed747babda66b1555e3c7}{operator++}} ()
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a3f1d306a2900c813fe6d65627249dd7d}{operator++}} (int)
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a73b1ac59f79feb8647081e3fa4bed84f}{forecast}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classutilities_1_1_list_generator}{List\+Generator}} $>$ \mbox{\hyperlink{classutilities_1_1_list_generator_a3e7aa4be7268095f27836f13ce2d3790}{make\+\_\+unique}} (double \+\_\+vstep, double \+\_\+vstep\+\_\+max=std\+::nan(\char`\"{}\char`\"{}), double \+\_\+vstep\+\_\+min=std\+::nan(\char`\"{}\char`\"{}))
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classutilities_1_1_list_generator}{List\+Generator}} $>$ \mbox{\hyperlink{classutilities_1_1_list_generator_a85676e54f748c5ed4211225869172e2a}{make\+\_\+unique}} (std\+::vector$<$ double $>$ \+\_\+vlist)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}{initialise\+\_\+tlist\+\_\+iterators}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}{vcurrent}}
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}{vstep}} =std\+::nan(\char`\"{}\char`\"{})
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}{vmin}} =0.
+\item 
+double \mbox{\hyperlink{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}{vmax}} =2E30
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}{vlist}}
+\item 
+std\+::vector$<$ double $>$\+::iterator \mbox{\hyperlink{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}{begin}}
+\item 
+std\+::vector$<$ double $>$\+::iterator \mbox{\hyperlink{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}{end}}
+\item 
+std\+::vector$<$ double $>$\+::iterator \mbox{\hyperlink{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}{current}}
+\item 
+bool \mbox{\hyperlink{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}{end\+\_\+of\+\_\+list}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to handle the generation of a list of values. 
+
+The class usage is based on the methods \mbox{\hyperlink{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}{get()}}, \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next()}} and \mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty()}}. \mbox{\hyperlink{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}{get()}} return the current value, \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next()}} upate the value and \mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty()}} return true if the generator reach the ends. If \mbox{\hyperlink{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}{empty()}} is true calling \mbox{\hyperlink{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}{next()}} or \mbox{\hyperlink{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}{get()}} throws an out\+\_\+of\+\_\+range error. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ad387d3f6653373fbc176d06967433c96}\label{classutilities_1_1_list_generator_ad387d3f6653373fbc176d06967433c96}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!ListGenerator@{ListGenerator}}
+\index{ListGenerator@{ListGenerator}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{ListGenerator()}{ListGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily utilities\+::\+List\+Generator\+::\+List\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a86ee7bc0e5a30992aff1e7e6b11bac90}\label{classutilities_1_1_list_generator_a86ee7bc0e5a30992aff1e7e6b11bac90}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!ListGenerator@{ListGenerator}}
+\index{ListGenerator@{ListGenerator}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{ListGenerator()}{ListGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily utilities\+::\+List\+Generator\+::\+List\+Generator (\begin{DoxyParamCaption}\item[{double}]{\+\_\+vstep,  }\item[{double}]{\+\_\+vstep\+\_\+max = {\ttfamily std\+:\+:nan(\char`\"{}\char`\"{})},  }\item[{double}]{\+\_\+vstep\+\_\+min = {\ttfamily std\+:\+:nan(\char`\"{}\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor based on a step value. The values will be generated from \+\_\+vstep\+\_\+min to \+\_\+vstep\+\_\+max (can be not included) with step \+\_\+vstep. If \+\_\+vstep\+\_\+max is not given the generation can last theoretically forever (\+\_\+vstep\+\_\+max default is 1E30). 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+vstep} & step value to generate the values \\
+\hline
+{\em \+\_\+vstep\+\_\+max} & maximum value. \\
+\hline
+{\em \+\_\+vstep\+\_\+min} & Starting value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classutilities_1_1_list_generator_acc5bfae58cd052935b4e603bd4489897}\label{classutilities_1_1_list_generator_acc5bfae58cd052935b4e603bd4489897}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!ListGenerator@{ListGenerator}}
+\index{ListGenerator@{ListGenerator}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{ListGenerator()}{ListGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily utilities\+::\+List\+Generator\+::\+List\+Generator (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+tlist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor based on a vector of doubles. The class will slice all the values in the vector and will be marked as empty when the end of the vector is reached. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+tlist} & Vector of doubles \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}\label{classutilities_1_1_list_generator_ac185ec122e6804a228d612a4c4e39644}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!empty@{empty}}
+\index{empty@{empty}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool utilities\+::\+List\+Generator\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a73b1ac59f79feb8647081e3fa4bed84f}\label{classutilities_1_1_list_generator_a73b1ac59f79feb8647081e3fa4bed84f}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!forecast@{forecast}}
+\index{forecast@{forecast}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{forecast()}{forecast()}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::forecast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Similar to next, but just return the next value withotu uptading anything \begin{DoxyReturn}{Returns}
+The next value if not empty, otherwise std\+::nan 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}\label{classutilities_1_1_list_generator_a76aed5fb6b11dbdcc5ca185db39a370e}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!get@{get}}
+\index{get@{get}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a96fdbdc6bcc259e9dd2adcf94ac65210}\label{classutilities_1_1_list_generator_a96fdbdc6bcc259e9dd2adcf94ac65210}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!get\_max@{get\_max}}
+\index{get\_max@{get\_max}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{get\_max()}{get\_max()}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::get\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a98bb57b9427a864b35da11ab25b70fc8}\label{classutilities_1_1_list_generator_a98bb57b9427a864b35da11ab25b70fc8}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!get\_min@{get\_min}}
+\index{get\_min@{get\_min}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{get\_min()}{get\_min()}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::get\+\_\+min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}\label{classutilities_1_1_list_generator_ae3378461d54f39d2d0b0779004ab2d29}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!initialise\_tlist\_iterators@{initialise\_tlist\_iterators}}
+\index{initialise\_tlist\_iterators@{initialise\_tlist\_iterators}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{initialise\_tlist\_iterators()}{initialise\_tlist\_iterators()}}
+{\footnotesize\ttfamily void utilities\+::\+List\+Generator\+::initialise\+\_\+tlist\+\_\+iterators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a3e7aa4be7268095f27836f13ce2d3790}\label{classutilities_1_1_list_generator_a3e7aa4be7268095f27836f13ce2d3790}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!make\_unique@{make\_unique}}
+\index{make\_unique@{make\_unique}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{make\_unique()}{make\_unique()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classutilities_1_1_list_generator}{utilities\+::\+List\+Generator}} $>$ utilities\+::\+List\+Generator\+::make\+\_\+unique (\begin{DoxyParamCaption}\item[{double}]{\+\_\+vstep,  }\item[{double}]{\+\_\+vstep\+\_\+max = {\ttfamily std\+:\+:nan(\char`\"{}\char`\"{})},  }\item[{double}]{\+\_\+vstep\+\_\+min = {\ttfamily std\+:\+:nan(\char`\"{}\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a85676e54f748c5ed4211225869172e2a}\label{classutilities_1_1_list_generator_a85676e54f748c5ed4211225869172e2a}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!make\_unique@{make\_unique}}
+\index{make\_unique@{make\_unique}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{make\_unique()}{make\_unique()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classutilities_1_1_list_generator}{utilities\+::\+List\+Generator}} $>$ utilities\+::\+List\+Generator\+::make\+\_\+unique (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{\+\_\+vlist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}\label{classutilities_1_1_list_generator_a6549876a11c9be231ee53ea3be7cae7b}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!next@{next}}
+\index{next@{next}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily void utilities\+::\+List\+Generator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_adfda3818723ed747babda66b1555e3c7}\label{classutilities_1_1_list_generator_adfda3818723ed747babda66b1555e3c7}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!operator++@{operator++}}
+\index{operator++@{operator++}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a3f1d306a2900c813fe6d65627249dd7d}\label{classutilities_1_1_list_generator_a3f1d306a2900c813fe6d65627249dd7d}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!operator++@{operator++}}
+\index{operator++@{operator++}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}\label{classutilities_1_1_list_generator_ad6d07173041bcba0ffc7b6a9cfeff2bc}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!begin@{begin}}
+\index{begin@{begin}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{begin}{begin}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$\+::iterator utilities\+::\+List\+Generator\+::begin\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}\label{classutilities_1_1_list_generator_a922a0ed5718ea535079e9d48e97b93da}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!current@{current}}
+\index{current@{current}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{current}{current}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$\+::iterator utilities\+::\+List\+Generator\+::current\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}\label{classutilities_1_1_list_generator_a11d2f73fc334fd2deb42f516a5e039a1}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!end@{end}}
+\index{end@{end}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$\+::iterator utilities\+::\+List\+Generator\+::end\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}\label{classutilities_1_1_list_generator_ad6f37c9f3ee0b7111061a284ce317b22}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!end\_of\_list@{end\_of\_list}}
+\index{end\_of\_list@{end\_of\_list}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{end\_of\_list}{end\_of\_list}}
+{\footnotesize\ttfamily bool utilities\+::\+List\+Generator\+::end\+\_\+of\+\_\+list =false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}\label{classutilities_1_1_list_generator_af59bf326d8a8ae4900b349f541859e1b}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!vcurrent@{vcurrent}}
+\index{vcurrent@{vcurrent}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{vcurrent}{vcurrent}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::vcurrent\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}\label{classutilities_1_1_list_generator_a5b38eb99ffa19b46bd047b663034b320}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!vlist@{vlist}}
+\index{vlist@{vlist}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{vlist}{vlist}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ utilities\+::\+List\+Generator\+::vlist\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}\label{classutilities_1_1_list_generator_ae1f18766c58fbaaf8119be01d2dc19c8}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!vmax@{vmax}}
+\index{vmax@{vmax}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{vmax}{vmax}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::vmax =2E30\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}\label{classutilities_1_1_list_generator_a4992c98c4c866fa1286d67d077c13d30}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!vmin@{vmin}}
+\index{vmin@{vmin}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{vmin}{vmin}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::vmin =0.\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}\label{classutilities_1_1_list_generator_ac50a450effce24766eb01d8d92f0a8ec}} 
+\index{utilities::ListGenerator@{utilities::ListGenerator}!vstep@{vstep}}
+\index{vstep@{vstep}!utilities::ListGenerator@{utilities::ListGenerator}}
+\doxysubsubsection{\texorpdfstring{vstep}{vstep}}
+{\footnotesize\ttfamily double utilities\+::\+List\+Generator\+::vstep =std\+::nan(\char`\"{}\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/\mbox{\hyperlink{utilities_8h}{utilities.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/\mbox{\hyperlink{utilities_8cpp}{utilities.\+cpp}}\end{DoxyCompactItemize}

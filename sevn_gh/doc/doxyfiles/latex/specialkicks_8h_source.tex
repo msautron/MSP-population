@@ -1,0 +1,101 @@
+\hypertarget{specialkicks_8h_source}{}\doxysection{specialkicks.\+h}
+\label{specialkicks_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/specialkicks.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/specialkicks.h}}
+\mbox{\hyperlink{specialkicks_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes special "{}ad-\/hoc"{} kick models}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class CC15:  Kicks as in model CC15 by Giacobbo\&Mapelli2018  https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2011G/abstract}}
+\DoxyCodeLine{5 \textcolor{comment}{-\/ Class EC15CC265: Kicks as in models alpha in Giacobbo\&Mapelli2018  https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2011G/abstract}}
+\DoxyCodeLine{6 \textcolor{comment}{-\/ Class ECUS30: Kicks similar to Broekgaarden+21 (https://arxiv.org/pdf/2103.02608.pdf)}}
+\DoxyCodeLine{7 \textcolor{comment}{*/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef SEVN\_SPECIALKICKS\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define SEVN\_SPECIALKICKS\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{hobbs_8h}{hobbs.h}}>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_c_c15}{CC15}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hobbs}{Hobbs}} \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_c_c15_a30a2a6fafafac4a36726948c12c4c5ae}{CC15}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_c_c15_aeb32345e01ed6ce5cbbbec3895c69c04}{gaussian15}}(0,\mbox{\hyperlink{class_c_c15_aa7499b5569273506fd710a5bf054777d}{sigma}})\{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{27             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_c_c15_a6b111c56a10a20a39a78850d1ec086bb}{name}}());}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_c_c15}{CC15}}* \mbox{\hyperlink{class_c_c15_a41f8f4566169ecee43dc291ecf371e52}{instance}}() \{}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_c_c15}{CC15}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{static} \mbox{\hyperlink{class_c_c15}{CC15}} \mbox{\hyperlink{class_c_c15_aaad1d0c62bd257c7515dcf6db8ee03f4}{\_cc15}};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_c15_a9438e3fb566dec434349f8370f61a1d5}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{37     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_c_c15_a6b111c56a10a20a39a78850d1ec086bb}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}cc15"{}};\}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_c_c15_aa7499b5569273506fd710a5bf054777d}{sigma}}=15.0; }
+\DoxyCodeLine{42     std::normal\_distribution<> \mbox{\hyperlink{class_c_c15_aeb32345e01ed6ce5cbbbec3895c69c04}{gaussian15}};}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_c15_c_c265}{EC15CC265}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hobbs}{Hobbs}}\{}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \mbox{\hyperlink{class_e_c15_c_c265_a0ad4e830a8e191901afcd3e62e8b9056}{EC15CC265}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_e_c15_c_c265_abf06e23741eef6df73ac28dd4234d6b9}{gaussian\_ecsn}}(0,\mbox{\hyperlink{class_e_c15_c_c265_a97cb722f2bcb409b666f4695d160ee31}{sigma\_ecsn}}), \mbox{\hyperlink{class_e_c15_c_c265_a6951627eab023c031a4bf730d2e9cbc9}{gaussian\_ccsn}}(0,\mbox{\hyperlink{class_e_c15_c_c265_ac6ceb17455778a7f2c9ba224a3b3189f}{sigma\_ccsn}})\{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{55             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}{name}}());}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_c15_c_c265}{EC15CC265}} \mbox{\hyperlink{class_e_c15_c_c265_a252ddf9b32c7abd88f1e5fa180a9a998}{\_ec15cc265}};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_c15_c_c265_adb8a2ab82265853c59d40a8b1a8f64d0}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{//when I use the regist function I use the non trivial constructor of the Hermite6th class}}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_e_c15_c_c265}{EC15CC265}}* \mbox{\hyperlink{class_e_c15_c_c265_a19d5822d9323974a7364647de0f0a3f7}{instance}}() \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_e_c15_c_c265}{EC15CC265}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ec15cc265"{}}; \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_c15_c_c265_a97cb722f2bcb409b666f4695d160ee31}{sigma\_ecsn}}=15.0; }
+\DoxyCodeLine{73     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_c15_c_c265_ac6ceb17455778a7f2c9ba224a3b3189f}{sigma\_ccsn}}=256.0; }
+\DoxyCodeLine{74     \textcolor{comment}{//Make them static? Maybe}}
+\DoxyCodeLine{75     std::normal\_distribution<> \mbox{\hyperlink{class_e_c15_c_c265_abf06e23741eef6df73ac28dd4234d6b9}{gaussian\_ecsn}};}
+\DoxyCodeLine{76     std::normal\_distribution<> \mbox{\hyperlink{class_e_c15_c_c265_a6951627eab023c031a4bf730d2e9cbc9}{gaussian\_ccsn}};}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 }
+\DoxyCodeLine{88 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_c_u_s30}{ECUS30}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kicks}{Kicks}}\{}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \mbox{\hyperlink{class_e_c_u_s30_aa45bcf1bfcfb0b723a1299cb067490e9}{ECUS30}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{91         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{92             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_e_c_u_s30_af8aef5ec0985ecb024456e7ac921939e}{name}}());}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_c_u_s30}{ECUS30}} \mbox{\hyperlink{class_e_c_u_s30_a0dc18e58807a44c37104a34e9b597c79}{\_ecus30}};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_c_u_s30_af24a49379800f0c12e69e0d959dd03d2}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{comment}{//when I use the regist function I use the non trivial constructor of the Hermite6th class}}
+\DoxyCodeLine{101     \mbox{\hyperlink{class_e_c_u_s30}{ECUS30}}* \mbox{\hyperlink{class_e_c_u_s30_a3746bcbc644cbc7ce9d407cd62c30da4}{instance}}() \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_e_c_u_s30}{ECUS30}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{103     \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_e_c_u_s30_af8aef5ec0985ecb024456e7ac921939e}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ecus30"{}}; \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_c_u_s30_a072fdb80950ef6ca3166fa3f44e5549e}{sigma\_ecsn}}=30.0; }
+\DoxyCodeLine{110 \};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_SPECIALKICKS\_H}}
+
+\end{DoxyCode}

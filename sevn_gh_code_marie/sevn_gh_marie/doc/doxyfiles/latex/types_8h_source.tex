@@ -1,0 +1,70 @@
+\hypertarget{types_8h_source}{}\doxysection{types.\+h}
+\label{types_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/types.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/types.h}}
+\mbox{\hyperlink{types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 07/11/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_REVISED\_TYPES\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_REVISED\_TYPES\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{struct }\mbox{\hyperlink{structdouble3}{double3}} \{}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble3_ad0570a8f409c151da3737b52cd1ee0a7}{x}};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble3_ab6fe34e5dcee27325269b48655139159}{y}};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble3_a44d35dc88f287935fe8a767e0b4b8d00}{z}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structdouble3_a15d8bf23b622e6b8e6985bfa612f29a3}{isnan}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{if}(std::isnan(\mbox{\hyperlink{structdouble3_ad0570a8f409c151da3737b52cd1ee0a7}{x}}) || std::isnan(\mbox{\hyperlink{structdouble3_ab6fe34e5dcee27325269b48655139159}{y}}) || std::isnan(\mbox{\hyperlink{structdouble3_a44d35dc88f287935fe8a767e0b4b8d00}{z}})) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{20         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structdouble3_a3ef1de073164946e233a6cc5b5b54027}{isinf}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if}(std::isinf(\mbox{\hyperlink{structdouble3_ad0570a8f409c151da3737b52cd1ee0a7}{x}}) || std::isinf(\mbox{\hyperlink{structdouble3_ab6fe34e5dcee27325269b48655139159}{y}}) || std::isinf(\mbox{\hyperlink{structdouble3_a44d35dc88f287935fe8a767e0b4b8d00}{z}})) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{25         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{struct }\mbox{\hyperlink{structdouble4}{double4}}\{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{structdouble4_a062dc4a6a74bb618c6a072a698080e69}{double4}}()\{ \mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}} = \mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}} = \mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}} = \mbox{\hyperlink{structdouble4_afda46a402e033a30c3803cbc10a60116}{w}} = 0.0;\}}
+\DoxyCodeLine{36     \textcolor{keyword}{explicit} \mbox{\hyperlink{structdouble4_a5bd8ec39dd5ff836d8f93fbb1e29ddd7}{double4}}(\textcolor{keyword}{const} \mbox{\hyperlink{structdouble3}{double3}} *a) \{\mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}} = a-\/>\mbox{\hyperlink{structdouble3_ad0570a8f409c151da3737b52cd1ee0a7}{x}}; \mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}} = a-\/>\mbox{\hyperlink{structdouble3_ab6fe34e5dcee27325269b48655139159}{y}}; \mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}} = a-\/>\mbox{\hyperlink{structdouble3_a44d35dc88f287935fe8a767e0b4b8d00}{z}}; \mbox{\hyperlink{structdouble4_afda46a402e033a30c3803cbc10a60116}{w}} = \mbox{\hyperlink{structdouble4_a24165b95acd74efe967eecef71c4a2ab}{mod}}();\}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{structdouble4_abe0dfa3d80539f596f1006cbd21d52d9}{set\_x}}(\textcolor{keywordtype}{double} a) \{\mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}} = a; \mbox{\hyperlink{structdouble4_a24165b95acd74efe967eecef71c4a2ab}{mod}}();\}}
+\DoxyCodeLine{40     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{structdouble4_a7b4f15272e8d10dffb7eaef92b122aed}{set\_y}}(\textcolor{keywordtype}{double} a) \{\mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}} = a; \mbox{\hyperlink{structdouble4_a24165b95acd74efe967eecef71c4a2ab}{mod}}();\}}
+\DoxyCodeLine{41     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{structdouble4_a4dde99be97084167ca4bb600cb8ecb84}{set\_z}}(\textcolor{keywordtype}{double} a) \{\mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}} = a; \mbox{\hyperlink{structdouble4_a24165b95acd74efe967eecef71c4a2ab}{mod}}();\}}
+\DoxyCodeLine{42     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{structdouble4_ae42693db75f33ff299f41c8f202612be}{set\_w}}(\textcolor{keywordtype}{double} a) \{\mbox{\hyperlink{structdouble4_afda46a402e033a30c3803cbc10a60116}{w}} = a;\}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{private}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}};}
+\DoxyCodeLine{47     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble4_afda46a402e033a30c3803cbc10a60116}{w}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{structdouble4_a24165b95acd74efe967eecef71c4a2ab}{mod}}()\{}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} std::sqrt(\mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}}*\mbox{\hyperlink{structdouble4_ac67fc9d197545db6375b5200e0d67f94}{x}} + \mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}}*\mbox{\hyperlink{structdouble4_a70fe96016cd0dd72703afa11ffe52788}{y}} + \mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}}*\mbox{\hyperlink{structdouble4_a7943d8c026d4f47ad4872b5830009825}{z}});}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{struct }\mbox{\hyperlink{structstarprint}{starprint}}\{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{double} \mbox{\hyperlink{structstarprint_ab492e4d5a92140a195a9104fdd9bfa86}{m}};}
+\DoxyCodeLine{59     \textcolor{keywordtype}{double} \mbox{\hyperlink{structstarprint_a99f61dada478d06fb2eb689dde2c5245}{mhe}};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{double} \mbox{\hyperlink{structstarprint_abba39b47e679fb4cfb772e239cac9779}{rco}};}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_REVISED\_TYPES\_H}}
+
+\end{DoxyCode}

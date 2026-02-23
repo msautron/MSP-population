@@ -1,0 +1,609 @@
+\hypertarget{_binary_property_8h_source}{}\doxysection{Binary\+Property.\+h}
+\label{_binary_property_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/BinaryProperty.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/BinaryProperty.h}}
+\mbox{\hyperlink{_binary_property_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by spera on 13/02/19.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_BINPROP\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_BINPROP\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{17 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_UNUSED \_\_attribute\_\_ ((unused))}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_binary_property_a1be9828da0f9462caebe7c34188251e1}{BinaryProperty}}()\{}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}{size}}++;}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_binary_property_a7d0a439571c7455576b92064d59775ff}{\string~BinaryProperty}}()\{\}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{static} std::vector<BinaryProperty*> \mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{all}};}
+\DoxyCodeLine{35     \textcolor{keyword}{typedef} std::map<std::string,size\_t> \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{\_PrintMap}};}
+\DoxyCodeLine{36     \textcolor{keyword}{static} \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{\_PrintMap}} \mbox{\hyperlink{class_binary_property_a29af1e0724502cadedc96e3766e601f7}{PrintMap}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_binary_property}{BinaryProperty}} * \mbox{\hyperlink{class_binary_property_aeaa014a30790b718d5221b3038abb684}{Instance}}()\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_binary_property_a9804b0b1727df8fd494bb78f709128c9}{name}}()\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Binary property (generic)"{}};\}}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_binary_property_a4b1b5f28d77ddff373f767e7e577b04f}{units}}()  \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}UNKNOWN"{}};\}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_binary_property_abb43f1c631627524243fcad6b7abdbaf}{getID}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} -\/1;\}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_a6ee50b550adecd1e2961f401e4478198}{resynch}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&dt, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{bool} set0=\textcolor{keyword}{true}) \{\}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_a56b0e563f1deae887de4ed117914e346}{check\_boundaries}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} *val, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \{\}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_ab6a7818e678516f3d601e2612c4096e4}{init}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} par)\{}
+\DoxyCodeLine{49         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(par);}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(par);}
+\DoxyCodeLine{51     \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_abd313b359ce6f822be41eb308a3467ff}{init\_derived}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\{\};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_binary_property_aea2550f81b0bfcdd589ab929e8a53652}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_binary_property_af6f5166390a0bad01e77676664e33c45}{special\_evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\{}
+\DoxyCodeLine{58         \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8b67b53c273bfa7b170226f84e25631d}{info}}(\textcolor{stringliteral}{"{} my special evolve "{}});}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{60     \} \textcolor{comment}{//if you have some properties that you want to evolve outside the main cycle}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{//Just return the s}}
+\DoxyCodeLine{63     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binary_property_aee678c9eeb3aa11a948028d96db13318}{get\_variation}}(\mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_binary_property_a1e13250414bd528f8e6b69d1f7400743}{set\_broken}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\{}
+\DoxyCodeLine{67         \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}}=\mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}}=std::nan(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binary_property_aea116f27af6def5a93492e0f44162a52}{get}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_binstar}{Binstar}}* b=\textcolor{keyword}{nullptr}) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}};\}}
+\DoxyCodeLine{72     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binary_property_a581355425eaf363e71d43064556e1310}{get\_0}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_binstar}{Binstar}}* b=\textcolor{keyword}{nullptr}) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}};\}}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_ad953650e2d58cb8e4e69124ff4dd364f}{restore}}()\{ \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}} = \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}};\}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{private}:}
+\DoxyCodeLine{76     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}{size}};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\mbox{\hyperlink{class_binary_property}{BinaryProperty}} *\_p, \textcolor{keywordtype}{size\_t} *\textcolor{keywordtype}{id}, \textcolor{keyword}{const} std::string \&\_name)\{}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{BinaryProperty::all}}.push\_back(\_p);}
+\DoxyCodeLine{83         *\textcolor{keywordtype}{id} = \mbox{\hyperlink{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}{BinaryProperty::size}} -\/ 1;}
+\DoxyCodeLine{84         \mbox{\hyperlink{class_binary_property_a29af1e0724502cadedc96e3766e601f7}{BinaryProperty::PrintMap}}.insert(std::pair<std::string,size\_t>(\_name, *\textcolor{keywordtype}{id}));}
+\DoxyCodeLine{85         \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(\textcolor{stringliteral}{"{}Binary property "{}}+ \mbox{\hyperlink{class_binary_property_a9804b0b1727df8fd494bb78f709128c9}{name}}() + \textcolor{stringliteral}{"{} registered"{}} + \textcolor{stringliteral}{"{} (Nproperties: "{}} + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(\mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{all}}.size(),\_\_FILE\_\_,\_\_LINE\_\_) + \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     std::uniform\_real\_distribution<double> \mbox{\hyperlink{class_binary_property_a0c9fd363e880fdbf5bd8330a6f1a644b}{\_uniform\_real}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binary_property_a432d31a2a688bd35266efcfe1b04e3cb}{isbad}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&val) \{}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} (std::isnan(val) || std::isinf(val));}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&a) \{ \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}} = a;\}}
+\DoxyCodeLine{95     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&a) \{ \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}} = a;\}}
+\DoxyCodeLine{96     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}};}
+\DoxyCodeLine{97     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}}, \mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}};}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101 \textcolor{keyword}{class }\mbox{\hyperlink{class_eccentricity}{Eccentricity}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{public}:}
+\DoxyCodeLine{104     \mbox{\hyperlink{class_eccentricity_ada504cf2a5b1c1c51e410fd78e86e43f}{Eccentricity}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{106             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{ID}}, \mbox{\hyperlink{class_eccentricity_ab5ac4c86d2082e34e9ea5f11235461b4}{name}}());}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{ID}};}
+\DoxyCodeLine{111     \textcolor{keyword}{static} \mbox{\hyperlink{class_eccentricity}{Eccentricity}} \mbox{\hyperlink{class_eccentricity_aa9725fa8adf38edcb4eba7dfa7bbafea}{\_eccentricity}};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \mbox{\hyperlink{class_eccentricity}{Eccentricity}} *\mbox{\hyperlink{class_eccentricity_a60b243f7a0250607e089306fcaf06c3b}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_eccentricity}{Eccentricity}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_eccentricity_ab5ac4c86d2082e34e9ea5f11235461b4}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Eccentricity"{}}; \}}
+\DoxyCodeLine{118     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_eccentricity_a94791cb3a156bc73dd6543cc6a0ddd5a}{units}}()\textcolor{keyword}{  override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};\}}
+\DoxyCodeLine{119     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_eccentricity_ab349639e95f5823b8e577cbdb46554e8}{getID}}()\textcolor{keyword}{ const override  }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{ID}};\}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_eccentricity_a4d8c773325116bc5d6a8e480f0cd6c1c}{init}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} par)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123         \textcolor{keywordflow}{if} (par<0 or par>=1)\{}
+\DoxyCodeLine{124             \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Error in eccentricity initialisation, it should be between 0 and 1(excluded), you use e="{}}}
+\DoxyCodeLine{125             +\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(par,\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \mbox{\hyperlink{class_binary_property_ab6a7818e678516f3d601e2612c4096e4}{BinaryProperty::init}}(par);}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_eccentricity_a0ebc5be77534b8f16a8279a882495c16}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_eccentricity_aebeb4c7733b542873052aa7a25e8c08e}{check\_boundaries}}(\textcolor{keywordtype}{double} *val,  \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \};}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keyword}{class }\mbox{\hyperlink{class_semimajor}{Semimajor}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keyword}{public}:}
+\DoxyCodeLine{142     \mbox{\hyperlink{class_semimajor_a96dd2ec39a8dab52213fd23008d9e49e}{Semimajor}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{144             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{ID}}, \mbox{\hyperlink{class_semimajor_ac81c2dba5307234e5fca529d603aefba}{name}}());}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{ID}};}
+\DoxyCodeLine{149     \textcolor{keyword}{static} \mbox{\hyperlink{class_semimajor}{Semimajor}} \mbox{\hyperlink{class_semimajor_a232aa2df174e38ae5adfe20b80742d67}{\_semimajor}};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \mbox{\hyperlink{class_semimajor}{Semimajor}} *\mbox{\hyperlink{class_semimajor_ac6231617e1074eb43f506b23cf887403}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{152         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_semimajor}{Semimajor}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_semimajor_ac81c2dba5307234e5fca529d603aefba}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Semimajor"{}}; \}}
+\DoxyCodeLine{156     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_semimajor_ace5b55424b313baa59371852e104d18c}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rsun"{}};\}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_semimajor_a6c977db97974d904a98e9add3110c9e6}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{ID}};\}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_semimajor_a8b9bba7e3d0056e42775b39d741a19e5}{init}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} par)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{keywordflow}{if} (par<=0)\{}
+\DoxyCodeLine{163             \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Error in Semimajor initialisation, it should be larger than 0, you use Semimajor="{}}}
+\DoxyCodeLine{164                            +\mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(par,\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{165         \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \mbox{\hyperlink{class_binary_property_ab6a7818e678516f3d601e2612c4096e4}{BinaryProperty::init}}(par);}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 }
+\DoxyCodeLine{177     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_semimajor_ab5903ee554346b4c8e318391aced27f6}{check\_boundaries}}(\textcolor{keywordtype}{double} *val, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{191 \textcolor{keyword}{class }\mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_derived___property___binary_a91bbe2b2b4e799940dc9962dde438d20}{init\_derived}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{195         \mbox{\hyperlink{class_binary_property_aea2550f81b0bfcdd589ab929e8a53652}{evolve}}(binstar); \textcolor{comment}{//Set V}}
+\DoxyCodeLine{196         \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(\mbox{\hyperlink{class_binary_property_aea116f27af6def5a93492e0f44162a52}{get}}()); \textcolor{comment}{//Set V\_0}}
+\DoxyCodeLine{197     \};}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_derived___property___binary_ae64a1f18dea80e78994ce77a8ea2309c}{init}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \textcolor{keywordtype}{double} par)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{200             \mbox{\hyperlink{class_binary_property_a6471d455d5efdd5d609ffbc584c177c5}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Cannot initialise the derived Binary property"{}}}
+\DoxyCodeLine{201                            +\mbox{\hyperlink{class_binary_property_a9804b0b1727df8fd494bb78f709128c9}{name}}(),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnstd::sevnio\_error}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{202     \};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_derived___property___binary_a6adda02a2999bd26ca11434c71edf474}{amiderived}}() \{ \textcolor{keywordflow}{return}  \textcolor{keyword}{true};\}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{keyword}{class }\mbox{\hyperlink{classdadt}{dadt}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{keyword}{public}:}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \mbox{\hyperlink{classdadt_a3bba05822c8f6e3225d22f1f88329567}{dadt}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{216         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{217             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{classdadt_a2a0c1499dce5a8f5d0a416a45b6f4a10}{ID}}, \mbox{\hyperlink{classdadt_abfc6d35c57fef41667ba7159891ab370}{name}}());}
+\DoxyCodeLine{218         \}}
+\DoxyCodeLine{219     \}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdadt_abfc6d35c57fef41667ba7159891ab370}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}dSemimajordt"{}}; \}}
+\DoxyCodeLine{222     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdadt_a897ec0025389914a9400463e52012b7f}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rsun/Myr"{}};\}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classdadt_a2a0c1499dce5a8f5d0a416a45b6f4a10}{ID}};}
+\DoxyCodeLine{226     \textcolor{keyword}{static} \mbox{\hyperlink{classdadt}{dadt}} \mbox{\hyperlink{classdadt_ae0f3dd4c0269571aef3db422fb547fed}{\_dadt}};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \mbox{\hyperlink{classdadt}{dadt}} * \mbox{\hyperlink{classdadt_a4b3e375f099d94704522bc6277783e90}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{classdadt}{dadt}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{230     \}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdadt_aced59cd0e974ed332d31ad6951c81284}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{classdadt_a2a0c1499dce5a8f5d0a416a45b6f4a10}{ID}};\}}
+\DoxyCodeLine{233     \textcolor{keywordtype}{int} \mbox{\hyperlink{classdadt_abfa34d94a66c16dc4e569de46a93e23c}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \};}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{keyword}{class }\mbox{\hyperlink{classdedt}{dedt}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \textcolor{keyword}{public}:}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \mbox{\hyperlink{classdedt_a0dc13da30c3773ee976c8701d38fa884}{dedt}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{242         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{243             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{classdedt_a34bd7bd4c44fbf5fe7aba0c64a4ae945}{ID}}, \mbox{\hyperlink{classdedt_ad65a3a3b08e873d1eda201ec2d3c5698}{name}}());}
+\DoxyCodeLine{244         \}}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdedt_ad65a3a3b08e873d1eda201ec2d3c5698}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}dEccentricitydt"{}}; \}}
+\DoxyCodeLine{248     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classdedt_aba0f15399f26a38de30ba279726e498f}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}/Myr"{}};\}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classdedt_a34bd7bd4c44fbf5fe7aba0c64a4ae945}{ID}};}
+\DoxyCodeLine{252     \textcolor{keyword}{static} \mbox{\hyperlink{classdedt}{dedt}} \mbox{\hyperlink{classdedt_a2090368cca22e8fde4e190bd275f63aa}{\_dedt}};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \mbox{\hyperlink{classdedt}{dedt}} * \mbox{\hyperlink{classdedt_af1d4f486ddf7f04be8ba61b71a9767c0}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{255         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{classdedt}{dedt}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{256     \}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258     \textcolor{keywordtype}{int} \mbox{\hyperlink{classdedt_ad16082d9e35fca76067c065140ad5f0b}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{259     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdedt_a994495b54131d0b7cc787cd459467588}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{classdedt_a34bd7bd4c44fbf5fe7aba0c64a4ae945}{ID}};\}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261 \};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \textcolor{keyword}{class }\mbox{\hyperlink{class_ang_mom}{AngMom}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 \textcolor{keyword}{public}:}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267     \mbox{\hyperlink{class_ang_mom_abb3ff8b1a58513b288e66517ac44ed79}{AngMom}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{268         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{269             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_ang_mom_aa5d18b17bfdc0c393443584063eb19a0}{ID}}, \mbox{\hyperlink{class_ang_mom_a16cc56a544734238d65f67c02da764b8}{name}}());}
+\DoxyCodeLine{270         \}}
+\DoxyCodeLine{271     \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_ang_mom_a16cc56a544734238d65f67c02da764b8}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}AngMom"{}}; \}}
+\DoxyCodeLine{274     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_ang_mom_ad9c9441c6fdb8c8b1ecbd1131f610100}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}MsunRsun\string^2"{}};\}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ang_mom_aa5d18b17bfdc0c393443584063eb19a0}{ID}};}
+\DoxyCodeLine{277     \textcolor{keyword}{static} \mbox{\hyperlink{class_ang_mom}{AngMom}} \mbox{\hyperlink{class_ang_mom_aabf0d81c9c5e98d5740f75b9a97f2e84}{\_angmom}};}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279     \mbox{\hyperlink{class_ang_mom}{AngMom}} * \mbox{\hyperlink{class_ang_mom_a1b761f9835361b32879109af60a20600}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{280         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_ang_mom}{AngMom}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{281     \}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_ang_mom_ace988d76c8312b92b48c4a3bf21044fe}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{284     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_ang_mom_a26bc96072196f82a3f0fd6aeafd09464}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_ang_mom_aa5d18b17bfdc0c393443584063eb19a0}{ID}};\}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{296     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_ang_mom_a783361efa687f490d8bb806a65c4c69c}{AngMom\_from\_orbit}}(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} e, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2)\{}
+\DoxyCodeLine{297         \textcolor{keywordtype}{double} G = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{utilities::G}};}
+\DoxyCodeLine{298         \textcolor{keywordflow}{return}  (M1*M2)*std::sqrt( (a*(1-\/e*e)*G)/(M1+M2));}
+\DoxyCodeLine{299     \}}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302 \};}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{keyword}{class }\mbox{\hyperlink{class_period}{Period}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 \textcolor{keyword}{public}:}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308     \mbox{\hyperlink{class_period_a2e1027936a1dab490f62f8a7288b53ea}{Period}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{309         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{310             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{ID}}, \mbox{\hyperlink{class_period_a3e3fa382d468313d24a65748409ce4b9}{name}}());}
+\DoxyCodeLine{311         \}}
+\DoxyCodeLine{312     \}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_period_a3e3fa382d468313d24a65748409ce4b9}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Period"{}}; \}}
+\DoxyCodeLine{315     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_period_aed1b580ba9d11bbdcc49c1c24a718069}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}yr"{}};\}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{ID}};}
+\DoxyCodeLine{318     \textcolor{keyword}{static} \mbox{\hyperlink{class_period}{Period}} \mbox{\hyperlink{class_period_a25d1d09165e9c838dc55bec0c15563ce}{\_period}};}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320     \mbox{\hyperlink{class_period}{Period}} * \mbox{\hyperlink{class_period_aac26e939dae5b78e8a72bc172af0f32b}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{321         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_period}{Period}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{322     \}}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_period_ad34497a3c3ec49b5864066b6954c7a52}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{326     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_period_ac0d8def6ebb10b632441b65703d3094e}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{ID}};\}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{338     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_period_a74e13fd22c44eb0ef0175ebc574f6c48}{calc\_period}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& a, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& Mtot)\{}
+\DoxyCodeLine{339         \textcolor{keywordflow}{return} 2.0*M\_PI*std::sqrt( (a*a*a) / (\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{utilities::G}} * (Mtot)) ); \textcolor{comment}{//returns the period in years}}
+\DoxyCodeLine{340     \}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343 \};}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345 \textcolor{keyword}{class }\mbox{\hyperlink{class_g_wtime}{GWtime}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347 \textcolor{keyword}{public}:}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349     \mbox{\hyperlink{class_g_wtime_a7aec34e6bd91c826d9e0970b52d2ed62}{GWtime}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{350         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{351             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}{ID}}, \mbox{\hyperlink{class_g_wtime_ab067777d25c26d2c52b489b9d2ec1f00}{name}}());}
+\DoxyCodeLine{352         \}}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355     \mbox{\hyperlink{class_g_wtime}{GWtime}} *\mbox{\hyperlink{class_g_wtime_a9ac7c3e0bc3527c1fb18725dce535004}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{356         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_g_wtime}{GWtime}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{357     \}}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_g_wtime_ab067777d25c26d2c52b489b9d2ec1f00}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}GWtime"{}}; \}}
+\DoxyCodeLine{361     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_g_wtime_a558b02b3c0c55d39d0e0ba976ac42c97}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Myr"{}};\}}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}{ID}};}
+\DoxyCodeLine{365     \textcolor{keyword}{static} \mbox{\hyperlink{class_g_wtime}{GWtime}} \mbox{\hyperlink{class_g_wtime_a411bef0ef0edf1bd4dfe03c675f80508}{\_gwtime}};}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_wtime_a387f1c0e6ac039849758d745abc253ba}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}{ID}};\}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_wtime_ab6728e55a1c7bbcaae434faa0e177e6e}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_wtime_a7be862f419595b22b8e24b61e9fc4e49}{time\_scaling}} = \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{utilities::yr\_to\_Myr}}*0.01953125/\mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{utilities::G3\_over\_c5}}; \textcolor{comment}{//tGW=time\_scaling*f(a,e,m1,m2) [Myr]}}
+\DoxyCodeLine{374     \textcolor{comment}{//time scaling=5/256 * (c\string^5/G\string^3), see evolve for f.}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 \};}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 \textcolor{keyword}{class }\mbox{\hyperlink{class___r_l}{\_RL}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{keyword}{public}:}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382     \mbox{\hyperlink{class___r_l_a3bbf21366d58e9fd190305dbcc98efb3}{\_RL}}()\{\}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384     \mbox{\hyperlink{class___r_l}{\_RL}} * \mbox{\hyperlink{class___r_l_a072029016feb7c913853530f6f612532}{Instance}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class___r_l_aac2875440234395df8f7be0f60ca2345}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\_RL"{}};\}}
+\DoxyCodeLine{387     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class___r_l_a5706942663d49990ff48bedcbcaa3447}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rsun"{}};\}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{396     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class___r_l_aea8950c20828edbef051ec9a394b5552}{RL\_Eg}}(\mbox{\hyperlink{class_star}{Star}}* primary, \mbox{\hyperlink{class_star}{Star}}* secondary, \mbox{\hyperlink{class_binstar}{Binstar}}* b);}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399     \textcolor{keywordtype}{int} \mbox{\hyperlink{class___r_l_aa48f568f61fe85e2591f0fcf6a736be4}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} 0; \};}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \};}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403 \textcolor{keyword}{class }\mbox{\hyperlink{class_r_l0}{RL0}} : \textcolor{keyword}{public} \mbox{\hyperlink{class___r_l}{\_RL}}\{}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{keyword}{public}:}
+\DoxyCodeLine{406     \mbox{\hyperlink{class_r_l0_a2dbfb680bfcd48e217918eaf05b42c9b}{RL0}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{407         \textcolor{keywordflow}{if}(reg)\{}
+\DoxyCodeLine{408             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_r_l0_aa1144a055795c04e0560ddd52820e8cf}{ID}}, \mbox{\hyperlink{class_r_l0_a81addd4e29fdc5c30f92ae61969e07fd}{name}}());}
+\DoxyCodeLine{409         \}}
+\DoxyCodeLine{410     \}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412     \mbox{\hyperlink{class_r_l0}{RL0}} *\mbox{\hyperlink{class_r_l0_a75a4fdfa65d642ce11a487d839c4ead6}{Instance}}()\textcolor{keyword}{ override}\{}
+\DoxyCodeLine{413         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_r_l0}{RL0}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{414     \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_r_l0_a81addd4e29fdc5c30f92ae61969e07fd}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RL0"{}};\}}
+\DoxyCodeLine{417     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_l0_aa1144a055795c04e0560ddd52820e8cf}{ID}};}
+\DoxyCodeLine{418     \textcolor{keyword}{static} \mbox{\hyperlink{class_r_l0}{RL0}} \mbox{\hyperlink{class_r_l0_a4924a0ccf87f26a76eca4af64344fe0c}{\_rl0}};}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_r_l0_aeab3d7329a68937287d4a216dfc77c56}{getID}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_r_l0_aa1144a055795c04e0560ddd52820e8cf}{ID}};\}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_r_l0_a7eb7495efbb5977547a3bed3b59f1346}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425 \};}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427 \textcolor{keyword}{class }\mbox{\hyperlink{class_r_l1}{RL1}} : \textcolor{keyword}{public} \mbox{\hyperlink{class___r_l}{\_RL}}\{}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429 \textcolor{keyword}{public}:}
+\DoxyCodeLine{430     \mbox{\hyperlink{class_r_l1_a80bb2ee3248646daf1287c12c5d8a235}{RL1}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true})\{}
+\DoxyCodeLine{431         \textcolor{keywordflow}{if}(reg)\{}
+\DoxyCodeLine{432             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_r_l1_a112e01529802781a6a24bb6df520c833}{ID}}, \mbox{\hyperlink{class_r_l1_a550d6f38b01ac833627df6c1553164c5}{name}}());}
+\DoxyCodeLine{433         \}}
+\DoxyCodeLine{434     \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436     \mbox{\hyperlink{class_r_l1}{RL1}} *\mbox{\hyperlink{class_r_l1_ace0c82462fac8cbf0b8f50095459a373}{Instance}}()\textcolor{keyword}{ override}\{}
+\DoxyCodeLine{437         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_r_l1}{RL1}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{438     \}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_r_l1_a550d6f38b01ac833627df6c1553164c5}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RL1"{}};\}}
+\DoxyCodeLine{441     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_l1_a112e01529802781a6a24bb6df520c833}{ID}};}
+\DoxyCodeLine{442     \textcolor{keyword}{static} \mbox{\hyperlink{class_r_l1}{RL1}} \mbox{\hyperlink{class_r_l1_a206cbe4f924f4846b1f6f560f76309d5}{\_rl1}};}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_r_l1_a104327dea0eccb463bcc989fdf5ba791}{getID}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_r_l1_a112e01529802781a6a24bb6df520c833}{ID}};\}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_r_l1_a597bc08c713136eb6041e2b3930e717b}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449 \};}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 \textcolor{comment}{//Time handling}}
+\DoxyCodeLine{452 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_worldtime}{BWorldtime}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}} \{}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454 \textcolor{keyword}{public}:}
+\DoxyCodeLine{455     \mbox{\hyperlink{class_b_worldtime_a3e3a1fc2dbb40a4a598799b0995c953a}{BWorldtime}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{456         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{457             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{ID}}, \mbox{\hyperlink{class_b_worldtime_a9f029bbe1ceada967e56f66849e34e91}{name}}());}
+\DoxyCodeLine{458         \}}
+\DoxyCodeLine{459         \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(0.0);}
+\DoxyCodeLine{460         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(0.0);}
+\DoxyCodeLine{461     \}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463     \mbox{\hyperlink{class_b_worldtime}{BWorldtime}} *\mbox{\hyperlink{class_b_worldtime_a255c253ea4512d1dcc77cf5584b3e39a}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{464         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_b_worldtime}{BWorldtime}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{465     \}}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_worldtime_a9f029bbe1ceada967e56f66849e34e91}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BWorldtime"{}}; \}}
+\DoxyCodeLine{468     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_worldtime_a84c6a6a643450a073285aaaf057d19c4}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Myr"{}};\}}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{ID}};}
+\DoxyCodeLine{471     \textcolor{keyword}{static} \mbox{\hyperlink{class_b_worldtime}{BWorldtime}} \mbox{\hyperlink{class_b_worldtime_aaaea42509fafd3ca17861d311556dd5b}{\_bworldtime}};}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_worldtime_adfe81d412d57879a87806eaf144998fa}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{ID}};\}}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{475     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_worldtime_ae9f65470eca65e1307a95a1d3f320c50}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_worldtime_a310cb1d8d132bf94dc5ea88ec98149a4}{special\_evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_worldtime_aadcbfc67118496a529328075a472f96f}{set\_broken}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 \};}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_timestep}{BTimestep}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485 \textcolor{keyword}{public}:}
+\DoxyCodeLine{486     \mbox{\hyperlink{class_b_timestep_a0b7909d1e42d4b9c6ba69198a6ac5b11}{BTimestep}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{487         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{488             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{ID}}, \mbox{\hyperlink{class_b_timestep_aa0674b311b1ffff6e02ac9ef5a9f2452}{name}}());}
+\DoxyCodeLine{489         \}}
+\DoxyCodeLine{490         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(1.0e30); \textcolor{comment}{//Initial timestep set to a large value}}
+\DoxyCodeLine{491         \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(0.0); \textcolor{comment}{//Initial last timestep set to 0}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493     \}}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{495     \mbox{\hyperlink{class_b_timestep}{BTimestep}} * \mbox{\hyperlink{class_b_timestep_a469c82fe534e83b399bd6c50350e7dd7}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{496         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_b_timestep}{BTimestep}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{497     \}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_timestep_aa0674b311b1ffff6e02ac9ef5a9f2452}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BTimestep"{}}; \}}
+\DoxyCodeLine{500     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_timestep_a81dcc72e9ec3edae49aa4a2c263f3c56}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Myr"{}};\}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{ID}};}
+\DoxyCodeLine{503     \textcolor{keyword}{static} \mbox{\hyperlink{class_b_timestep}{BTimestep}} \mbox{\hyperlink{class_b_timestep_a8106a9a19af6eb6c6a7f4eb616afa17b}{\_btimestep}};}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_timestep_a78ff8ff132c6e392ab9b58c55bfb09ad}{max\_timestep}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *s);}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_timestep_ab0ef475d4a647feea0c889c63235c30b}{check\_repeat}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_binary_property_a99b216b47580244b14838aa12fe51928}{V0}}, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}}, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&derivative);}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_timestep_a0b21fdc45b8e5a4134e5dc34b2355ced}{check\_repeat\_eccentricity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&m0, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&m, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&derivative);}
+\DoxyCodeLine{511 }
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513 }
+\DoxyCodeLine{519     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_timestep_aaf97241b2bff40c577c41dd629a19b16}{check\_repeat\_DM\_RLO}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{526     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_timestep_a3a4613c40bd3f0e3988b4c077ac3638c}{check\_repeat\_OmegaRem\_NS}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{533     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_timestep_ac173587d7e93ceb6724228b717aee8e5}{check\_repeat\_stellar\_rotation}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{535     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_timestep_a5fd2780bf6d0e587c9dce7027be5a34c}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_timestep_a56b339e8d9f7538c04b3e023dcb64f96}{getID}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{ID}};\}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_timestep_add14ada665c499613a892cf7546f7633}{resynch}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&dt, \textcolor{keywordtype}{bool} set0)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{540         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(dt);}
+\DoxyCodeLine{541         \textcolor{keywordflow}{if} (set0) \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(\mbox{\hyperlink{class_binary_property_aea116f27af6def5a93492e0f44162a52}{get}}());}
+\DoxyCodeLine{542     \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_timestep_a4b3b21bceb6ecb6114174dfc31740edd}{set\_broken}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{545         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(\mbox{\hyperlink{class_b_timestep_a78ff8ff132c6e392ab9b58c55bfb09ad}{max\_timestep}}(binstar));}
+\DoxyCodeLine{546         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{547     \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_timestep_ac50d48e2ae16c7b1bb597e241fa03693}{special\_evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{550         \mbox{\hyperlink{class_binary_property_ae9c28e65e773f129e7f2411eab7240e3}{set\_0}}(\mbox{\hyperlink{class_binary_property_aea116f27af6def5a93492e0f44162a52}{get}}());}
+\DoxyCodeLine{551         \mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}(\mbox{\hyperlink{class_b_timestep_a78ff8ff132c6e392ab9b58c55bfb09ad}{max\_timestep}}(binstar));}
+\DoxyCodeLine{552         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{553     \} \textcolor{comment}{//if you have some properties that you want to evolve outside the main cycle}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{557 }
+\DoxyCodeLine{564     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_timestep_a6bf5ff22b011b34c21d21366a160b49b}{check\_dt\_limits}}(\textcolor{keywordtype}{double} \&dt, \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_timestep_a66bfde6c3c5417a1c5408ecd4087de4a}{tiny\_dt}}(\mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{567 \};}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_event}{BEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_binary_property}{BinaryProperty}}\{}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571 \textcolor{keyword}{public}:}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{573     \mbox{\hyperlink{class_b_event_a1a93998fbb2a6744291b26602a19a7cc}{BEvent}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{574         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{575             \mbox{\hyperlink{class_binary_property_a3e52bf83ddde3616986ee48b5c7dfb38}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_b_event_af99294f025726cc04091fd384f6b4230}{ID}}, \mbox{\hyperlink{class_b_event_af91f597439cc8f04320dfa3a181dc91c}{name}}());}
+\DoxyCodeLine{576         \}}
+\DoxyCodeLine{577         \mbox{\hyperlink{class_binary_property_ab6a7818e678516f3d601e2612c4096e4}{init}}(\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a66a139488869516447ed9a0b0a5692b4}{Lookup::EventsList::NoEvent}}); \textcolor{comment}{//Initiliase to no event}}
+\DoxyCodeLine{578     \}}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_event_af91f597439cc8f04320dfa3a181dc91c}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BEvent"{}}; \}}
+\DoxyCodeLine{581     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_event_a60c7027a63039216e353f6ec77f43274}{units}}()\textcolor{keyword}{ override  }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};\}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{583     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_event_af99294f025726cc04091fd384f6b4230}{ID}};}
+\DoxyCodeLine{584     \textcolor{keyword}{static} \mbox{\hyperlink{class_b_event}{BEvent}} \mbox{\hyperlink{class_b_event_a879fcd777186fa1afec053bfbfd77a5d}{\_bevent}};}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586     \mbox{\hyperlink{class_b_event}{BEvent}} * \mbox{\hyperlink{class_b_event_ac71b9df01b6b97ea5582c2434ccb4cc8}{Instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{587         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_b_event}{BEvent}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{588     \}}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_event_a3abc876d6f8de759d973191d09aad94f}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override}\{\mbox{\hyperlink{class_binary_property_a01bc98fce22cf5f8891536b64a77af85}{set}}((\textcolor{keywordtype}{double})\mbox{\hyperlink{namespace_lookup_afe0c6d493f0ce9e41478a47bf12d4a06a66a139488869516447ed9a0b0a5692b4}{Lookup::EventsList::NoEvent}}); \textcolor{keywordflow}{return} EXIT\_SUCCESS;\}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{592     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_event_aa8f578d01d1664253c4afa035df35a2f}{special\_evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595 \};}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597 }
+\DoxyCodeLine{603 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_j_i_t___property}{BJIT\_Property}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_derived___property___binary}{Derived\_Property\_Binary}}\{}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605 \textcolor{keyword}{public}:}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_b_j_i_t___property_a918512a8d9a461771adec6d7d67bc969}{name}}()\textcolor{keyword}{  override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generic JIT Property"{}}; \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609     \textcolor{comment}{//Special evolve}}
+\DoxyCodeLine{610     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_j_i_t___property_a33da55d59c3cb93a8d4c392796ffdfd2}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{611         \mbox{\hyperlink{class_b_j_i_t___property_a6adaa9c471fdbe4e25fdbefec423e603}{evolve\_number}}++;}
+\DoxyCodeLine{612         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{613     \}}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615 }
+\DoxyCodeLine{616     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_j_i_t___property_a87819f5557bdbfdeb8b4b05c538d34ae}{get}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_binstar}{Binstar}}* b=\textcolor{keyword}{nullptr})\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{617         \textcolor{comment}{//If evolve\_number>last\_evolve\_number, we have to obtain a new estimate for lambda}}
+\DoxyCodeLine{618         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_b_j_i_t___property_a74b4abdaf0727f632310886ad75144c4}{new\_estimate\_needed}}())\{}
+\DoxyCodeLine{619             \mbox{\hyperlink{class_b_j_i_t___property_a6f807c5a3b454f27c939aa7a71263c4d}{specialised\_set}}(b);}
+\DoxyCodeLine{620         \}}
+\DoxyCodeLine{621         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}};}
+\DoxyCodeLine{622     \}}
+\DoxyCodeLine{623 }
+\DoxyCodeLine{624     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_j_i_t___property_a2ea3b3c7c8a7d006b7696a35a5387b63}{restore}}()\textcolor{keyword}{ override }\{\mbox{\hyperlink{class_b_j_i_t___property_a6adaa9c471fdbe4e25fdbefec423e603}{evolve\_number}}++;\}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{626 }
+\DoxyCodeLine{627 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{628 }
+\DoxyCodeLine{629 }
+\DoxyCodeLine{630     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_j_i_t___property_a6f807c5a3b454f27c939aa7a71263c4d}{specialised\_set}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keyword}{const} \mbox{\hyperlink{class_binstar}{Binstar}}* b=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{631         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{632     \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_j_i_t___property_a74b4abdaf0727f632310886ad75144c4}{new\_estimate\_needed}}()\{}
+\DoxyCodeLine{635         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_b_j_i_t___property_a6adaa9c471fdbe4e25fdbefec423e603}{evolve\_number}}>\mbox{\hyperlink{class_b_j_i_t___property_aa330780e2cd3d4c7c1f660c5643b99b0}{last\_evolve\_number}};}
+\DoxyCodeLine{636     \}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_j_i_t___property_ad2e52f3a8545c584476c116740b7f3b3}{set}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&a)\textcolor{keyword}{ override  }\{}
+\DoxyCodeLine{639         \mbox{\hyperlink{class_binary_property_a595770b80fe5498272872703e9f0817a}{V}}=a;}
+\DoxyCodeLine{640         \mbox{\hyperlink{class_b_j_i_t___property_aa330780e2cd3d4c7c1f660c5643b99b0}{last\_evolve\_number}}=\mbox{\hyperlink{class_b_j_i_t___property_a6adaa9c471fdbe4e25fdbefec423e603}{evolve\_number}};}
+\DoxyCodeLine{641     \}}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{643 }
+\DoxyCodeLine{644 }
+\DoxyCodeLine{645 \textcolor{keyword}{private}:}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{647 }
+\DoxyCodeLine{648     \textcolor{comment}{//The following  numbers check if an evolution of a binary evolution has been called}}
+\DoxyCodeLine{649     \textcolor{comment}{//from the last time this property has been estimated.}}
+\DoxyCodeLine{650     \textcolor{comment}{//evolve\_number increases by 1 each time evolve or update\_from\_binary has been called.}}
+\DoxyCodeLine{651     \textcolor{comment}{//last\_evolve\_number stores the value of evolve\_number when getp is called.}}
+\DoxyCodeLine{652     \textcolor{comment}{//When calling getp it checks if the two numbers are equal, if they are the property is just last stored one.}}
+\DoxyCodeLine{653     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_j_i_t___property_aa330780e2cd3d4c7c1f660c5643b99b0}{last\_evolve\_number}}=0, \mbox{\hyperlink{class_b_j_i_t___property_a6adaa9c471fdbe4e25fdbefec423e603}{evolve\_number}}=0;}
+\DoxyCodeLine{654 }
+\DoxyCodeLine{655 \};}
+\DoxyCodeLine{656 }
+\DoxyCodeLine{657 }
+\DoxyCodeLine{658 }
+\DoxyCodeLine{659 }
+\DoxyCodeLine{660 }
+\DoxyCodeLine{661 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_BINPROP\_H}}
+
+\end{DoxyCode}

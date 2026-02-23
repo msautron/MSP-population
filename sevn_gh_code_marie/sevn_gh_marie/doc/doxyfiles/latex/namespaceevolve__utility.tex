@@ -1,0 +1,235 @@
+\hypertarget{namespaceevolve__utility}{}\doxysection{evolve\+\_\+utility Namespace Reference}
+\label{namespaceevolve__utility}\index{evolve\_utility@{evolve\_utility}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h}{Evolve\+BBH}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1}{Evolve\+BCX1}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula}{Evolve\+BHMSTarantula}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact}{Evolve\+Binary\+Compact}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old}{Evolve\+Binary\+Compact\+Old}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c}{Evolve\+BLC}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug}{Evolve\+Debug}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_default}{Evolve\+Default}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{Evolve\+Record\+Condition}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l}{Evolve\+RRL}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{Evolve\+Stop\+Condition}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1}{Evolve\+W1}}
+\item 
+struct \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}{evolve\+\_\+single}} (\mbox{\hyperlink{class_binstar}{Binstar}} \&binary, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&svlog, bool record\+\_\+state=true)
+\item 
+int \mbox{\hyperlink{namespaceevolve__utility_ad0cc764d5efa0bb3621a3eccce89c469}{evolve\+\_\+single}} (\mbox{\hyperlink{class_star}{Star}} \&star, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&svlog, bool record\+\_\+state=true)
+\item 
+{\footnotesize template$<$typename System $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}{evolve\+\_\+list}} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} $\ast$evolve\+\_\+function, std\+::vector$<$ System $>$ \&systems, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, int Nevolve=-\/1)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}{chunk\+\_\+dispatcher}} (unsigned int Nchunk, \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, std\+::vector$<$ T $>$ \&systems, bool record\+\_\+state=true, bool progress=true)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a56c6f548750f8f97722cbf2e84954fe1}{chunk\+\_\+dispatcher}} (\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} $\ast$evolve\+\_\+function, unsigned int Nchunk, \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, std\+::vector$<$ T $>$ \&systems, bool progress=true)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IDEA BEHIND THE EVOLVE FUNCTOR
+
+The Evolve Functors are used to handle the evolution, the record of properties and the output of both stars and binaries. The evolve function of the classes \mbox{\hyperlink{class_star}{Star}} and Binaries just evolves the system of a single adaptive timestep forward, the Evolve fuctor described here have the role to drive the complete evolution stopping it when needed, print in in output the results and handle errors. The Base \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} constructor has 4 parameters\+:
+\begin{DoxyItemize}
+\item Reference to Sevnlogging istance\+: it is used to initialise the protected member \+\_\+svlog svlog is used to return logs (debug, info, errors) in the class. Use always it to return infos to the standard output or raise errors.
+\item bool record\+\_\+state\+: it is used to initialise the protected member \+\_\+record\+\_\+state. if this parameter is true, all the states record and print has to be disabled
+\item bool include\+\_\+failed\texorpdfstring{$>$}{>} it is used to initialse the protected member \+\_\+include\+\_\+failed. if \+\_\+include\+\_\+failed is true, we have to print to the output files also for star with failed evolution
+\item \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}} $\ast$option\+: pointer to the struct \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}}, it is used to initialise the protected member \+\_\+options this struct containt a vector of doubles and a vector of string. This is an optional member (it set to nullptr by default) used to add other parameters for a given Functor.
+\end{DoxyItemize}
+
+The key method of a Functor is the override of the operators(\+Binstar\& binstar) and operators(\+Star\& star). This is the function that perform the actual evolution. As a general guide the evolve should contain an infinite for that call star or binstar evolution. After the evolution it should be checked if the breaktrigger condition have been reached. In that case the for cycle is stopped through a break. Inside the for it should be checked also if the condition for record of the states has been reached. If this is the case we have to call the method recordstate\+\_\+w\+\_\+timeupdate(). The method records the states and update the property \mbox{\hyperlink{class_next_output}{Next\+Output}}. Notice that if the memmber \+\_\+record\+\_\+state is false, the states should be never recorded indepentely from the input and \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} options. If we want to handle the errors without stopping the whole computation we have to use a try .. catch .. structure. The evolution is inserted inside the try part while inside the catch we have to set the member evolution\+\_\+results=EXIT\+\_\+\+FAILURE; and a brak for the for cycle should be inserted. At the end of the function before we have to add the mandatory following lines\+: final\+\_\+print(system); //\+Handle the output printing return \+\_\+evolution\+\_\+result; //\+Exit\+\_\+\+SUccess (default) or EXIT\+\_\+\+FAILURE if it has been set in the evolution (if the evolution failed).
+
+HOW TO ADD A NEW EVOLVE FUNCTION
+
+The evolve function is a Functor that should have two mandatory override operator\+:
+\begin{DoxyItemize}
+\item inline int operator() (\mbox{\hyperlink{class_binstar}{Binstar}}\& binary)
+\item inline int operator() (\mbox{\hyperlink{class_star}{Star}}\& star) The constructor need to call the base class constructor (that has parameters svlog and record\+\_\+state).
+\end{DoxyItemize}
+
+Implementation steps Assume we are implementing a new evolve functor Evolve\+Nizzi 1-\/ Create a class derived from the the base class \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} class Evolve\+Nizzi \+: public \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} 2-\/ Implement the class constructor that calls the base class constructor \begin{DoxyVerb}  EvolveNizzi(SevnLogging& svlog, bool record_state=true) : EvolveFunctor(svlog,record_state) {...}
+  @param svlog, instance of class Svlogging
+  @param record_state, If true enable the state recording during the evolution (following the parameters in input)
+\end{DoxyVerb}
+ 3-\/ Override the pure virtual operator () for both stars and binstars
+\begin{DoxyItemize}
+\item inline int operator() (\mbox{\hyperlink{class_binstar}{Binstar}}\& binary) override \{....\}
+\item inline int operator() (\mbox{\hyperlink{class_star}{Star}}\& star) override \{....\} These are the function that will be actually called to perform the evolution of a star or a binary NOTICE\+: if the function is the same for both \mbox{\hyperlink{class_star}{Star}} and \mbox{\hyperlink{class_binstar}{Binstar}} it is better to implement a separate (protected of private) template function that will be called inside the operator.
+\end{DoxyItemize}
+
+e.\+g. protected\+: template $<$typename System$>$ inline int evolve\+\_\+common(\+System\& system)\{...\}
+
+and then
+
+public\+: inline int operator() (\mbox{\hyperlink{class_binstar}{Binstar}}\& binary) override \{ return evolve\+\_\+common(binary);\} inline int operator() (\mbox{\hyperlink{class_star}{Star}}\& star) override \{ return evolve\+\_\+common(star);\}
+
+\begin{DoxyVerb}     NOTICE: The functions have to return EXIT_SUCCESS if the evolution ended without problems or EXIT_FAILURE or
+     raise an Error in the other cases
+\end{DoxyVerb}
+ WRITE DOCUMENTATION OF THE CLASS The documentation of new \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} should follow the schema\+:
+\begin{DoxyItemize}
+\item A brief description of the Evolve purpose
+\item @record\+\_\+state\+\_\+policy\+: Describe when the states are recorded and how the dtout in input is used and interpreted
+\item @break\+\_\+evolve\+\_\+policy\+: Describe when the evolution is halted and how the tf in input is used and interpreted
+\item @\+Extra\+\_\+options\+: It the struct \mbox{\hyperlink{structevolve__utility_1_1_options}{Options}} is used for extra input options, describe these extra parameters.
+\item @binstar\+\_\+evolve\+: If the evolve can be applied to binaries write Yes, otherwise give information (e.\+g. what kind of error is raised)
+\item @star\+\_\+evolve\+: If the evolve can be applied to stars write Yes, otherwise give information (e.\+g. what kind of error is raised)
+\item @catch\+: Write what kind of errors (if any) is catched during the evolve sequence
+\end{DoxyItemize}
+
+HOW TO USE IT IN THE MAIN FUNCTION
+
+
+\begin{DoxyItemize}
+\item Create a pointer to the given Functor e.\+g. \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{evolve\+\_\+utility\+::\+Evolve\+Functor}}$\ast$ evolve\+\_\+function = new evolve\+\_\+utility\+::\+Evolve\+Nizzi(svlog,true);
+\item Use directly the function ( ($\ast$evolve\+\_\+function)(binstar) ) or use it as parameter in the chunk\+\_\+dispatcher\+: e.\+g. evolve\+\_\+utility\+::chunk\+\_\+dispatcher(evolve\+\_\+function,\+Nchunk,sevnio,stars,true);
+\item If the function is stoared in the heap, remember to delete the pointer after the evolution e.\+g. delte evolve\+\_\+function. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceevolve__utility_a56c6f548750f8f97722cbf2e84954fe1}\label{namespaceevolve__utility_a56c6f548750f8f97722cbf2e84954fe1}} 
+\index{evolve\_utility@{evolve\_utility}!chunk\_dispatcher@{chunk\_dispatcher}}
+\index{chunk\_dispatcher@{chunk\_dispatcher}!evolve\_utility@{evolve\_utility}}
+\doxysubsubsection{\texorpdfstring{chunk\_dispatcher()}{chunk\_dispatcher()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int evolve\+\_\+utility\+::chunk\+\_\+dispatcher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} $\ast$}]{evolve\+\_\+function,  }\item[{unsigned int}]{Nchunk,  }\item[{\mbox{\hyperlink{class_i_o}{IO}} \&}]{sevnio,  }\item[{std\+::vector$<$ T $>$ \&}]{systems,  }\item[{bool}]{progress = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evolve using chunk version with functor 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & It could be \mbox{\hyperlink{class_binstar}{Binstar}} or \mbox{\hyperlink{class_star}{Star}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em evolve\+\_\+function} & Pointer to functor derived from base class \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} \\
+\hline
+{\em Nchunk} & Number of systems to evolve in each chunk \\
+\hline
+{\em sevnio} & Instance of the \mbox{\hyperlink{class_i_o}{IO}} class (the one linked to the binaries) \\
+\hline
+{\em systems} & Vector containing the systems to evolve. \\
+\hline
+{\em progress} & If true print progress information to the standard output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of failed evolutions @\+Note The vector of systems is passed by reference and it is cleared if not empty yet. 
+\end{DoxyReturn}
+Preliminary reset
+
+Preliminary assignment
+
+Cycle\mbox{\Hypertarget{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}\label{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}} 
+\index{evolve\_utility@{evolve\_utility}!chunk\_dispatcher@{chunk\_dispatcher}}
+\index{chunk\_dispatcher@{chunk\_dispatcher}!evolve\_utility@{evolve\_utility}}
+\doxysubsubsection{\texorpdfstring{chunk\_dispatcher()}{chunk\_dispatcher()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int evolve\+\_\+utility\+::chunk\+\_\+dispatcher (\begin{DoxyParamCaption}\item[{unsigned int}]{Nchunk,  }\item[{\mbox{\hyperlink{class_i_o}{IO}} \&}]{sevnio,  }\item[{std\+::vector$<$ T $>$ \&}]{systems,  }\item[{bool}]{record\+\_\+state = {\ttfamily true},  }\item[{bool}]{progress = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evolve using chunk 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & It could be \mbox{\hyperlink{class_binstar}{Binstar}} or \mbox{\hyperlink{class_star}{Star}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em Nchunk} & Number of systems to evolve in each chunk \\
+\hline
+{\em sevnio} & Instance of the \mbox{\hyperlink{class_i_o}{IO}} class (the one linked to the binaries) \\
+\hline
+{\em systems} & Vector containing the systems to evolve. \\
+\hline
+{\em record\+\_\+state} & If true record and print the systems states (accordingly with the option parameters) \\
+\hline
+{\em progress} & If true print progress information to the standard output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of failed evolutions @\+Note The vector of systems is passed by reference and it is cleared if not empty yet. 
+\end{DoxyReturn}
+Preliminary reset
+
+Preliminary assignment
+
+Cycle\mbox{\Hypertarget{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}\label{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}} 
+\index{evolve\_utility@{evolve\_utility}!evolve\_list@{evolve\_list}}
+\index{evolve\_list@{evolve\_list}!evolve\_utility@{evolve\_utility}}
+\doxysubsubsection{\texorpdfstring{evolve\_list()}{evolve\_list()}}
+{\footnotesize\ttfamily template$<$typename System $>$ \\
+int evolve\+\_\+utility\+::evolve\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} $\ast$}]{evolve\+\_\+function,  }\item[{std\+::vector$<$ System $>$ \&}]{systems,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} \&}]{sevnio,  }\item[{int}]{Nevolve = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evolve a list of stars or binstars 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em System} & It could be \mbox{\hyperlink{class_binstar}{Binstar}} or \mbox{\hyperlink{class_star}{Star}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em evolve\+\_\+function} & Pointer to functor derived from base class \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{Evolve\+Functor}} \\
+\hline
+{\em systems} & Vector containing the systems to evolve. \\
+\hline
+{\em sevnio} & Instance of the \mbox{\hyperlink{class_i_o}{IO}} class (the one linked to the binaries) \\
+\hline
+{\em Nevolve} & Number of systems to evolve (first Nevolve). If -\/1 evolve all the sytems \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of failed evolutions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}\label{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}} 
+\index{evolve\_utility@{evolve\_utility}!evolve\_single@{evolve\_single}}
+\index{evolve\_single@{evolve\_single}!evolve\_utility@{evolve\_utility}}
+\doxysubsubsection{\texorpdfstring{evolve\_single()}{evolve\_single()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int evolve\+\_\+utility\+::evolve\+\_\+single (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} \&}]{binary,  }\item[{\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&}]{svlog,  }\item[{bool}]{record\+\_\+state = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evolve a binary system 
+\begin{DoxyParams}{Parameters}
+{\em binary} & Binary system to evolve \\
+\hline
+{\em svlog} & Instance of the Sevenlogging class \\
+\hline
+{\em record\+\_\+state} & If true record and print the binary states (accordingly with the option parameters) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS if the evolution is ended without errors. EXIT\+\_\+\+FAILURE is sevnerr is raised. In that case the error is catched and an error message is printed in the stardard error output (but the run is not halted) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceevolve__utility_ad0cc764d5efa0bb3621a3eccce89c469}\label{namespaceevolve__utility_ad0cc764d5efa0bb3621a3eccce89c469}} 
+\index{evolve\_utility@{evolve\_utility}!evolve\_single@{evolve\_single}}
+\index{evolve\_single@{evolve\_single}!evolve\_utility@{evolve\_utility}}
+\doxysubsubsection{\texorpdfstring{evolve\_single()}{evolve\_single()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int evolve\+\_\+utility\+::evolve\+\_\+single (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} \&}]{star,  }\item[{\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&}]{svlog,  }\item[{bool}]{record\+\_\+state = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evolve a star 
+\begin{DoxyParams}{Parameters}
+{\em star} & \mbox{\hyperlink{class_star}{Star}} system to evolve \\
+\hline
+{\em svlog} & Instance of the Sevenlogging class \\
+\hline
+{\em record\+\_\+state} & If true record and print the binary states (accordingly with the option parameters) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS if the evolution is ended without errors. EXIT\+\_\+\+FAILURE is sevnerr is raised. In that case the error is catched and an error message is printed in the stardard error output (but the run is not halted) 
+\end{DoxyReturn}

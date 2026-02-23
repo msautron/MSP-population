@@ -1,0 +1,120 @@
+\hypertarget{_collision_8h_source}{}\doxysection{Collision.\+h}
+\label{_collision_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Collision.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Collision.h}}
+\mbox{\hyperlink{_collision_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 3/1/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#ifndef SEVN\_COLLISION\_H}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define SEVN\_COLLISION\_H}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_i_o_8h}{IO.h}}>}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_processes_8h}{Processes.h}}>}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{binstar_8h}{binstar.h}}>}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{star_8h}{star.h}}>}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{comment}{//Forward declaration}}
+\DoxyCodeLine{147 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{148 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{class }\mbox{\hyperlink{class_kollision}{Kollision}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_process}{Process}}\{}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{public}:}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \mbox{\hyperlink{class_kollision_a7f739238d868ef039276437aafc35e18}{Kollision}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{157             \textcolor{comment}{//First register to include this Property in static array}}
+\DoxyCodeLine{158             \mbox{\hyperlink{class_process_a22775758327708f0135eb29387eb6e63}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_kollision_a6c45296d668b61d738b35fec6e008aac}{ID}}, \mbox{\hyperlink{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}{name}}());}
+\DoxyCodeLine{159         \}}
+\DoxyCodeLine{160     \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_kollision_a6c45296d668b61d738b35fec6e008aac}{ID}};}
+\DoxyCodeLine{163     \textcolor{keyword}{static} \mbox{\hyperlink{class_kollision}{Kollision}} \mbox{\hyperlink{class_kollision_a72dfec57ca5fe9aca57ed6a9168897b7}{\_kollision}};}
+\DoxyCodeLine{164     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Collision"{}}; \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \mbox{\hyperlink{class_kollision}{Kollision}} *\mbox{\hyperlink{class_kollision_ab214f4e7c126bcc3ab4e6b6c65278f7f}{Instance}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io) \textcolor{keyword}{override};}
+\DoxyCodeLine{167     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_kollision}{Kollision}} *\mbox{\hyperlink{class_kollision_a5b90ba37a3950d7d1f1efd1c4874fb54}{instance}}() \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_kollision_a9e5bf740a46dc94c3b2e7a7ae69f97aa}{is\_process\_ongoing}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\};}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_kollision_a2d6f92bd7624f1407cb30f656f52d630}{log\_message}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}{collision\_outcome}};}
+\DoxyCodeLine{176     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_aeee0a8fd3cd11e6d80bb98a8b8cd3a11}{NO\_COLLISION}}=0;}
+\DoxyCodeLine{177     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_a7b6eb46cc8d0feac1dc7129d94e7b74b}{COLLISION\_CE}}=1;}
+\DoxyCodeLine{178     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_ac3f92e267d9553d06844dcd890952208}{COLLISION\_MIX}}=2;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{183     \textcolor{comment}{//this a prototype for the future refactoring of the whole Process classes}}
+\DoxyCodeLine{184     \textcolor{keyword}{static} std::map<std::string, Kollision *> \& \mbox{\hyperlink{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}{GetStaticMap}}()\{}
+\DoxyCodeLine{185         \textcolor{keyword}{static} std::map<std::string, Kollision *> \_locmap;}
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_kollision_af41b1356aacb186ff0bc33507779185d}{GetUsed}}()\{}
+\DoxyCodeLine{189         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{190         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{191     \}}
+\DoxyCodeLine{192     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}{Register\_specific}}(\mbox{\hyperlink{class_kollision}{Kollision}} *ptr) \{}
+\DoxyCodeLine{193         \mbox{\hyperlink{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}{GetStaticMap}}().insert(std::make\_pair(ptr-\/>\mbox{\hyperlink{class_kollision_ad62b80c02afef7fbce55c4c68c5dca05}{name}}(), ptr));}
+\DoxyCodeLine{194         \mbox{\hyperlink{class_kollision_af41b1356aacb186ff0bc33507779185d}{GetUsed}}().resize(\mbox{\hyperlink{class_kollision_acdd62a6f06eb5c8f23bc24bbaa3b7d5a}{GetStaticMap}}().\mbox{\hyperlink{class_process_a95c3723ba5175dbcff4298597322fc6d}{size}}());}
+\DoxyCodeLine{195         \mbox{\hyperlink{class_kollision_af41b1356aacb186ff0bc33507779185d}{GetUsed}}()[\mbox{\hyperlink{class_kollision_af41b1356aacb186ff0bc33507779185d}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{196     \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{keyword}{class }\mbox{\hyperlink{class_kollision_disabled}{KollisionDisabled}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kollision}{Kollision}}\{}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{keyword}{public}:}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \mbox{\hyperlink{class_kollision_disabled_af6e5bfe60fe16c1eefed5dd565e4846c}{KollisionDisabled}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_kollision}{Kollision}}(nullptr, false) \{}
+\DoxyCodeLine{207         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{208             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{209             \mbox{\hyperlink{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{210         \}}
+\DoxyCodeLine{211     \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_kollision_disabled_a73442a8c06c185f5f218ff5d88096334}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}disabled"{}}; \}}
+\DoxyCodeLine{214     \textcolor{keyword}{static} \mbox{\hyperlink{class_kollision_disabled}{KollisionDisabled}} \mbox{\hyperlink{class_kollision_disabled_a4ae1f95bac9d0f5383105b395b1effe2}{\_kollisiondisabled}};}
+\DoxyCodeLine{215     \mbox{\hyperlink{class_kollision_disabled}{KollisionDisabled}}* \mbox{\hyperlink{class_kollision_disabled_af24394c6163e7705532ec7d94e8d771e}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{216         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_kollision_disabled}{KollisionDisabled}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_disabled_ad9c8c74b462c23b1b8ef0004f3cf054c}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{219 \};}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221 \textcolor{keyword}{class }\mbox{\hyperlink{class_kollision_hurley}{KollisionHurley}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kollision}{Kollision}}\{}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{keyword}{public}:}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \mbox{\hyperlink{class_kollision_hurley_a865d53bffe6eec2ef4ad780c81a10969}{KollisionHurley}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_kollision}{Kollision}}(nullptr, false) \{}
+\DoxyCodeLine{226         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{227             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{228             \mbox{\hyperlink{class_kollision_a0cf4b5dcff21b1f39750ae1f90063e25}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{229         \}}
+\DoxyCodeLine{230     \}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_kollision_hurley_a2e0998f59da2878d70f4a269c5ffd1b6}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hurley"{}}; \}}
+\DoxyCodeLine{233     \textcolor{keyword}{static} \mbox{\hyperlink{class_kollision_hurley}{KollisionHurley}} \mbox{\hyperlink{class_kollision_hurley_ae7a427bc9dc3e272a681da3820024f6c}{\_kollisionhurley}};}
+\DoxyCodeLine{234     \mbox{\hyperlink{class_kollision_hurley}{KollisionHurley}}* \mbox{\hyperlink{class_kollision_hurley_a682db0caa1ecfccc7ab4340f8fd10b55}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_kollision_hurley}{KollisionHurley}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{236     \}}
+\DoxyCodeLine{237     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kollision_hurley_ac9a031b0ec7553b65cce9c041649e9e0}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_kollision_hurley_aca873cda17bac97dc6a0a62e1e278c9a}{check\_collision}}(\mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{240     \textcolor{keyword}{static} \mbox{\hyperlink{class_kollision_aff0a76d706f0c469d5f5399c561bc61b}{collision\_outcome}} \mbox{\hyperlink{class_kollision_hurley_a19a74b7ee83752b0bc87995f671a12c5}{outcome\_collision}}(\mbox{\hyperlink{class_binstar}{Binstar}} *b);}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \};}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_COLLISION\_H}}
+
+\end{DoxyCode}

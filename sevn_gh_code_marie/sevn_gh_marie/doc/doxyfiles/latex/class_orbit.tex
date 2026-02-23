@@ -1,0 +1,228 @@
+\hypertarget{class_orbit}{}\section{Orbit Class Reference}
+\label{class_orbit}\index{Orbit@{Orbit}}
+
+
+{\ttfamily \#include $<$Orbit.\+h$>$}
+
+Inheritance diagram for Orbit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_orbit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_orbit_af2f3481e19182fd2913fede508e0c685}{Orbit} (bool reg=true)
+\item 
+void \hyperlink{class_orbit_adc6b998a131e9576ee1723b60f4e614f}{init\+\_\+ptrs} ()
+\item 
+\hyperlink{class_orbit}{Orbit} $\ast$ \hyperlink{class_orbit_a814a77820afd104edbd08f955b123cb4}{Instance} () override
+\item 
+std\+::string \hyperlink{class_orbit_a37095e757de4e80b3a49ad8c03335568}{name} () override
+\item 
+int \hyperlink{class_orbit_a772b9fe9a4718147236f4cb52cf268da}{evolve} (\hyperlink{class_binstar}{Binstar} $\ast$binstar) override
+\item 
+int \hyperlink{class_orbit_a618bf7f4226380f7b483343734aa347e}{evolve\+\_\+orbit} (\hyperlink{class_binstar}{Binstar} $\ast$binstar)
+\item 
+virtual double \hyperlink{class_orbit_a258deda1207d23b2ce6285b55e216d4f}{DA} ()
+\item 
+virtual double \hyperlink{class_orbit_a9bac8077719791b75d0c962428f8e1b4}{DE} ()
+\item 
+virtual void \hyperlink{class_orbit_ab92aeb9474f9aa26ea000ed2ea8c2c8c}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging} \hyperlink{class_orbit_a94df5f96ea2e36d103890a07c1ae37cd}{svlog}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \hyperlink{class_orbit_a9ba4bbc8c22bfc30e9354969fd636f01}{ID}
+\item 
+static \hyperlink{class_orbit}{Orbit} \hyperlink{class_orbit_ac3423be9e8290c03b5656e9a09786f17}{\+\_\+orbit}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_orbit_a80f7d9179bd6ca0be8cf8c4b8f06c88e}{a}
+\item 
+double \hyperlink{class_orbit_a9df1de9d5dd95a0906c1e513b466b938}{e}
+\item 
+double \hyperlink{class_orbit_a40917c9037224201ff4daba480226f9c}{dt}
+\item 
+double \hyperlink{class_orbit_ae629e67aa33a7a8cb1c06337a725edcc}{Mdonor}
+\item 
+double \hyperlink{class_orbit_a1cc1d33e07ab2043da69378ddc726950}{Maccretor}
+\item 
+double \hyperlink{class_orbit_a7ea0a5a0e3b8c3d88409d000326da464}{Mdonated}
+\item 
+double \hyperlink{class_orbit_aa4d454368d196b966e532205f182755a}{Maccreted}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_orbit}{Orbit} $\ast$ \hyperlink{class_orbit_a7a6992542c4bdfa762d04ebbe68465a4}{\+\_\+orb}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_orbit_af2f3481e19182fd2913fede508e0c685}\label{class_orbit_af2f3481e19182fd2913fede508e0c685}} 
+\index{Orbit@{Orbit}!Orbit@{Orbit}}
+\index{Orbit@{Orbit}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Orbit()}{Orbit()}}
+{\footnotesize\ttfamily Orbit\+::\+Orbit (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_orbit_a258deda1207d23b2ce6285b55e216d4f}\label{class_orbit_a258deda1207d23b2ce6285b55e216d4f}} 
+\index{Orbit@{Orbit}!DA@{DA}}
+\index{DA@{DA}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{D\+A()}{DA()}}
+{\footnotesize\ttfamily virtual double Orbit\+::\+DA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_hurley_orb_af4ef7b4bd24e22e010b96f7bc6d872f6}{Hurley\+Orb}, \hyperlink{class_fani_orb___a_d_a9df0d91b4d07869b53c894da8d60ba14}{Fani\+Orb\+\_\+\+AD}, and \hyperlink{class_fani_orb___delta_ad61e16d6c8f9a2b11940bc21d1362e9c}{Fani\+Orb\+\_\+\+Delta}.
+
+\mbox{\Hypertarget{class_orbit_a9bac8077719791b75d0c962428f8e1b4}\label{class_orbit_a9bac8077719791b75d0c962428f8e1b4}} 
+\index{Orbit@{Orbit}!DE@{DE}}
+\index{DE@{DE}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{D\+E()}{DE()}}
+{\footnotesize\ttfamily virtual double Orbit\+::\+DE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_hurley_orb_ad0c599c31dad0585d007c08eb22cbc89}{Hurley\+Orb}, \hyperlink{class_fani_orb___a_d_a143c3e6457bed241959abb5c939237ac}{Fani\+Orb\+\_\+\+AD}, and \hyperlink{class_fani_orb___delta_a24ebee89e909be8bdfee96614d88304c}{Fani\+Orb\+\_\+\+Delta}.
+
+\mbox{\Hypertarget{class_orbit_a772b9fe9a4718147236f4cb52cf268da}\label{class_orbit_a772b9fe9a4718147236f4cb52cf268da}} 
+\index{Orbit@{Orbit}!evolve@{evolve}}
+\index{evolve@{evolve}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{evolve()}{evolve()}}
+{\footnotesize\ttfamily int Orbit\+::evolve (\begin{DoxyParamCaption}\item[{\hyperlink{class_binstar}{Binstar} $\ast$}]{binstar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_process_ab8729b32bb73a12bbe4e481f661213f9}{Process}.
+
+\mbox{\Hypertarget{class_orbit_a618bf7f4226380f7b483343734aa347e}\label{class_orbit_a618bf7f4226380f7b483343734aa347e}} 
+\index{Orbit@{Orbit}!evolve\+\_\+orbit@{evolve\+\_\+orbit}}
+\index{evolve\+\_\+orbit@{evolve\+\_\+orbit}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{evolve\+\_\+orbit()}{evolve\_orbit()}}
+{\footnotesize\ttfamily int Orbit\+::evolve\+\_\+orbit (\begin{DoxyParamCaption}\item[{\hyperlink{class_binstar}{Binstar} $\ast$}]{binstar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_orbit_ab92aeb9474f9aa26ea000ed2ea8c2c8c}\label{class_orbit_ab92aeb9474f9aa26ea000ed2ea8c2c8c}} 
+\index{Orbit@{Orbit}!init@{init}}
+\index{init@{init}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void Orbit\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_hurley_orb_afba6609e2719852d8cf13b5046be6128}{Hurley\+Orb}, \hyperlink{class_fani_orb___a_d_ad75ffb0402507df987305b7a79c8a8d0}{Fani\+Orb\+\_\+\+AD}, and \hyperlink{class_fani_orb___delta_aaec6b2158b730146f8b7bca6edb71c35}{Fani\+Orb\+\_\+\+Delta}.
+
+\mbox{\Hypertarget{class_orbit_adc6b998a131e9576ee1723b60f4e614f}\label{class_orbit_adc6b998a131e9576ee1723b60f4e614f}} 
+\index{Orbit@{Orbit}!init\+\_\+ptrs@{init\+\_\+ptrs}}
+\index{init\+\_\+ptrs@{init\+\_\+ptrs}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{init\+\_\+ptrs()}{init\_ptrs()}}
+{\footnotesize\ttfamily void Orbit\+::init\+\_\+ptrs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_orbit_a814a77820afd104edbd08f955b123cb4}\label{class_orbit_a814a77820afd104edbd08f955b123cb4}} 
+\index{Orbit@{Orbit}!Instance@{Instance}}
+\index{Instance@{Instance}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \hyperlink{class_orbit}{Orbit}$\ast$ Orbit\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_process_a95b98841ab13370d0d6b4841a4a94202}{Process}.
+
+\mbox{\Hypertarget{class_orbit_a37095e757de4e80b3a49ad8c03335568}\label{class_orbit_a37095e757de4e80b3a49ad8c03335568}} 
+\index{Orbit@{Orbit}!name@{name}}
+\index{name@{name}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Orbit\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_process_a1c19334f4e746d3410e4cfad66053035}{Process}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_orbit_a7a6992542c4bdfa762d04ebbe68465a4}\label{class_orbit_a7a6992542c4bdfa762d04ebbe68465a4}} 
+\index{Orbit@{Orbit}!\+\_\+orb@{\+\_\+orb}}
+\index{\+\_\+orb@{\+\_\+orb}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{\+\_\+orb}{\_orb}}
+{\footnotesize\ttfamily \hyperlink{class_orbit}{Orbit}$\ast$ Orbit\+::\+\_\+orb\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_orbit_ac3423be9e8290c03b5656e9a09786f17}\label{class_orbit_ac3423be9e8290c03b5656e9a09786f17}} 
+\index{Orbit@{Orbit}!\+\_\+orbit@{\+\_\+orbit}}
+\index{\+\_\+orbit@{\+\_\+orbit}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{\+\_\+orbit}{\_orbit}}
+{\footnotesize\ttfamily \hyperlink{class_orbit}{Orbit} Orbit\+::\+\_\+orbit\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_orbit_a80f7d9179bd6ca0be8cf8c4b8f06c88e}\label{class_orbit_a80f7d9179bd6ca0be8cf8c4b8f06c88e}} 
+\index{Orbit@{Orbit}!a@{a}}
+\index{a@{a}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily double Orbit\+::a\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a40917c9037224201ff4daba480226f9c}\label{class_orbit_a40917c9037224201ff4daba480226f9c}} 
+\index{Orbit@{Orbit}!dt@{dt}}
+\index{dt@{dt}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily double Orbit\+::dt\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a9df1de9d5dd95a0906c1e513b466b938}\label{class_orbit_a9df1de9d5dd95a0906c1e513b466b938}} 
+\index{Orbit@{Orbit}!e@{e}}
+\index{e@{e}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily double Orbit\+::e\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a9ba4bbc8c22bfc30e9354969fd636f01}\label{class_orbit_a9ba4bbc8c22bfc30e9354969fd636f01}} 
+\index{Orbit@{Orbit}!ID@{ID}}
+\index{ID@{ID}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily size\+\_\+t Orbit\+::\+ID\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_orbit_aa4d454368d196b966e532205f182755a}\label{class_orbit_aa4d454368d196b966e532205f182755a}} 
+\index{Orbit@{Orbit}!Maccreted@{Maccreted}}
+\index{Maccreted@{Maccreted}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Maccreted}{Maccreted}}
+{\footnotesize\ttfamily double Orbit\+::\+Maccreted\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a1cc1d33e07ab2043da69378ddc726950}\label{class_orbit_a1cc1d33e07ab2043da69378ddc726950}} 
+\index{Orbit@{Orbit}!Maccretor@{Maccretor}}
+\index{Maccretor@{Maccretor}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Maccretor}{Maccretor}}
+{\footnotesize\ttfamily double Orbit\+::\+Maccretor\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a7ea0a5a0e3b8c3d88409d000326da464}\label{class_orbit_a7ea0a5a0e3b8c3d88409d000326da464}} 
+\index{Orbit@{Orbit}!Mdonated@{Mdonated}}
+\index{Mdonated@{Mdonated}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Mdonated}{Mdonated}}
+{\footnotesize\ttfamily double Orbit\+::\+Mdonated\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_ae629e67aa33a7a8cb1c06337a725edcc}\label{class_orbit_ae629e67aa33a7a8cb1c06337a725edcc}} 
+\index{Orbit@{Orbit}!Mdonor@{Mdonor}}
+\index{Mdonor@{Mdonor}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{Mdonor}{Mdonor}}
+{\footnotesize\ttfamily double Orbit\+::\+Mdonor\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_orbit_a94df5f96ea2e36d103890a07c1ae37cd}\label{class_orbit_a94df5f96ea2e36d103890a07c1ae37cd}} 
+\index{Orbit@{Orbit}!svlog@{svlog}}
+\index{svlog@{svlog}!Orbit@{Orbit}}
+\subsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging} Orbit\+::svlog}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/iorio/\+S\+E\+V\+Nd/\+S\+E\+V\+N/include/binstar/\hyperlink{_orbit_8h}{Orbit.\+h}\item 
+/home/iorio/\+S\+E\+V\+Nd/\+S\+E\+V\+N/src/binstar/\hyperlink{_orbit_8cpp}{Orbit.\+cpp}\item 
+/home/iorio/\+S\+E\+V\+Nd/\+S\+E\+V\+N/src/binstar/\hyperlink{_processes_8cpp}{Processes.\+cpp}\end{DoxyCompactItemize}

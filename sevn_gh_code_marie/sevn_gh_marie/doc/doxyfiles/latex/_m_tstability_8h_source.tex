@@ -1,0 +1,349 @@
+\hypertarget{_m_tstability_8h_source}{}\doxysection{MTstability.\+h}
+\label{_m_tstability_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/MTstability.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/MTstability.h}}
+\mbox{\hyperlink{_m_tstability_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 17/11/2021.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 \textcolor{comment}{// Classes to handle the MT stability}}
+\DoxyCodeLine{5 \textcolor{comment}{//}}
+\DoxyCodeLine{6 \textcolor{comment}{//}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#ifndef SEVN\_MTSTABILITY\_H}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define SEVN\_MTSTABILITY\_H}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define set\_prop(star,prop,old) old ? star-\/>getp\_0(prop::ID) :  star-\/>getp(prop::ID)}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{98 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{99 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{104 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_tstability}{MTstability}}\{}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{public}:}
+\DoxyCodeLine{107     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_m_tstability_a3aa38247171474c5a942ad3adae82b77}{name}}() = 0;}
+\DoxyCodeLine{108     \textcolor{keyword}{static} \mbox{\hyperlink{class_m_tstability}{MTstability}} *\mbox{\hyperlink{class_m_tstability_a1352dbce732d5ee8210358cfa6191631}{Instance}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{class_m_tstability_a3aa38247171474c5a942ad3adae82b77}{name}});}
+\DoxyCodeLine{109     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_m_tstability}{MTstability}} *\mbox{\hyperlink{class_m_tstability_ab974dfa91e83a3e3498c7b3332bdebe1}{instance}}()\{ \mbox{\hyperlink{class_m_tstability_a68e0d337f38df758c90280a2832b0000}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}This is supposed to be pure virtual, do you have an uninitialized module?"{}}, \_\_FILE\_\_, \_\_LINE\_\_); \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{118     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_tstability_aac46ad6fc9b1428e7ee6b7a2168c32a5}{mt\_unstable}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_m_tstability_ae547578537655246e7500eb9a7e82827}{\string~MTstability}}()\{}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{130     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_tstability_af332e0c7bf6949c9950a1eb31580530f}{get\_tshold}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_tstability_ad8fe79c8091329b1d629bae45bf82b19}{get}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\mbox{\hyperlink{class_m_tstability}{MTstability}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{144         \mbox{\hyperlink{class_m_tstability_af82526c9ac590ef5be1f249862067184}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{145         \mbox{\hyperlink{class_m_tstability_a2d0588da5e95cad333c236ea04f738fb}{GetUsed}}().resize(\mbox{\hyperlink{class_m_tstability_af82526c9ac590ef5be1f249862067184}{GetStaticMap}}().size());}
+\DoxyCodeLine{146         \mbox{\hyperlink{class_m_tstability_a2d0588da5e95cad333c236ea04f738fb}{GetUsed}}()[\mbox{\hyperlink{class_m_tstability_a2d0588da5e95cad333c236ea04f738fb}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_m_tstability_a68e0d337f38df758c90280a2832b0000}{svlog}};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{private}:}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keyword}{static} std::map<std::string, MTstability *> \& \mbox{\hyperlink{class_m_tstability_af82526c9ac590ef5be1f249862067184}{GetStaticMap}}()\{}
+\DoxyCodeLine{154         \textcolor{keyword}{static} std::map<std::string, MTstability *> \_locmap;}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_m_tstability_a2d0588da5e95cad333c236ea04f738fb}{GetUsed}}()\{}
+\DoxyCodeLine{159         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{160         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{161     \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_t___stable}{MT\_Stable}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_m_tstability}{MTstability}}\{}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{keyword}{public}:}
+\DoxyCodeLine{169     \mbox{\hyperlink{class_m_t___stable_a81625889a410b92ffc05a1330275d068}{MT\_Stable}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{170         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{171             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_m_t___stable_a4753c2b537dba4970b045628dc0cd77f}{name}}());}
+\DoxyCodeLine{172         \}}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_m_t___stable_a4753c2b537dba4970b045628dc0cd77f}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}stable"{}}; \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{185      \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_t___stable_a759bc3ab0e98bf4fafd6909775436051}{mt\_unstable}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{  const override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{195     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___stable_a12f8ae117c5e67ba749b78153a64fb9d}{get\_tshold}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 1E30;\}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{206     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___stable_a1c0d0dda4044c8256039dcd153434397}{get}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     \textcolor{keyword}{static} \mbox{\hyperlink{class_m_t___stable}{MT\_Stable}} \mbox{\hyperlink{class_m_t___stable_ac030970e0df6669f3b2634c896098d34}{\_mt\_stable}};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \mbox{\hyperlink{class_m_t___stable}{MT\_Stable}}* \mbox{\hyperlink{class_m_t___stable_a247537b9292e2b870c50312e2119ed51}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_m_t___stable}{MT\_Stable}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{212     \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \};}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_t___un_stable}{MT\_UnStable}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_m_tstability}{MTstability}}\{}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{keyword}{public}:}
+\DoxyCodeLine{219     \mbox{\hyperlink{class_m_t___un_stable_a41b6cca6db4d5b1296a42173854ff7e4}{MT\_UnStable}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{220         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{221             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_m_t___un_stable_a1e09c57e9de558a628499d58e6258869}{name}}());}
+\DoxyCodeLine{222         \}}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_m_t___un_stable_a1e09c57e9de558a628499d58e6258869}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}unstable"{}}; \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{234     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_t___un_stable_a9c123fd02c9f86c46300bf79d731be74}{mt\_unstable}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{  const override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{244     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___un_stable_a06cbe1ebce80590e71c73c23822afe4c}{get\_tshold}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} -\/1E30;\}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{255     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___un_stable_ad45014b0d994a28b6174ecaf212497c6}{get}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{keyword}{static} \mbox{\hyperlink{class_m_t___un_stable}{MT\_UnStable}} \mbox{\hyperlink{class_m_t___un_stable_ae806a4607877c01deb79dfc07fec9544}{\_mt\_unstable}};}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \mbox{\hyperlink{class_m_t___un_stable}{MT\_UnStable}}* \mbox{\hyperlink{class_m_t___un_stable_a843f379c8bb7e1e27c879925f5ffbc84}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{260         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_m_t___un_stable}{MT\_UnStable}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{261     \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \};}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 }
+\DoxyCodeLine{271 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_t___qcrit}{MT\_Qcrit}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_m_tstability}{MTstability}}\{}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{public}:}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_t___qcrit_ae46bbb474be37c75419d85e1fde7edf2}{mt\_unstable}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)  \textcolor{keyword}{const override};}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{284     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___qcrit_aaaffcc6356c440afd5a5fa3db97b0a52}{get\_tshold}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_m_t___qcrit_a2b035ed93bb004da507652f0acb3687e}{qcrit}}(donor,accretor);\}}
+\DoxyCodeLine{292      \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___qcrit_a5bc35cce7d8911dc44ab2adb041f070b}{get}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_m_t___qcrit_a5aa7075e6a61ee73d8694c84305a9222}{q}}(donor,accretor);\}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{302     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___qcrit_a5aa7075e6a61ee73d8694c84305a9222}{q}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const};}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{310     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___qcrit_a2b035ed93bb004da507652f0acb3687e}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \};}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{317 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_m_t___qcrit}{MT\_Qcrit}}\{}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 \textcolor{keyword}{public}:}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321     \mbox{\hyperlink{class_qcrit___hurley_ab0c6f2907de3d9a620c7e9a416f37dff}{Qcrit\_Hurley}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{322         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{323             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___hurley_ac09e227b9d830571c492ad6888195afd}{name}}());}
+\DoxyCodeLine{324         \}}
+\DoxyCodeLine{325     \}}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___hurley_ac09e227b9d830571c492ad6888195afd}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_hurley"{}}; \}}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}} \mbox{\hyperlink{class_qcrit___hurley_af746a8c2e33be5f74b22e4d55cf5e7fe}{\_qcrit\_hurley}};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331     \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}}* \mbox{\hyperlink{class_qcrit___hurley_a9931497545553f0ebf328a6706c9dae4}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{332         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{333     \}}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{344     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___hurley_abf6cdcceb2e132817843416e56e28187}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___hurley_a2b2318abb60aeccfe1f9361ae2d7c1f4}{qcrit\_giant}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const};}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 \};}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{360 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}}\{}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 \textcolor{keyword}{public}:}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \mbox{\hyperlink{class_qcrit___hurley___webbink_afef133b82fba09246dcfd966056e8246}{Qcrit\_Hurley\_Webbink}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{365         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{366             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___hurley___webbink_a830c2aaa0765c65f24db87ccfa5b01dd}{name}}());}
+\DoxyCodeLine{367         \}}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___hurley___webbink_a830c2aaa0765c65f24db87ccfa5b01dd}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_hurley\_webbink"{}}; \}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}} \mbox{\hyperlink{class_qcrit___hurley___webbink_a323f9035a0637bdd7349883d8245154c}{\_qcrit\_hurley\_webbink}};}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374     \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}* \mbox{\hyperlink{class_qcrit___hurley___webbink_a633420cb766c8c19c7f0324367be098e}{instance}}()\textcolor{keyword}{  override }\{}
+\DoxyCodeLine{375         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{376     \}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{389     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___hurley___webbink_ad9bb5a12cb146fc52a328e249b02a803}{qcrit\_giant}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \};}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{397 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\_Hurley\_Webbink\_Shao}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}} \{}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 \textcolor{keyword}{public}:}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401     \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_a47a1029947ff0ccbdf9f5feb287d285a}{Qcrit\_Hurley\_Webbink\_Shao}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{402         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{403             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_a11c18afbb944ac75955d5905b050d40e}{name}}());}
+\DoxyCodeLine{404         \}}
+\DoxyCodeLine{405     \}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_a11c18afbb944ac75955d5905b050d40e}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_hurley\_webbink\_shao"{}}; \}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\_Hurley\_Webbink\_Shao}} \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_abdc08aaea1fcd9e115c191ee3c4dd361}{\_qcrit\_hurley\_webbink\_shao}};}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411     \mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\_Hurley\_Webbink\_Shao}}* \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_a35b7af3f00017390e4622d3eba1637ef}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{412         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\_Hurley\_Webbink\_Shao}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{413     \}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{429     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_a1e0ca88b087bae9b2d0f7e391134f4cf}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431 \};}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{437 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\_COSMIC\_Neijssel}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}\{}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439 \textcolor{keyword}{public}:}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a5c23b080d19a2750dd64347152af9188}{Qcrit\_COSMIC\_Neijssel}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{442         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{443             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a70891cdba06732453c6aa3717e395250}{name}}());}
+\DoxyCodeLine{444         \}}
+\DoxyCodeLine{445     \}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a70891cdba06732453c6aa3717e395250}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_cosmic\_neijssel"{}}; \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\_COSMIC\_Neijssel}} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a9aaa89933c8e7fe817bb6fb8bf970308}{\_qcrit\_cosmic\_neijssel}};}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\_COSMIC\_Neijssel}}* \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_afba1300c7abb588ecc723909813b0dbc}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{452         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\_COSMIC\_Neijssel}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{453     \}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{468     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a41353fbfbe98de9ba7fdf38de30c711d}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 \};}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{475 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\_COSMIC\_Claeys}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}\{}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477 \textcolor{keyword}{public}:}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_a552c69f3035b5a48449ebdff626f9e8e}{Qcrit\_COSMIC\_Claeys}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{480         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{481             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_ad5c7db2576a3bd56b622441dc45d1ebd}{name}}());}
+\DoxyCodeLine{482         \}}
+\DoxyCodeLine{483     \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_ad5c7db2576a3bd56b622441dc45d1ebd}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_cosmic\_claeys"{}}; \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\_COSMIC\_Claeys}} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_a84230ee5ecfa49855095a2fdd7bf0192}{\_qcrit\_cosmic\_claeys}};}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\_COSMIC\_Claeys}}* \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_ade542a64e87300311540881e6c7e3949}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{490         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\_COSMIC\_Claeys}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{491     \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{500     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_a932667bca7d431444817124a9e0b0ac5}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 \};}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___star_track}{Qcrit\_StarTrack}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_m_t___qcrit}{MT\_Qcrit}}\{}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510 \textcolor{keyword}{public}:}
+\DoxyCodeLine{511 }
+\DoxyCodeLine{512     \mbox{\hyperlink{class_qcrit___star_track_a4b71f3b837d950f8259bb488e74eca25}{Qcrit\_StarTrack}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{513         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{514             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___star_track_a2e90a41b0a5a6f6aa1d4db6c556dfdb7}{name}}());}
+\DoxyCodeLine{515         \}}
+\DoxyCodeLine{516     \}}
+\DoxyCodeLine{517 }
+\DoxyCodeLine{518     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___star_track_a2e90a41b0a5a6f6aa1d4db6c556dfdb7}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_startrack"{}}; \}}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___star_track}{Qcrit\_StarTrack}} \mbox{\hyperlink{class_qcrit___star_track_a7d97f5d6782dc1d23910930e7f1ee49c}{\_qcrit\_startrack}};}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{522     \mbox{\hyperlink{class_qcrit___star_track}{Qcrit\_StarTrack}}* \mbox{\hyperlink{class_qcrit___star_track_a38692697facb6ea9fb5a84bc2f0b068a}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{523         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___star_track}{Qcrit\_StarTrack}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{524     \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{535     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___star_track_a6cd3507509ec102ad88865ab577a7c89}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}}  \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537 \};}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{542 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\_Radiative\_Stable}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}\{}
+\DoxyCodeLine{543 \textcolor{keyword}{public}:}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545     \mbox{\hyperlink{class_qcrit___radiative___stable_a80c45a70637ed07b2c177e018bee0bd8}{Qcrit\_Radiative\_Stable}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{546         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{547             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___radiative___stable_a7ea7017b9b16748869624444328ed46e}{name}}());}
+\DoxyCodeLine{548         \}}
+\DoxyCodeLine{549     \}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___radiative___stable_a7ea7017b9b16748869624444328ed46e}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_radiative\_stable"{}}; \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\_Radiative\_Stable}} \mbox{\hyperlink{class_qcrit___radiative___stable_ae38dfebdb7e28f0728a48970ea7cea38}{\_qcrit\_radiative\_stable}};}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555     \mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\_Radiative\_Stable}}* \mbox{\hyperlink{class_qcrit___radiative___stable_a92925aef813aebab86654f52fa3a9b23}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{556         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\_Radiative\_Stable}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{557     \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{567     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___radiative___stable_a4121967655857a2b2e11830b36760a10}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569 \};}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{574 \textcolor{keyword}{class }\mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\_HRadiative\_Stable}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}\{}
+\DoxyCodeLine{575 \textcolor{keyword}{public}:}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{577     \mbox{\hyperlink{class_qcrit___h_radiative___stable_a421bf395bb073d537f2140c2ce45bbad}{Qcrit\_HRadiative\_Stable}}(\textcolor{keywordtype}{bool}  reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{578         \textcolor{keywordflow}{if} (reg)\{}
+\DoxyCodeLine{579             \mbox{\hyperlink{class_m_tstability_a8172b95b56ad29b5d31eaf2499b24317}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_qcrit___h_radiative___stable_a2018833dc8ad12ce0646fe482f8aaa42}{name}}());}
+\DoxyCodeLine{580         \}}
+\DoxyCodeLine{581     \}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{583     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_qcrit___h_radiative___stable_a2018833dc8ad12ce0646fe482f8aaa42}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}qcrit\_Hradiative\_stable"{}}; \}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{585     \textcolor{keyword}{static} \mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\_HRadiative\_Stable}} \mbox{\hyperlink{class_qcrit___h_radiative___stable_a46d4257aa0246cca526f62dc5687ea58}{\_qcrit\_hradiative\_stable}};}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{587     \mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\_HRadiative\_Stable}}* \mbox{\hyperlink{class_qcrit___h_radiative___stable_acc096671fa868bfced35d0eeef11812c}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{588         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\_HRadiative\_Stable}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{589     \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{599     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_qcrit___h_radiative___stable_a28a719fd1782d54c60ce7afa0a52b60a}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const override};}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{601 \};}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{603 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_t___zeta}{MT\_Zeta}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_m_tstability}{MTstability}}\{}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605 \textcolor{keyword}{public}:}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_t___zeta_aed90cb5cbfa86455ae545dd03f05d463}{mt\_unstable}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)  \textcolor{keyword}{const override};}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{616     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___zeta_ab8a1979e0c401a92d06bd5de00e7b7e9}{get\_tshold}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_m_t___zeta_a2392722bb608fe2dd2336274a2e94e34}{qcrit}}(donor,accretor);\}}
+\DoxyCodeLine{624     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___zeta_ae76230a3450c4850e16f85195158c63a}{get}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binary)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_m_t___zeta_a1538028a0a4fc8a4d8e0556410302d25}{q}}(donor,accretor);\}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{626 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{634     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___zeta_a1538028a0a4fc8a4d8e0556410302d25}{q}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const};}
+\DoxyCodeLine{635 }
+\DoxyCodeLine{642     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_t___zeta_a2392722bb608fe2dd2336274a2e94e34}{qcrit}}(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{643 }
+\DoxyCodeLine{644 \};}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646 }
+\DoxyCodeLine{647 }
+\DoxyCodeLine{648 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_MTSTABILITY\_H}}
+\DoxyCodeLine{649 }
+
+\end{DoxyCode}

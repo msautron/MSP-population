@@ -1,0 +1,61 @@
+\hypertarget{compactness_8h_source}{}\doxysection{compactness.\+h}
+\label{compactness_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/compactness.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/compactness.h}}
+\mbox{\hyperlink{compactness_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 26/07/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_COMPACTNESS\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_COMPACTNESS\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{supernova_8h}{supernova.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{remnant_8h}{remnant.h}}>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_pair_instability}{PairInstability}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classcompactness}{compactness}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}}, \mbox{\hyperlink{class_pisn_o_n}{PisnON}}\{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{classcompactness}{compactness}}(\mbox{\hyperlink{class_star}{Star}} *s = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} \mbox{\hyperlink{classcompactness}{compactness}} \mbox{\hyperlink{classcompactness_aa3030995326e7bb36000964335f1683b}{\_compactness}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcompactness_ac7777230e6b58e8127d7745b99cccc98}{explosion}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override} ;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{classcompactness}{compactness}}* \mbox{\hyperlink{classcompactness_ad8deca557215369d9fb25b558390dba8}{instance}}(\mbox{\hyperlink{class_star}{Star}} *s)\{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{classcompactness}{compactness}}(s));}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classcompactness_ac6d7a03176c9b92534b511ca3b9678d6}{name}}()\textcolor{keyword}{ const  override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}compact"{}};\}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_af99a283643672adbe8c6033785a075d2}{csi25\_mapelli20}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_m_c_o}{MCO}});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_af99a283643672adbe8c6033785a075d2}{csi25\_mapelli20}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{classcompactness_a5b5be9d0003064873c2e25b175a5099c}{svlog}};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_a856f9dd0545e98062dec8e5add8a4940}{csi25\_explosion\_tshold}};}
+\DoxyCodeLine{61     \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_acdb1473810a2d717f0c9b8af1c1221fb}{Average\_Mremnant\_NS}};}
+\DoxyCodeLine{62     \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_afbedfe167b8551594f580c5b5d7cded8}{Std\_Mremnant\_NS}};}
+\DoxyCodeLine{63     std::string \mbox{\hyperlink{classcompactness_a4309fb116133eea77cde22016a7e75d5}{auxiliary\_table\_name}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     std::uniform\_real\_distribution<double> \mbox{\hyperlink{classcompactness_ac69bd113c2778f21dd6840195ec4dddf}{rand\_unif\_0\_1}}\{0.,1.\};}
+\DoxyCodeLine{66     std::normal\_distribution<double> \mbox{\hyperlink{classcompactness_a5e0c8165037859e4da2c29b8f96cf9b0}{normal\_dist}}\{0.,1.\};}
+\DoxyCodeLine{67     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classcompactness_af2ec943ea0f1d60def4cbb467457474d}{generate\_random\_gau}}(\textcolor{keywordtype}{double} mean, \textcolor{keywordtype}{double} std);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keyword}{static} std::vector<std::vector<double>> \mbox{\hyperlink{classcompactness_a67865f35fa43eea8475e28fd3dda279e}{csi25\_vs\_explosion\_probability}};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classcompactness_ac89633475e7375b5b4e544b93c61eea7}{triggering\_explosion}}(\textcolor{keywordtype}{double} csi25);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcompactness_a0c5084cee44fea66dadc9ec18da51737}{load\_table}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_COMPACTNESS\_H}}
+
+\end{DoxyCode}

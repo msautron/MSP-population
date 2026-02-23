@@ -1,0 +1,58 @@
+\hypertarget{evolve_8h}{}\doxysection{/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/general/utils/evolve.h File Reference}
+\label{evolve_8h}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/evolve.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/evolve.h}}
+{\ttfamily \#include $<$star.\+h$>$}\newline
+{\ttfamily \#include $<$binstar.\+h$>$}\newline
+{\ttfamily \#include $<$IO.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$errhand.\+h$>$}\newline
+{\ttfamily \#include $<$sevnlog.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevolve__utility_1_1_options}{evolve\+\_\+utility\+::\+Options}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_functor}{evolve\+\_\+utility\+::\+Evolve\+Functor}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_debug}{evolve\+\_\+utility\+::\+Evolve\+Debug}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_default}{evolve\+\_\+utility\+::\+Evolve\+Default}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_stop_condition}{evolve\+\_\+utility\+::\+Evolve\+Stop\+Condition}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_record_condition}{evolve\+\_\+utility\+::\+Evolve\+Record\+Condition}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact}{evolve\+\_\+utility\+::\+Evolve\+Binary\+Compact}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_binary_compact_old}{evolve\+\_\+utility\+::\+Evolve\+Binary\+Compact\+Old}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_b_h}{evolve\+\_\+utility\+::\+Evolve\+BBH}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_l_c}{evolve\+\_\+utility\+::\+Evolve\+BLC}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_c_x1}{evolve\+\_\+utility\+::\+Evolve\+BCX1}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_b_h_m_s_tarantula}{evolve\+\_\+utility\+::\+Evolve\+BHMSTarantula}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_w1}{evolve\+\_\+utility\+::\+Evolve\+W1}}
+\item 
+class \mbox{\hyperlink{classevolve__utility_1_1_evolve_r_r_l}{evolve\+\_\+utility\+::\+Evolve\+RRL}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceevolve__utility}{evolve\+\_\+utility}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceevolve__utility_a25fa0afd4e36dc6d59c535f8cede1e86}{evolve\+\_\+utility\+::evolve\+\_\+single}} (\mbox{\hyperlink{class_binstar}{Binstar}} \&binary, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&svlog, bool record\+\_\+state=true)
+\item 
+int \mbox{\hyperlink{namespaceevolve__utility_ad0cc764d5efa0bb3621a3eccce89c469}{evolve\+\_\+utility\+::evolve\+\_\+single}} (\mbox{\hyperlink{class_star}{Star}} \&star, \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \&svlog, bool record\+\_\+state=true)
+\item 
+{\footnotesize template$<$typename System $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a45c5cd750e8bee2b4e729e0822089e53}{evolve\+\_\+utility\+::evolve\+\_\+list}} (Evolve\+Functor $\ast$evolve\+\_\+function, std\+::vector$<$ System $>$ \&systems, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, int Nevolve=-\/1)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a38b9b56fadf68c3c17bde7ebdd1de021}{evolve\+\_\+utility\+::chunk\+\_\+dispatcher}} (unsigned int Nchunk, \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, std\+::vector$<$ T $>$ \&systems, bool record\+\_\+state=true, bool progress=true)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceevolve__utility_a56c6f548750f8f97722cbf2e84954fe1}{evolve\+\_\+utility\+::chunk\+\_\+dispatcher}} (Evolve\+Functor $\ast$evolve\+\_\+function, unsigned int Nchunk, \mbox{\hyperlink{class_i_o}{IO}} \&sevnio, std\+::vector$<$ T $>$ \&systems, bool progress=true)
+\end{DoxyCompactItemize}

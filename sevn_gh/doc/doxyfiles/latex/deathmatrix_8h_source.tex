@@ -1,0 +1,55 @@
+\hypertarget{deathmatrix_8h_source}{}\doxysection{deathmatrix.\+h}
+\label{deathmatrix_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/deathmatrix.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/supernova/deathmatrix.h}}
+\mbox{\hyperlink{deathmatrix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 26/07/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_DEATHMATRIX\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_DEATHMATRIX\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{supernova_8h}{supernova.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{remnant_8h}{remnant.h}}>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_pair_instability}{PairInstability}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_death_matrix}{DeathMatrix}} : \textcolor{keyword}{virtual}  \textcolor{keyword}{public} \mbox{\hyperlink{classsupernova}{supernova}}, \mbox{\hyperlink{class_pisn_o_f_f}{PisnOFF}}, \mbox{\hyperlink{class_neutrino_mass_loss_o_f_f}{NeutrinoMassLossOFF}}\{}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_death_matrix}{DeathMatrix}}(\mbox{\hyperlink{class_star}{Star}} *s = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{static} \mbox{\hyperlink{class_death_matrix}{DeathMatrix}} \mbox{\hyperlink{class_death_matrix_ae5cee6e20e182b8c13e345893f13ea1c}{\_deathmatrix}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_death_matrix_a4e179c6122ca837f499f936363f370f7}{explosion}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_death_matrix_a03803e6e75b933d8b2746308e5589d2b}{ECSN}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_death_matrix_ac70ef2990704a1cda71ab691ff4566aa}{CCexplosion}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_death_matrix}{DeathMatrix}}* \mbox{\hyperlink{class_death_matrix_a86989792c15ac45c490f83851a02b8cd}{instance}}(\mbox{\hyperlink{class_star}{Star}} *s)\{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_death_matrix}{DeathMatrix}}(s));}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_death_matrix_a1ef0717f8515c0cc4101f3bacb2152e7}{name}}()\textcolor{keyword}{ const  override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}deathmatrix"{}};\}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{//Some specific varaibles}}
+\DoxyCodeLine{45     \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_death_matrix_a7029f2b30458483e1f00a999d46e0bb7}{auxiliary\_table\_name}}=\textcolor{stringliteral}{"{}deathmatrix\_Woosley+20.dat"{}};  }
+\DoxyCodeLine{46     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_death_matrix_afd60266e900490218577ed6e5616176f}{NS\_max\_mass}}=2.30;   }
+\DoxyCodeLine{47     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_death_matrix_a7c9125d13155297bf7f661bab0f93e3a}{NS\_min\_mass}}=1.24;   }
+\DoxyCodeLine{48     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_death_matrix_a4463047eb074e072bbac7b40f0edcd6a}{preSN\_MHE\_min\_NS}}=2.07;  }
+\DoxyCodeLine{49     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_death_matrix_a1c72ddff5435207c4216582bd34f64cf}{preSN\_MHE\_max\_PISN}}=60.12;  }
+\DoxyCodeLine{52     \textcolor{keyword}{static} std::vector<std::vector<double>> \mbox{\hyperlink{class_death_matrix_a337bdb9adf4634382bc21258f4cb386b}{death\_matrix}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_death_matrix_ac964b0b442e1da24a74b3b0ee6073f49}{load\_table}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_DEATHMATRIX\_H}}
+
+\end{DoxyCode}

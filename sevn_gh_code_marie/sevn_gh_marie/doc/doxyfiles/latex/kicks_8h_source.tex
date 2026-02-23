@@ -1,0 +1,100 @@
+\hypertarget{kicks_8h_source}{}\doxysection{kicks.\+h}
+\label{kicks_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/kicks.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/kicks.h}}
+\mbox{\hyperlink{kicks_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ Base header for Kick models, it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class Kicks: Base class for Kick models}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{//TODO Add Documentation}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef SEVN\_KICKS\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define SEVN\_KICKS\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{20 \textcolor{keyword}{using }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd::SevnLogging}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{//TODO Kicks here should be refactored, Kicks should be general enough to not contain gaussian\_265}}
+\DoxyCodeLine{23 \textcolor{comment}{//then we can create a son class Maxwellian with methods that can be used by Hobbs Unified etc}}
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_kicks}{Kicks}} \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_kicks_a057b89e2b95508404e47bf6311b94b5c}{Kicks}}() : \mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\_gaussian}}(0,1), \mbox{\hyperlink{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}{uniformRealDistribution}}(0,1)\{}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_kicks_a47709eb3642db98471c75b22cc86cc2f}{\string~Kicks}}()\{}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{static} \mbox{\hyperlink{class_kicks}{Kicks}} *\mbox{\hyperlink{class_kicks_a0bcf9d165b436dceef7b3636600f9750}{Instance}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}{name}});}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_kicks}{Kicks}} *\mbox{\hyperlink{class_kicks_ad55608716d3198c9d3c24f55e8b9b552}{instance}}()\{ \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}This is supposed to be pure virtual, do you have an uninitialized module?"{}}, \_\_FILE\_\_, \_\_LINE\_\_); \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}{name}}() \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generic SN-\/kick model"{}}; \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_a24df9d565af3b8a2c37575cfd152e561}{apply}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_a5574ee61f5450621cbbf4b851aadc319}{\_apply}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) = 0;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}{get\_random\_kick}}()\{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\_velocity\_kick}}==\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}})}
+\DoxyCodeLine{48             \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Trying to get random\_kick before it is initiliased"{}},\_\_FILE\_\_,\_\_LINE\_\_);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\_velocity\_kick}};}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\mbox{\hyperlink{class_kicks}{Kicks}} *ptr, \textcolor{keyword}{const} std::string \&\_name) \{}
+\DoxyCodeLine{57         \mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{GetStaticMap}}().insert(std::make\_pair(\_name, ptr));}
+\DoxyCodeLine{58         \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{GetUsed}}().resize(\mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{GetStaticMap}}().size());}
+\DoxyCodeLine{59         \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{GetUsed}}()[\mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     std::normal\_distribution<double> \mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\_gaussian}};}
+\DoxyCodeLine{63     std::uniform\_real\_distribution<double> \mbox{\hyperlink{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}{uniformRealDistribution}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_a29029dc8666af30104c1483c60c1ac7e}{set\_random\_kick}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a)\{}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\_velocity\_kick}} =a;}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}{kick\_initializer}}();}
+\DoxyCodeLine{72     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}};}
+\DoxyCodeLine{73     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\_velocity\_kick}}=\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities::NULL\_DOUBLE}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{84     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}{check\_and\_correct\_vkick}}(\mbox{\hyperlink{class_star}{Star}}* s);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}{draw\_from\_gaussian}}(\textcolor{keywordtype}{double} std, \textcolor{keywordtype}{double} mean=0.)\{}
+\DoxyCodeLine{88         \textcolor{keywordflow}{return} std*\mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\_gaussian}}(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}}) + mean;}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{private}:}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keyword}{static} std::map<std::string, Kicks *> \& \mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{GetStaticMap}}()\{}
+\DoxyCodeLine{94         \textcolor{keyword}{static} std::map<std::string, Kicks *> \_locmap;}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{GetUsed}}()\{}
+\DoxyCodeLine{98         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_KICKS\_H}}
+
+\end{DoxyCode}

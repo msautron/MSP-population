@@ -1,0 +1,163 @@
+\hypertarget{classsevnstd_1_1_h5out}{}\doxysection{sevnstd\+::H5out Class Reference}
+\label{classsevnstd_1_1_h5out}\index{sevnstd::H5out@{sevnstd::H5out}}
+
+
+{\ttfamily \#include $<$H5out.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_h5out_adc512abdf423c7f81e4ebaa033a93a33}{H5out}} (const std\+::string \&output\+\_\+folder=\char`\"{}output\char`\"{}, const std\+::string \&fname=\char`\"{}stars.\+h5\char`\"{})
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_h5out_a6ad57d1f9325f64a6e0357c66fe5c4bf}{print}} (std\+::vector$<$ std\+::string $>$ \&columns, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&printmatrix, const std\+::string \&\+\_\+name)
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_h5out_adc382c32eaebd9080eb8ae25e7cbdfec}{print\+\_\+header}} (std\+::vector$<$ std\+::string $>$ \&columns)
+\item 
+void \mbox{\hyperlink{classsevnstd_1_1_h5out_a4978d348e117e6172a4bfc1f2fe82cfa}{set\+\_\+filename}} (std\+::string a)
+\item 
+std\+::string \mbox{\hyperlink{classsevnstd_1_1_h5out_abc46cd810c37cc18d4b9f656735d18ca}{get\+\_\+filename}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}{filename\+\_\+h5}}
+\item 
+std\+::string \mbox{\hyperlink{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}{groupname\+\_\+h5}}
+\item 
+std\+::string \mbox{\hyperlink{classsevnstd_1_1_h5out_ac593d8ae5863c7bc9868bda1ced51806}{header\+\_\+name\+\_\+h5}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{classsevnstd_1_1_h5out_a05d96b4ed6295b39105ef22f0c7fe19a}{svlog}}
+\item 
+bool \mbox{\hyperlink{classsevnstd_1_1_h5out_a25853d5f525dd841a7c874a429b00f15}{header\+\_\+printed}}
+\item 
+H5\+::\+H5\+File \mbox{\hyperlink{classsevnstd_1_1_h5out_aa4cf31f15d9dcd316773db6884417850}{file}}
+\item 
+H5\+::\+Data\+Space \mbox{\hyperlink{classsevnstd_1_1_h5out_ae6f8e4290a91cb180afd611c5ee3eb17}{dataspace}}
+\item 
+H5\+::\+DSet\+Creat\+Prop\+List \mbox{\hyperlink{classsevnstd_1_1_h5out_a013b534a455132ff7ec6548bf8d00eaa}{plist}}
+\item 
+H5\+::\+Data\+Set \mbox{\hyperlink{classsevnstd_1_1_h5out_ac313a31ba86d8a4f4ed6ae3814f112bd}{dataset}}
+\item 
+hsize\+\_\+t \mbox{\hyperlink{classsevnstd_1_1_h5out_a0dfcd867c4365926323c98fe2a2223fa}{dim}} \mbox{[}2\mbox{]}
+\item 
+hsize\+\_\+t \mbox{\hyperlink{classsevnstd_1_1_h5out_a434f2b520c3cd5212fc5a5abedce0a98}{chunk\+\_\+dim}} \mbox{[}2\mbox{]}
+\item 
+size\+\_\+t \mbox{\hyperlink{classsevnstd_1_1_h5out_a7a9ecdeb4c98fb6a62daf1577ae8f52d}{col\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_adc512abdf423c7f81e4ebaa033a93a33}\label{classsevnstd_1_1_h5out_adc512abdf423c7f81e4ebaa033a93a33}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!H5out@{H5out}}
+\index{H5out@{H5out}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{H5out()}{H5out()}}
+{\footnotesize\ttfamily sevnstd\+::\+H5out\+::\+H5out (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{output\+\_\+folder = {\ttfamily \char`\"{}output\char`\"{}},  }\item[{const std\+::string \&}]{fname = {\ttfamily \char`\"{}stars.h5\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_abc46cd810c37cc18d4b9f656735d18ca}\label{classsevnstd_1_1_h5out_abc46cd810c37cc18d4b9f656735d18ca}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!get\_filename@{get\_filename}}
+\index{get\_filename@{get\_filename}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{get\_filename()}{get\_filename()}}
+{\footnotesize\ttfamily std\+::string sevnstd\+::\+H5out\+::get\+\_\+filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a6ad57d1f9325f64a6e0357c66fe5c4bf}\label{classsevnstd_1_1_h5out_a6ad57d1f9325f64a6e0357c66fe5c4bf}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!print@{print}}
+\index{print@{print}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void sevnstd\+::\+H5out\+::print (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{columns,  }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{printmatrix,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_adc382c32eaebd9080eb8ae25e7cbdfec}\label{classsevnstd_1_1_h5out_adc382c32eaebd9080eb8ae25e7cbdfec}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!print\_header@{print\_header}}
+\index{print\_header@{print\_header}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{print\_header()}{print\_header()}}
+{\footnotesize\ttfamily void sevnstd\+::\+H5out\+::print\+\_\+header (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{columns }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a4978d348e117e6172a4bfc1f2fe82cfa}\label{classsevnstd_1_1_h5out_a4978d348e117e6172a4bfc1f2fe82cfa}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!set\_filename@{set\_filename}}
+\index{set\_filename@{set\_filename}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{set\_filename()}{set\_filename()}}
+{\footnotesize\ttfamily void sevnstd\+::\+H5out\+::set\+\_\+filename (\begin{DoxyParamCaption}\item[{std\+::string}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a434f2b520c3cd5212fc5a5abedce0a98}\label{classsevnstd_1_1_h5out_a434f2b520c3cd5212fc5a5abedce0a98}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!chunk\_dim@{chunk\_dim}}
+\index{chunk\_dim@{chunk\_dim}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{chunk\_dim}{chunk\_dim}}
+{\footnotesize\ttfamily hsize\+\_\+t sevnstd\+::\+H5out\+::chunk\+\_\+dim\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a7a9ecdeb4c98fb6a62daf1577ae8f52d}\label{classsevnstd_1_1_h5out_a7a9ecdeb4c98fb6a62daf1577ae8f52d}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!col\_size@{col\_size}}
+\index{col\_size@{col\_size}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{col\_size}{col\_size}}
+{\footnotesize\ttfamily size\+\_\+t sevnstd\+::\+H5out\+::col\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_ac313a31ba86d8a4f4ed6ae3814f112bd}\label{classsevnstd_1_1_h5out_ac313a31ba86d8a4f4ed6ae3814f112bd}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!dataset@{dataset}}
+\index{dataset@{dataset}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{dataset}{dataset}}
+{\footnotesize\ttfamily H5\+::\+Data\+Set sevnstd\+::\+H5out\+::dataset\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_ae6f8e4290a91cb180afd611c5ee3eb17}\label{classsevnstd_1_1_h5out_ae6f8e4290a91cb180afd611c5ee3eb17}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!dataspace@{dataspace}}
+\index{dataspace@{dataspace}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{dataspace}{dataspace}}
+{\footnotesize\ttfamily H5\+::\+Data\+Space sevnstd\+::\+H5out\+::dataspace\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a0dfcd867c4365926323c98fe2a2223fa}\label{classsevnstd_1_1_h5out_a0dfcd867c4365926323c98fe2a2223fa}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!dim@{dim}}
+\index{dim@{dim}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{dim}{dim}}
+{\footnotesize\ttfamily hsize\+\_\+t sevnstd\+::\+H5out\+::dim\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_aa4cf31f15d9dcd316773db6884417850}\label{classsevnstd_1_1_h5out_aa4cf31f15d9dcd316773db6884417850}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!file@{file}}
+\index{file@{file}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily H5\+::\+H5\+File sevnstd\+::\+H5out\+::file\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}\label{classsevnstd_1_1_h5out_a5dea9e429d9e130ab45a8a07e2640972}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!filename\_h5@{filename\_h5}}
+\index{filename\_h5@{filename\_h5}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{filename\_h5}{filename\_h5}}
+{\footnotesize\ttfamily std\+::string sevnstd\+::\+H5out\+::filename\+\_\+h5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}\label{classsevnstd_1_1_h5out_a764d23c1af0aa54f39e9304d57e9e413}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!groupname\_h5@{groupname\_h5}}
+\index{groupname\_h5@{groupname\_h5}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{groupname\_h5}{groupname\_h5}}
+{\footnotesize\ttfamily std\+::string sevnstd\+::\+H5out\+::groupname\+\_\+h5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_ac593d8ae5863c7bc9868bda1ced51806}\label{classsevnstd_1_1_h5out_ac593d8ae5863c7bc9868bda1ced51806}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!header\_name\_h5@{header\_name\_h5}}
+\index{header\_name\_h5@{header\_name\_h5}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{header\_name\_h5}{header\_name\_h5}}
+{\footnotesize\ttfamily std\+::string sevnstd\+::\+H5out\+::header\+\_\+name\+\_\+h5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a25853d5f525dd841a7c874a429b00f15}\label{classsevnstd_1_1_h5out_a25853d5f525dd841a7c874a429b00f15}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!header\_printed@{header\_printed}}
+\index{header\_printed@{header\_printed}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{header\_printed}{header\_printed}}
+{\footnotesize\ttfamily bool sevnstd\+::\+H5out\+::header\+\_\+printed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a013b534a455132ff7ec6548bf8d00eaa}\label{classsevnstd_1_1_h5out_a013b534a455132ff7ec6548bf8d00eaa}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!plist@{plist}}
+\index{plist@{plist}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{plist}{plist}}
+{\footnotesize\ttfamily H5\+::\+DSet\+Creat\+Prop\+List sevnstd\+::\+H5out\+::plist\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsevnstd_1_1_h5out_a05d96b4ed6295b39105ef22f0c7fe19a}\label{classsevnstd_1_1_h5out_a05d96b4ed6295b39105ef22f0c7fe19a}} 
+\index{sevnstd::H5out@{sevnstd::H5out}!svlog@{svlog}}
+\index{svlog@{svlog}!sevnstd::H5out@{sevnstd::H5out}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} sevnstd\+::\+H5out\+::svlog\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/\+SEVNDEVEL/include/h5out/\mbox{\hyperlink{_h5out_8h}{H5out.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/\+SEVNDEVEL/src/h5out/\mbox{\hyperlink{_h5out_8cpp}{H5out.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,385 @@
+\hypertarget{remnant_8h_source}{}\doxysection{remnant.\+h}
+\label{remnant_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/remnant.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/remnant.h}}
+\mbox{\hyperlink{remnant_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 7/5/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{comment}{//Notice, the Mass property in staremnant returns just the mass of the star, there are no variables}}
+\DoxyCodeLine{6 \textcolor{comment}{//to internally track the current mass of the star inside the class. The member Mremnant\_at\_born just track}}
+\DoxyCodeLine{7 \textcolor{comment}{//the mass of the systems when it is created.}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef SEVN\_REMNANT\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define SEVN\_REMNANT\_H}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{lookup__and__phases_8h}{lookup\_and\_phases.h}}>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_staremnant}{Staremnant}} \{}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_staremnant_a649ad8a48f22dc310879d76bae550dbc}{Staremnant}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_staremnant_a9b8ae00c6b853ca8420f2a6fa09950f8}{born\_time}}(time), \mbox{\hyperlink{class_staremnant_a15460ef0ce7a97c3eea8b159ea9ff94a}{Mremnant\_at\_born}}(Mremnant)\{\}}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_staremnant}{Staremnant}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant);}
+\DoxyCodeLine{28     \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \mbox{\hyperlink{class_staremnant_a5d7579476b76d081c413d00b07595c67}{svlog}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_staremnant_a0d3d4dc053805c077a846fa19af28182}{\string~Staremnant}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a3fb2eec3b62247ddec79d9256b3f6dfd}{get\_born\_time}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_a9b8ae00c6b853ca8420f2a6fa09950f8}{born\_time}};\}}
+\DoxyCodeLine{33     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_ac7592dbfe124d980ffa2589c23a54649}{get\_Mremnant\_at\_born}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_a15460ef0ce7a97c3eea8b159ea9ff94a}{Mremnant\_at\_born}};\}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_mass}{Mass}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_ad9f236c20b73c9b786d2e7c135a2d219}{Radius}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a2b435815f42c861010d73a9bca4112e4}{Luminosity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a3277d5ecf9f12c888190129c083b030a}{OmegaRem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_ad96a80f4c61443108dd8d15fb94e5295}{Inertia}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_abec12f904fe531b25c72cce23d7e51a8}{Bmag}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const}  = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a00a2981c7327990d34b58b01eb493787}{Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const} = 0; \textcolor{comment}{//Pure virtual}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a4f0a63fddb7ee138f5c494af44132312}{get}}(\mbox{\hyperlink{class_star}{Star}}* s, \textcolor{keywordtype}{size\_t} ID) \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{inline} \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup::Remnants}} \mbox{\hyperlink{class_staremnant_af172e833f7a2be034177e5ec3546760c}{get\_remnant\_type}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}};\}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a81d90357225dd7b0e189413347733e8e}{age}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_ab1a74d09d4b48efdddce170bbd06c1f8}{InertiaSphere}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{63     \mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bc}{Lookup::Remnants}} \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{private}:}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a9b8ae00c6b853ca8420f2a6fa09950f8}{born\_time}}; }
+\DoxyCodeLine{68     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_staremnant_a15460ef0ce7a97c3eea8b159ea9ff94a}{Mremnant\_at\_born}};  }
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_hrem}{BHrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_staremnant}{Staremnant}}\{}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{public}:}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \mbox{\hyperlink{class_b_hrem_a838bd6048bcfdc1d2b1a70b93615809b}{BHrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s, Mremnant, time) \{}
+\DoxyCodeLine{80         \mbox{\hyperlink{class_b_hrem_a2b36961f3325a2918f4a4bae03a9d495}{default\_initialiser}}(s);}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82     \mbox{\hyperlink{class_b_hrem_a4073b52d929438a7c5bf27abc179f39c}{BHrem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s,Mremnant)\{}
+\DoxyCodeLine{83         \mbox{\hyperlink{class_b_hrem_a2b36961f3325a2918f4a4bae03a9d495}{default\_initialiser}}(s);}
+\DoxyCodeLine{84     \};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{89     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_ae99c7edfb86c5a94f486c88d620c5483}{Luminosity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} 1e-\/10;\}}
+\DoxyCodeLine{90     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a1960f6ff65c2f01676268cf6b187fe70}{OmegaRem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{91     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_aace4b119ae4308e2c1e8462c79ffbf65}{Inertia}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_ab1a74d09d4b48efdddce170bbd06c1f8}{InertiaSphere}}(s);\}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a88bae272c6f8b18636556b7be8b75747}{Bmag}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{93     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_xspin}{Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_hrem_aad237b960887a9ac55a3142fc045532b}{apply\_Bavera\_correction\_to\_Xspin}}(\textcolor{keywordtype}{double} period, \textcolor{keywordtype}{double} mass\_wr);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_hrem_a2b36961f3325a2918f4a4bae03a9d495}{default\_initialiser}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{107     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_hrem_aa593e9af7a22b0c9b7068a3bc4f96c54}{set\_Xspin}}(\textcolor{keywordtype}{double} value)\{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} (value<0 or value>1)\{}
+\DoxyCodeLine{109             \mbox{\hyperlink{class_staremnant_a5d7579476b76d081c413d00b07595c67}{svlog}}.\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(\textcolor{stringliteral}{"{}Xspin in Bhrem has to be between 0 and 1, current value is "{}}}
+\DoxyCodeLine{110                            + \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{utilities::n2s}}(value,\_\_FILE\_\_,\_\_LINE\_\_),\_\_FILE\_\_,\_\_LINE\_\_,\mbox{\hyperlink{classsevnstd_1_1sanity__error}{sevnstd::sanity\_error}}());}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112         \mbox{\hyperlink{class_b_hrem_adf144b2d7bd6ac94b88ce891626efba1}{xspin}}=value;}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_ad6e488b041bf08548ff676e7c9f1baa2}{estimate\_Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{132     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a2fc9babe34c201d857455adcf253737a}{XspinGeneva}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} z0, \textcolor{keyword}{const} \textcolor{keywordtype}{double} mco)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         \textcolor{keywordtype}{double} a, b, m1, m2, alow;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136         a = -\/0.088;}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} (z0 > 0.01)}
+\DoxyCodeLine{138             b = 2.258, m1 = 16.0, alow = 0.13; \textcolor{comment}{//m2 = 24.2}}
+\DoxyCodeLine{139         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (z0 > 0.004) \textcolor{comment}{//   0.004 < z0 <= 0.01}}
+\DoxyCodeLine{140             b = 3.578, m1 = 31.0, alow = 0.25; \textcolor{comment}{//m2 = 37.8}}
+\DoxyCodeLine{141         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (z0 > 0.0012) \textcolor{comment}{//  0.0012 < z0 <= 0.004}}
+\DoxyCodeLine{142             b = 2.434, m1 = 18.0, alow = 0.0; \textcolor{comment}{//m2 = 27.7}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{else} \textcolor{comment}{// z0 <= 0.0012}}
+\DoxyCodeLine{144             b = 3.666, m1 = 32.0, alow = 0.25; \textcolor{comment}{//m2 = 38.8}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146         m2 = (alow -\/ b) / a;}
+\DoxyCodeLine{147         \textcolor{keywordflow}{if} (mco <= m1)}
+\DoxyCodeLine{148             \textcolor{keywordflow}{return} 0.85;}
+\DoxyCodeLine{149         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (mco < m2)}
+\DoxyCodeLine{150             \textcolor{keywordflow}{return} a * mco + b;}
+\DoxyCodeLine{151         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{152             \textcolor{keywordflow}{return} alow;}
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{164     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a07dfc353df2f32fb42a9724d47c88b42}{XspinMESA}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} z0, \textcolor{keyword}{const} \textcolor{keywordtype}{double} mco)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         \textcolor{keywordtype}{double} a1, b1, a2, b2, m1;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169         \textcolor{keywordflow}{if} (z0 > 0.0012 \&\& z0 <= 0.004)\{}
+\DoxyCodeLine{170             a1 = 0.0076, b1 = 0.05, a2 = -\/0.0019, b2 = 0.165, m1 = 12.09;}
+\DoxyCodeLine{171             \textcolor{keywordflow}{if} (mco <= m1)}
+\DoxyCodeLine{172                 \textcolor{keywordflow}{return} a1 * mco + b1;}
+\DoxyCodeLine{173             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{174                 \textcolor{keywordflow}{return} a2 * mco + b2;}
+\DoxyCodeLine{175         \}}
+\DoxyCodeLine{176         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (z0 > 0.01)}
+\DoxyCodeLine{177             a1 = -\/0.0016, b1 = 0.115;}
+\DoxyCodeLine{178         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (z0 > 0.004) \textcolor{comment}{//  0.004 < z0 <= 0.01}}
+\DoxyCodeLine{179             a1 = -\/0.0006, b1 = 0.105;}
+\DoxyCodeLine{180         \textcolor{keywordflow}{else} \textcolor{comment}{// z0 <= 0.0012}}
+\DoxyCodeLine{181             a1 = -\/0.0010, b1 = 0.125;}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183         \textcolor{comment}{//Fig. 2 of Belczynski1+20 (https://www.aanda.org/articles/aa/pdf/2020/04/aa36528-\/19.pdf) shows}}
+\DoxyCodeLine{184         \textcolor{comment}{//that the fitting equations are valid only up to approx a MCO mass of 70 Msun, but Xspin seems}}
+\DoxyCodeLine{185         \textcolor{comment}{//to drop to 0 for large MCO, therefore we just extraploate putting a lower limit at 0 Msun}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187         \textcolor{keywordflow}{return} std::max(a1 * mco + b1,0.0);}
+\DoxyCodeLine{188     \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{196     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a245e695a51018a83c0a648cf331ae8f4}{XspinFuller}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{197         \textcolor{keywordflow}{return} 0.01;}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{205     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a73cb8bb98c23f6daade795cb58e82b3c}{XspinMaxwellian}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} sigma\_xspin)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207         \textcolor{keywordtype}{double} x1, x;}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209         std::normal\_distribution<double> gaussian\_xspin\{0.0, sigma\_xspin\};}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211         x1 = gaussian\_xspin(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}});}
+\DoxyCodeLine{212         x1 *= x1;}
+\DoxyCodeLine{213         x = gaussian\_xspin(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}});}
+\DoxyCodeLine{214         x *= x;}
+\DoxyCodeLine{215         x += x1;}
+\DoxyCodeLine{216         x1 = gaussian\_xspin(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}});}
+\DoxyCodeLine{217         x1 *= x1;}
+\DoxyCodeLine{218         x += x1;}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         x = sqrt(x);}
+\DoxyCodeLine{221         \textcolor{keywordflow}{if} (x > 1.0) \textcolor{comment}{/* Just in case the distribution throws x > 1 (possible although not too probable?)*/}}
+\DoxyCodeLine{222             x = 1.0;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{231     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a3a03faf7555437763406c4e61e4f2898}{XspinZeros}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} 0.0;\}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{comment}{//TODO This option is a test, we have to decide if keep it or no}}
+\DoxyCodeLine{234     \textcolor{comment}{//TODO In case we keep it, myabe we have to think to a better implementation (using processes since here the anchges are due to mass acretion)}}
+\DoxyCodeLine{244 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_a0a5ce27a0fc42e25bc96a5f02b117ce9}{XspinAccretion}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 \textcolor{keyword}{private}:}
+\DoxyCodeLine{247     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_b_hrem_adf144b2d7bd6ac94b88ce891626efba1}{xspin}}=std::nan(\textcolor{stringliteral}{"{}"{}}); \textcolor{comment}{// Value of the BH spin.}}
+\DoxyCodeLine{248 \};}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252 \textcolor{keyword}{class }\mbox{\hyperlink{class_n_srem}{NSrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_staremnant}{Staremnant}}\{}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{keyword}{public}:}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \mbox{\hyperlink{class_n_srem_a0bc00e51a9c4ea53ee95de6c9ff400b6}{NSrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s, Mremnant, time), \mbox{\hyperlink{class_n_srem_ab8aed379b7d7072e577bc12aab3c4ae6}{root\_distribution}}(0.,1.0) \{}
+\DoxyCodeLine{257         \mbox{\hyperlink{class_n_srem_a6abd75b08946d73d741e886ab6baf884}{default\_initialiser}}(s);}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261     \mbox{\hyperlink{class_n_srem_af56e9fe07b8bec5c1f47dbdfc1241c1a}{NSrem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s,Mremnant), \mbox{\hyperlink{class_n_srem_ab8aed379b7d7072e577bc12aab3c4ae6}{root\_distribution}}(0.,1.0) \{}
+\DoxyCodeLine{262         \mbox{\hyperlink{class_n_srem_a6abd75b08946d73d741e886ab6baf884}{default\_initialiser}}(s);}
+\DoxyCodeLine{263     \};}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a11797f4fcde5aa8131279774fb12b51a}{Radius}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_n_srem_abe166432f487f7038776503c336f4788}{Rns}};\}}
+\DoxyCodeLine{273     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_luminosity}{Luminosity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{274     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_omega_rem}{OmegaRem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const  override};}
+\DoxyCodeLine{275     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_inertia}{Inertia}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{276     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_bmag}{Bmag}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{277     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a79acaddc62ce21530911dd15d5543b82}{Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} std::nan(\textcolor{stringliteral}{"{}"{}});\}}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{283     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a2fe88ebdcc3d2a9a80c494f88f466b5f}{get\_alpha}}()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} std::asin(\mbox{\hyperlink{class_n_srem_aee80ac1d4ce58998daea778dbc65ecf1}{sinalpha}});\}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{289     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a5b7f13b0daef5e0bca4e867dca2a22b5}{get\_salpha}}()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_n_srem_aee80ac1d4ce58998daea778dbc65ecf1}{sinalpha}};\}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{295     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a5b81a23b3cff22751c5e0c973cfd43a6}{get\_Bmin}}()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_n_srem_a92560eef5286d4294393e4002f93ed5a}{Bmin}};\}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     std::uniform\_real\_distribution<double> \mbox{\hyperlink{class_n_srem_ab8aed379b7d7072e577bc12aab3c4ae6}{root\_distribution}};}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a2aece29eda445b1ca0fa6741b5fdad87}{generate\_uniform}}(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b)\{}
+\DoxyCodeLine{302         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_n_srem_ab8aed379b7d7072e577bc12aab3c4ae6}{root\_distribution}}(\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{utilities::mtrand}})*(b-\/a) + a;}
+\DoxyCodeLine{303     \}}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_n_srem_a6abd75b08946d73d741e886ab6baf884}{default\_initialiser}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_n_srem_acd0f8f432ee186710f097acb39de4286}{print\_log\_message}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309 \textcolor{keyword}{public}:}
+\DoxyCodeLine{310     \textcolor{keyword}{constexpr} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_abe166432f487f7038776503c336f4788}{Rns}} = 11*\mbox{\hyperlink{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}{utilities::km\_to\_RSun}}; \textcolor{comment}{//Neutron star radius 11 km in Rsun, from Hurley, 2000}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{keyword}{private}:}
+\DoxyCodeLine{313     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_aee80ac1d4ce58998daea778dbc65ecf1}{sinalpha}}; \textcolor{comment}{//sin of the angle between the rotation axis and the magnetic ax}}
+\DoxyCodeLine{314     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a2ccc493502d6ea8fe16b26676802076b}{B0}}, \mbox{\hyperlink{class_n_srem_a92560eef5286d4294393e4002f93ed5a}{Bmin}}; \textcolor{comment}{//Initial and minimum magnetic field in Gauss}}
+\DoxyCodeLine{315     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_afd80c2d749f30d4c0e915d2bebc65e92}{Omega0}}; \textcolor{comment}{//Initial Spin}}
+\DoxyCodeLine{316     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_n_srem_a58dba17d674fc8f15800bfff17538cb4}{tau\_magnetic}}; \textcolor{comment}{//Magnetic field decay time scale in Myr}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 \};}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{keyword}{class }\mbox{\hyperlink{class_n_s_c_crem}{NSCCrem}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_n_srem}{NSrem}} \{}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322 \textcolor{keyword}{public}:}
+\DoxyCodeLine{323     \mbox{\hyperlink{class_n_s_c_crem_a54307b737fc1deb3c8993a63ca3718be}{NSCCrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_n_srem}{NSrem}}(s, Mremnant, time) \{}
+\DoxyCodeLine{324         \mbox{\hyperlink{class_n_srem_acd0f8f432ee186710f097acb39de4286}{print\_log\_message}}(s);}
+\DoxyCodeLine{325     \}}
+\DoxyCodeLine{326     \mbox{\hyperlink{class_n_s_c_crem_a13aa5faa5900f99cca2c7ab25e6507fb}{NSCCrem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_n_srem}{NSrem}}(s,Mremnant)\{}
+\DoxyCodeLine{327         \mbox{\hyperlink{class_n_srem_acd0f8f432ee186710f097acb39de4286}{print\_log\_message}}(s);}
+\DoxyCodeLine{328     \};}
+\DoxyCodeLine{329 \};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331 \textcolor{keyword}{class }\mbox{\hyperlink{class_n_s_e_crem}{NSECrem}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_n_srem}{NSrem}} \{}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 \textcolor{keyword}{public}:}
+\DoxyCodeLine{334     \mbox{\hyperlink{class_n_s_e_crem_a15d5b64518b92ebeccbb4df7d502b95e}{NSECrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_n_srem}{NSrem}}(s, Mremnant, time) \{}
+\DoxyCodeLine{335         \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}}=\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca8c105160f19ff5689ed70b72469b1a04}{Lookup::Remnants::NS\_ECSN}};}
+\DoxyCodeLine{336         \mbox{\hyperlink{class_n_srem_acd0f8f432ee186710f097acb39de4286}{print\_log\_message}}(s);}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338     \mbox{\hyperlink{class_n_s_e_crem_a7e3a748030b0712823b384b098b6a9db}{NSECrem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_n_srem}{NSrem}}(s,Mremnant)\{}
+\DoxyCodeLine{339         \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}}=\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca8c105160f19ff5689ed70b72469b1a04}{Lookup::Remnants::NS\_ECSN}};}
+\DoxyCodeLine{340         \mbox{\hyperlink{class_n_srem_acd0f8f432ee186710f097acb39de4286}{print\_log\_message}}(s);}
+\DoxyCodeLine{341     \};}
+\DoxyCodeLine{342 \};}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344 \textcolor{keyword}{class }\mbox{\hyperlink{class_w_drem}{WDrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_staremnant}{Staremnant}}\{}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{keyword}{public}:}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348     \mbox{\hyperlink{class_w_drem_add46aba5ba4153448762fde6b2307ffc}{WDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s,Mremnant, time) \{}
+\DoxyCodeLine{349         \mbox{\hyperlink{class_w_drem_acaf73c4d641cf91ee2e17707856300bf}{default\_initialiser}}();}
+\DoxyCodeLine{350     \}}
+\DoxyCodeLine{351     \mbox{\hyperlink{class_w_drem_ad17db68b0e144e1eddb4e47dd263f3cf}{WDrem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s, Mremnant) \{}
+\DoxyCodeLine{352         \mbox{\hyperlink{class_w_drem_acaf73c4d641cf91ee2e17707856300bf}{default\_initialiser}}();}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{360     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_radius}{Radius}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{366     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_luminosity}{Luminosity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{367     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_w_drem_a51c81c4d63ba80e08c8c019240f08d65}{OmegaRem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{368     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_w_drem_a7a74d72d9c8df420e8c971fe3454814d}{Inertia}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_ab1a74d09d4b48efdddce170bbd06c1f8}{InertiaSphere}}(s);\};}
+\DoxyCodeLine{369     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_w_drem_a1e612ed91e697aa8649570b7b19710df}{Bmag}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{370     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_w_drem_a65e4397948b0c83f8c8b44aed3b7ae4f}{Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{373     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_w_drem_a7928996f1bbb90328aa5a00bad5acb53}{A\_luminosity}}; \textcolor{comment}{//To be used in the estimate of LWD (See Hurley+00 Sec. 6.2)}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375     \textcolor{keyword}{inline}  \textcolor{keywordtype}{void} \mbox{\hyperlink{class_w_drem_acaf73c4d641cf91ee2e17707856300bf}{default\_initialiser}}()\{\}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377 \};}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379 \textcolor{keyword}{class }\mbox{\hyperlink{class_he_w_drem}{HeWDrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_w_drem}{WDrem}} \{}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 \textcolor{keyword}{public}:}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383     \mbox{\hyperlink{class_he_w_drem_a9f42407e1e6f7e9ebbe9c2a1f995dfe7}{HeWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant, time)\{}
+\DoxyCodeLine{384         \mbox{\hyperlink{class_he_w_drem_a001035f1496801493a1e34fa7d434703}{default\_initialiser}}();}
+\DoxyCodeLine{385     \}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{387     \mbox{\hyperlink{class_he_w_drem_a726e1c444930f2a62d377b36240d99bf}{HeWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant)\{}
+\DoxyCodeLine{388         \mbox{\hyperlink{class_he_w_drem_a001035f1496801493a1e34fa7d434703}{default\_initialiser}}();}
+\DoxyCodeLine{389     \}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393     \textcolor{keyword}{inline}  \textcolor{keywordtype}{void} \mbox{\hyperlink{class_he_w_drem_a001035f1496801493a1e34fa7d434703}{default\_initialiser}}()  \{}
+\DoxyCodeLine{394         \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}}=\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca1f2b9e627bdef1847e3c0c1502b470e7}{Lookup::Remnants::HeWD}};}
+\DoxyCodeLine{395         \mbox{\hyperlink{class_w_drem_a7928996f1bbb90328aa5a00bad5acb53}{A\_luminosity}} = 4; \textcolor{comment}{//From Hurley+00 Sec 6.2}}
+\DoxyCodeLine{396     \}}
+\DoxyCodeLine{397 \};}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 \textcolor{keyword}{class }\mbox{\hyperlink{class_c_o_w_drem}{COWDrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_w_drem}{WDrem}} \{}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{keyword}{public}:}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403     \mbox{\hyperlink{class_c_o_w_drem_a7eed40ce7087861b7062a47a7b89386f}{COWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant, time)\{}
+\DoxyCodeLine{404         \mbox{\hyperlink{class_c_o_w_drem_a89334a0351778751ddb21ac9c939c9f2}{default\_initialiser}}();}
+\DoxyCodeLine{405     \}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407     \mbox{\hyperlink{class_c_o_w_drem_af2432b8aa4cd7344773c934f21704c0a}{COWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant)\{}
+\DoxyCodeLine{408         \mbox{\hyperlink{class_c_o_w_drem_a89334a0351778751ddb21ac9c939c9f2}{default\_initialiser}}();}
+\DoxyCodeLine{409     \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{412     \textcolor{keyword}{inline}  \textcolor{keywordtype}{void} \mbox{\hyperlink{class_c_o_w_drem_a89334a0351778751ddb21ac9c939c9f2}{default\_initialiser}}()\{}
+\DoxyCodeLine{413         \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}}=\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca1cd983f989dcc55a595a9ed28c89f357}{Lookup::Remnants::COWD}};}
+\DoxyCodeLine{414         \mbox{\hyperlink{class_w_drem_a7928996f1bbb90328aa5a00bad5acb53}{A\_luminosity}} = 15; \textcolor{comment}{//From Hurley+00 Sec 6.2}}
+\DoxyCodeLine{415     \}}
+\DoxyCodeLine{416 \};}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{keyword}{class }\mbox{\hyperlink{class_o_ne_w_drem}{ONeWDrem}} :  \textcolor{keyword}{public} \mbox{\hyperlink{class_w_drem}{WDrem}} \{}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \textcolor{keyword}{public}:}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422     \mbox{\hyperlink{class_o_ne_w_drem_ad370fc395da0f56e9325a2375b259c1f}{ONeWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant, time)\{}
+\DoxyCodeLine{423         \mbox{\hyperlink{class_o_ne_w_drem_ab86c5345986aaf2d7bc8c8dcdda81f05}{default\_initialiser}}();}
+\DoxyCodeLine{424     \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426     \mbox{\hyperlink{class_o_ne_w_drem_ab9a553674aaec0c85350f9591d310a58}{ONeWDrem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_w_drem}{WDrem}}(s, Mremnant)\{}
+\DoxyCodeLine{427         \mbox{\hyperlink{class_o_ne_w_drem_ab86c5345986aaf2d7bc8c8dcdda81f05}{default\_initialiser}}();}
+\DoxyCodeLine{428     \}}
+\DoxyCodeLine{429 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{430     \textcolor{keyword}{inline}  \textcolor{keywordtype}{void} \mbox{\hyperlink{class_o_ne_w_drem_ab86c5345986aaf2d7bc8c8dcdda81f05}{default\_initialiser}}()  \{}
+\DoxyCodeLine{431         \mbox{\hyperlink{class_staremnant_a1f2ee7c0a66aabc56e7f038fcc97e033}{remnant\_type}}=\mbox{\hyperlink{namespace_lookup_a19e1f8d5a0039abbba0c2cb92145f4bca6491dcd7ba24b08716d2210cbad5e9db}{Lookup::Remnants::ONeWD}};}
+\DoxyCodeLine{432         \mbox{\hyperlink{class_w_drem_a7928996f1bbb90328aa5a00bad5acb53}{A\_luminosity}} = 17; \textcolor{comment}{//From Hurley+00 Sec 6.2}}
+\DoxyCodeLine{433     \}}
+\DoxyCodeLine{434 \};}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 \textcolor{comment}{/***}}
+\DoxyCodeLine{438 \textcolor{comment}{ * A remnant class to handle objects that cannot be currently taken into account.}}
+\DoxyCodeLine{439 \textcolor{comment}{ * For example stars that should jump in a track that is not available}}
+\DoxyCodeLine{440 \textcolor{comment}{ */}}
+\DoxyCodeLine{441 \textcolor{keyword}{class }\mbox{\hyperlink{class_zombierem}{Zombierem}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_staremnant}{Staremnant}}\{}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443 \textcolor{keyword}{public}:}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{445     \mbox{\hyperlink{class_zombierem_afe20ff4e5e3bed8a562241f1c4cf7a05}{Zombierem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant, \textcolor{keywordtype}{double} time) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s, Mremnant, time) \{}
+\DoxyCodeLine{446         \mbox{\hyperlink{class_zombierem_a2bcd1584318ab969925baa1eff044500}{initialise}}(s);}
+\DoxyCodeLine{447     \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449     \mbox{\hyperlink{class_zombierem_ac4d6213ac6e4670b26791cb7754e2f03}{Zombierem}}(\mbox{\hyperlink{class_star}{Star}} *s, \textcolor{keywordtype}{double} Mremnant) : \mbox{\hyperlink{class_staremnant}{Staremnant}}(s,Mremnant)\{}
+\DoxyCodeLine{450         \mbox{\hyperlink{class_zombierem_a2bcd1584318ab969925baa1eff044500}{initialise}}(s);}
+\DoxyCodeLine{451     \};}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a5d9641f3b447d4fd9ff1d939f1f400b7}{Radius}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_zombierem_a106e202d643ebb95b80757ba680a83ee}{radius}};\}}
+\DoxyCodeLine{454     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a06efe776c97e9a89df902a250a156769}{Luminosity}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_zombierem_a37215ca7dab6e9d06fbd000e9bbaa6e1}{luminosity}};\}}
+\DoxyCodeLine{455     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a9cda91e7dcfc132dc2e4f90b0007d9fa}{OmegaRem}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{456     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a0d01bba3fe6e3d8fbfc969da3c18d3ef}{Inertia}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_staremnant_ab1a74d09d4b48efdddce170bbd06c1f8}{InertiaSphere}}(s);\}}
+\DoxyCodeLine{457     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a35a8fc8b2c5f6ea8524d11a9a7dd46f7}{Bmag}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{458     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a8089b3d53b50641387fc8efc343bbdf0}{Xspin}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}} *s)\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} 0.;\}}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{460 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_zombierem_a2bcd1584318ab969925baa1eff044500}{initialise}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{keyword}{private}:}
+\DoxyCodeLine{465     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a37215ca7dab6e9d06fbd000e9bbaa6e1}{luminosity}};}
+\DoxyCodeLine{466     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_zombierem_a106e202d643ebb95b80757ba680a83ee}{radius}};}
+\DoxyCodeLine{467 \};}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_REMNANT\_H}}
+
+\end{DoxyCode}

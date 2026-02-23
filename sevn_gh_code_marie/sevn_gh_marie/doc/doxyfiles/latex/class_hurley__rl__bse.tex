@@ -1,0 +1,1205 @@
+\hypertarget{class_hurley__rl__bse}{}\doxysection{Hurley\+\_\+rl\+\_\+bse Class Reference}
+\label{class_hurley__rl__bse}\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+
+
+{\ttfamily \#include $<$Orbit.\+h$>$}
+
+Inheritance diagram for Hurley\+\_\+rl\+\_\+bse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_hurley__rl__bse}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hurley__rl__bse_af3c5a13597103be33dd696d9f52c90a8}{Hurley\+\_\+rl\+\_\+bse}} (bool reg=true)
+\item 
+\mbox{\hyperlink{class_hurley__rl__bse}{Hurley\+\_\+rl\+\_\+bse}} $\ast$ \mbox{\hyperlink{class_hurley__rl__bse_a4c88464a25e0f64ec0e335e56d1eb127}{instance}} () override
+\item 
+\mbox{\hyperlink{class_hurley__rl__bse_a7651b79653e7ec17f1279ca85565cfdc}{$\sim$\+Hurley\+\_\+rl\+\_\+bse}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}{name}} () override
+\item 
+void \mbox{\hyperlink{class_hurley__rl_ac033f2acd3ad59a90d41596b9c1a84b1}{init}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}{DA}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int proc\+ID) override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}{DE}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int proc\+ID) override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a52d54c16022c0b01515b90e8c3b1b5d1}{DAng\+Mom\+Spin}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int proc\+ID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int star\+ID) override
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_a1ce2338c7fdd8ea32d07c6a2da9dd8e1}{set\+\_\+options}} (\mbox{\hyperlink{class_i_o}{IO}} $\ast$\+\_\+io) override
+\item 
+virtual void \mbox{\hyperlink{class_orbital__change_ab647fbd4fa38d29098cd8e0173391b54}{set\+\_\+options}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$\+\_\+io)
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_a4a02a804b53de60843325c00b805f435}{speciale\+\_\+evolve}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_mass}{Mass}} transfer. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_orbital__change___r_l_a70e9aa1a31ae1806fa7f70d34887983f}{get\+\_\+\+DM}} (int ID)
+\item 
+double \mbox{\hyperlink{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}{DM}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int proc\+ID, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int star\+ID) override
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a96ad212c1c2b4a1d16dc7b1d09a6ef48}{is\+\_\+swallowed}} (int star\+ID)
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_ac56327550fc0ee1e7f10b05ea7b1c031}{is\+\_\+process\+\_\+ongoing}} () override
+\begin{DoxyCompactList}\small\item\em Other function that return useful information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_ae7b3736de74633c8ffccda3be001b625}{is\+\_\+colliding}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$ \mbox{\hyperlink{class_orbital__change___r_l_aff651cbfacae07701396145cf483273d}{Instance}} (const std\+::string \&\mbox{\hyperlink{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a312c60e7b072e1fb51ec50e5e15eab3c}{novae}} =false
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_ae6723ce6514fe3ace7be4c9a6f67c03a}{super\+\_\+eddington}} =false
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\+\_\+rl\+\_\+bse}} \mbox{\hyperlink{class_hurley__rl__bse_af064ac2ca6810c57a85bd7aa66695cfd}{\+\_\+\+Hurley\+\_\+rl\+\_\+bse}}
+\item 
+static \mbox{\hyperlink{class_hurley__rl}{Hurley\+\_\+rl}} \mbox{\hyperlink{class_hurley__rl_a1f3fbb85a05d54ec4ca2d74b65cb75b7}{\+\_\+\+Hurley\+\_\+rl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_hurley__rl__bse_a6d781bc08a54228a59c3538546ac5a55}{thermal\+\_\+nuclear\+\_\+accreted\+\_\+mass}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double DM\+\_\+donor, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+int \mbox{\hyperlink{class_hurley__rl__bse_a222d641b706c3df058efc09a7ed03ed1}{dynamic\+\_\+swallowing}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+void \mbox{\hyperlink{class_hurley__rl_ace764f6f2f47ee24834facd046de49d1}{init\+\_\+common\+\_\+variable}} (\mbox{\hyperlink{class_star}{Star}} $\ast$donor\+\_\+star, \mbox{\hyperlink{class_star}{Star}} $\ast$accretor\+\_\+star, \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+bool \mbox{\hyperlink{class_hurley__rl_a439804e4eed178e3f8c358b48e273b25}{check\+\_\+double\+RLO}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\begin{DoxyCompactList}\small\item\em AUX. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hurley__rl_a6b3690decc533054d3b2872dd5bf17cc}{check\+\_\+collision\+\_\+at\+\_\+periastron}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+int \mbox{\hyperlink{class_hurley__rl_a71fb8187e773b5adbe8d0fc6d43e8049}{outcome\+\_\+double\+\_\+\+RLO}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+int \mbox{\hyperlink{class_hurley__rl_a011b54038d8fd1057e52040cc4399550}{outcome\+\_\+collision}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+int \mbox{\hyperlink{class_hurley__rl_a2eed10705376c21a8be069a5b1c07dad}{outcome\+\_\+collision}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+virtual int \mbox{\hyperlink{class_orbital__change___r_l_a82c6085a5235e50e2ba944e80e66e290}{outcome\+\_\+collision}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+void \mbox{\hyperlink{class_hurley__rl_a055ca0edd33300359c563d405c46e5d8}{RLO}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+virtual void \mbox{\hyperlink{class_orbital__change___r_l_adb1e99472f7296e1f5e4f92c01c32ae5}{RLO}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+virtual void \mbox{\hyperlink{class_hurley__rl_a9f5bce4114ffeb50524e0be1dcc0f408}{set\+\_\+orbital}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a63cd9af01fb243847e7ea940e2da6f79}{dynamic\+\_\+dmdt}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_mass}{Mass}} transfer. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_hurley__rl_a5dd70b779d29bda9503cfc89dfb66b38}{nuclear\+\_\+dmdt}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_aa348c37d1e944257eab4d969d9529bab}{thermal\+\_\+dmdt}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a27cd206e59dd5b41bf98fcc32f5d7929}{f\+RL\+\_\+radius}} (\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$star, \mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b) override
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_hurley__rl_a478441e41732bdf61242497190a036bd}{get\+\_\+donor}} ()
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_hurley__rl_aeab3d0999537f666c6383950ceedc07d}{get\+\_\+accretor}} ()
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a5a9d68710fcf40042f17df1f3f395bcf}{get\+\_\+rldonor}} ()
+\item 
+void \mbox{\hyperlink{class_hurley__rl_adc53bea67b4ac2aad13793f6ee8fa878}{set\+\_\+\+DA}} (double \mbox{\hyperlink{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}{DA}})
+\item 
+void \mbox{\hyperlink{class_hurley__rl_a7f2f1a354a159c7ba76872fafc4d34d4}{set\+\_\+\+DE}} (double \mbox{\hyperlink{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}{DE}})
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a3f7a6416ff0833e12a0e9bf0f3900eed}{get\+\_\+mt\+\_\+value}} () const override
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a16d60c6caceb1ba8df198d36451dd5e6}{get\+\_\+mt\+\_\+tshold}} () const override
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}{Register}} (\mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$ptr, const std\+::string \&\+\_\+name)
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_ac363e569ff6d6cc0f86db00bb80016ff}{set\+\_\+\+DM}} (double \mbox{\hyperlink{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}{DM}}, int star\+ID)
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_a3f62e1fb1daae61308f02edd8a3ab538}{reset\+\_\+\+DM}} ()
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_a404c2d3566a22b2f62c22b86215451b0}{set\+\_\+swallowed}} (int star\+ID)
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_aea1b0d9c52aac3686dc70572cf543bd8}{reset\+\_\+swallowed}} (int star\+ID)
+\item 
+int \mbox{\hyperlink{class_orbital__change___r_l_aa068f080d138a0b832a2f8ddbb79b1d5}{reset\+\_\+swallowed}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_a6b8aac096e0caaa482adcd870b7a7b39}{set\+\_\+mix}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_ad163f18dae76f627d5b115eabdd3d28a}{unset\+\_\+mix}} ()
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a3cf29e9a32155ff44d74e1313cda8d07}{get\+\_\+mix}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_adb7e6a9a65869bab5b0073f207c288ce}{set\+\_\+comenv}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_a195b8bbfae9841b2437e098fbdde1d31}{unset\+\_\+comenv}} ()
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a0890d2b801754a9de725155065a09d02}{get\+\_\+comenv}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_a2982eb020f8d166b3f506db117d5e3af}{set\+\_\+is\+\_\+\+RLO\+\_\+happening}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_aaa4150f4daf7688b9f2ef60fec4a1fec}{unset\+\_\+is\+\_\+\+RLO\+\_\+happening}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_ae3d57f30d54d86cb83fbfc4168dda7f0}{set\+\_\+is\+\_\+colliding}} ()
+\item 
+void \mbox{\hyperlink{class_orbital__change___r_l_ab6edb5bdaa42f9153f34cdaf693b8c30}{unset\+\_\+is\+\_\+colliding}} ()
+\item 
+virtual double \mbox{\hyperlink{class_orbital__change___r_l_a7db95456d5f1a3961eef3e3bf21c0128}{estimate\+\_\+q}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}})
+\begin{DoxyCompactList}\small\item\em q stuff \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_orbital__change___r_l_aabe9746081cca9fe15b4a3bd56328c18}{Hfrac}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual double \mbox{\hyperlink{class_orbital__change___r_l_a6a048f35984ddb2c55cc36afa17a1f29}{d\+Mdt\+\_\+eddington}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}, \mbox{\hyperlink{class_star}{Star}} $\ast$\mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}, \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_ad930c3f5f29d661ad01097702a9a5049}{is\+\_\+giant\+\_\+like}} (int star\+\_\+type\+\_\+bse)
+\item 
+virtual double \mbox{\hyperlink{class_orbital__change___r_l_a74e378836c6ba35836cdac83ab6d9f8d}{kelvin\+\_\+helmotz\+\_\+tscale}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\begin{DoxyCompactList}\small\item\em time scales \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_orbital__change___r_l_a01f264685108eec723b3d6618641da5b}{dynamic\+\_\+tscale}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual int \mbox{\hyperlink{class_orbital__change___r_l_a40ab5de097a2e67c9938929e5d2e0006}{check\+\_\+compact\+\_\+accretor}} (int donor\+\_\+type\+\_\+bse, int accretor\+\_\+type\+\_\+bse)
+\begin{DoxyCompactList}\small\item\em Checks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}{donor}}
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}{accretor}}
+\item 
+int \mbox{\hyperlink{class_hurley__rl_a89a5bfe0528efa634bcaa35c5ad78238}{star\+\_\+type1}} = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities\+::\+NULL\+\_\+\+INT}}
+\item 
+int \mbox{\hyperlink{class_hurley__rl_ae80a24a3a14f179f007ee7e25c72c13f}{star\+\_\+type2}} = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities\+::\+NULL\+\_\+\+INT}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a2c049b439a66f9f6e3601af672a4785b}{frl1}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a60aad4cbb8770a37364b3c63f7ce1f9a}{rl1}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+bool \mbox{\hyperlink{class_hurley__rl_aa0d3037a2afc0780d7c99f663bb0a902}{is\+\_\+\+RL\+\_\+in\+\_\+core}} = false
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a8f296983ad8438126d54022461a1b38d}{mt\+\_\+value}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a26ffa7979a8f015f5e87496466035516}{mt\+\_\+tshold}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_adcf2d302e046849d2207876687d87c92}{f\+\_\+\+MT}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\begin{DoxyCompactList}\small\item\em Accretion efficency. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_hurley__rl_aee256f2413578f03de8cf2013846dd93}{dmdt\+\_\+edd}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a72abe5985af3d9b23ed8287b7ad39189}{dt}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\begin{DoxyCompactList}\small\item\em Times. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_hurley__rl_a75889cda85a34630e295cfd211f52338}{tkh1}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a1f6c1a4fba153f380e6330135d2a9236}{tdyn1}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a5b4c2dbcdeeda2e30b064e92ac981189}{taum}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a0cbc8ecc975dbdbba0842e1893e98ab3}{tkh2}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a010206bef3d03fb0380545071d48d272}{\+\_\+\+DA}} = 0
+\item 
+double \mbox{\hyperlink{class_hurley__rl_afec5c938c2e658fa85808bbf0abd9de6}{\+\_\+\+DE}} = 0
+\item 
+double \mbox{\hyperlink{class_hurley__rl_a6944321eb6bb28e2df1e8f5aa3d44b9a}{\+\_\+\+DLspin}} \mbox{[}2\mbox{]} =\{0.,0.\}
+\item 
+\mbox{\hyperlink{class_m_tstability}{MTstability}} $\ast$ \mbox{\hyperlink{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}{mt\+\_\+stability}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$ $>$ \& \mbox{\hyperlink{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}{Get\+Static\+Map}} ()
+\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}{Get\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}{\+\_\+\+DM}} \mbox{[}2\mbox{]} =\{0,0\}
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}{\+\_\+is\+\_\+swallowed}} \mbox{[}2\mbox{]} =\{false, false\}
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}{mix}} = false
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}{comenv}} = false
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}{\+\_\+is\+\_\+\+RLO\+\_\+happening}} =false
+\item 
+bool \mbox{\hyperlink{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}{\+\_\+is\+\_\+colliding}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_hurley__rl__bse_af3c5a13597103be33dd696d9f52c90a8}\label{class_hurley__rl__bse_af3c5a13597103be33dd696d9f52c90a8}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{Hurley\_rl\_bse()}{Hurley\_rl\_bse()}}
+{\footnotesize\ttfamily Hurley\+\_\+rl\+\_\+bse\+::\+Hurley\+\_\+rl\+\_\+bse (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_hurley__rl__bse_a7651b79653e7ec17f1279ca85565cfdc}\label{class_hurley__rl__bse_a7651b79653e7ec17f1279ca85565cfdc}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!````~Hurley\_rl\_bse@{$\sim$Hurley\_rl\_bse}}
+\index{````~Hurley\_rl\_bse@{$\sim$Hurley\_rl\_bse}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{$\sim$Hurley\_rl\_bse()}{~Hurley\_rl\_bse()}}
+{\footnotesize\ttfamily Hurley\+\_\+rl\+\_\+bse\+::$\sim$\+Hurley\+\_\+rl\+\_\+bse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hurley__rl_a6b3690decc533054d3b2872dd5bf17cc}\label{class_hurley__rl_a6b3690decc533054d3b2872dd5bf17cc}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!check\_collision\_at\_periastron@{check\_collision\_at\_periastron}}
+\index{check\_collision\_at\_periastron@{check\_collision\_at\_periastron}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{check\_collision\_at\_periastron()}{check\_collision\_at\_periastron()}}
+{\footnotesize\ttfamily bool Hurley\+\_\+rl\+::check\+\_\+collision\+\_\+at\+\_\+periastron (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Check if both stars are colliding at the periastron. The outcome of this two events can be a \mbox{\hyperlink{class_mix}{Mix}} or a CE. 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if one of two conditions is fulfilled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_orbital__change___r_l_a40ab5de097a2e67c9938929e5d2e0006}\label{class_orbital__change___r_l_a40ab5de097a2e67c9938929e5d2e0006}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!check\_compact\_accretor@{check\_compact\_accretor}}
+\index{check\_compact\_accretor@{check\_compact\_accretor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{check\_compact\_accretor()}{check\_compact\_accretor()}}
+{\footnotesize\ttfamily virtual int Orbital\+\_\+change\+\_\+\+RL\+::check\+\_\+compact\+\_\+accretor (\begin{DoxyParamCaption}\item[{int}]{donor\+\_\+type\+\_\+bse,  }\item[{int}]{accretor\+\_\+type\+\_\+bse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Checks. 
+
+Check that for compact remnants (WD,NS,BH) the accretor is as compact or more compact with respect to the donor. 
+\begin{DoxyParams}{Parameters}
+{\em donor\+\_\+type\+\_\+bse} & BSE type of the donor \\
+\hline
+{\em accretor\+\_\+type\+\_\+bse} & BSE type of the accretor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS or throw an error
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classsevnstd_1_1rl__error}{sevnstd\+::rl\+\_\+error}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_hurley__rl_a439804e4eed178e3f8c358b48e273b25}\label{class_hurley__rl_a439804e4eed178e3f8c358b48e273b25}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!check\_doubleRLO@{check\_doubleRLO}}
+\index{check\_doubleRLO@{check\_doubleRLO}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{check\_doubleRLO()}{check\_doubleRLO()}}
+{\footnotesize\ttfamily bool Hurley\+\_\+rl\+::check\+\_\+double\+RLO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+AUX. 
+
+Aux.
+
+Check if both stars are filling the RL The outcome of this two events can be a \mbox{\hyperlink{class_mix}{Mix}} or a CE. 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if one of two conditions is fulfilled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}\label{class_hurley__rl_aab153850220878ae2ca6a28a16ce8b0d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!DA@{DA}}
+\index{DA@{DA}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{DA()}{DA()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+DA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{proc\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_ae7d7e0628e5047a3d810380afb079e14}{Orbital\+\_\+change}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a52d54c16022c0b01515b90e8c3b1b5d1}\label{class_hurley__rl_a52d54c16022c0b01515b90e8c3b1b5d1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!DAngMomSpin@{DAngMomSpin}}
+\index{DAngMomSpin@{DAngMomSpin}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{DAngMomSpin()}{DAngMomSpin()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+DAng\+Mom\+Spin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{proc\+ID,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_accdda03f7f2e38feae3995ea9b2cdb6c}{Orbital\+\_\+change}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}\label{class_hurley__rl_a25727efbaff6e386dbdcf21c525ecb8d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!DE@{DE}}
+\index{DE@{DE}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{DE()}{DE()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+DE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{proc\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Variation of \mbox{\hyperlink{class_eccentricity}{Eccentricity}}. In BSE derived from Hurley+20, the eccentricity is set to 0 at onset of RLO. In order to take this into account we set the DE to a large negative value so that e\texorpdfstring{$<$}{<}0 and in the subsequent checks it is forced to 0. 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to binary \\
+\hline
+{\em proc\+ID} & ID of process calling DE. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_adc54ac8c6290228dcec5d6dfdb9eec51}{Orbital\+\_\+change}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}\label{class_orbital__change___r_l_a7d328aefeac56ba509acc2a030e5f7e1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!DM@{DM}}
+\index{DM@{DM}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{DM()}{DM()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::\+DM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{proc\+ID,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_a802983c4798625dcb0319be0b971695d}{Orbital\+\_\+change}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a6a048f35984ddb2c55cc36afa17a1f29}\label{class_orbital__change___r_l_a6a048f35984ddb2c55cc36afa17a1f29}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dMdt\_eddington@{dMdt\_eddington}}
+\index{dMdt\_eddington@{dMdt\_eddington}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dMdt\_eddington()}{dMdt\_eddington()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::d\+Mdt\+\_\+eddington (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Estimate the rate of mass transfer considering the Eddington limit 
+\begin{DoxyParams}{Parameters}
+{\em donor} & \mbox{\hyperlink{class_star}{Star}} that is donating mass through the RLO \\
+\hline
+{\em accretor} & \mbox{\hyperlink{class_star}{Star}} that is accreting mass \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_a63cd9af01fb243847e7ea940e2da6f79}\label{class_hurley__rl_a63cd9af01fb243847e7ea940e2da6f79}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dynamic\_dmdt@{dynamic\_dmdt}}
+\index{dynamic\_dmdt@{dynamic\_dmdt}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dynamic\_dmdt()}{dynamic\_dmdt()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::dynamic\+\_\+dmdt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+\mbox{\hyperlink{class_mass}{Mass}} transfer. 
+
+Rate of dynamic mass transfer from Eq. 62 in Hurley+2002 
+\begin{DoxyParams}{Parameters}
+{\em s} & pointer to the \mbox{\hyperlink{class_star}{Star}} that is losing mass \\
+\hline
+{\em b} & pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dm/dt 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a719768b11539fce6db296c0c81733e75}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl__bse_a222d641b706c3df058efc09a7ed03ed1}\label{class_hurley__rl__bse_a222d641b706c3df058efc09a7ed03ed1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dynamic\_swallowing@{dynamic\_swallowing}}
+\index{dynamic\_swallowing@{dynamic\_swallowing}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dynamic\_swallowing()}{dynamic\_swallowing()}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+\_\+bse\+::dynamic\+\_\+swallowing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Function that handle the situation in which the mass transfer is dynamic unstable but the stars are not mixing or doing a ce. 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS; 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_hurley__rl_af3516df0859136cd8f498d74e4dc3da6}{Hurley\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a01f264685108eec723b3d6618641da5b}\label{class_orbital__change___r_l_a01f264685108eec723b3d6618641da5b}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dynamic\_tscale@{dynamic\_tscale}}
+\index{dynamic\_tscale@{dynamic\_tscale}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dynamic\_tscale()}{dynamic\_tscale()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::dynamic\+\_\+tscale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Dynamic time scale (Eq. 63, Hurley+2002) Directly taken from SEVN1 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dynamic time scale in yr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_orbital__change___r_l_a7db95456d5f1a3961eef3e3bf21c0128}\label{class_orbital__change___r_l_a7db95456d5f1a3961eef3e3bf21c0128}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!estimate\_q@{estimate\_q}}
+\index{estimate\_q@{estimate\_q}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{estimate\_q()}{estimate\_q()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::estimate\+\_\+q (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+q stuff 
+
+q
+
+Simply estimate the mass fraction of the donor over the accretor 
+\begin{DoxyParams}{Parameters}
+{\em donor} & \mbox{\hyperlink{class_star}{Star}} that is donating mass through the RLO \\
+\hline
+{\em accretor} & \mbox{\hyperlink{class_star}{Star}} that is accreting mass \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mass\+\_\+fraction 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_a27cd206e59dd5b41bf98fcc32f5d7929}\label{class_hurley__rl_a27cd206e59dd5b41bf98fcc32f5d7929}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!fRL\_radius@{fRL\_radius}}
+\index{fRL\_radius@{fRL\_radius}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{fRL\_radius()}{fRL\_radius()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::f\+RL\+\_\+radius (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{star,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Roche Lobe radius normalised over the star radius 
+\begin{DoxyParams}{Parameters}
+{\em star} & pointer to the star for which we are estimateting f\+RL \\
+\hline
+{\em b} & pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+R\+\_\+rl/\+R\+\_\+star 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_aeeddb701fca47cbeadb340acb6e49c27}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl_aeab3d0999537f666c6383950ceedc07d}\label{class_hurley__rl_aeab3d0999537f666c6383950ceedc07d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_accretor@{get\_accretor}}
+\index{get\_accretor@{get\_accretor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_accretor()}{get\_accretor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}} $\ast$ Hurley\+\_\+rl\+::get\+\_\+accretor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a0890d2b801754a9de725155065a09d02}\label{class_orbital__change___r_l_a0890d2b801754a9de725155065a09d02}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_comenv@{get\_comenv}}
+\index{get\_comenv@{get\_comenv}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_comenv()}{get\_comenv()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::get\+\_\+comenv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a70e9aa1a31ae1806fa7f70d34887983f}\label{class_orbital__change___r_l_a70e9aa1a31ae1806fa7f70d34887983f}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_DM@{get\_DM}}
+\index{get\_DM@{get\_DM}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_DM()}{get\_DM()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::get\+\_\+\+DM (\begin{DoxyParamCaption}\item[{int}]{ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a478441e41732bdf61242497190a036bd}\label{class_hurley__rl_a478441e41732bdf61242497190a036bd}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_donor@{get\_donor}}
+\index{get\_donor@{get\_donor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_donor()}{get\_donor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}} $\ast$ Hurley\+\_\+rl\+::get\+\_\+donor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_orbital__change___r_l_a3cf29e9a32155ff44d74e1313cda8d07}\label{class_orbital__change___r_l_a3cf29e9a32155ff44d74e1313cda8d07}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_mix@{get\_mix}}
+\index{get\_mix@{get\_mix}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_mix()}{get\_mix()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::get\+\_\+mix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a16d60c6caceb1ba8df198d36451dd5e6}\label{class_hurley__rl_a16d60c6caceb1ba8df198d36451dd5e6}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_mt\_tshold@{get\_mt\_tshold}}
+\index{get\_mt\_tshold@{get\_mt\_tshold}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_mt\_tshold()}{get\_mt\_tshold()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::get\+\_\+mt\+\_\+tshold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a608ca67199d2e5c24b4a803e231f1030}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a3f7a6416ff0833e12a0e9bf0f3900eed}\label{class_hurley__rl_a3f7a6416ff0833e12a0e9bf0f3900eed}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_mt\_value@{get\_mt\_value}}
+\index{get\_mt\_value@{get\_mt\_value}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_mt\_value()}{get\_mt\_value()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::get\+\_\+mt\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a63ab1a0582353128fa45dc8504276397}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a5a9d68710fcf40042f17df1f3f395bcf}\label{class_hurley__rl_a5a9d68710fcf40042f17df1f3f395bcf}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!get\_rldonor@{get\_rldonor}}
+\index{get\_rldonor@{get\_rldonor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{get\_rldonor()}{get\_rldonor()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::get\+\_\+rldonor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}\label{class_orbital__change___r_l_a5e9bb991b471ddf8a950b92d9f5053e6}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$ $>$ \& Orbital\+\_\+change\+\_\+\+RL\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}\label{class_orbital__change___r_l_aee932b43b33e48d3497a2df620d3ea7c}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Orbital\+\_\+change\+\_\+\+RL\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aabe9746081cca9fe15b4a3bd56328c18}\label{class_orbital__change___r_l_aabe9746081cca9fe15b4a3bd56328c18}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!Hfrac@{Hfrac}}
+\index{Hfrac@{Hfrac}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{Hfrac()}{Hfrac()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::\+Hfrac (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Estimate the H fraction based on the functional form .... (found in SEVN1) 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_ac033f2acd3ad59a90d41596b9c1a84b1}\label{class_hurley__rl_ac033f2acd3ad59a90d41596b9c1a84b1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!init@{init}}
+\index{init@{init}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Init function to be called at the beginning of the \mbox{\hyperlink{class_process_a9bb9b7d157239ca6b09b49ce7e5f9253}{Process\+::evolve}} 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+NOW check for \mbox{\hyperlink{class_mix}{Mix}} or Common envelope due to both stars filling the Roche Lobe
+
+NOW analyse the RLO
+
+Now SET the binary mix or comenv outcome
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a11ab8a6d32a65eb5fbeb067085188c4c}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl_ace764f6f2f47ee24834facd046de49d1}\label{class_hurley__rl_ace764f6f2f47ee24834facd046de49d1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!init\_common\_variable@{init\_common\_variable}}
+\index{init\_common\_variable@{init\_common\_variable}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{init\_common\_variable()}{init\_common\_variable()}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::init\+\_\+common\+\_\+variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor\+\_\+star,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor\+\_\+star,  }\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Set the common variable used by DM, DE, DA assuming a given donor and accretor star 
+\begin{DoxyParams}{Parameters}
+{\em donor\+\_\+star} & Pointer to the star that is filling the RL \\
+\hline
+{\em accretor\+\_\+star} & Pointer to the star that is accreting mass \\
+\hline
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+mt stuff -\/ NOTICE, the interpretation of these two values depend on the mt\+\_\+stability option if the option is from the qcrit family, mt\+\_\+value=q and mt\+\_\+tshold=qcrit, if the option is from the zeta family, mt\+\_\+value=zeta\+\_\+adiabatic and mt\+\_\+tshold=zeta\+\_\+\+RL
+
+Accretion efficency
+
+Times\mbox{\Hypertarget{class_hurley__rl__bse_a4c88464a25e0f64ec0e335e56d1eb127}\label{class_hurley__rl__bse_a4c88464a25e0f64ec0e335e56d1eb127}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!instance@{instance}}
+\index{instance@{instance}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\+\_\+rl\+\_\+bse}} $\ast$ Hurley\+\_\+rl\+\_\+bse\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_hurley__rl_abe0cbb138622158542924cfa9bcdcdf2}{Hurley\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aff651cbfacae07701396145cf483273d}\label{class_orbital__change___r_l_aff651cbfacae07701396145cf483273d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!Instance@{Instance}}
+\index{Instance@{Instance}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$ Orbital\+\_\+change\+\_\+\+RL\+::\+Instance (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ae7b3736de74633c8ffccda3be001b625}\label{class_orbital__change___r_l_ae7b3736de74633c8ffccda3be001b625}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!is\_colliding@{is\_colliding}}
+\index{is\_colliding@{is\_colliding}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{is\_colliding()}{is\_colliding()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::is\+\_\+colliding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ad930c3f5f29d661ad01097702a9a5049}\label{class_orbital__change___r_l_ad930c3f5f29d661ad01097702a9a5049}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!is\_giant\_like@{is\_giant\_like}}
+\index{is\_giant\_like@{is\_giant\_like}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{is\_giant\_like()}{is\_giant\_like()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::is\+\_\+giant\+\_\+like (\begin{DoxyParamCaption}\item[{int}]{star\+\_\+type\+\_\+bse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Check if the star can be considered giant or giant-\/like in the BSE type classification 
+\begin{DoxyParams}{Parameters}
+{\em star\+\_\+type\+\_\+bse} & BSE star type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the type is between 2 and 9 (inclusive) but not 7, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_orbital__change___r_l_ac56327550fc0ee1e7f10b05ea7b1c031}\label{class_orbital__change___r_l_ac56327550fc0ee1e7f10b05ea7b1c031}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!is\_process\_ongoing@{is\_process\_ongoing}}
+\index{is\_process\_ongoing@{is\_process\_ongoing}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{is\_process\_ongoing()}{is\_process\_ongoing()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::is\+\_\+process\+\_\+ongoing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Other function that return useful information. 
+
+Check if the process is really ongoing, i.\+e. it is really changing properties. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_a9b10dd053f3b74652cfad5f58064c0e1}{Orbital\+\_\+change}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classdisabled__rl_a6bb125ae2f2f98ab62827ab490856d9a}{disabled\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a96ad212c1c2b4a1d16dc7b1d09a6ef48}\label{class_orbital__change___r_l_a96ad212c1c2b4a1d16dc7b1d09a6ef48}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!is\_swallowed@{is\_swallowed}}
+\index{is\_swallowed@{is\_swallowed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{is\_swallowed()}{is\_swallowed()}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::is\+\_\+swallowed (\begin{DoxyParamCaption}\item[{int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a74e378836c6ba35836cdac83ab6d9f8d}\label{class_orbital__change___r_l_a74e378836c6ba35836cdac83ab6d9f8d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!kelvin\_helmotz\_tscale@{kelvin\_helmotz\_tscale}}
+\index{kelvin\_helmotz\_tscale@{kelvin\_helmotz\_tscale}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{kelvin\_helmotz\_tscale()}{kelvin\_helmotz\_tscale()}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::kelvin\+\_\+helmotz\+\_\+tscale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+time scales 
+
+Time scales.
+
+Kelvin-\/\+Helmholtz time scale from the modified classical expression (Eq. 61, Hurley+2002) Directly taken from SEVN1 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kelvin-\/\+Helmholtz time scale in yr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}\label{class_hurley__rl__bse_abedf07e36e74effa4aad48de902c96b2}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!name@{name}}
+\index{name@{name}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Hurley\+\_\+rl\+\_\+bse\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_hurley__rl_a5c3afbe2076611f9f963fe127dd8e1ab}{Hurley\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a5dd70b779d29bda9503cfc89dfb66b38}\label{class_hurley__rl_a5dd70b779d29bda9503cfc89dfb66b38}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!nuclear\_dmdt@{nuclear\_dmdt}}
+\index{nuclear\_dmdt@{nuclear\_dmdt}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{nuclear\_dmdt()}{nuclear\_dmdt()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::nuclear\+\_\+dmdt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Rate of dynamic mass transfer from Eq. 60 in Hurley+2002 
+\begin{DoxyParams}{Parameters}
+{\em s} & pointer to the \mbox{\hyperlink{class_star}{Star}} that is losing mass \\
+\hline
+{\em b} & pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dm/dt 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a0faa1d3c373326ebf1557b573856ac03}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl_a011b54038d8fd1057e52040cc4399550}\label{class_hurley__rl_a011b54038d8fd1057e52040cc4399550}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!outcome\_collision@{outcome\_collision}}
+\index{outcome\_collision@{outcome\_collision}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{outcome\_collision()}{outcome\_collision()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+::outcome\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Set binary mix or common evelope to true depending on the stellar bse phases in case of collision at the pericenter. In that version the check is made in a symmetric way (both the donor and accretor have the same role) 
+\begin{DoxyParams}{Parameters}
+{\em donor\+\_\+star} & Pointer to the star that is filling the RL \\
+\hline
+{\em accretor\+\_\+star} & Pointer to the star that is accreting mass \\
+\hline
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a6a4a1d344fa61014e1796444b6aa33c2}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a82c6085a5235e50e2ba944e80e66e290}\label{class_orbital__change___r_l_a82c6085a5235e50e2ba944e80e66e290}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!outcome\_collision@{outcome\_collision}}
+\index{outcome\_collision@{outcome\_collision}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{outcome\_collision()}{outcome\_collision()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual int Orbital\+\_\+change\+\_\+\+RL\+::outcome\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Set binary mix or common evelope to true depending on the stellar bse phases in case of collision at the pericenter 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_a2eed10705376c21a8be069a5b1c07dad}\label{class_hurley__rl_a2eed10705376c21a8be069a5b1c07dad}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!outcome\_collision@{outcome\_collision}}
+\index{outcome\_collision@{outcome\_collision}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{outcome\_collision()}{outcome\_collision()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+::outcome\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Set binary mix or common evelope to true depending on the stellar bse phases in case of collision at the pericenter. In that version the check is made in a asymmetric way, the donor is the star filling the Roche Lobe. 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hurley__rl_a71fb8187e773b5adbe8d0fc6d43e8049}\label{class_hurley__rl_a71fb8187e773b5adbe8d0fc6d43e8049}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!outcome\_double\_RLO@{outcome\_double\_RLO}}
+\index{outcome\_double\_RLO@{outcome\_double\_RLO}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{outcome\_double\_RLO()}{outcome\_double\_RLO()}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+::outcome\+\_\+double\+\_\+\+RLO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Set binary mix or common evelope to true depending on the stellar bse phases in case of both stars are overfilling the RL 
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a64e736640bbf784395b40e2c294c3344}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}\label{class_orbital__change___r_l_acb645abdbf15fdedbaae74e933321b10}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!Register@{Register}}
+\index{Register@{Register}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_orbital__change___r_l}{Orbital\+\_\+change\+\_\+\+RL}} $\ast$}]{ptr,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a3f62e1fb1daae61308f02edd8a3ab538}\label{class_orbital__change___r_l_a3f62e1fb1daae61308f02edd8a3ab538}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!reset\_DM@{reset\_DM}}
+\index{reset\_DM@{reset\_DM}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{reset\_DM()}{reset\_DM()}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::reset\+\_\+\+DM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aa068f080d138a0b832a2f8ddbb79b1d5}\label{class_orbital__change___r_l_aa068f080d138a0b832a2f8ddbb79b1d5}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!reset\_swallowed@{reset\_swallowed}}
+\index{reset\_swallowed@{reset\_swallowed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{reset\_swallowed()}{reset\_swallowed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::reset\+\_\+swallowed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aea1b0d9c52aac3686dc70572cf543bd8}\label{class_orbital__change___r_l_aea1b0d9c52aac3686dc70572cf543bd8}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!reset\_swallowed@{reset\_swallowed}}
+\index{reset\_swallowed@{reset\_swallowed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{reset\_swallowed()}{reset\_swallowed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::reset\+\_\+swallowed (\begin{DoxyParamCaption}\item[{int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a055ca0edd33300359c563d405c46e5d8}\label{class_hurley__rl_a055ca0edd33300359c563d405c46e5d8}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!RLO@{RLO}}
+\index{RLO@{RLO}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{RLO()}{RLO()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::\+RLO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Actual \mbox{\hyperlink{class_roche_lobe}{Roche\+Lobe}} Overflow process as reported in Hurely+2002 and BSE 
+\begin{DoxyParams}{Parameters}
+{\em donor} & Pointer to the star that is overflowing the \mbox{\hyperlink{class_roche_lobe}{Roche\+Lobe}} \\
+\hline
+{\em accretor} & Pointer to the star that is accreting mass \\
+\hline
+{\em b} & Pointer to the binary\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+\+: Sometime the code does not strictly follows what reported in Hurley2002 paper, this because BSE code has been updated. The current implementation is directly ported from SEVN1 with a modification made by MM on the fraction of the mass accreted that is now tuned by the parameter rlo\+\_\+f\+\_\+mass\+\_\+accreted. 
+\end{DoxyNote}
+MM\+: UNSTABLE ACCRETION ON DYNAMICAL TIMESCALE\+: CALL COMMON ENVELOPE OR MERGE
+
+Case for WDs
+
+Assume the energy released by ignition of triple=alpha is enough to destroy the star(s)
+
+STABLE MASS TRANSFER ON THERMAL TIME SCALE OR NUCLEAR (take the minimum) (Hurley+2002, Sec. 2.\+6.\+2 and Sec. 2.\+6.\+3)\mbox{\Hypertarget{class_orbital__change___r_l_adb1e99472f7296e1f5e4f92c01c32ae5}\label{class_orbital__change___r_l_adb1e99472f7296e1f5e4f92c01c32ae5}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!RLO@{RLO}}
+\index{RLO@{RLO}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{RLO()}{RLO()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Orbital\+\_\+change\+\_\+\+RL\+::\+RLO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Actual \mbox{\hyperlink{class_roche_lobe}{Roche\+Lobe}} Overflow process 
+\begin{DoxyParams}{Parameters}
+{\em donor} & Pointer to the star that is overflowing the \mbox{\hyperlink{class_roche_lobe}{Roche\+Lobe}} \\
+\hline
+{\em accretor} & Pointer to the star that is accreting mass \\
+\hline
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_orbital__change___r_l_adb7e6a9a65869bab5b0073f207c288ce}\label{class_orbital__change___r_l_adb7e6a9a65869bab5b0073f207c288ce}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_comenv@{set\_comenv}}
+\index{set\_comenv@{set\_comenv}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_comenv()}{set\_comenv()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+comenv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_adc53bea67b4ac2aad13793f6ee8fa878}\label{class_hurley__rl_adc53bea67b4ac2aad13793f6ee8fa878}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_DA@{set\_DA}}
+\index{set\_DA@{set\_DA}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_DA()}{set\_DA()}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::set\+\_\+\+DA (\begin{DoxyParamCaption}\item[{double}]{DA }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a7f2f1a354a159c7ba76872fafc4d34d4}\label{class_hurley__rl_a7f2f1a354a159c7ba76872fafc4d34d4}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_DE@{set\_DE}}
+\index{set\_DE@{set\_DE}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_DE()}{set\_DE()}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::set\+\_\+\+DE (\begin{DoxyParamCaption}\item[{double}]{DE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ac363e569ff6d6cc0f86db00bb80016ff}\label{class_orbital__change___r_l_ac363e569ff6d6cc0f86db00bb80016ff}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_DM@{set\_DM}}
+\index{set\_DM@{set\_DM}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_DM()}{set\_DM()}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+\+DM (\begin{DoxyParamCaption}\item[{double}]{DM,  }\item[{int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ae3d57f30d54d86cb83fbfc4168dda7f0}\label{class_orbital__change___r_l_ae3d57f30d54d86cb83fbfc4168dda7f0}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_is\_colliding@{set\_is\_colliding}}
+\index{set\_is\_colliding@{set\_is\_colliding}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_is\_colliding()}{set\_is\_colliding()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+is\+\_\+colliding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a2982eb020f8d166b3f506db117d5e3af}\label{class_orbital__change___r_l_a2982eb020f8d166b3f506db117d5e3af}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_is\_RLO\_happening@{set\_is\_RLO\_happening}}
+\index{set\_is\_RLO\_happening@{set\_is\_RLO\_happening}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_is\_RLO\_happening()}{set\_is\_RLO\_happening()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+is\+\_\+\+RLO\+\_\+happening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a6b8aac096e0caaa482adcd870b7a7b39}\label{class_orbital__change___r_l_a6b8aac096e0caaa482adcd870b7a7b39}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_mix@{set\_mix}}
+\index{set\_mix@{set\_mix}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_mix()}{set\_mix()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+mix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change_ab647fbd4fa38d29098cd8e0173391b54}\label{class_orbital__change_ab647fbd4fa38d29098cd8e0173391b54}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_options@{set\_options}}
+\index{set\_options@{set\_options}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_options()}{set\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Orbital\+\_\+change\+::set\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{\+\_\+io }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a1ce2338c7fdd8ea32d07c6a2da9dd8e1}\label{class_orbital__change___r_l_a1ce2338c7fdd8ea32d07c6a2da9dd8e1}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_options@{set\_options}}
+\index{set\_options@{set\_options}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_options()}{set\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{\+\_\+io }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a9f5bce4114ffeb50524e0be1dcc0f408}\label{class_hurley__rl_a9f5bce4114ffeb50524e0be1dcc0f408}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_orbital@{set\_orbital}}
+\index{set\_orbital@{set\_orbital}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_orbital()}{set\_orbital()}}
+{\footnotesize\ttfamily void Hurley\+\_\+rl\+::set\+\_\+orbital (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Load current \mbox{\hyperlink{class_mass}{Mass}} transfer
+
+First check if actual mass transfer is happening
+
+Angmom lost from the system
+
+Angmom from donor Orbit-\/spin coupling
+
+Now estimate \+\_\+\+DA as anew -\/ a, where anew estimated from the updated \mbox{\hyperlink{class_ang_mom}{Ang\+Mom}}
+
+Reimplemented in \mbox{\hyperlink{class_hurley__mod__rl_ac1f8435553a5bcf144e3760b2ece2cd1}{Hurley\+\_\+mod\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a404c2d3566a22b2f62c22b86215451b0}\label{class_orbital__change___r_l_a404c2d3566a22b2f62c22b86215451b0}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!set\_swallowed@{set\_swallowed}}
+\index{set\_swallowed@{set\_swallowed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{set\_swallowed()}{set\_swallowed()}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::set\+\_\+swallowed (\begin{DoxyParamCaption}\item[{int}]{star\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a4a02a804b53de60843325c00b805f435}\label{class_orbital__change___r_l_a4a02a804b53de60843325c00b805f435}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!speciale\_evolve@{speciale\_evolve}}
+\index{speciale\_evolve@{speciale\_evolve}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{speciale\_evolve()}{speciale\_evolve()}}
+{\footnotesize\ttfamily int Orbital\+\_\+change\+\_\+\+RL\+::speciale\+\_\+evolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+\mbox{\hyperlink{class_mass}{Mass}} transfer. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change_a3425194ee18f327bbe9751aaca12df1b}{Orbital\+\_\+change}}.
+
+\mbox{\Hypertarget{class_hurley__rl_aa348c37d1e944257eab4d969d9529bab}\label{class_hurley__rl_aa348c37d1e944257eab4d969d9529bab}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!thermal\_dmdt@{thermal\_dmdt}}
+\index{thermal\_dmdt@{thermal\_dmdt}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{thermal\_dmdt()}{thermal\_dmdt()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::thermal\+\_\+dmdt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Rate of dynamic mass transfer from Eq. 58 and Eq.\+59 in Hurley+2002 
+\begin{DoxyParams}{Parameters}
+{\em s} & pointer to the \mbox{\hyperlink{class_star}{Star}} that is losing mass \\
+\hline
+{\em b} & pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dm/dt
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+the implementation is a bit different with respect to what is reported in Hurley+2002, but it comes directly from BSE 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{class_orbital__change___r_l_a49cc6096e94eb3c3dfa49d0ac5bf209a}{Orbital\+\_\+change\+\_\+\+RL}}.
+
+\mbox{\Hypertarget{class_hurley__rl__bse_a6d781bc08a54228a59c3538546ac5a55}\label{class_hurley__rl__bse_a6d781bc08a54228a59c3538546ac5a55}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!thermal\_nuclear\_accreted\_mass@{thermal\_nuclear\_accreted\_mass}}
+\index{thermal\_nuclear\_accreted\_mass@{thermal\_nuclear\_accreted\_mass}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{thermal\_nuclear\_accreted\_mass()}{thermal\_nuclear\_accreted\_mass()}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+\_\+bse\+::thermal\+\_\+nuclear\+\_\+accreted\+\_\+mass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{DM\+\_\+donor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{\mbox{\hyperlink{_orbit_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Handle the mass accreted on the companion on thermal or nuclear timescale It takes into account also special cases such as accretionon compact objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em DM\+\_\+donor} & Total amount of mass lost by the donor star \mbox{[}Msun\mbox{]} \\
+\hline
+{\em donor} & Pointer to the donor star \\
+\hline
+{\em accretor} & Pointer to the accretor star \\
+\hline
+{\em b} & Pointer to the binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Final amount of mass accreted on the accretor 
+\end{DoxyReturn}
+\mbox{\hyperlink{class_mass}{Mass}} accretion
+
+Reimplemented from \mbox{\hyperlink{class_hurley__rl_a3d2e2fe65854f911bf28473dcd340768}{Hurley\+\_\+rl}}.
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a195b8bbfae9841b2437e098fbdde1d31}\label{class_orbital__change___r_l_a195b8bbfae9841b2437e098fbdde1d31}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!unset\_comenv@{unset\_comenv}}
+\index{unset\_comenv@{unset\_comenv}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{unset\_comenv()}{unset\_comenv()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::unset\+\_\+comenv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ab6edb5bdaa42f9153f34cdaf693b8c30}\label{class_orbital__change___r_l_ab6edb5bdaa42f9153f34cdaf693b8c30}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!unset\_is\_colliding@{unset\_is\_colliding}}
+\index{unset\_is\_colliding@{unset\_is\_colliding}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{unset\_is\_colliding()}{unset\_is\_colliding()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::unset\+\_\+is\+\_\+colliding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aaa4150f4daf7688b9f2ef60fec4a1fec}\label{class_orbital__change___r_l_aaa4150f4daf7688b9f2ef60fec4a1fec}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!unset\_is\_RLO\_happening@{unset\_is\_RLO\_happening}}
+\index{unset\_is\_RLO\_happening@{unset\_is\_RLO\_happening}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{unset\_is\_RLO\_happening()}{unset\_is\_RLO\_happening()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::unset\+\_\+is\+\_\+\+RLO\+\_\+happening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ad163f18dae76f627d5b115eabdd3d28a}\label{class_orbital__change___r_l_ad163f18dae76f627d5b115eabdd3d28a}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!unset\_mix@{unset\_mix}}
+\index{unset\_mix@{unset\_mix}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{unset\_mix()}{unset\_mix()}}
+{\footnotesize\ttfamily void Orbital\+\_\+change\+\_\+\+RL\+::unset\+\_\+mix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_hurley__rl_a010206bef3d03fb0380545071d48d272}\label{class_hurley__rl_a010206bef3d03fb0380545071d48d272}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_DA@{\_DA}}
+\index{\_DA@{\_DA}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_DA}{\_DA}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+\_\+\+DA = 0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_afec5c938c2e658fa85808bbf0abd9de6}\label{class_hurley__rl_afec5c938c2e658fa85808bbf0abd9de6}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_DE@{\_DE}}
+\index{\_DE@{\_DE}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_DE}{\_DE}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+\_\+\+DE = 0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a6944321eb6bb28e2df1e8f5aa3d44b9a}\label{class_hurley__rl_a6944321eb6bb28e2df1e8f5aa3d44b9a}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_DLspin@{\_DLspin}}
+\index{\_DLspin@{\_DLspin}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_DLspin}{\_DLspin}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::\+\_\+\+DLspin\mbox{[}2\mbox{]} =\{0.,0.\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}\label{class_orbital__change___r_l_a3adac66b95afef0ba81bb7c331195079}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_DM@{\_DM}}
+\index{\_DM@{\_DM}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_DM}{\_DM}}
+{\footnotesize\ttfamily double Orbital\+\_\+change\+\_\+\+RL\+::\+\_\+\+DM\mbox{[}2\mbox{]} =\{0,0\}\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a1f3fbb85a05d54ec4ca2d74b65cb75b7}\label{class_hurley__rl_a1f3fbb85a05d54ec4ca2d74b65cb75b7}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_Hurley\_rl@{\_Hurley\_rl}}
+\index{\_Hurley\_rl@{\_Hurley\_rl}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_Hurley\_rl}{\_Hurley\_rl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hurley__rl}{Hurley\+\_\+rl}} Hurley\+\_\+rl\+::\+\_\+\+Hurley\+\_\+rl\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl__bse_af064ac2ca6810c57a85bd7aa66695cfd}\label{class_hurley__rl__bse_af064ac2ca6810c57a85bd7aa66695cfd}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_Hurley\_rl\_bse@{\_Hurley\_rl\_bse}}
+\index{\_Hurley\_rl\_bse@{\_Hurley\_rl\_bse}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_Hurley\_rl\_bse}{\_Hurley\_rl\_bse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\+\_\+rl\+\_\+bse}} Hurley\+\_\+rl\+\_\+bse\+::\+\_\+\+Hurley\+\_\+rl\+\_\+bse\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}\label{class_orbital__change___r_l_a42d593e9eb6c5f88e60653bd051471a9}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_is\_colliding@{\_is\_colliding}}
+\index{\_is\_colliding@{\_is\_colliding}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_is\_colliding}{\_is\_colliding}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::\+\_\+is\+\_\+colliding =false\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}\label{class_orbital__change___r_l_a9fc807c377c69568078b7af07aa2801d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_is\_RLO\_happening@{\_is\_RLO\_happening}}
+\index{\_is\_RLO\_happening@{\_is\_RLO\_happening}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_is\_RLO\_happening}{\_is\_RLO\_happening}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::\+\_\+is\+\_\+\+RLO\+\_\+happening =false\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}\label{class_orbital__change___r_l_af9be9a29a07fe297c2f40767261d787b}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!\_is\_swallowed@{\_is\_swallowed}}
+\index{\_is\_swallowed@{\_is\_swallowed}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{\_is\_swallowed}{\_is\_swallowed}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::\+\_\+is\+\_\+swallowed\mbox{[}2\mbox{]} =\{false, false\}\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+Array of bool corresponding to the ID of stars in binary. If true, the star has been swallowed through the RLO \mbox{\Hypertarget{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}\label{class_hurley__rl_a6600e8df473709f3026223188ab6fe18}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!accretor@{accretor}}
+\index{accretor@{accretor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{accretor}{accretor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}}$\ast$ Hurley\+\_\+rl\+::accretor\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}\label{class_orbital__change___r_l_aa92df82da6bd525b562d5577b30c82cc}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!comenv@{comenv}}
+\index{comenv@{comenv}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{comenv}{comenv}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::comenv = false\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_aee256f2413578f03de8cf2013846dd93}\label{class_hurley__rl_aee256f2413578f03de8cf2013846dd93}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dmdt\_edd@{dmdt\_edd}}
+\index{dmdt\_edd@{dmdt\_edd}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dmdt\_edd}{dmdt\_edd}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::dmdt\+\_\+edd = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}\label{class_hurley__rl_a4d700ca94251bce1c6021413ba110e77}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!donor@{donor}}
+\index{donor@{donor}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{donor}{donor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}}$\ast$ Hurley\+\_\+rl\+::donor\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a72abe5985af3d9b23ed8287b7ad39189}\label{class_hurley__rl_a72abe5985af3d9b23ed8287b7ad39189}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!dt@{dt}}
+\index{dt@{dt}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::dt = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Times. 
+
+\mbox{\Hypertarget{class_hurley__rl_adcf2d302e046849d2207876687d87c92}\label{class_hurley__rl_adcf2d302e046849d2207876687d87c92}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!f\_MT@{f\_MT}}
+\index{f\_MT@{f\_MT}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{f\_MT}{f\_MT}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::f\+\_\+\+MT = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Accretion efficency. 
+
+\mbox{\Hypertarget{class_hurley__rl_a2c049b439a66f9f6e3601af672a4785b}\label{class_hurley__rl_a2c049b439a66f9f6e3601af672a4785b}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!frl1@{frl1}}
+\index{frl1@{frl1}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{frl1}{frl1}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::frl1 = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_aa0d3037a2afc0780d7c99f663bb0a902}\label{class_hurley__rl_aa0d3037a2afc0780d7c99f663bb0a902}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!is\_RL\_in\_core@{is\_RL\_in\_core}}
+\index{is\_RL\_in\_core@{is\_RL\_in\_core}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{is\_RL\_in\_core}{is\_RL\_in\_core}}
+{\footnotesize\ttfamily bool Hurley\+\_\+rl\+::is\+\_\+\+RL\+\_\+in\+\_\+core = false\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}\label{class_orbital__change___r_l_a7b02066a0cd2ca1a935f02fc7c9f6e37}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!mix@{mix}}
+\index{mix@{mix}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{mix}{mix}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::mix = false\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}\label{class_orbital__change___r_l_a400b3bae292a24ce7d927d732b07b274}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!mt\_stability@{mt\_stability}}
+\index{mt\_stability@{mt\_stability}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{mt\_stability}{mt\_stability}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_tstability}{MTstability}}$\ast$ Orbital\+\_\+change\+\_\+\+RL\+::mt\+\_\+stability\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a26ffa7979a8f015f5e87496466035516}\label{class_hurley__rl_a26ffa7979a8f015f5e87496466035516}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!mt\_tshold@{mt\_tshold}}
+\index{mt\_tshold@{mt\_tshold}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{mt\_tshold}{mt\_tshold}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::mt\+\_\+tshold = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a8f296983ad8438126d54022461a1b38d}\label{class_hurley__rl_a8f296983ad8438126d54022461a1b38d}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!mt\_value@{mt\_value}}
+\index{mt\_value@{mt\_value}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{mt\_value}{mt\_value}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::mt\+\_\+value = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+mt stuff -\/ NOTICE, the interpretation of these two values depend on the mt\+\_\+stability option if the option is from the qcrit family, mt\+\_\+value=q and mt\+\_\+tshold=qcrit, if the option is from the zeta family, mt\+\_\+value=zeta\+\_\+adiabatic and mt\+\_\+tshold=zeta\+\_\+\+RL \mbox{\Hypertarget{class_orbital__change___r_l_a312c60e7b072e1fb51ec50e5e15eab3c}\label{class_orbital__change___r_l_a312c60e7b072e1fb51ec50e5e15eab3c}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!novae@{novae}}
+\index{novae@{novae}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{novae}{novae}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::novae =false\hspace{0.3cm}{\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a60aad4cbb8770a37364b3c63f7ce1f9a}\label{class_hurley__rl_a60aad4cbb8770a37364b3c63f7ce1f9a}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!rl1@{rl1}}
+\index{rl1@{rl1}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{rl1}{rl1}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::rl1 = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a89a5bfe0528efa634bcaa35c5ad78238}\label{class_hurley__rl_a89a5bfe0528efa634bcaa35c5ad78238}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!star\_type1@{star\_type1}}
+\index{star\_type1@{star\_type1}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{star\_type1}{star\_type1}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+::star\+\_\+type1 = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities\+::\+NULL\+\_\+\+INT}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_ae80a24a3a14f179f007ee7e25c72c13f}\label{class_hurley__rl_ae80a24a3a14f179f007ee7e25c72c13f}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!star\_type2@{star\_type2}}
+\index{star\_type2@{star\_type2}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{star\_type2}{star\_type2}}
+{\footnotesize\ttfamily int Hurley\+\_\+rl\+::star\+\_\+type2 = \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{utilities\+::\+NULL\+\_\+\+INT}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change___r_l_ae6723ce6514fe3ace7be4c9a6f67c03a}\label{class_orbital__change___r_l_ae6723ce6514fe3ace7be4c9a6f67c03a}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!super\_eddington@{super\_eddington}}
+\index{super\_eddington@{super\_eddington}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{super\_eddington}{super\_eddington}}
+{\footnotesize\ttfamily bool Orbital\+\_\+change\+\_\+\+RL\+::super\+\_\+eddington =false\hspace{0.3cm}{\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}\label{class_orbital__change_a42a991d78f0cdd3bc7cfbd79bf57e9b0}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!svlog@{svlog}}
+\index{svlog@{svlog}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Orbital\+\_\+change\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a5b4c2dbcdeeda2e30b064e92ac981189}\label{class_hurley__rl_a5b4c2dbcdeeda2e30b064e92ac981189}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!taum@{taum}}
+\index{taum@{taum}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{taum}{taum}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::taum = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a1f6c1a4fba153f380e6330135d2a9236}\label{class_hurley__rl_a1f6c1a4fba153f380e6330135d2a9236}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!tdyn1@{tdyn1}}
+\index{tdyn1@{tdyn1}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{tdyn1}{tdyn1}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::tdyn1 = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a75889cda85a34630e295cfd211f52338}\label{class_hurley__rl_a75889cda85a34630e295cfd211f52338}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!tkh1@{tkh1}}
+\index{tkh1@{tkh1}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{tkh1}{tkh1}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::tkh1 = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hurley__rl_a0cbc8ecc975dbdbba0842e1893e98ab3}\label{class_hurley__rl_a0cbc8ecc975dbdbba0842e1893e98ab3}} 
+\index{Hurley\_rl\_bse@{Hurley\_rl\_bse}!tkh2@{tkh2}}
+\index{tkh2@{tkh2}!Hurley\_rl\_bse@{Hurley\_rl\_bse}}
+\doxysubsubsection{\texorpdfstring{tkh2}{tkh2}}
+{\footnotesize\ttfamily double Hurley\+\_\+rl\+::tkh2 = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{_orbit_8h}{Orbit.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{_orbit_8cpp}{Orbit.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

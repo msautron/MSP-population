@@ -1,0 +1,1186 @@
+\hypertarget{namespaceutilities}{}\doxysection{utilities Namespace Reference}
+\label{namespaceutilities}\index{utilities@{utilities}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutilities_1_1_list_generator}{List\+Generator}}
+\begin{DoxyCompactList}\small\item\em Class to handle the generation of a list of values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutilities_1_1_mass_container}{Mass\+Container}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}{evolution}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}{jump\+\_\+convergence}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{sn\+\_\+explosion}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}{rlo}}
+\item 
+typedef bool \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{bse\+\_\+evolution}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespaceutilities_ade38453232303159b98bc41b7cc62d39}{maxwellian\+\_\+cdf}} (double x, double sigma)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a8dfa02151562fe4907d07c05ed469d61}{maxwellian\+\_\+pdf}} (double x, double sigma)
+\item 
+double \mbox{\hyperlink{namespaceutilities_ab0f49bc367ee398c0d0c743e2885fc3c}{R\+\_\+\+Schwarzschild}} (double \mbox{\hyperlink{class_mass}{Mass}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\const std\+::string \mbox{\hyperlink{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}{n2s}} (T val, const char $\ast$file\+\_\+input, const int line\+\_\+input, const unsigned int precision=6)
+\item 
+double \mbox{\hyperlink{namespaceutilities_afcca65bc160a7b86fecf33c7eb284365}{roche\+\_\+lobe\+\_\+\+Eg}} (double Mass\+\_\+primary, double Mass\+\_\+secondary, double a)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a3f43c17cef43eb800adb11f8149fb8fa}{R\+\_\+\+Alfven}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s, double \mbox{\hyperlink{classd_mdt}{d\+Mdt}}, bool get0=false)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a2fbe4f78d85628cbec9a1ba4282ad539}{Hfrac}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{namespaceutilities_aa7afa3b720a62f078bb377c1b82b75c9}{d\+Mdt\+\_\+\+Eddington\+\_\+accretion}} (\mbox{\hyperlink{class_star}{Star}} $\ast$donor, \mbox{\hyperlink{class_star}{Star}} $\ast$accretor, double eddfact=1.\+0)
+\item 
+static double \mbox{\hyperlink{namespaceutilities_a3258eafe01d806f8fdc9106f4d37c2ac}{omega\+\_\+crit}} (double \mbox{\hyperlink{class_mass}{Mass}}, double Rpolar)
+\item 
+void \mbox{\hyperlink{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}{hardwait}} ()
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{namespaceutilities_ad0b2ac4fcd7e8c2111f3b71c55219732}{hardwait}} (T head, Tail... tail)
+\item 
+void \mbox{\hyperlink{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}{wait}} ()
+\item 
+{\footnotesize template$<$typename T , typename... Tail$>$ }\\void \mbox{\hyperlink{namespaceutilities_a7356afcc4bc488e637d3dcd073822eab}{wait}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} T head, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} Tail... tail)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}{get\+\_\+name}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+long \mbox{\hyperlink{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}{get\+\_\+\+ID}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a1dc87268e528c0e7ea55a458ce468029}{get\+\_\+name}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+long \mbox{\hyperlink{namespaceutilities_af7b6bc69dedb769125520b3beda9dbe6}{get\+\_\+\+ID}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}{get\+\_\+current\+\_\+time}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{namespaceutilities_ad7eb01abed1a206afc0d63309c512d29}{get\+\_\+current\+\_\+time}} (\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}{\+\_\+log\+\_\+print\+\_\+core}} (std\+::stringstream \&ss, T t)
+\item 
+{\footnotesize template$<$typename T , typename... ListP$>$ }\\void \mbox{\hyperlink{namespaceutilities_a0bdaf3c825b214e12e46b288eb6c1d6c}{\+\_\+log\+\_\+print\+\_\+core}} (std\+::stringstream \&ss, T t, List\+P... args)
+\item 
+{\footnotesize template$<$class System , typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}{common\+\_\+log\+\_\+print}} (const std\+::string \&label, System $\ast$system, List\+P... args)
+\item 
+{\footnotesize template$<$class System , typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_a3c4d5ffa4be75603c7a4fa3ded276b78}{common\+\_\+log\+\_\+print}} (const std\+::string \&label, System $\ast$system)
+\item 
+{\footnotesize template$<$typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}{log\+\_\+print}} (const std\+::string \&label, \mbox{\hyperlink{class_star}{Star}} $\ast$star, List\+P... args)
+\item 
+{\footnotesize template$<$typename... ListP$>$ }\\std\+::string \mbox{\hyperlink{namespaceutilities_ac85dd844bb2a32af1c1f2ac25b3ef3f2}{log\+\_\+print}} (const std\+::string \&label, \mbox{\hyperlink{class_binstar}{Binstar}} $\ast$binstar, List\+P... args)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_ad4595aef0bc3c65e955fa3a9bf23b9c8}{log\+\_\+star\+\_\+info}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s, bool oldstep=false)
+\item 
+unsigned long \mbox{\hyperlink{namespaceutilities_ae3cb027b183de132627565f2336f7baa}{gen\+\_\+rseed}} ()
+\item 
+unsigned long \mbox{\hyperlink{namespaceutilities_a71e899351c4e06c39c9d4c6ac079005f}{gen\+\_\+rseed}} (std\+::random\+\_\+device \&rd)
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_a78da5ab9c9281a8a6a7e75e26c3083db}{random\+\_\+keygen}} (std\+::mt19937\+\_\+64 $\ast$\mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}})
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceutilities_a93f0a7d7bbb9abbf583c034a0ba36831}{split}} (const std\+::string \&s, char delimiter)
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \mbox{\hyperlink{namespaceutilities_ae574463a42faed78d4047d64c4c68306}{isifstream}} ()
+\item 
+template$<$$>$ bool \mbox{\hyperlink{namespaceutilities_ae7b4c3d9c59d57b613a0b3c29593c992}{isifstream$<$ std\+::ifstream $>$}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}{binary\+\_\+search}} (T $\ast$array, const size\+\_\+t left, const size\+\_\+t right, const T value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespaceutilities_af67ca3b2a7fbf1eb97cd0841fa74de4d}{string\+\_\+is\+\_\+number}} (std\+::string str)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a23da6a4ec38109d21322e28fc95224a8}{kepler}} (const double \&ecc, const double \&m, const double tol=1e-\/6, const int maxit=50)
+\item 
+{\footnotesize template$<$typename T $>$ }\\const T \mbox{\hyperlink{namespaceutilities_aebdd1c18ee6b1e45259452cdf35433ef}{s2n}} (std\+::string \&str, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}{\+\_\+openfile}} (T \&in, const std\+::string f, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+bool \mbox{\hyperlink{namespaceutilities_adec8bc9cd6d6ca58ceb366d35e149cf0}{way\+To\+Sort}} (int i, int j)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceutilities_abc62a2b904b601c04ed9c5835db161c4}{dirname2n}} (std\+::string str, const char $\ast$file\+\_\+input, const int line\+\_\+input)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_ae858919d32c2141749f28c6c766b9d2e}{print\+\_\+vector}} (const std\+::vector$<$ T $>$ \&v)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}{gen\+\_\+filename}} (const std\+::string \&\+\_\+folder, const std\+::string \&\+\_\+fname, bool print\+\_\+threads=true)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}{get\+\_\+absolute\+\_\+\+SEVN\+\_\+path}} ()
+\item 
+int \mbox{\hyperlink{namespaceutilities_a72e0ffe5e40b23cf4da701b0cc7783bc}{find\+\_\+line}} (const double \&x1, const double \&x2, const double \&y1, const double \&y2, double \&slope, double \&intercept)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{namespaceutilities_aed157133573e489cc7274532f561a5dd}{rel\+\_\+difference}} (T val1, T val2)
+\item 
+void \mbox{\hyperlink{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}{swap\+\_\+stars}} (\mbox{\hyperlink{class_star}{Star}} $\ast$\&s1, \mbox{\hyperlink{class_star}{Star}} $\ast$\&s2)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a0e9dc09eefcd89601a54d42b4312fd57}{trim}} (const std\+::string \&s)
+\item 
+{\footnotesize template$<$typename T , typename Iter $>$ }\\bool \mbox{\hyperlink{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}{isinlist}} (T element, Iter it, Iter end)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_a334289d9ad6ce25d13324134b0739ee1}{make\+\_\+pfile\+\_\+str}} (const double plife, const size\+\_\+t \mbox{\hyperlink{class_phase}{Phase}}, const unsigned int min\+\_\+precision=6)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceutilities_a24db937086b3a175ab295e3b8457e101}{interpolate\+\_\+1D}} (T xp, std\+::vector$<$ T $>$ \&x\+\_\+interp, std\+::vector$<$ T $>$ \&y\+\_\+interp, bool equispaced\+\_\+interval=false, bool ext\+\_\+raise=false)
+\item 
+std\+::string \mbox{\hyperlink{namespaceutilities_af6c19ca97db0520e36ecbc316fcea155}{get\+\_\+subpath}} (std\+::string path, std\+::string split\+\_\+string, bool include\+\_\+split\+\_\+string=true)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceutilities_a9db8059c417fcc3e00c964b205dfd10c}{transpose}} (std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&MatrixT, std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&Matrix)
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{namespaceutilities_a87976691f0e05cda8ae21158c0a8f414}{find\+In\+Vector}} (const std\+::vector$<$ T $>$ \&vec\+Of\+Elements, const T \&element)
+\item 
+{\footnotesize template$<$typename Key , typename Value $>$ }\\std\+::map$<$ Value, Key $>$ \mbox{\hyperlink{namespaceutilities_a418f3150143150ba35d09e34659261bd}{flip\+\_\+map}} (const std\+::map$<$ Key, Value $>$ \&original\+\_\+map)
+\item 
+bool \mbox{\hyperlink{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}{are\+Equal}} (double x, double y)
+\item 
+double \mbox{\hyperlink{namespaceutilities_a28bd246e784a216570ec90d73248581b}{smallest\+Significative\+Step}} (double x)
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\std\+::unique\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{namespaceutilities_ad68bd867b8840d57e9e377174b5720c3}{make\+\_\+unique}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937\+\_\+64 \mbox{\hyperlink{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}{mtrand}}
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ac437c3804f9e4432bba9696d0e7d7d66}{SEVN\+\_\+\+NAME}} = \char`\"{}SEVN\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}} = 3.\+925125598496094e8
+\begin{DoxyCompactList}\small\item\em Fundamental quantitis. \end{DoxyCompactList}\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\+\_\+cgs}} = 3.\+1557600e7
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{parsec\+\_\+cgs}} = 3.\+085677581491367e+18
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}} = 6.\+95700e10
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{Msun\+\_\+cgs}} = 1.\+988409870698051e+33
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a28e44bb0489aab3ef84fd095d3753b0d}{G\+\_\+cgs}} = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}/(\mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{Msun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\+\_\+cgs}})
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a47fe906e6b7da76e22a464334578dc97}{Sigma\+\_\+\+Stef\+Boltz}} = 7.\+1694165533435e-\/17
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a017d164aee676c18711c233161112a09}{Myr\+\_\+to\+\_\+yr}} = 1.\+0e6
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}{yr\+\_\+to\+\_\+\+Myr}} = 1.\+0e-\/6
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ad4395607216c892cc3e20865ab082365}{AU\+\_\+to\+\_\+\+RSun}} = 215.\+03215567054764
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a4ef76ced1a466cc37ee8097b0828e2c0}{kms\+\_\+to\+\_\+\+RSunyr}} = 45.\+360931435963785
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a975b6ee31de7176975ea5b8cfd7fcc2b}{LSun\+\_\+to\+\_\+\+Solar}} = 12.\+500687924182579
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}} = 1.\+3598865132357053e7
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}{km\+\_\+to\+\_\+\+RSun}} = 1.\+4374011786689665e-\/06
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a6dd95f51ac5d6ad655ba6a7dc3c4d14a}{parsec\+\_\+to\+\_\+\+Rsun}} = \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{parsec\+\_\+cgs}}/\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a77816d4fdac32f98db24cd8ee9d270da}{g\+\_\+to\+\_\+\+MSun}} = 5.\+029144215870041e-\/34
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}{G\+\_\+over\+\_\+c2}} = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}} / (\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}})
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}{G3\+\_\+over\+\_\+c5}} = (\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}})/(\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}})
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a6e13bd44f0a215efb6ec383635f18beb}{tH}} = 13.\+7$\ast$1e3
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_abcfcb4adf8c53a518c1faac8ba588df4}{Mchandra}} = 1.\+41
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ab29d5142bf0cfab8afdfac3ba1bff74e}{PLACEHOLDER}} =\char`\"{}xxx\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{NULL\+\_\+\+DOUBLE}} = -\/9e30
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}{NULL\+\_\+\+INT}} = -\/999999999
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{namespaceutilities_a437549a34ca4e945d0af00dbeadf132f}{NULL\+\_\+\+SINT}} = 999999999
+\item 
+const std\+::string \mbox{\hyperlink{namespaceutilities_ab5a36637937008a46b2a3ed133c14607}{NULL\+\_\+\+STR}} = \char`\"{}FORZAROMA\char`\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_af0789923452446c33f1de7668680b695}{DIFF\+\_\+\+TOLL}} = 1e-\/10
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_af6ff0e3a92481bc39762efddcefcc111}{LARGE}} = 1e30
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}{TINY}} = 1e-\/15
+\item 
+constexpr double \mbox{\hyperlink{namespaceutilities_a3b51ca9508e01917e4f6b41ba0d22b55}{DOUBLE\+\_\+\+EPS}} = std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a3aaa090f3fe0bd1146914efa3a597e01}{SINGLE\+\_\+\+STEP\+\_\+\+EVOLUTION}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a5f79261e9e274d212bc3df7b41153218}{REPEATED\+\_\+\+EVOLUTION}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ad82ee12f43249cb733cccfbae3457445}{JUMP\+\_\+\+CONVERGE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a95931a56320767f90a608451e0e0646e}{JUMP}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_aea36271797cd62a5821e150266445ea7}{NO\+\_\+\+JUMP}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ace17a566ecd2a1007126044f4bf8f90b}{SNIA\+\_\+\+EXPLODE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a0308cd173253f4c6fd076ab6d8f4700c}{SNII\+\_\+\+EXPLODE}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_ac4f5b28bd822b418e1fe464fff7aec00}{SN\+\_\+\+NOT\+\_\+\+EXPLODE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a33e76025a31389355ff5d92499994b80}{RLO\+\_\+\+FALSE}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a723786f902084fec38340605e9a2e5c7}{RLO\+\_\+\+TRUE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a61af3ef55d9ed97bdfff3f17cb56371c}{BIN\+\_\+\+EV\+\_\+\+DONE}} = 1
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a689d03c171ad7069be73d26d5ce532f8}{BIN\+\_\+\+EV\+\_\+\+NOT\+\_\+\+DONE}} = 0
+\item 
+constexpr int \mbox{\hyperlink{namespaceutilities_a63375849a06208aac4f477564869ec83}{BIN\+\_\+\+EV\+\_\+\+SETBROKEN}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}\label{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}} 
+\index{utilities@{utilities}!bse\_evolution@{bse\_evolution}}
+\index{bse\_evolution@{bse\_evolution}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{bse\_evolution}{bse\_evolution}}
+{\footnotesize\ttfamily typedef bool \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{utilities\+::bse\+\_\+evolution}}}
+
+\mbox{\Hypertarget{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}\label{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}} 
+\index{utilities@{utilities}!evolution@{evolution}}
+\index{evolution@{evolution}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{evolution}{evolution}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{namespaceutilities_a8b30d044555b9c9a400dcdef526c1a68}{utilities\+::evolution}}}
+
+\mbox{\Hypertarget{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}\label{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}} 
+\index{utilities@{utilities}!jump\_convergence@{jump\_convergence}}
+\index{jump\_convergence@{jump\_convergence}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{jump\_convergence}{jump\_convergence}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{namespaceutilities_aa9ff187a216819fd3f1381d49ffec3aa}{utilities\+::jump\+\_\+convergence}}}
+
+\mbox{\Hypertarget{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}\label{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}} 
+\index{utilities@{utilities}!rlo@{rlo}}
+\index{rlo@{rlo}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{rlo}{rlo}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{namespaceutilities_ad1dc2a43fb623f48eb984a7c58e9e902}{utilities\+::rlo}}}
+
+\mbox{\Hypertarget{namespaceutilities_ab6872b4710c09a5803080889cbde042b}\label{namespaceutilities_ab6872b4710c09a5803080889cbde042b}} 
+\index{utilities@{utilities}!sn\_explosion@{sn\_explosion}}
+\index{sn\_explosion@{sn\_explosion}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{sn\_explosion}{sn\_explosion}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{utilities\+::sn\+\_\+explosion}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}\label{namespaceutilities_a61877cefcfb63b4ae28b371dc8af37ec}} 
+\index{utilities@{utilities}!\_log\_print\_core@{\_log\_print\_core}}
+\index{\_log\_print\_core@{\_log\_print\_core}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{\_log\_print\_core()}{\_log\_print\_core()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void utilities\+::\+\_\+log\+\_\+print\+\_\+core (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss,  }\item[{T}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a0bdaf3c825b214e12e46b288eb6c1d6c}\label{namespaceutilities_a0bdaf3c825b214e12e46b288eb6c1d6c}} 
+\index{utilities@{utilities}!\_log\_print\_core@{\_log\_print\_core}}
+\index{\_log\_print\_core@{\_log\_print\_core}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{\_log\_print\_core()}{\_log\_print\_core()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... ListP$>$ \\
+void utilities\+::\+\_\+log\+\_\+print\+\_\+core (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss,  }\item[{T}]{t,  }\item[{List\+P...}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}\label{namespaceutilities_ae9576e538952898d6715bffbaf9ab478}} 
+\index{utilities@{utilities}!\_openfile@{\_openfile}}
+\index{\_openfile@{\_openfile}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{\_openfile()}{\_openfile()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void utilities\+::\+\_\+openfile (\begin{DoxyParamCaption}\item[{T \&}]{in,  }\item[{const std\+::string}]{f,  }\item[{const char $\ast$}]{file\+\_\+input,  }\item[{const int}]{line\+\_\+input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}\label{namespaceutilities_a0fb611d1cf7ed5aaa56d9271e9443b71}} 
+\index{utilities@{utilities}!areEqual@{areEqual}}
+\index{areEqual@{areEqual}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{areEqual()}{areEqual()}}
+{\footnotesize\ttfamily bool utilities\+::are\+Equal (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+Check if two values can be considered equal within the machine precision tolerance. This can be used as a robust alternative to the operator == for doubles Absolute tolerance works well for values\texorpdfstring{$<$}{<}1, relative tolerance for larger values 
+\begin{DoxyParams}{Parameters}
+{\em x} & First value to compare \\
+\hline
+{\em y} & Second value to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the $\vert$x-\/y$\vert$\texorpdfstring{$<$}{<}=epsilon, where
+\begin{DoxyItemize}
+\item epsilon=std\+::numeric\+\_\+limits$<$double$>$\+::epsilon() if x\texorpdfstring{$<$}{<}=1 and y\texorpdfstring{$<$}{<}=1
+\item epsilon=std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()$\ast$max(x,y) otherwise 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}\label{namespaceutilities_ac1ff5d1aa7ac58d4d66f427df496ee8c}} 
+\index{utilities@{utilities}!binary\_search@{binary\_search}}
+\index{binary\_search@{binary\_search}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{binary\_search()}{binary\_search()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t utilities\+::binary\+\_\+search (\begin{DoxyParamCaption}\item[{T $\ast$}]{array,  }\item[{const size\+\_\+t}]{left,  }\item[{const size\+\_\+t}]{right,  }\item[{const T}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a3c4d5ffa4be75603c7a4fa3ded276b78}\label{namespaceutilities_a3c4d5ffa4be75603c7a4fa3ded276b78}} 
+\index{utilities@{utilities}!common\_log\_print@{common\_log\_print}}
+\index{common\_log\_print@{common\_log\_print}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{common\_log\_print()}{common\_log\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class System , typename... ListP$>$ \\
+std\+::string utilities\+::common\+\_\+log\+\_\+print (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{System $\ast$}]{system }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}\label{namespaceutilities_a472d877440fb2c9e87c44468d8114eda}} 
+\index{utilities@{utilities}!common\_log\_print@{common\_log\_print}}
+\index{common\_log\_print@{common\_log\_print}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{common\_log\_print()}{common\_log\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class System , typename... ListP$>$ \\
+std\+::string utilities\+::common\+\_\+log\+\_\+print (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{System $\ast$}]{system,  }\item[{List\+P...}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_abc62a2b904b601c04ed9c5835db161c4}\label{namespaceutilities_abc62a2b904b601c04ed9c5835db161c4}} 
+\index{utilities@{utilities}!dirname2n@{dirname2n}}
+\index{dirname2n@{dirname2n}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{dirname2n()}{dirname2n()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T utilities\+::dirname2n (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{const char $\ast$}]{file\+\_\+input,  }\item[{const int}]{line\+\_\+input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_aa7afa3b720a62f078bb377c1b82b75c9}\label{namespaceutilities_aa7afa3b720a62f078bb377c1b82b75c9}} 
+\index{utilities@{utilities}!dMdt\_Eddington\_accretion@{dMdt\_Eddington\_accretion}}
+\index{dMdt\_Eddington\_accretion@{dMdt\_Eddington\_accretion}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{dMdt\_Eddington\_accretion()}{dMdt\_Eddington\_accretion()}}
+{\footnotesize\ttfamily double utilities\+::d\+Mdt\+\_\+\+Eddington\+\_\+accretion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{double}]{eddfact = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+Estimate the maximal accretion rate on an object due to the Eddington limit. It is estimated using Eq. 67 in Hurley+02. In addition it is multiplied by the factor eddfact (\texorpdfstring{$>$}{>}0, default=1) to allow super-\/eddingont accretion NOTICE the return will be in units of Myr / YR, while SEVN usually assumes Myr as scale, be careful of conversion. 
+\begin{DoxyParams}{Parameters}
+{\em donor} & Pointer to the star that is donating mass \\
+\hline
+{\em accretor} & Pointer to the star that is accreting mass \\
+\hline
+{\em eddfact} & Multiplicative factor to allow supereddington accretions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the Eddington accretion rate multiuplied by eddfact in Msun/yr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a72e0ffe5e40b23cf4da701b0cc7783bc}\label{namespaceutilities_a72e0ffe5e40b23cf4da701b0cc7783bc}} 
+\index{utilities@{utilities}!find\_line@{find\_line}}
+\index{find\_line@{find\_line}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{find\_line()}{find\_line()}}
+{\footnotesize\ttfamily int utilities\+::find\+\_\+line (\begin{DoxyParamCaption}\item[{const double \&}]{x1,  }\item[{const double \&}]{x2,  }\item[{const double \&}]{y1,  }\item[{const double \&}]{y2,  }\item[{double \&}]{slope,  }\item[{double \&}]{intercept }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find the slope and the intercept of the line passing through (x1,y1), (x2,y2) 
+\begin{DoxyParams}{Parameters}
+{\em x1} & x-\/value of the first point \\
+\hline
+{\em x2} & x-\/value of the second point \\
+\hline
+{\em y1} & y-\/value of the first point \\
+\hline
+{\em y2} & y-\/value of the second point \\
+\hline
+{\em slope} & this value stores the estimated slope \\
+\hline
+{\em intercept} & this value store the estimated intercept \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a87976691f0e05cda8ae21158c0a8f414}\label{namespaceutilities_a87976691f0e05cda8ae21158c0a8f414}} 
+\index{utilities@{utilities}!findInVector@{findInVector}}
+\index{findInVector@{findInVector}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{findInVector()}{findInVector()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int utilities\+::find\+In\+Vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{vec\+Of\+Elements,  }\item[{const T \&}]{element }\end{DoxyParamCaption})}
+
+Generic function to find an element in vector and also its position. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec\+Of\+Elements} & Vector to look for the element \\
+\hline
+{\em element} & element to find in the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It returns an integer int \+: Represents the index of element in vector if its found else -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a418f3150143150ba35d09e34659261bd}\label{namespaceutilities_a418f3150143150ba35d09e34659261bd}} 
+\index{utilities@{utilities}!flip\_map@{flip\_map}}
+\index{flip\_map@{flip\_map}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{flip\_map()}{flip\_map()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+std\+::map$<$ Value, Key $>$ utilities\+::flip\+\_\+map (\begin{DoxyParamCaption}\item[{const std\+::map$<$ Key, Value $>$ \&}]{original\+\_\+map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}\label{namespaceutilities_a9e132fb9941be5527facb177ff2c013a}} 
+\index{utilities@{utilities}!gen\_filename@{gen\_filename}}
+\index{gen\_filename@{gen\_filename}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{gen\_filename()}{gen\_filename()}}
+{\footnotesize\ttfamily std\+::string utilities\+::gen\+\_\+filename (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+folder,  }\item[{const std\+::string \&}]{\+\_\+fname,  }\item[{bool}]{print\+\_\+threads = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Functions to generate a complete filename path containing also the directory 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+folder} & A string containing the folder path \\
+\hline
+{\em \+\_\+fname} & Complete filename including also the .extension if any (\+\_\+fname=\+\_\+fname\+\_\+root . \+\_\+fname\+\_\+extension) \\
+\hline
+{\em print\+\_\+threads} & If true the number of threads will be added to the filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string with \+\_\+folder/\+\_\+fname\+\_\+root\+\_\+nthreads.\+\_\+fname\+\_\+etension if print\+\_\+threads=true otherwise \+\_\+folder/\+\_\+fname\+\_\+root.\+\_\+fname\+\_\+extension 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ae3cb027b183de132627565f2336f7baa}\label{namespaceutilities_ae3cb027b183de132627565f2336f7baa}} 
+\index{utilities@{utilities}!gen\_rseed@{gen\_rseed}}
+\index{gen\_rseed@{gen\_rseed}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{gen\_rseed()}{gen\_rseed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily unsigned long utilities\+::gen\+\_\+rseed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a71e899351c4e06c39c9d4c6ac079005f}\label{namespaceutilities_a71e899351c4e06c39c9d4c6ac079005f}} 
+\index{utilities@{utilities}!gen\_rseed@{gen\_rseed}}
+\index{gen\_rseed@{gen\_rseed}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{gen\_rseed()}{gen\_rseed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned long utilities\+::gen\+\_\+rseed (\begin{DoxyParamCaption}\item[{std\+::random\+\_\+device \&}]{rd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}\label{namespaceutilities_a47edf4cd6eaff7c08bcf70a5ba0497eb}} 
+\index{utilities@{utilities}!get\_absolute\_SEVN\_path@{get\_absolute\_SEVN\_path}}
+\index{get\_absolute\_SEVN\_path@{get\_absolute\_SEVN\_path}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_absolute\_SEVN\_path()}{get\_absolute\_SEVN\_path()}}
+{\footnotesize\ttfamily std\+::string utilities\+::get\+\_\+absolute\+\_\+\+SEVN\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the absolute path of this SEVN folder \begin{DoxyReturn}{Returns}
+The absolute SEVN path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ad7eb01abed1a206afc0d63309c512d29}\label{namespaceutilities_ad7eb01abed1a206afc0d63309c512d29}} 
+\index{utilities@{utilities}!get\_current\_time@{get\_current\_time}}
+\index{get\_current\_time@{get\_current\_time}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_current\_time()}{get\_current\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double utilities\+::get\+\_\+current\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}\label{namespaceutilities_a6387a0955a744b1c8f8e39ce2356ff2b}} 
+\index{utilities@{utilities}!get\_current\_time@{get\_current\_time}}
+\index{get\_current\_time@{get\_current\_time}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_current\_time()}{get\_current\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double utilities\+::get\+\_\+current\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_af7b6bc69dedb769125520b3beda9dbe6}\label{namespaceutilities_af7b6bc69dedb769125520b3beda9dbe6}} 
+\index{utilities@{utilities}!get\_ID@{get\_ID}}
+\index{get\_ID@{get\_ID}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_ID()}{get\_ID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily long utilities\+::get\+\_\+\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}\label{namespaceutilities_a88b1d7e9ffd582b8984679ce83d3b191}} 
+\index{utilities@{utilities}!get\_ID@{get\_ID}}
+\index{get\_ID@{get\_ID}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_ID()}{get\_ID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily long utilities\+::get\+\_\+\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a1dc87268e528c0e7ea55a458ce468029}\label{namespaceutilities_a1dc87268e528c0e7ea55a458ce468029}} 
+\index{utilities@{utilities}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string utilities\+::get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}\label{namespaceutilities_a2a88a528e640f459afae628fe3c2da15}} 
+\index{utilities@{utilities}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string utilities\+::get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_af6c19ca97db0520e36ecbc316fcea155}\label{namespaceutilities_af6c19ca97db0520e36ecbc316fcea155}} 
+\index{utilities@{utilities}!get\_subpath@{get\_subpath}}
+\index{get\_subpath@{get\_subpath}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{get\_subpath()}{get\_subpath()}}
+{\footnotesize\ttfamily std\+::string utilities\+::get\+\_\+subpath (\begin{DoxyParamCaption}\item[{std\+::string}]{path,  }\item[{std\+::string}]{split\+\_\+string,  }\item[{bool}]{include\+\_\+split\+\_\+string = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a portion of path name till the given split\+\_\+string. The split\+\_\+string is include. 
+\begin{DoxyParams}{Parameters}
+{\em path} & Complete path \\
+\hline
+{\em split\+\_\+string} & string patter where to cut the complete path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the substring from 0 to split\+\_\+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}\label{namespaceutilities_a2ada8ec7cd02dfd532a8c1c0ad4ade26}} 
+\index{utilities@{utilities}!hardwait@{hardwait}}
+\index{hardwait@{hardwait}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{hardwait()}{hardwait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void utilities\+::hardwait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Like wait but it works also outside debug mode \mbox{\Hypertarget{namespaceutilities_ad0b2ac4fcd7e8c2111f3b71c55219732}\label{namespaceutilities_ad0b2ac4fcd7e8c2111f3b71c55219732}} 
+\index{utilities@{utilities}!hardwait@{hardwait}}
+\index{hardwait@{hardwait}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{hardwait()}{hardwait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Tail$>$ \\
+void utilities\+::hardwait (\begin{DoxyParamCaption}\item[{T}]{head,  }\item[{Tail...}]{tail }\end{DoxyParamCaption})}
+
+Like wait but it works also outside debug mode \mbox{\Hypertarget{namespaceutilities_a2fbe4f78d85628cbec9a1ba4282ad539}\label{namespaceutilities_a2fbe4f78d85628cbec9a1ba4282ad539}} 
+\index{utilities@{utilities}!Hfrac@{Hfrac}}
+\index{Hfrac@{Hfrac}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Hfrac()}{Hfrac()}}
+{\footnotesize\ttfamily double utilities\+::\+Hfrac (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+Estimate the Hydrogen mass fraction of the star. It is the one used in BSE/\+MOBSE 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Hydrogen mass fraction 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a24db937086b3a175ab295e3b8457e101}\label{namespaceutilities_a24db937086b3a175ab295e3b8457e101}} 
+\index{utilities@{utilities}!interpolate\_1D@{interpolate\_1D}}
+\index{interpolate\_1D@{interpolate\_1D}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{interpolate\_1D()}{interpolate\_1D()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T utilities\+::interpolate\+\_\+1D (\begin{DoxyParamCaption}\item[{T}]{xp,  }\item[{std\+::vector$<$ T $>$ \&}]{x\+\_\+interp,  }\item[{std\+::vector$<$ T $>$ \&}]{y\+\_\+interp,  }\item[{bool}]{equispaced\+\_\+interval = {\ttfamily false},  }\item[{bool}]{ext\+\_\+raise = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Estimate the y value using 1D linear interpolation 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of the of interpolated value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & \\
+\hline
+{\em x\+\_\+interp} & 1D vector containing the x-\/value of the interpolating tables (in ascending order) \\
+\hline
+{\em y\+\_\+interp} & 1D vector containing the y-\/value of the interpolating tables \\
+\hline
+{\em equispaced\+\_\+interval} & if true the value in x\+\_\+interp are equi-\/spaced \\
+\hline
+{\em ext\+\_\+raise} & if true and xp is out of boundary raise an error otherwise return the extrema of yinterp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+interpolated y value at xp. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ae574463a42faed78d4047d64c4c68306}\label{namespaceutilities_ae574463a42faed78d4047d64c4c68306}} 
+\index{utilities@{utilities}!isifstream@{isifstream}}
+\index{isifstream@{isifstream}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{isifstream()}{isifstream()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool utilities\+::isifstream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespaceutilities_ae7b4c3d9c59d57b613a0b3c29593c992}\label{namespaceutilities_ae7b4c3d9c59d57b613a0b3c29593c992}} 
+\index{utilities@{utilities}!isifstream$<$ std::ifstream $>$@{isifstream$<$ std::ifstream $>$}}
+\index{isifstream$<$ std::ifstream $>$@{isifstream$<$ std::ifstream $>$}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{isifstream$<$ std::ifstream $>$()}{isifstream< std::ifstream >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+bool \mbox{\hyperlink{namespaceutilities_ae574463a42faed78d4047d64c4c68306}{utilities\+::isifstream}}$<$ std\+::ifstream $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}\label{namespaceutilities_a634ded42c3f8087e7ccd8a6ee4a3c93f}} 
+\index{utilities@{utilities}!isinlist@{isinlist}}
+\index{isinlist@{isinlist}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{isinlist()}{isinlist()}}
+{\footnotesize\ttfamily template$<$typename T , typename Iter $>$ \\
+bool utilities\+::isinlist (\begin{DoxyParamCaption}\item[{T}]{element,  }\item[{Iter}]{it,  }\item[{Iter}]{end }\end{DoxyParamCaption})}
+
+Template function to check if a given element is inside a container. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & typename of the element to be checked \\
+\hline
+{\em Iter} & typename of the iterator \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em element} & element to be checked \\
+\hline
+{\em it} & iterator to the begin of the container \\
+\hline
+{\em end} & iteratore to the end of the container \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element is inside the list, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a23da6a4ec38109d21322e28fc95224a8}\label{namespaceutilities_a23da6a4ec38109d21322e28fc95224a8}} 
+\index{utilities@{utilities}!kepler@{kepler}}
+\index{kepler@{kepler}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{kepler()}{kepler()}}
+{\footnotesize\ttfamily double utilities\+::kepler (\begin{DoxyParamCaption}\item[{const double \&}]{ecc,  }\item[{const double \&}]{m,  }\item[{const double}]{tol = {\ttfamily 1e-\/6},  }\item[{const int}]{maxit = {\ttfamily 50} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Solve the Kepler equation to found the Eccentric anomaly starting from eccentricy and Mean anomaly. We use the generalized Newton Raphson’s method (Eq. 2.\+6, Nazeer 2016). If in some step we have numerical problem with the second derivative, we revert to a simple NR method for that step 
+\begin{DoxyParams}{Parameters}
+{\em ecc} & \mbox{\hyperlink{class_eccentricity}{Eccentricity}} \\
+\hline
+{\em m} & Mean anomaly \\
+\hline
+{\em tol} & tollerance \\
+\hline
+{\em maxit} & maximum number of iteration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eccentric anomaly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ac85dd844bb2a32af1c1f2ac25b3ef3f2}\label{namespaceutilities_ac85dd844bb2a32af1c1f2ac25b3ef3f2}} 
+\index{utilities@{utilities}!log\_print@{log\_print}}
+\index{log\_print@{log\_print}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{log\_print()}{log\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename... ListP$>$ \\
+std\+::string utilities\+::log\+\_\+print (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{\mbox{\hyperlink{class_binstar}{Binstar}} $\ast$}]{binstar,  }\item[{List\+P...}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}\label{namespaceutilities_aa3c6140e1ae352197908cadd70fe3ec3}} 
+\index{utilities@{utilities}!log\_print@{log\_print}}
+\index{log\_print@{log\_print}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{log\_print()}{log\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... ListP$>$ \\
+std\+::string utilities\+::log\+\_\+print (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{star,  }\item[{List\+P...}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_ad4595aef0bc3c65e955fa3a9bf23b9c8}\label{namespaceutilities_ad4595aef0bc3c65e955fa3a9bf23b9c8}} 
+\index{utilities@{utilities}!log\_star\_info@{log\_star\_info}}
+\index{log\_star\_info@{log\_star\_info}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{log\_star\_info()}{log\_star\_info()}}
+{\footnotesize\ttfamily std\+::string utilities\+::log\+\_\+star\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{bool}]{oldstep = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Utility to write \mbox{\hyperlink{class_star}{Star}} info in a log format 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to star \\
+\hline
+{\em oldstep} & if true get the property of the last step \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string with ID\+:\+Mass\+:\+MHE\+:\+MCO\+:\+Phase\+:Remnan\+Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a334289d9ad6ce25d13324134b0739ee1}\label{namespaceutilities_a334289d9ad6ce25d13324134b0739ee1}} 
+\index{utilities@{utilities}!make\_pfile\_str@{make\_pfile\_str}}
+\index{make\_pfile\_str@{make\_pfile\_str}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{make\_pfile\_str()}{make\_pfile\_str()}}
+{\footnotesize\ttfamily std\+::string utilities\+::make\+\_\+pfile\+\_\+str (\begin{DoxyParamCaption}\item[{const double}]{plife,  }\item[{const size\+\_\+t}]{Phase,  }\item[{const unsigned int}]{min\+\_\+precision = {\ttfamily 6} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Make the string plife\+:phase 
+\begin{DoxyParams}{Parameters}
+{\em plife} & Life percentage at a given \mbox{\hyperlink{class_phase}{Phase}} \\
+\hline
+{\em \mbox{\hyperlink{class_phase}{Phase}}} & \mbox{\hyperlink{class_phase}{Phase}} to consider \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string plife\+:phase 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ad68bd867b8840d57e9e377174b5720c3}\label{namespaceutilities_ad68bd867b8840d57e9e377174b5720c3}} 
+\index{utilities@{utilities}!make\_unique@{make\_unique}}
+\index{make\_unique@{make\_unique}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{make\_unique()}{make\_unique()}}
+{\footnotesize\ttfamily template$<$typename T , typename... Args$>$ \\
+std\+::unique\+\_\+ptr$<$ T $>$ utilities\+::make\+\_\+unique (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Define make\+\_\+unique for pre-\/\+C++14. Notice this is the the same of the implementation of C++14 standard for single object, in the std there is also another implementation for arrays. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the unique ptr \\
+\hline
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & arg to initialise the object pointed by the unique ptr \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the unique pointer to the element of type T. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ade38453232303159b98bc41b7cc62d39}\label{namespaceutilities_ade38453232303159b98bc41b7cc62d39}} 
+\index{utilities@{utilities}!maxwellian\_cdf@{maxwellian\_cdf}}
+\index{maxwellian\_cdf@{maxwellian\_cdf}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{maxwellian\_cdf()}{maxwellian\_cdf()}}
+{\footnotesize\ttfamily double utilities\+::maxwellian\+\_\+cdf (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{sigma }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a8dfa02151562fe4907d07c05ed469d61}\label{namespaceutilities_a8dfa02151562fe4907d07c05ed469d61}} 
+\index{utilities@{utilities}!maxwellian\_pdf@{maxwellian\_pdf}}
+\index{maxwellian\_pdf@{maxwellian\_pdf}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{maxwellian\_pdf()}{maxwellian\_pdf()}}
+{\footnotesize\ttfamily double utilities\+::maxwellian\+\_\+pdf (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{sigma }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}\label{namespaceutilities_a7389db00cc917904e49b932806f7e0a6}} 
+\index{utilities@{utilities}!n2s@{n2s}}
+\index{n2s@{n2s}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{n2s()}{n2s()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const std\+::string utilities\+::n2s (\begin{DoxyParamCaption}\item[{T}]{val,  }\item[{const char $\ast$}]{file\+\_\+input,  }\item[{const int}]{line\+\_\+input,  }\item[{const unsigned int}]{precision = {\ttfamily 6} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type. It should be able to accept anything that can be \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} to a stream obejct. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value of type T to be converted to a string \\
+\hline
+{\em file\+\_\+input} & it should be set to 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\_\_FILE\_\_  }
+
+\end{DoxyCode}
+ \\
+\hline
+{\em line\+\_\+input} & it should be set to 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\_\_LINE\_\_  }
+
+\end{DoxyCode}
+ \\
+\hline
+{\em precision} & set precision for the scientific format output of numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The {\ttfamily val} converted to a string. If val is a number the string is the scientific format with precision equal to {\ttfamily precision}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a3258eafe01d806f8fdc9106f4d37c2ac}\label{namespaceutilities_a3258eafe01d806f8fdc9106f4d37c2ac}} 
+\index{utilities@{utilities}!omega\_crit@{omega\_crit}}
+\index{omega\_crit@{omega\_crit}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{omega\_crit()}{omega\_crit()}}
+{\footnotesize\ttfamily static double utilities\+::omega\+\_\+crit (\begin{DoxyParamCaption}\item[{double}]{Mass,  }\item[{double}]{Rpolar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Critical angular velocity 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_mass}{Mass}}} & mass in Msun \\
+\hline
+{\em Rpolar} & polar radius in Rsun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+critical angular velocity in yr$^\wedge$-\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ae858919d32c2141749f28c6c766b9d2e}\label{namespaceutilities_ae858919d32c2141749f28c6c766b9d2e}} 
+\index{utilities@{utilities}!print\_vector@{print\_vector}}
+\index{print\_vector@{print\_vector}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{print\_vector()}{print\_vector()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void utilities\+::print\+\_\+vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
+Functions to print all the elements of a vector in a Python numpy style (GI) \mbox{\Hypertarget{namespaceutilities_a3f43c17cef43eb800adb11f8149fb8fa}\label{namespaceutilities_a3f43c17cef43eb800adb11f8149fb8fa}} 
+\index{utilities@{utilities}!R\_Alfven@{R\_Alfven}}
+\index{R\_Alfven@{R\_Alfven}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{R\_Alfven()}{R\_Alfven()}}
+{\footnotesize\ttfamily double utilities\+::\+R\+\_\+\+Alfven (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{double}]{d\+Mdt,  }\item[{bool}]{get0 = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Estimate the Alfven radius 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the star for which we want to calculate the Alfven radius \\
+\hline
+{\em \mbox{\hyperlink{classd_mdt}{d\+Mdt}}} & Accreated mass rate in Msun/yr \\
+\hline
+{\em get0} & AIf true use the stellar propertie at the beginning of the timestep \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Alfven radius in Rsun 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_ab0f49bc367ee398c0d0c743e2885fc3c}\label{namespaceutilities_ab0f49bc367ee398c0d0c743e2885fc3c}} 
+\index{utilities@{utilities}!R\_Schwarzschild@{R\_Schwarzschild}}
+\index{R\_Schwarzschild@{R\_Schwarzschild}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{R\_Schwarzschild()}{R\_Schwarzschild()}}
+{\footnotesize\ttfamily double utilities\+::\+R\+\_\+\+Schwarzschild (\begin{DoxyParamCaption}\item[{double}]{Mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespaceutilities_a78da5ab9c9281a8a6a7e75e26c3083db}\label{namespaceutilities_a78da5ab9c9281a8a6a7e75e26c3083db}} 
+\index{utilities@{utilities}!random\_keygen@{random\_keygen}}
+\index{random\_keygen@{random\_keygen}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{random\_keygen()}{random\_keygen()}}
+{\footnotesize\ttfamily const std\+::string utilities\+::random\+\_\+keygen (\begin{DoxyParamCaption}\item[{std\+::mt19937\+\_\+64 $\ast$}]{mtrand }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespaceutilities_aed157133573e489cc7274532f561a5dd}\label{namespaceutilities_aed157133573e489cc7274532f561a5dd}} 
+\index{utilities@{utilities}!rel\_difference@{rel\_difference}}
+\index{rel\_difference@{rel\_difference}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{rel\_difference()}{rel\_difference()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double utilities\+::rel\+\_\+difference (\begin{DoxyParamCaption}\item[{T}]{val1,  }\item[{T}]{val2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_afcca65bc160a7b86fecf33c7eb284365}\label{namespaceutilities_afcca65bc160a7b86fecf33c7eb284365}} 
+\index{utilities@{utilities}!roche\_lobe\_Eg@{roche\_lobe\_Eg}}
+\index{roche\_lobe\_Eg@{roche\_lobe\_Eg}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{roche\_lobe\_Eg()}{roche\_lobe\_Eg()}}
+{\footnotesize\ttfamily double utilities\+::roche\+\_\+lobe\+\_\+\+Eg (\begin{DoxyParamCaption}\item[{double}]{Mass\+\_\+primary,  }\item[{double}]{Mass\+\_\+secondary,  }\item[{double}]{a }\end{DoxyParamCaption})}
+
+Estimate the RL follwing the Eggleton formalism (Eq. 53 Hurley02) 
+\begin{DoxyParams}{Parameters}
+{\em Mass\+\_\+primary} & \mbox{\hyperlink{class_mass}{Mass}} of the primary in Msun (the star for which we are estimating the RL) \\
+\hline
+{\em Mass\+\_\+secondary} & \mbox{\hyperlink{class_mass}{Mass}} of the secondary in Msun. \\
+\hline
+{\em a} & \mbox{\hyperlink{class_semimajor}{Semimajor}} axis in Rsun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Roche Lobe radius in Rsun 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_aebdd1c18ee6b1e45259452cdf35433ef}\label{namespaceutilities_aebdd1c18ee6b1e45259452cdf35433ef}} 
+\index{utilities@{utilities}!s2n@{s2n}}
+\index{s2n@{s2n}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{s2n()}{s2n()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T utilities\+::s2n (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str,  }\item[{const char $\ast$}]{file\+\_\+input,  }\item[{const int}]{line\+\_\+input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_a28bd246e784a216570ec90d73248581b}\label{namespaceutilities_a28bd246e784a216570ec90d73248581b}} 
+\index{utilities@{utilities}!smallestSignificativeStep@{smallestSignificativeStep}}
+\index{smallestSignificativeStep@{smallestSignificativeStep}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{smallestSignificativeStep()}{smallestSignificativeStep()}}
+{\footnotesize\ttfamily double utilities\+::smallest\+Significative\+Step (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+Estimate the smallest possible step given X so that X+step\texorpdfstring{$>$}{>}X 
+\begin{DoxyParams}{Parameters}
+{\em x} & number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the step is estimated as 1.\+01$\ast$std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()$\ast$max\+XYOne where max\+XYOne = std\+::max( 1.\+0, fabs(x)); 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a93f0a7d7bbb9abbf583c034a0ba36831}\label{namespaceutilities_a93f0a7d7bbb9abbf583c034a0ba36831}} 
+\index{utilities@{utilities}!split@{split}}
+\index{split@{split}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ utilities\+::split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{char}]{delimiter }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_af67ca3b2a7fbf1eb97cd0841fa74de4d}\label{namespaceutilities_af67ca3b2a7fbf1eb97cd0841fa74de4d}} 
+\index{utilities@{utilities}!string\_is\_number@{string\_is\_number}}
+\index{string\_is\_number@{string\_is\_number}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{string\_is\_number()}{string\_is\_number()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool utilities\+::string\+\_\+is\+\_\+number (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}\label{namespaceutilities_aabc2b7b8370787247f6608abeac0bc28}} 
+\index{utilities@{utilities}!swap\_stars@{swap\_stars}}
+\index{swap\_stars@{swap\_stars}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{swap\_stars()}{swap\_stars()}}
+{\footnotesize\ttfamily void utilities\+::swap\+\_\+stars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$\&}]{s1,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$\&}]{s2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespaceutilities_a9db8059c417fcc3e00c964b205dfd10c}\label{namespaceutilities_a9db8059c417fcc3e00c964b205dfd10c}} 
+\index{utilities@{utilities}!transpose@{transpose}}
+\index{transpose@{transpose}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void utilities\+::transpose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{MatrixT,  }\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{Matrix }\end{DoxyParamCaption})}
+
+Transpose a matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em MatrixT} & Transposed Matrix \\
+\hline
+{\em Matrix} & Matrix to be transposed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceutilities_a0e9dc09eefcd89601a54d42b4312fd57}\label{namespaceutilities_a0e9dc09eefcd89601a54d42b4312fd57}} 
+\index{utilities@{utilities}!trim@{trim}}
+\index{trim@{trim}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily std\+::string utilities\+::trim (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Trim a string from all whitespaces 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}\label{namespaceutilities_a467e2893ffb29f40041bf4657689d9db}} 
+\index{utilities@{utilities}!wait@{wait}}
+\index{wait@{wait}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void utilities\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Base class for the variadic function wait. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceutilities_a7356afcc4bc488e637d3dcd073822eab}\label{namespaceutilities_a7356afcc4bc488e637d3dcd073822eab}} 
+\index{utilities@{utilities}!wait@{wait}}
+\index{wait@{wait}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Tail$>$ \\
+void utilities\+::wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} T}]{head,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} Tail...}]{tail }\end{DoxyParamCaption})}
+
+Variadic function. It prints a message in std\+::cout (from an argument pack) and wait of a cin input from the user. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template param of the value to be written \\
+\hline
+{\em Tail} & template params of the pack of parameters to iterate over \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em head} & value to be written \\
+\hline
+{\em tail} & rest of the packs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceutilities_adec8bc9cd6d6ca58ceb366d35e149cf0}\label{namespaceutilities_adec8bc9cd6d6ca58ceb366d35e149cf0}} 
+\index{utilities@{utilities}!wayToSort@{wayToSort}}
+\index{wayToSort@{wayToSort}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{wayToSort()}{wayToSort()}}
+{\footnotesize\ttfamily bool utilities\+::way\+To\+Sort (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceutilities_ad4395607216c892cc3e20865ab082365}\label{namespaceutilities_ad4395607216c892cc3e20865ab082365}} 
+\index{utilities@{utilities}!AU\_to\_RSun@{AU\_to\_RSun}}
+\index{AU\_to\_RSun@{AU\_to\_RSun}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{AU\_to\_RSun}{AU\_to\_RSun}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+AU\+\_\+to\+\_\+\+RSun = 215.\+03215567054764\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a61af3ef55d9ed97bdfff3f17cb56371c}\label{namespaceutilities_a61af3ef55d9ed97bdfff3f17cb56371c}} 
+\index{utilities@{utilities}!BIN\_EV\_DONE@{BIN\_EV\_DONE}}
+\index{BIN\_EV\_DONE@{BIN\_EV\_DONE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{BIN\_EV\_DONE}{BIN\_EV\_DONE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+BIN\+\_\+\+EV\+\_\+\+DONE = 1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a689d03c171ad7069be73d26d5ce532f8}\label{namespaceutilities_a689d03c171ad7069be73d26d5ce532f8}} 
+\index{utilities@{utilities}!BIN\_EV\_NOT\_DONE@{BIN\_EV\_NOT\_DONE}}
+\index{BIN\_EV\_NOT\_DONE@{BIN\_EV\_NOT\_DONE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{BIN\_EV\_NOT\_DONE}{BIN\_EV\_NOT\_DONE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+BIN\+\_\+\+EV\+\_\+\+NOT\+\_\+\+DONE = 0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a63375849a06208aac4f477564869ec83}\label{namespaceutilities_a63375849a06208aac4f477564869ec83}} 
+\index{utilities@{utilities}!BIN\_EV\_SETBROKEN@{BIN\_EV\_SETBROKEN}}
+\index{BIN\_EV\_SETBROKEN@{BIN\_EV\_SETBROKEN}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{BIN\_EV\_SETBROKEN}{BIN\_EV\_SETBROKEN}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+BIN\+\_\+\+EV\+\_\+\+SETBROKEN = 2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}\label{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}} 
+\index{utilities@{utilities}!c@{c}}
+\index{c@{c}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily constexpr double utilities\+::c = 1.\+3598865132357053e7\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_af0789923452446c33f1de7668680b695}\label{namespaceutilities_af0789923452446c33f1de7668680b695}} 
+\index{utilities@{utilities}!DIFF\_TOLL@{DIFF\_TOLL}}
+\index{DIFF\_TOLL@{DIFF\_TOLL}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{DIFF\_TOLL}{DIFF\_TOLL}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+DIFF\+\_\+\+TOLL = 1e-\/10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a3b51ca9508e01917e4f6b41ba0d22b55}\label{namespaceutilities_a3b51ca9508e01917e4f6b41ba0d22b55}} 
+\index{utilities@{utilities}!DOUBLE\_EPS@{DOUBLE\_EPS}}
+\index{DOUBLE\_EPS@{DOUBLE\_EPS}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{DOUBLE\_EPS}{DOUBLE\_EPS}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+DOUBLE\+\_\+\+EPS = std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}\label{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}} 
+\index{utilities@{utilities}!G@{G}}
+\index{G@{G}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{G}{G}}
+{\footnotesize\ttfamily constexpr double utilities\+::G = 3.\+925125598496094e8\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Fundamental quantitis. 
+
+\mbox{\Hypertarget{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}\label{namespaceutilities_a9f896cf99b018a6365109dfea3956beb}} 
+\index{utilities@{utilities}!G3\_over\_c5@{G3\_over\_c5}}
+\index{G3\_over\_c5@{G3\_over\_c5}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{G3\_over\_c5}{G3\_over\_c5}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+G3\+\_\+over\+\_\+c5 = (\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}})/(\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a28e44bb0489aab3ef84fd095d3753b0d}\label{namespaceutilities_a28e44bb0489aab3ef84fd095d3753b0d}} 
+\index{utilities@{utilities}!G\_cgs@{G\_cgs}}
+\index{G\_cgs@{G\_cgs}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{G\_cgs}{G\_cgs}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+G\+\_\+cgs = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}/(\mbox{\hyperlink{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}{Msun\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\+\_\+cgs}}$\ast$\mbox{\hyperlink{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}{yr\+\_\+cgs}})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}\label{namespaceutilities_a96ae9c0cf358b5634a96daa9a3bc3537}} 
+\index{utilities@{utilities}!G\_over\_c2@{G\_over\_c2}}
+\index{G\_over\_c2@{G\_over\_c2}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{G\_over\_c2}{G\_over\_c2}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+G\+\_\+over\+\_\+c2 = \mbox{\hyperlink{namespaceutilities_a19a5d76051fef2cc26b78fdff6db8f79}{G}} / (\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}}$\ast$\mbox{\hyperlink{namespaceutilities_a19caeb8896a355e95bf7bd93b9a313fa}{c}})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a77816d4fdac32f98db24cd8ee9d270da}\label{namespaceutilities_a77816d4fdac32f98db24cd8ee9d270da}} 
+\index{utilities@{utilities}!g\_to\_MSun@{g\_to\_MSun}}
+\index{g\_to\_MSun@{g\_to\_MSun}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{g\_to\_MSun}{g\_to\_MSun}}
+{\footnotesize\ttfamily constexpr double utilities\+::g\+\_\+to\+\_\+\+MSun = 5.\+029144215870041e-\/34\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a95931a56320767f90a608451e0e0646e}\label{namespaceutilities_a95931a56320767f90a608451e0e0646e}} 
+\index{utilities@{utilities}!JUMP@{JUMP}}
+\index{JUMP@{JUMP}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{JUMP}{JUMP}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+JUMP =1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ad82ee12f43249cb733cccfbae3457445}\label{namespaceutilities_ad82ee12f43249cb733cccfbae3457445}} 
+\index{utilities@{utilities}!JUMP\_CONVERGE@{JUMP\_CONVERGE}}
+\index{JUMP\_CONVERGE@{JUMP\_CONVERGE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{JUMP\_CONVERGE}{JUMP\_CONVERGE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+JUMP\+\_\+\+CONVERGE =0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}\label{namespaceutilities_a9ff6a16d06fe07faec13d09501ec97ce}} 
+\index{utilities@{utilities}!km\_to\_RSun@{km\_to\_RSun}}
+\index{km\_to\_RSun@{km\_to\_RSun}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{km\_to\_RSun}{km\_to\_RSun}}
+{\footnotesize\ttfamily constexpr double utilities\+::km\+\_\+to\+\_\+\+RSun = 1.\+4374011786689665e-\/06\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a4ef76ced1a466cc37ee8097b0828e2c0}\label{namespaceutilities_a4ef76ced1a466cc37ee8097b0828e2c0}} 
+\index{utilities@{utilities}!kms\_to\_RSunyr@{kms\_to\_RSunyr}}
+\index{kms\_to\_RSunyr@{kms\_to\_RSunyr}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{kms\_to\_RSunyr}{kms\_to\_RSunyr}}
+{\footnotesize\ttfamily constexpr double utilities\+::kms\+\_\+to\+\_\+\+RSunyr = 45.\+360931435963785\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_af6ff0e3a92481bc39762efddcefcc111}\label{namespaceutilities_af6ff0e3a92481bc39762efddcefcc111}} 
+\index{utilities@{utilities}!LARGE@{LARGE}}
+\index{LARGE@{LARGE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{LARGE}{LARGE}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+LARGE = 1e30\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a975b6ee31de7176975ea5b8cfd7fcc2b}\label{namespaceutilities_a975b6ee31de7176975ea5b8cfd7fcc2b}} 
+\index{utilities@{utilities}!LSun\_to\_Solar@{LSun\_to\_Solar}}
+\index{LSun\_to\_Solar@{LSun\_to\_Solar}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{LSun\_to\_Solar}{LSun\_to\_Solar}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+LSun\+\_\+to\+\_\+\+Solar = 12.\+500687924182579\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_abcfcb4adf8c53a518c1faac8ba588df4}\label{namespaceutilities_abcfcb4adf8c53a518c1faac8ba588df4}} 
+\index{utilities@{utilities}!Mchandra@{Mchandra}}
+\index{Mchandra@{Mchandra}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Mchandra}{Mchandra}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+Mchandra = 1.\+41\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}\label{namespaceutilities_abf5241169a6600d84237f4192bdc91a9}} 
+\index{utilities@{utilities}!Msun\_cgs@{Msun\_cgs}}
+\index{Msun\_cgs@{Msun\_cgs}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Msun\_cgs}{Msun\_cgs}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+Msun\+\_\+cgs = 1.\+988409870698051e+33\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}\label{namespaceutilities_af0ee26d682ba2eed7e0a553504e9c52f}} 
+\index{utilities@{utilities}!mtrand@{mtrand}}
+\index{mtrand@{mtrand}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{mtrand}{mtrand}}
+{\footnotesize\ttfamily std\+::mt19937\+\_\+64 utilities\+::mtrand\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{namespaceutilities_a017d164aee676c18711c233161112a09}\label{namespaceutilities_a017d164aee676c18711c233161112a09}} 
+\index{utilities@{utilities}!Myr\_to\_yr@{Myr\_to\_yr}}
+\index{Myr\_to\_yr@{Myr\_to\_yr}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Myr\_to\_yr}{Myr\_to\_yr}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+Myr\+\_\+to\+\_\+yr = 1.\+0e6\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_aea36271797cd62a5821e150266445ea7}\label{namespaceutilities_aea36271797cd62a5821e150266445ea7}} 
+\index{utilities@{utilities}!NO\_JUMP@{NO\_JUMP}}
+\index{NO\_JUMP@{NO\_JUMP}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{NO\_JUMP}{NO\_JUMP}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+NO\+\_\+\+JUMP =2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}\label{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}} 
+\index{utilities@{utilities}!NULL\_DOUBLE@{NULL\_DOUBLE}}
+\index{NULL\_DOUBLE@{NULL\_DOUBLE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{NULL\_DOUBLE}{NULL\_DOUBLE}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+NULL\+\_\+\+DOUBLE = -\/9e30\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}\label{namespaceutilities_a4f322cc8d4e2379accc16850e5e2877c}} 
+\index{utilities@{utilities}!NULL\_INT@{NULL\_INT}}
+\index{NULL\_INT@{NULL\_INT}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{NULL\_INT}{NULL\_INT}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+NULL\+\_\+\+INT = -\/999999999\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a437549a34ca4e945d0af00dbeadf132f}\label{namespaceutilities_a437549a34ca4e945d0af00dbeadf132f}} 
+\index{utilities@{utilities}!NULL\_SINT@{NULL\_SINT}}
+\index{NULL\_SINT@{NULL\_SINT}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{NULL\_SINT}{NULL\_SINT}}
+{\footnotesize\ttfamily constexpr size\+\_\+t utilities\+::\+NULL\+\_\+\+SINT = 999999999\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ab5a36637937008a46b2a3ed133c14607}\label{namespaceutilities_ab5a36637937008a46b2a3ed133c14607}} 
+\index{utilities@{utilities}!NULL\_STR@{NULL\_STR}}
+\index{NULL\_STR@{NULL\_STR}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{NULL\_STR}{NULL\_STR}}
+{\footnotesize\ttfamily const std\+::string utilities\+::\+NULL\+\_\+\+STR = \char`\"{}FORZAROMA\char`\"{}}
+
+\mbox{\Hypertarget{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}\label{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}} 
+\index{utilities@{utilities}!parsec\_cgs@{parsec\_cgs}}
+\index{parsec\_cgs@{parsec\_cgs}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{parsec\_cgs}{parsec\_cgs}}
+{\footnotesize\ttfamily constexpr double utilities\+::parsec\+\_\+cgs = 3.\+085677581491367e+18\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a6dd95f51ac5d6ad655ba6a7dc3c4d14a}\label{namespaceutilities_a6dd95f51ac5d6ad655ba6a7dc3c4d14a}} 
+\index{utilities@{utilities}!parsec\_to\_Rsun@{parsec\_to\_Rsun}}
+\index{parsec\_to\_Rsun@{parsec\_to\_Rsun}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{parsec\_to\_Rsun}{parsec\_to\_Rsun}}
+{\footnotesize\ttfamily constexpr double utilities\+::parsec\+\_\+to\+\_\+\+Rsun = \mbox{\hyperlink{namespaceutilities_a9a804e3add0bf5edd9c2b0ffc63b8e39}{parsec\+\_\+cgs}}/\mbox{\hyperlink{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}{Rsun\+\_\+cgs}}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ab29d5142bf0cfab8afdfac3ba1bff74e}\label{namespaceutilities_ab29d5142bf0cfab8afdfac3ba1bff74e}} 
+\index{utilities@{utilities}!PLACEHOLDER@{PLACEHOLDER}}
+\index{PLACEHOLDER@{PLACEHOLDER}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{PLACEHOLDER}{PLACEHOLDER}}
+{\footnotesize\ttfamily const std\+::string utilities\+::\+PLACEHOLDER =\char`\"{}xxx\char`\"{}}
+
+\mbox{\Hypertarget{namespaceutilities_a5f79261e9e274d212bc3df7b41153218}\label{namespaceutilities_a5f79261e9e274d212bc3df7b41153218}} 
+\index{utilities@{utilities}!REPEATED\_EVOLUTION@{REPEATED\_EVOLUTION}}
+\index{REPEATED\_EVOLUTION@{REPEATED\_EVOLUTION}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{REPEATED\_EVOLUTION}{REPEATED\_EVOLUTION}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+REPEATED\+\_\+\+EVOLUTION =1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a33e76025a31389355ff5d92499994b80}\label{namespaceutilities_a33e76025a31389355ff5d92499994b80}} 
+\index{utilities@{utilities}!RLO\_FALSE@{RLO\_FALSE}}
+\index{RLO\_FALSE@{RLO\_FALSE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{RLO\_FALSE}{RLO\_FALSE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+RLO\+\_\+\+FALSE =0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a723786f902084fec38340605e9a2e5c7}\label{namespaceutilities_a723786f902084fec38340605e9a2e5c7}} 
+\index{utilities@{utilities}!RLO\_TRUE@{RLO\_TRUE}}
+\index{RLO\_TRUE@{RLO\_TRUE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{RLO\_TRUE}{RLO\_TRUE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+RLO\+\_\+\+TRUE =1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}\label{namespaceutilities_a4fbc9a2c262bad7fb3e8a278d6762213}} 
+\index{utilities@{utilities}!Rsun\_cgs@{Rsun\_cgs}}
+\index{Rsun\_cgs@{Rsun\_cgs}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Rsun\_cgs}{Rsun\_cgs}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+Rsun\+\_\+cgs = 6.\+95700e10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ac437c3804f9e4432bba9696d0e7d7d66}\label{namespaceutilities_ac437c3804f9e4432bba9696d0e7d7d66}} 
+\index{utilities@{utilities}!SEVN\_NAME@{SEVN\_NAME}}
+\index{SEVN\_NAME@{SEVN\_NAME}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{SEVN\_NAME}{SEVN\_NAME}}
+{\footnotesize\ttfamily const std\+::string utilities\+::\+SEVN\+\_\+\+NAME = \char`\"{}SEVN\char`\"{}}
+
+\mbox{\Hypertarget{namespaceutilities_a47fe906e6b7da76e22a464334578dc97}\label{namespaceutilities_a47fe906e6b7da76e22a464334578dc97}} 
+\index{utilities@{utilities}!Sigma\_StefBoltz@{Sigma\_StefBoltz}}
+\index{Sigma\_StefBoltz@{Sigma\_StefBoltz}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{Sigma\_StefBoltz}{Sigma\_StefBoltz}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+Sigma\+\_\+\+Stef\+Boltz = 7.\+1694165533435e-\/17\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a3aaa090f3fe0bd1146914efa3a597e01}\label{namespaceutilities_a3aaa090f3fe0bd1146914efa3a597e01}} 
+\index{utilities@{utilities}!SINGLE\_STEP\_EVOLUTION@{SINGLE\_STEP\_EVOLUTION}}
+\index{SINGLE\_STEP\_EVOLUTION@{SINGLE\_STEP\_EVOLUTION}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{SINGLE\_STEP\_EVOLUTION}{SINGLE\_STEP\_EVOLUTION}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+SINGLE\+\_\+\+STEP\+\_\+\+EVOLUTION =0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ac4f5b28bd822b418e1fe464fff7aec00}\label{namespaceutilities_ac4f5b28bd822b418e1fe464fff7aec00}} 
+\index{utilities@{utilities}!SN\_NOT\_EXPLODE@{SN\_NOT\_EXPLODE}}
+\index{SN\_NOT\_EXPLODE@{SN\_NOT\_EXPLODE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{SN\_NOT\_EXPLODE}{SN\_NOT\_EXPLODE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+SN\+\_\+\+NOT\+\_\+\+EXPLODE =0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ace17a566ecd2a1007126044f4bf8f90b}\label{namespaceutilities_ace17a566ecd2a1007126044f4bf8f90b}} 
+\index{utilities@{utilities}!SNIA\_EXPLODE@{SNIA\_EXPLODE}}
+\index{SNIA\_EXPLODE@{SNIA\_EXPLODE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{SNIA\_EXPLODE}{SNIA\_EXPLODE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+SNIA\+\_\+\+EXPLODE =1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a0308cd173253f4c6fd076ab6d8f4700c}\label{namespaceutilities_a0308cd173253f4c6fd076ab6d8f4700c}} 
+\index{utilities@{utilities}!SNII\_EXPLODE@{SNII\_EXPLODE}}
+\index{SNII\_EXPLODE@{SNII\_EXPLODE}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{SNII\_EXPLODE}{SNII\_EXPLODE}}
+{\footnotesize\ttfamily constexpr int utilities\+::\+SNII\+\_\+\+EXPLODE =2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a6e13bd44f0a215efb6ec383635f18beb}\label{namespaceutilities_a6e13bd44f0a215efb6ec383635f18beb}} 
+\index{utilities@{utilities}!tH@{tH}}
+\index{tH@{tH}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{tH}{tH}}
+{\footnotesize\ttfamily constexpr double utilities\+::tH = 13.\+7$\ast$1e3\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}\label{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}} 
+\index{utilities@{utilities}!TINY@{TINY}}
+\index{TINY@{TINY}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{TINY}{TINY}}
+{\footnotesize\ttfamily constexpr double utilities\+::\+TINY = 1e-\/15\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}\label{namespaceutilities_a84826405ff974e136353cd4edd51d2dd}} 
+\index{utilities@{utilities}!yr\_cgs@{yr\_cgs}}
+\index{yr\_cgs@{yr\_cgs}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{yr\_cgs}{yr\_cgs}}
+{\footnotesize\ttfamily constexpr double utilities\+::yr\+\_\+cgs = 3.\+1557600e7\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}\label{namespaceutilities_ac441a1002f8aa71c8715a26ebd8d122b}} 
+\index{utilities@{utilities}!yr\_to\_Myr@{yr\_to\_Myr}}
+\index{yr\_to\_Myr@{yr\_to\_Myr}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{yr\_to\_Myr}{yr\_to\_Myr}}
+{\footnotesize\ttfamily constexpr double utilities\+::yr\+\_\+to\+\_\+\+Myr = 1.\+0e-\/6\hspace{0.3cm}{\ttfamily [constexpr]}}
+

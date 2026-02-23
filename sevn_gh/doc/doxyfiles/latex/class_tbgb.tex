@@ -1,0 +1,154 @@
+\hypertarget{class_tbgb}{}\doxysection{Tbgb Class Reference}
+\label{class_tbgb}\index{Tbgb@{Tbgb}}
+
+
+{\ttfamily \#include $<$BSEintegrator.\+h$>$}
+
+Inheritance diagram for Tbgb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_tbgb}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tbgb_ac6996e887730814833e71ecae64b25d2}{Tbgb}} (double Zinput)
+\item 
+double \mbox{\hyperlink{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}{operator()}} (double M) override
+\item 
+std\+::string \mbox{\hyperlink{class_b_s_etimes_a74f74d626cc180a06366b33d557aae02}{units}} () override
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}{eval}} (double M)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}{chaced\+\_\+M}} =0
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}{chaced\+\_\+logP}} =0
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}{Z}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}{coeff}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}{a1}}
+\item 
+const double \mbox{\hyperlink{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}{a2}}
+\item 
+const double \mbox{\hyperlink{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}{a3}}
+\item 
+const double \mbox{\hyperlink{class_tbgb_a24e00ae531b2af2b88593616514b2056}{a4}}
+\item 
+const double \mbox{\hyperlink{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}{a5}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Time to reach the base of the giant branch. Eq. 4 in Hurley+00 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tbgb_ac6996e887730814833e71ecae64b25d2}\label{class_tbgb_ac6996e887730814833e71ecae64b25d2}} 
+\index{Tbgb@{Tbgb}!Tbgb@{Tbgb}}
+\index{Tbgb@{Tbgb}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{Tbgb()}{Tbgb()}}
+{\footnotesize\ttfamily Tbgb\+::\+Tbgb (\begin{DoxyParamCaption}\item[{double}]{Zinput }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}\label{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}} 
+\index{Tbgb@{Tbgb}!eval@{eval}}
+\index{eval@{eval}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::eval (\begin{DoxyParamCaption}\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}\label{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}} 
+\index{Tbgb@{Tbgb}!operator()@{operator()}}
+\index{operator()@{operator()}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double Tbgb\+::operator() (\begin{DoxyParamCaption}\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}{BSE\+\_\+\+Property}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_thook_aa6826efd4e81ea51de46c02ba3336cf0}{Thook}}, and \mbox{\hyperlink{class_tms_af05e5f92e6c40182182bfe2cec9f1373}{Tms}}.
+
+\mbox{\Hypertarget{class_b_s_etimes_a74f74d626cc180a06366b33d557aae02}\label{class_b_s_etimes_a74f74d626cc180a06366b33d557aae02}} 
+\index{Tbgb@{Tbgb}!units@{units}}
+\index{units@{units}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{units()}{units()}}
+{\footnotesize\ttfamily std\+::string BSEtimes\+::units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_b_s_e___property_a3e9e6203ba521b775c267ba2196b9162}{BSE\+\_\+\+Property}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}\label{class_tbgb_aa19b3ac98db058fbc7ab8d3cb84c8218}} 
+\index{Tbgb@{Tbgb}!a1@{a1}}
+\index{a1@{a1}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{a1}{a1}}
+{\footnotesize\ttfamily const double Tbgb\+::a1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}\label{class_tbgb_ad29a4d74932f4a3e38561b9c8f5a44bc}} 
+\index{Tbgb@{Tbgb}!a2@{a2}}
+\index{a2@{a2}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{a2}{a2}}
+{\footnotesize\ttfamily const double Tbgb\+::a2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}\label{class_tbgb_aa26e773cc561edbc83e44d61a67cac52}} 
+\index{Tbgb@{Tbgb}!a3@{a3}}
+\index{a3@{a3}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{a3}{a3}}
+{\footnotesize\ttfamily const double Tbgb\+::a3\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_tbgb_a24e00ae531b2af2b88593616514b2056}\label{class_tbgb_a24e00ae531b2af2b88593616514b2056}} 
+\index{Tbgb@{Tbgb}!a4@{a4}}
+\index{a4@{a4}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{a4}{a4}}
+{\footnotesize\ttfamily const double Tbgb\+::a4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}\label{class_tbgb_a54bf441a653ecee87ee24b5d6c398d7a}} 
+\index{Tbgb@{Tbgb}!a5@{a5}}
+\index{a5@{a5}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{a5}{a5}}
+{\footnotesize\ttfamily const double Tbgb\+::a5\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}\label{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}} 
+\index{Tbgb@{Tbgb}!chaced\_logP@{chaced\_logP}}
+\index{chaced\_logP@{chaced\_logP}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{chaced\_logP}{chaced\_logP}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::chaced\+\_\+logP =0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}\label{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}} 
+\index{Tbgb@{Tbgb}!chaced\_M@{chaced\_M}}
+\index{chaced\_M@{chaced\_M}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{chaced\_M}{chaced\_M}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::chaced\+\_\+M =0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}\label{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}} 
+\index{Tbgb@{Tbgb}!coeff@{coeff}}
+\index{coeff@{coeff}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{coeff}{coeff}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ BSE\+\_\+\+Property\+::coeff\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}\label{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}} 
+\index{Tbgb@{Tbgb}!Z@{Z}}
+\index{Z@{Z}!Tbgb@{Tbgb}}
+\doxysubsubsection{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::Z\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/\mbox{\hyperlink{_b_s_eintegrator_8h}{BSEintegrator.\+h}}\end{DoxyCompactItemize}

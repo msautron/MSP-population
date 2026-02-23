@@ -1,0 +1,207 @@
+#!/usr/bin/env python
+"""
+SCRIPT: pymake_unique_file
+PURPOSE: Take all the output of a sevn simulation creating a unique file combining
+all the object in the output files with the information in the evolved files and
+log files.
+USAGE; ./pymake_unique_file output <PATH_TO_THE_SEVN_OUTPUT_FOLDER>
+e.g. ./pymake_unique_file output
+OTHER PARAMS: A number of parameters can be set directly in the script
+    - OUTPUTNAME: Name (or path) of the unique file to generate.
+    - COLUMNS: Columns of the output files to be print (if it is an empry array
+    all the columns in the output files will be considered).
+    - ESTIMATE_TGW: If True, add a column with the estimate the GW time scale
+    using Peters equations.
+    - NPROC: Number of processes to be used (ideally NOUTPUTS%NPROC=0)
+REQUIRED PACKAGE:
+    -numpy
+    -pandas
+    -pyblack (https://gitlab.com/iogiul/pyblack)
+
+
+V 1.0: 24/02/21 Giuliano Iorio
+"""
+
+OUTPUTNAME="sevn_unique_file.csv"
+COLUMNS=["Worldtime","Mass","RemnantType","Semimajor","Eccentricity"]
+ESTIMATE_TGW=True
+NPROC=2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##########################################
+import re
+import pandas as pd
+import os
+import numpy as np
+from pyblack.gw import gw_time
+from multiprocessing import Pool
+import glob
+import functools
+import sys
+
+
+def check_output_columns(df, columns):
+
+    table_columns=df.columns
+
+    if len(columns)==0:
+        return df.columns
+
+
+    output_columms=[]
+    for column in columns:
+        if column=="Worldtime":
+            output_columms.append(column+"_0")
+        elif column in table_columns:
+            output_columms.append(column)
+        elif (column+"_0" in table_columns) and (column+"_1" in table_columns):
+            output_columms.append(column+"_0")
+            output_columms.append(column+"_1")
+
+    return output_columms
+
+
+def create_CE_df(file):
+
+    with open(file,"r") as f:
+        p=re.compile(r'B;\d+;(\d+);CE;')
+
+        BID = pd.DataFrame({'ID':np.asarray(p.findall(f.read()),dtype=int)})
+        BID= BID.groupby(['ID']).size().reset_index(name='NCE')
+
+    return BID
+
+
+def create_evolved_df(file):
+
+    df = pd.read_csv(file,delimiter=r"\s+")
+    df = df.rename(columns={'#ID': 'ID', 'Mass_0': 'Mzams_0', 'Mass_1':'Mzams_1','a':'Semimajor_ini','e':'Eccentricity_ini'})
+    df = df[['ID', 'Mzams_0','Mzams_1','Semimajor_ini','Eccentricity_ini']]
+
+    return df
+
+def create_output_df(file,columns=["Mass","MHE","MCO","RemnantType","Semimajor","Eccentricity"],estimate_tgw=True):
+
+    df=pd.read_csv(file,delimiter='\s+|,',engine="python")
+
+    if estimate_tgw and "Semimajor" in df.columns and "Eccentricity" in df.columns and "Mass_0"  in df.columns and "Mass_1"  in df.columns:
+        tgw=gw_time.estimate_tgw(df["Semimajor"],df["Eccentricity"],df["Mass_0"],df["Mass_1"],method="cured_peters", nproc=1, a_Rsun=True)
+    else:
+        tgw=None
+
+    output_columns=check_output_columns(df, columns=columns)
+    df = df[["ID"]+output_columns]
+
+    if tgw is not None:
+        df["GWtimet"]=tgw
+
+    if "Worldtime_0" in df.columns:
+            df = df.rename(columns={'Worldtime_0': 'Worldtime'})
+
+
+
+    return df
+
+def create_failed_df(file):
+
+    try:
+        df=pd.read_csv(file, delimiter=r"\s+")
+    except FileNotFoundError:
+        df = pd.DataFrame()
+    return df
+
+def create_final_df(outputf,evolvedf, failedf, logf=None, outname="simoutput.csv",columns=["Mass","MHE","MCO","RemnantType","Semimajor","Eccentricity"],estimate_tgw=True):
+
+    df_output=create_output_df(outputf,columns=COLUMNS,estimate_tgw=estimate_tgw)
+    df_evolved=create_evolved_df(evolvedf)
+    df_failed=create_failed_df(failedf)
+
+    df=pd.merge(df_evolved,df_output,on='ID')
+
+    if logf is not None and  os.path.isfile(logf):
+        df_log=create_CE_df(logf)
+        df=pd.merge(df,df_log,on='ID',how='left')
+        df['NCE'] = df['NCE'].fillna(0)
+        df = df.astype({"NCE": int})
+
+    if outname is not None:
+        df.to_csv(outname)
+
+    return df, df_failed
+
+def create_final_df_from_thread(nthread,folder=None,columns=["Mass","MHE","MCO","RemnantType","Semimajor","Eccentricity"],estimate_tgw=True):
+
+    if folder is not None:
+        folder=folder+"/"
+    else:
+        folder=""
+
+    foutput=folder+"output_"+str(int(nthread))
+    if  os.path.isfile(foutput+".csv"):
+        file_output=foutput+".csv"
+    elif os.path.isfile(foutput+".dat"):
+        file_output=foutput+".dat"
+    else:
+        raise IOError("File output does not exist")
+
+    file_evolved=folder+"evolved_"+str(int(nthread))+".dat"
+    if  os.path.isfile(file_evolved)==False:
+        raise IOError("File evolved does not exist")
+
+    file_log=folder+"logfile_"+str(int(nthread))+".dat"
+
+    file_failed=folder+"failed_"+str(int(nthread))+".dat"
+    # if  os.path.isfile(file_evolved)==False:
+    #     print("No failed files found")
+
+    return create_final_df(file_output, file_evolved, file_failed, file_log, outname=None,columns=columns,estimate_tgw=estimate_tgw)
+
+def make_unique_file(folder,nproc=1,columns=["Mass","MHE","MCO","RemnantType","Semimajor","Eccentricity"],estimate_tgw=True):
+
+    nfiles=glob.glob(folder+"/evolved_*")
+    nthread=np.sort([int(filename.split("_")[-1].split(".")[0]) for filename in nfiles])
+
+    func = functools.partial(create_final_df_from_thread, folder=folder, columns=columns, estimate_tgw=estimate_tgw)
+
+    if nproc==1:
+        dfs=list(map(func,nthread))
+    else:
+        with Pool(nproc) as p:
+            dfs=p.map(func, nthread)
+
+    df_final = pd.concat([i[0] for i in dfs])
+    df_failed_final = pd.concat([i[1] for i in dfs])
+
+    return df_final, df_failed_final
+
+
+
+if __name__=="__main__":
+
+    if len(sys.argv)==1:
+        raise IOError("Please add the path the output folder")
+    elif os.path.isdir(sys.argv[1]):
+        folder=sys.argv[1]
+    else:
+        raise IOError("Folder path does not exist")
+
+    dfs, df_failed=make_unique_file(folder,nproc=NPROC,columns=COLUMNS,estimate_tgw=ESTIMATE_TGW)
+
+    dfs.to_csv(OUTPUTNAME, index=False)
+    df_failed.to_csv(f'/unified_failed.dat', sep='\t', header=False, index=False)

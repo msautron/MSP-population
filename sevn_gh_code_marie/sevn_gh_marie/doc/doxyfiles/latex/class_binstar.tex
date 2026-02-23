@@ -1,0 +1,1267 @@
+\hypertarget{class_binstar}{}\doxysection{Binstar Class Reference}
+\label{class_binstar}\index{Binstar@{Binstar}}
+
+
+{\ttfamily \#include $<$binstar.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binstar_ab8fa8f4f0ebf9867ac63e78323d4a766}{Binstar}} ()
+\item 
+\mbox{\hyperlink{class_binstar_ac9ada0b73f9ee8df44fdd82bee5d93d7}{Binstar}} (\mbox{\hyperlink{class_i_o}{IO}} $\ast$\+\_\+io, std\+::vector$<$ std\+::string $>$ \&params, size\+\_\+t \&\+\_\+\+ID, unsigned long \+\_\+rseed=0)
+\item 
+double \mbox{\hyperlink{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}{getp}} (const size\+\_\+t \&id) const
+\begin{DoxyCompactList}\small\item\em METHODS///. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_binstar_aa24f41ca383d992769a890a837d76448}{getp\+\_\+0}} (const size\+\_\+t \&id) const
+\item 
+std\+::string \mbox{\hyperlink{class_binstar_a3533d9004019fd9d494cb759f7fd68b5}{get\+\_\+name}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{class_binstar_a3ddee965313902fe42a6399656b241d1}{get\+\_\+\+ID}} () const
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}{getstar}} (const size\+\_\+t \&id)
+\item 
+\mbox{\hyperlink{class_process}{Process}} $\ast$ \mbox{\hyperlink{class_binstar_a04b361bb7b2b44b2607c723a9c760c44}{getprocess}} (const size\+\_\+t \&id)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_process}{Process}} $\ast$ $>$ \& \mbox{\hyperlink{class_binstar_ab332981ff691ed161875fef11ef0e063}{getprocesses}} () const
+\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_binstar_ae9045f1ea047957cf0708c1ca5bcae76}{getstate}} ()
+\item 
+double \mbox{\hyperlink{class_binstar_ae15b810f04205d83ffd01182e3f5aefb}{get\+\_\+last\+\_\+\+Timestep}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_binstar_a4b228f71444ec10afd3ade913cd64280}{get\+\_\+id\+\_\+more\+\_\+evolved\+\_\+star}} () const
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_binstar_a052185ea21dc4a619ec79f06f2487691}{get\+\_\+more\+\_\+evolved\+\_\+star}} ()
+\item 
+double \mbox{\hyperlink{class_binstar_a474c1c11e647c7271bcf5358f48e27ab}{Radx}} (size\+\_\+t star\+ID)
+\item 
+double \mbox{\hyperlink{class_binstar_a66786ad072e4fa222a8a029a052e1869}{get\+\_\+svpar\+\_\+num}} (std\+::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}})
+\begin{DoxyCompactList}\small\item\em Get the value of the parameters store in the svpar class in io. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_binstar_ae6ac8eb8bf40c68feca2a205449e0618}{get\+\_\+svpar\+\_\+str}} (std\+::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}})
+\item 
+bool \mbox{\hyperlink{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}{get\+\_\+svpar\+\_\+bool}} (std\+::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}})
+\item 
+unsigned long \mbox{\hyperlink{class_binstar_a163e065638c477da4d751440a0cd2ac2}{get\+\_\+rseed}} ()
+\item 
+virtual void \mbox{\hyperlink{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}{evolve}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}{recordstate\+\_\+w\+\_\+timeupdate}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_aed96353433af24141cac45949811c9a1}{recordstate}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}{recordstate\+\_\+binary}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_afde7d5efa2872bd096e7668e7f533296}{set\+\_\+broken}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a0f66da596fb8e6771bd8effdf37659a6}{set\+\_\+empty}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a0b5c618923549ca6fc4db699d8d59cab}{set\+\_\+onesurvived}} ()
+\item 
+bool \mbox{\hyperlink{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}{breaktrigger}} () const
+\item 
+bool \mbox{\hyperlink{class_binstar_a6d9fa9dc69e02246865fc0321549ba72}{is\+\_\+process\+\_\+ongoing}} (const size\+\_\+t \&id) const
+\item 
+bool \mbox{\hyperlink{class_binstar_af11e563c73b698c167cd444bd50cf286}{processes\+\_\+alarm}} (const size\+\_\+t \&id) const
+\begin{DoxyCompactList}\small\item\em Handle processes alarms. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_binstar_a08f804b7957d014044a1c6e1fd0c1a08}{process\+\_\+alarm\+\_\+any}} () const
+\item 
+void \mbox{\hyperlink{class_binstar_a36128cfad5b054f6b33e5cd1ffbd1897}{reset\+\_\+all\+\_\+processes\+\_\+alarms}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a8971009ead0cecde5352b5b8aeecfba3}{reset\+\_\+events}} ()
+\begin{DoxyCompactList}\small\item\em Handle events. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_binstar_ac374cd7eddd3f041d049768f42b7a495}{get\+\_\+event\+\_\+from\+\_\+processes}} ()
+\item 
+bool \mbox{\hyperlink{class_binstar_a797a71bea2a27583df0df611b36fbfdb}{isoutputtime}} ()
+\begin{DoxyCompactList}\small\item\em Outputs. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}{printall}} ()
+\item 
+bool \mbox{\hyperlink{class_binstar_a1a7a24142d1d36ffbc685c8252aadfe9}{notprint}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a7dab973fbbda46726e581094e77d5888}{print}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a0611147a14a45d55b971208783f49bf5}{print\+\_\+failed}} (bool include\+\_\+in\+\_\+output=false)
+\item 
+void \mbox{\hyperlink{class_binstar_a0eb54871696753494838a12289f31f9c}{print\+\_\+to\+\_\+log}} (std\+::string \&message)
+\item 
+void \mbox{\hyperlink{class_binstar_a101c7957ed37b33ece459ca9e90accbf}{init}} (const std\+::vector$<$ std\+::string $>$ \&params)
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_binstar_a815867f513fa1febbe5e5c9fdf42c854}{get\+\_\+zams}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_binstar_ab493e92d3c59c6e2dca195cb6cdb9cac}{get\+\_\+Z}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_aa1b586f803316850cedc4bc8db9e0174}{set\+\_\+tf}} (const double a, const char $\ast$file, const int line)
+\item 
+void \mbox{\hyperlink{class_binstar_a2439eada01ef664c81dfc6bd7e9d7f8e}{set\+\_\+dtout}} (const double a, const char $\ast$file, const int line)
+\item 
+void \mbox{\hyperlink{class_binstar_aee6bcdfa097710b90edd685bd032d8eb}{evolution\+\_\+step\+\_\+done}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_aefac41679d9bbc2e7cf7dbc0f3c3c2d9}{evolution\+\_\+guard}} (const char $\ast$file\+\_\+input=nullptr, int line\+\_\+input=-\/1)
+\item 
+double \mbox{\hyperlink{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}{get\+\_\+tf}} () const
+\item 
+double \mbox{\hyperlink{class_binstar_a9d2d3f8f42498c92e3d58a3cee23f17d}{get\+\_\+dtout}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_binstar_addb6d0be63b392a370cb32de3eb639f1}{get\+\_\+id\+\_\+name}} () const
+\item 
+\mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{utilities\+::sn\+\_\+explosion}} \mbox{\hyperlink{class_binstar_af413ee11e1b5a72013e77bf1d4ffd0fe}{check\+\_\+accretion\+\_\+on\+\_\+compact}} (size\+\_\+t donor\+ID, size\+\_\+t accretor\+ID, double DMaccreted)
+\item 
+void \mbox{\hyperlink{class_binstar_a5004c805552685bf6a423b6a01bdc184}{check\+\_\+accretion\+\_\+on\+\_\+compact}} ()
+\item 
+bool \mbox{\hyperlink{class_binstar_a3b0954cffeb07905f7fa90ded5047534}{check\+\_\+and\+\_\+set\+\_\+broken}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_aeb44d765aa9b80a384eb9b37ed0010bd}{check\+\_\+and\+\_\+set\+\_\+bavera\+\_\+xspin}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a78a3dc92757243d2f7bc54e3dd43be12}{check\+\_\+if\+\_\+applied\+\_\+bavera\+\_\+xspin}} ()
+\item 
+double \mbox{\hyperlink{class_binstar_a21decff12513b1673276460b72a66e19}{Set\+Xspin\+Bavera}} (const double, const double) const
+\item 
+\mbox{\hyperlink{class_binstar_a7e88a2abd59b421705987ce265c08429}{$\sim$\+Binstar}} ()
+\begin{DoxyCompactList}\small\item\em DENSTRUCTORS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_binstar_a24af3af10983764798eb68b1958f0505}{broken}}
+\begin{DoxyCompactList}\small\item\em MEMBERS///. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_binstar_a537b9adde1c82056d9255d38ee9996e8}{onesurvived}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a5c7b3d67a5b81542e869745264d98646}{empty}}
+\item 
+bool \mbox{\hyperlink{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}{break\+\_\+at\+\_\+remnant}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a5933c2a416cbc3a786234a3c632cea99}{break\+\_\+at\+\_\+broken}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a91908734182a6ef52aea045d8039725d}{repeatstep}}
+\item 
+bool \mbox{\hyperlink{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}{mix}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}{comenv}}
+\item 
+bool \mbox{\hyperlink{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}{is\+\_\+swallowed}} \mbox{[}2\mbox{]}
+\item 
+double \mbox{\hyperlink{class_binstar_a24217396219460cd0c3c2f77b62c7435}{last\+\_\+\+Timestep}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a01918bafdd308f4951e83846b2be3deb}{print\+\_\+all\+\_\+steps}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a99ab4eccc5d731f5280c825b1970f895}{print\+\_\+per\+\_\+phase}}
+\item 
+bool \mbox{\hyperlink{class_binstar_abbc52bc2a7091921195a193790e2c9ee}{print\+\_\+only\+\_\+end}}
+\item 
+bool \mbox{\hyperlink{class_binstar_afe404388646b25734c88c9c2d918bdbb}{print\+\_\+events}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a3919e4796b26dc05942564998392ffdd}{print\+\_\+rlo}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a3d8455155259bdf45eb534601f372e4b}{disable\+\_\+e\+\_\+check}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a8c36ce436fee6f539bcffb72c408a803}{disable\+\_\+a\+\_\+check}}
+\item 
+bool \mbox{\hyperlink{class_binstar_af922e7f1042d200fcf07e80dcb8b750b}{disable\+\_\+\+DM\+\_\+check}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a39716614c3b5ed6b3e6981ec1bf2c9f5}{disable\+\_\+\+Omega\+Rem\+\_\+\+NS\+\_\+check}}
+\item 
+bool \mbox{\hyperlink{class_binstar_ad680c1c67d1bbabd3f3b4c2c36816a69}{disable\+\_\+stellar\+\_\+rotation\+\_\+check}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a4176647d0f9a5769112f39abf9cfeedc}{force\+\_\+tiny\+\_\+dt}}
+\item 
+double \mbox{\hyperlink{class_binstar_a17b0917231d9823ffceaef979674ba91}{CE\+\_\+\+E\+\_\+tomatch}} = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\item 
+bool \mbox{\hyperlink{class_binstar_a988646d5e45977f154868cc72c917157}{evolution\+\_\+step\+\_\+completed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_binstar_a116c8e2a2676d286b709d250546a641b}{synchronise\+\_\+dt\+\_\+star}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a37f873db5f84a7c554b87574cd352460}{check\+\_\+and\+\_\+sync\+\_\+sse}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a9b4cec5b5639c0e127c3fb0ce03518cd}{check\+\_\+and\+\_\+sync\+\_\+bse}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a85b95135889d7164a4c5c2b057c3fb2e}{check\+\_\+naked\+He\+\_\+or\+\_\+naked\+CO\+\_\+after\+\_\+binary\+\_\+evolution}} ()
+\begin{DoxyCompactList}\small\item\em CHECKS AND CORRECT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binstar_a1178046c7a85780693d8901da879722b}{check\+\_\+\+Ang\+Mom\+Spin\+\_\+after\+\_\+binary\+\_\+evolution}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_aa455558e6e1e3c834e3c8062bd8de7e0}{limit\+\_\+and\+\_\+correct\+\_\+mass\+\_\+transfer\+\_\+for\+\_\+donor\+\_\+from\+\_\+binary}} (\mbox{\hyperlink{class_star}{Star}} $\ast$donor, \mbox{\hyperlink{class_star}{Star}} $\ast$accretor, std\+::size\+\_\+t mass\+\_\+limiting\+\_\+property\+\_\+id)
+\item 
+bool \mbox{\hyperlink{class_binstar_ab7b40ec98fab01193fe082cc198ce31e}{check\+\_\+and\+\_\+set\+\_\+\+QHE}} (\mbox{\hyperlink{class_star}{Star}} $\ast$accretor)
+\item 
+void \mbox{\hyperlink{class_binstar_a007cbdae2fb976bc85a21866a0e88526}{update\+\_\+derived\+\_\+properties\+\_\+star}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+void \mbox{\hyperlink{class_binstar_ae496c2e7acd865f56077d7eb3feed9cf}{reset\+\_\+evolution\+\_\+flags}} ()
+\begin{DoxyCompactList}\small\item\em RESET. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}}
+\begin{DoxyCompactList}\small\item\em MEMBERS///. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}{dtout}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}{state}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}{combinedstate}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_binstar_a1995046c6ca65dfaf4daed12f2594100}{allstates}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{utilities\+::bse\+\_\+evolution}} \mbox{\hyperlink{class_binstar_aefaf3f43593cb62606ad5c8dc4bcfce1}{evolve\+\_\+binary}} ()
+\begin{DoxyCompactList}\small\item\em METHODS///. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binstar_a1fb61a171833151e3f91c6b0ced607af}{resynch}} (const double \&dt)
+\item 
+void \mbox{\hyperlink{class_binstar_a1d574ee8559d351c18bc9e40e9bd9a69}{default\+\_\+destructor}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a8c1c3e5570a0bb94a954a2f76f5919ec}{call\+\_\+stars\+\_\+constructor}} (std\+::vector$<$ std\+::string $>$ \&params\+\_\+star1, std\+::vector$<$ std\+::string $>$ \&params\+\_\+star2)
+\item 
+void \mbox{\hyperlink{class_binstar_acc619bacd09980142a743a82b16c9003}{init\+\_\+stars}} (const std\+::vector$<$ std\+::string $>$ \&params)
+\item 
+void \mbox{\hyperlink{class_binstar_a9dcf72f4fdadda8bf06f19b0e9898ef9}{init\+\_\+stars\+\_\+legacy}} (const std\+::vector$<$ std\+::string $>$ \&params)
+\item 
+void \mbox{\hyperlink{class_binstar_a226dbca0db6ba4269a84900dd9716428}{set\+\_\+initial\+\_\+semimajor}} (double a\+\_\+ini)
+\item 
+void \mbox{\hyperlink{class_binstar_ac055a8c158630f1d449bb27e1a3d2942}{set\+\_\+initial\+\_\+semimajor}} (std\+::string a\+\_\+ini)
+\item 
+void \mbox{\hyperlink{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}{set\+\_\+initial\+\_\+eccentricity}} (double ecc\+\_\+ini)
+\item 
+void \mbox{\hyperlink{class_binstar_ad48aad98fc5f6350914ac5eb86882fc8}{set\+\_\+initial\+\_\+eccentricity}} (std\+::string ecc\+\_\+ini)
+\item 
+void \mbox{\hyperlink{class_binstar_aff1c82eea945fa790312bc4e7a77bec2}{init\+\_\+binary\+\_\+properties}} (const std\+::vector$<$ std\+::string $>$ \&params)
+\item 
+void \mbox{\hyperlink{class_binstar_af662832c416e52e65e81353b13b582dd}{init\+\_\+other\+\_\+params}} ()
+\item 
+void \mbox{\hyperlink{class_binstar_a857dad2fd434d3cc7be21242befadeec}{set\+\_\+break\+\_\+at\+\_\+broken}} (std\+::string \&\mbox{\hyperlink{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}{tf}})
+\item 
+void \mbox{\hyperlink{class_binstar_a97ed25d332706a969e7a3156d4414edf}{set\+\_\+rseed}} (const unsigned long a, const char $\ast$file, const int line)
+\item 
+void \mbox{\hyperlink{class_binstar_a0b17da2bd3cfe2cfc6aff82e51454955}{check\+\_\+init\+\_\+param}} (const std\+::vector$<$ std\+::string $>$ \&params)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_process}{Process}} $\ast$ $>$ \mbox{\hyperlink{class_binstar_aa669910888db28d6cf81cb61621900c1}{process}}
+\begin{DoxyCompactList}\small\item\em MEMBERS///. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_binary_property}{Binary\+Property}} $\ast$ $>$ \mbox{\hyperlink{class_binstar_a1291c68661934dd8c0f9bad9df82e404}{property}}
+\item 
+\mbox{\hyperlink{class_star}{Star}} $\ast$ \mbox{\hyperlink{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}{star}} \mbox{[}2\mbox{]} =\{nullptr, nullptr\}
+\item 
+\mbox{\hyperlink{class_i_o}{IO}} $\ast$ \mbox{\hyperlink{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}{io}}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}{ID}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}{init\+\_\+params}}
+\item 
+std\+::string \mbox{\hyperlink{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}{name}}
+\item 
+unsigned long \mbox{\hyperlink{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}{rseed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_binstar_ab8fa8f4f0ebf9867ac63e78323d4a766}\label{class_binstar_ab8fa8f4f0ebf9867ac63e78323d4a766}} 
+\index{Binstar@{Binstar}!Binstar@{Binstar}}
+\index{Binstar@{Binstar}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{Binstar()}{Binstar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Binstar\+::\+Binstar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+CONSTRUCTORS/// Constructors for fake objects \mbox{\Hypertarget{class_binstar_ac9ada0b73f9ee8df44fdd82bee5d93d7}\label{class_binstar_ac9ada0b73f9ee8df44fdd82bee5d93d7}} 
+\index{Binstar@{Binstar}!Binstar@{Binstar}}
+\index{Binstar@{Binstar}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{Binstar()}{Binstar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Binstar\+::\+Binstar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{\+\_\+io,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{params,  }\item[{size\+\_\+t \&}]{\+\_\+\+ID,  }\item[{unsigned long}]{\+\_\+rseed = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Print options\mbox{\Hypertarget{class_binstar_a7e88a2abd59b421705987ce265c08429}\label{class_binstar_a7e88a2abd59b421705987ce265c08429}} 
+\index{Binstar@{Binstar}!````~Binstar@{$\sim$Binstar}}
+\index{````~Binstar@{$\sim$Binstar}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{$\sim$Binstar()}{~Binstar()}}
+{\footnotesize\ttfamily Binstar\+::$\sim$\+Binstar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+DENSTRUCTORS. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}\label{class_binstar_a61ae557dd6164117c7ce05c206e23cd7}} 
+\index{Binstar@{Binstar}!breaktrigger@{breaktrigger}}
+\index{breaktrigger@{breaktrigger}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{breaktrigger()}{breaktrigger()}}
+{\footnotesize\ttfamily bool Binstar\+::breaktrigger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a8c1c3e5570a0bb94a954a2f76f5919ec}\label{class_binstar_a8c1c3e5570a0bb94a954a2f76f5919ec}} 
+\index{Binstar@{Binstar}!call\_stars\_constructor@{call\_stars\_constructor}}
+\index{call\_stars\_constructor@{call\_stars\_constructor}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{call\_stars\_constructor()}{call\_stars\_constructor()}}
+{\footnotesize\ttfamily void Binstar\+::call\+\_\+stars\+\_\+constructor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{params\+\_\+star1,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{params\+\_\+star2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Call the constructor of the two stars with parameters params\+\_\+star1 and params\+\_\+star2. The parameters are \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output. 
+\begin{DoxyParams}{Parameters}
+{\em params\+\_\+star1} & \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output of the first star. \\
+\hline
+{\em params\+\_\+star2} & \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output of the second star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The random seeds of the stars are set to the same random seed of the binary. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_binstar_a5004c805552685bf6a423b6a01bdc184}\label{class_binstar_a5004c805552685bf6a423b6a01bdc184}} 
+\index{Binstar@{Binstar}!check\_accretion\_on\_compact@{check\_accretion\_on\_compact}}
+\index{check\_accretion\_on\_compact@{check\_accretion\_on\_compact}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_accretion\_on\_compact()}{check\_accretion\_on\_compact()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+accretion\+\_\+on\+\_\+compact (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Call \mbox{\hyperlink{class_binstar_af413ee11e1b5a72013e77bf1d4ffd0fe}{check\+\_\+accretion\+\_\+on\+\_\+compact(size\+\_\+t donor\+ID, size\+\_\+t accretor\+ID, double DMaccreted)}} checking both stars and taking DMaccreted from the processes Estimate the DM from the processes\mbox{\Hypertarget{class_binstar_af413ee11e1b5a72013e77bf1d4ffd0fe}\label{class_binstar_af413ee11e1b5a72013e77bf1d4ffd0fe}} 
+\index{Binstar@{Binstar}!check\_accretion\_on\_compact@{check\_accretion\_on\_compact}}
+\index{check\_accretion\_on\_compact@{check\_accretion\_on\_compact}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_accretion\_on\_compact()}{check\_accretion\_on\_compact()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceutilities_ab6872b4710c09a5803080889cbde042b}{utilities\+::sn\+\_\+explosion}} Binstar\+::check\+\_\+accretion\+\_\+on\+\_\+compact (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{donor\+ID,  }\item[{size\+\_\+t}]{accretor\+ID,  }\item[{double}]{DMaccreted }\end{DoxyParamCaption})}
+
+Check the outcome of the accretion on a compact object 
+\begin{DoxyParams}{Parameters}
+{\em donor\+ID} & Id of the donor star \\
+\hline
+{\em accretor\+ID} & ID of the accretor star \\
+\hline
+{\em DMaccreted} & DM accreted on the acrretor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+utilisties\+::\+SNIA\+\_\+\+EXPLODE if a SN explosion is triggered, SN\+\_\+\+NOT\+\_\+\+EXPLODE otherwise 
+\end{DoxyReturn}
+trigger Type 1a SN explosion
+
+trigger Type 1a SN explosion\mbox{\Hypertarget{class_binstar_aeb44d765aa9b80a384eb9b37ed0010bd}\label{class_binstar_aeb44d765aa9b80a384eb9b37ed0010bd}} 
+\index{Binstar@{Binstar}!check\_and\_set\_bavera\_xspin@{check\_and\_set\_bavera\_xspin}}
+\index{check\_and\_set\_bavera\_xspin@{check\_and\_set\_bavera\_xspin}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_and\_set\_bavera\_xspin()}{check\_and\_set\_bavera\_xspin()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+and\+\_\+set\+\_\+bavera\+\_\+xspin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_binstar_a3b0954cffeb07905f7fa90ded5047534}\label{class_binstar_a3b0954cffeb07905f7fa90ded5047534}} 
+\index{Binstar@{Binstar}!check\_and\_set\_broken@{check\_and\_set\_broken}}
+\index{check\_and\_set\_broken@{check\_and\_set\_broken}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_and\_set\_broken()}{check\_and\_set\_broken()}}
+{\footnotesize\ttfamily bool Binstar\+::check\+\_\+and\+\_\+set\+\_\+broken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if the binary system is broken or onesurvived is true or empty. In that case apply set\+\_\+broken to the properties \begin{DoxyReturn}{Returns}
+true if the system is broken or if onesurvived=true or the system is empty, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_ab7b40ec98fab01193fe082cc198ce31e}\label{class_binstar_ab7b40ec98fab01193fe082cc198ce31e}} 
+\index{Binstar@{Binstar}!check\_and\_set\_QHE@{check\_and\_set\_QHE}}
+\index{check\_and\_set\_QHE@{check\_and\_set\_QHE}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_and\_set\_QHE()}{check\_and\_set\_QHE()}}
+{\footnotesize\ttfamily bool Binstar\+::check\+\_\+and\+\_\+set\+\_\+\+QHE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Check if the condition for Quasi Homogeneous Evolution is triggered after RLO mass transfer. This function follows the recipe in Sec. 2.\+2 of Eldridge\&Stanway11 (\href{https://arxiv.org/abs/1109.0288}{\texttt{ https\+://arxiv.\+org/abs/1109.\+0288}}). If the condition are met, the star is flagged as QHE (ami\+\_\+following\+\_\+\+QHE is set to true) Notice this check function has to be used at the end of the binary evolution so that we are sure the evolution is completed and no repetitions can be called. 
+\begin{DoxyParams}{Parameters}
+{\em accretor} & Pointer to a star that is assumed the accretor in the RLO mass transfer (the fucntion checks if the star is really the accretor or if the RLO is happening using the property \mbox{\hyperlink{classd_mcumul___r_l_o}{d\+Mcumul\+\_\+\+RLO}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the condition is triggered, false otherwise 
+\end{DoxyReturn}
+Check the preliminary condition for QHE\+:
+
+Very first check
+
+Second preliminary check
+
+Third Check, is RLO happening and is the \mbox{\hyperlink{class_star}{Star}} the accretor?
+
+Prelimary Checks passed, now do the main check based on Eldridge\&Stanway11
+
+If trigger is true, set the QHE\mbox{\Hypertarget{class_binstar_a9b4cec5b5639c0e127c3fb0ce03518cd}\label{class_binstar_a9b4cec5b5639c0e127c3fb0ce03518cd}} 
+\index{Binstar@{Binstar}!check\_and\_sync\_bse@{check\_and\_sync\_bse}}
+\index{check\_and\_sync\_bse@{check\_and\_sync\_bse}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_and\_sync\_bse()}{check\_and\_sync\_bse()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+and\+\_\+sync\+\_\+bse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Check if the last single stellar evolution step has been made with the same timestep. If not evolve again the star with the smallest timestep used in the last evolutions (T0).. Safety check on timesteps\+: the new proposed timestep should be smaller than the stellar one.
+
+We have to evolve again the stars and the binary Re-\/evolve the stars with the new timestep propsed by the last call of \mbox{\hyperlink{class_b_timestep_a5fd2780bf6d0e587c9dce7027be5a34c}{BTimestep.\+evolve}}
+
+Restore binary properties and revolve (processes are restored in evolve\+\_\+binary)\mbox{\Hypertarget{class_binstar_a37f873db5f84a7c554b87574cd352460}\label{class_binstar_a37f873db5f84a7c554b87574cd352460}} 
+\index{Binstar@{Binstar}!check\_and\_sync\_sse@{check\_and\_sync\_sse}}
+\index{check\_and\_sync\_sse@{check\_and\_sync\_sse}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_and\_sync\_sse()}{check\_and\_sync\_sse()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+and\+\_\+sync\+\_\+sse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Check if the last single stellar evolution step has been made with the same timestep. If not evolve again the star with the smallest timestep used in the last evolutions (T0).. Re-\/evolve the star that did the longest timestep
+
+Now update the Binary\+Timestep to be equal to the actual stellar evolution timestep\mbox{\Hypertarget{class_binstar_a1178046c7a85780693d8901da879722b}\label{class_binstar_a1178046c7a85780693d8901da879722b}} 
+\index{Binstar@{Binstar}!check\_AngMomSpin\_after\_binary\_evolution@{check\_AngMomSpin\_after\_binary\_evolution}}
+\index{check\_AngMomSpin\_after\_binary\_evolution@{check\_AngMomSpin\_after\_binary\_evolution}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_AngMomSpin\_after\_binary\_evolution()}{check\_AngMomSpin\_after\_binary\_evolution()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+\+Ang\+Mom\+Spin\+\_\+after\+\_\+binary\+\_\+evolution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Check if after the binary evolution the angular momentum, of the two stars is larger than the critical angular momentum Lcrit=IOmega\+\_\+crit. In case set L=Lcrit. If L has been updated, call also update\+\_\+derived\+\_\+properties\+\_\+star to update derived properties that can depend on L \mbox{\Hypertarget{class_binstar_a78a3dc92757243d2f7bc54e3dd43be12}\label{class_binstar_a78a3dc92757243d2f7bc54e3dd43be12}} 
+\index{Binstar@{Binstar}!check\_if\_applied\_bavera\_xspin@{check\_if\_applied\_bavera\_xspin}}
+\index{check\_if\_applied\_bavera\_xspin@{check\_if\_applied\_bavera\_xspin}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_if\_applied\_bavera\_xspin()}{check\_if\_applied\_bavera\_xspin()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+if\+\_\+applied\+\_\+bavera\+\_\+xspin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_binstar_a0b17da2bd3cfe2cfc6aff82e51454955}\label{class_binstar_a0b17da2bd3cfe2cfc6aff82e51454955}} 
+\index{Binstar@{Binstar}!check\_init\_param@{check\_init\_param}}
+\index{check\_init\_param@{check\_init\_param}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_init\_param()}{check\_init\_param()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+init\+\_\+param (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Check if params in input has the expected number of parameters as defined in INPUTMAPBIN and INPUTMAPBIN\+\_\+\+PARAM (\mbox{\hyperlink{lookup__and__phases_8cpp}{lookup\+\_\+and\+\_\+phases.\+cpp}}) 
+\begin{DoxyParams}{Parameters}
+{\em params} & params to pass to the init function. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a85b95135889d7164a4c5c2b057c3fb2e}\label{class_binstar_a85b95135889d7164a4c5c2b057c3fb2e}} 
+\index{Binstar@{Binstar}!check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution@{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution}}
+\index{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution@{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution()}{check\_nakedHe\_or\_nakedCO\_after\_binary\_evolution()}}
+{\footnotesize\ttfamily void Binstar\+::check\+\_\+naked\+He\+\_\+or\+\_\+naked\+CO\+\_\+after\+\_\+binary\+\_\+evolution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+CHECKS AND CORRECT. 
+
+Check if after the evolution the \mbox{\hyperlink{class_mass}{Mass}} transfer (mainly Roche Lobe) causes the total \mbox{\hyperlink{class_mass}{Mass}} to be lower than the core \mbox{\hyperlink{class_mass}{Mass}}, considering both the He and CO \mbox{\hyperlink{class_mass}{Mass}}. If the Roche Lobe radius does not include the Core (He or CO) we force the star to lose only the envelope creating a Naked He star, the radius, the accreted and donated mass from the binary evolution are corrected accordingly. If the Roche Lobe radius is inside the He and/or CO core, the stars is allowed to transfer mass from the core and the \mbox{\hyperlink{class_m_c_o}{MCO}} and/or \mbox{\hyperlink{class_m_h_e}{MHE}} is updated to be equal to Mtot. If Mtot\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_c_o}{MCO}} and \mbox{\hyperlink{class_r_c_o}{RCO}}\texorpdfstring{$<$}{<}RL\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_r_h_e}{RHE}} a naked\+CO star is created and the star is forced to lose at most the envelope and He layer from the core. If M\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_h_e}{MHE}} or M\texorpdfstring{$<$}{<}\mbox{\hyperlink{class_m_c_o}{MCO}} check for naked Helium, naked CO stars
+
+Notice, we can enter here both because the total \mbox{\hyperlink{class_mass}{Mass}} is lower than the \mbox{\hyperlink{class_m_h_e}{MHE}} \mbox{\hyperlink{class_mass}{Mass}} or because the difference is within the tshol.
+
+Notice, we can enter here both because the total \mbox{\hyperlink{class_mass}{Mass}} is lower than the \mbox{\hyperlink{class_m_c_o}{MCO}} \mbox{\hyperlink{class_mass}{Mass}} or because the difference is within the tshol.\mbox{\Hypertarget{class_binstar_a1d574ee8559d351c18bc9e40e9bd9a69}\label{class_binstar_a1d574ee8559d351c18bc9e40e9bd9a69}} 
+\index{Binstar@{Binstar}!default\_destructor@{default\_destructor}}
+\index{default\_destructor@{default\_destructor}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{default\_destructor()}{default\_destructor()}}
+{\footnotesize\ttfamily void Binstar\+::default\+\_\+destructor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Method to clean the heap from all the heap allocated members of this class Here we have to delete all the pointer to stuff allocated on the heap\mbox{\Hypertarget{class_binstar_aefac41679d9bbc2e7cf7dbc0f3c3c2d9}\label{class_binstar_aefac41679d9bbc2e7cf7dbc0f3c3c2d9}} 
+\index{Binstar@{Binstar}!evolution\_guard@{evolution\_guard}}
+\index{evolution\_guard@{evolution\_guard}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{evolution\_guard()}{evolution\_guard()}}
+{\footnotesize\ttfamily void Binstar\+::evolution\+\_\+guard (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+input = {\ttfamily nullptr},  }\item[{int}]{line\+\_\+input = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_aee6bcdfa097710b90edd685bd032d8eb}\label{class_binstar_aee6bcdfa097710b90edd685bd032d8eb}} 
+\index{Binstar@{Binstar}!evolution\_step\_done@{evolution\_step\_done}}
+\index{evolution\_step\_done@{evolution\_step\_done}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{evolution\_step\_done()}{evolution\_step\_done()}}
+{\footnotesize\ttfamily void Binstar\+::evolution\+\_\+step\+\_\+done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}\label{class_binstar_a6a8e1fe9d64800ef0c1f3fb6e5df1771}} 
+\index{Binstar@{Binstar}!evolve@{evolve}}
+\index{evolve@{evolve}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{evolve()}{evolve()}}
+{\footnotesize\ttfamily virtual void Binstar\+::evolve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Check for new\+\_\+tracks for stars and check mass\+\_\+limits\mbox{\Hypertarget{class_binstar_aefaf3f43593cb62606ad5c8dc4bcfce1}\label{class_binstar_aefaf3f43593cb62606ad5c8dc4bcfce1}} 
+\index{Binstar@{Binstar}!evolve\_binary@{evolve\_binary}}
+\index{evolve\_binary@{evolve\_binary}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{evolve\_binary()}{evolve\_binary()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceutilities_a5f9d6467c3b3b5816e0e0a4bda5e9724}{utilities\+::bse\+\_\+evolution}} Binstar\+::evolve\+\_\+binary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+METHODS///. 
+
+1-\/Reset some flags
+
+2-\/Special evolve
+
+3-\/Check if the bynary still esist
+
+4-\/Check if some stellar process has destroied the systems
+
+5-\/Reset variations due to processes (all to zero... VB and VS)
+
+6-\/Outside the parallel update, we have here a sequential update due to the special evolve function of the processes
+
+8-\/Main evolve
+
+8a-\/reset special flags (mix, comenv, is\+\_\+swallowed)
+
+8b-\/\+Evolve all the Processes
+
+8c-\/\+Check if a special state has been flagged or is the system ahs been broken
+
+8d-\/\+Update the Single stellar properties due to the processes. This is a parallel update
+
+8e-\/\+Check if the binary evolution creates a naked\+He or naked\+CO star WARNING\+: This function needs to be exactly there, after the update of the single star properties and before the update of the binary property
+
+8f-\/\+Check outcome of accretion on compact objects
+
+8h-\/\+Update derived properties (basic properties could have been changes during binary processes)
+
+8h-\/\+Check \mbox{\hyperlink{class_ang_mom_spin}{Ang\+Mom\+Spin}} (reduce it if it has reached the maximum spin)
+
+9-\/If system is not broken update the binary properties
+
+9b-\/\+Check if the \mbox{\hyperlink{class_eccentricity}{Eccentricity}} is larger than 1\mbox{\Hypertarget{class_binstar_a9d2d3f8f42498c92e3d58a3cee23f17d}\label{class_binstar_a9d2d3f8f42498c92e3d58a3cee23f17d}} 
+\index{Binstar@{Binstar}!get\_dtout@{get\_dtout}}
+\index{get\_dtout@{get\_dtout}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_dtout()}{get\_dtout()}}
+{\footnotesize\ttfamily double Binstar\+::get\+\_\+dtout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ac374cd7eddd3f041d049768f42b7a495}\label{class_binstar_ac374cd7eddd3f041d049768f42b7a495}} 
+\index{Binstar@{Binstar}!get\_event\_from\_processes@{get\_event\_from\_processes}}
+\index{get\_event\_from\_processes@{get\_event\_from\_processes}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_event\_from\_processes()}{get\_event\_from\_processes()}}
+{\footnotesize\ttfamily double Binstar\+::get\+\_\+event\+\_\+from\+\_\+processes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if one of the process is signaling an event. Notice that the function use a priority schema to decide which one of the events will be returned. The priority is given by the position of the event in Lookup\+::\+Event\+List, higher is the value higher is the priority The order of the checked process follows the process initialisation in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} \begin{DoxyReturn}{Returns}
+a process code event 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a3ddee965313902fe42a6399656b241d1}\label{class_binstar_a3ddee965313902fe42a6399656b241d1}} 
+\index{Binstar@{Binstar}!get\_ID@{get\_ID}}
+\index{get\_ID@{get\_ID}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_ID()}{get\_ID()}}
+{\footnotesize\ttfamily size\+\_\+t Binstar\+::get\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a4b228f71444ec10afd3ade913cd64280}\label{class_binstar_a4b228f71444ec10afd3ade913cd64280}} 
+\index{Binstar@{Binstar}!get\_id\_more\_evolved\_star@{get\_id\_more\_evolved\_star}}
+\index{get\_id\_more\_evolved\_star@{get\_id\_more\_evolved\_star}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_id\_more\_evolved\_star()}{get\_id\_more\_evolved\_star()}}
+{\footnotesize\ttfamily unsigned int Binstar\+::get\+\_\+id\+\_\+more\+\_\+evolved\+\_\+star (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the id of the more evoveld star \begin{DoxyReturn}{Returns}
+Cases\+:
+\begin{DoxyItemize}
+\item If both are empty\+: 0
+\item If one star is empty\+: the id of other star
+\item If stars have the same \mbox{\hyperlink{class_phase}{Phase}}\+: the id with the star with larger plife
+\item In the other cases\+: the id of the star with larger \mbox{\hyperlink{class_phase}{Phase}} 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_addb6d0be63b392a370cb32de3eb639f1}\label{class_binstar_addb6d0be63b392a370cb32de3eb639f1}} 
+\index{Binstar@{Binstar}!get\_id\_name@{get\_id\_name}}
+\index{get\_id\_name@{get\_id\_name}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_id\_name()}{get\_id\_name()}}
+{\footnotesize\ttfamily std\+::string Binstar\+::get\+\_\+id\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ae15b810f04205d83ffd01182e3f5aefb}\label{class_binstar_ae15b810f04205d83ffd01182e3f5aefb}} 
+\index{Binstar@{Binstar}!get\_last\_Timestep@{get\_last\_Timestep}}
+\index{get\_last\_Timestep@{get\_last\_Timestep}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_last\_Timestep()}{get\_last\_Timestep()}}
+{\footnotesize\ttfamily double Binstar\+::get\+\_\+last\+\_\+\+Timestep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method that return the \mbox{\hyperlink{class_timestep}{Timestep}} of the last successful evolution step \begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_timestep}{Timestep}} of the last successful evolution step in Myr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a052185ea21dc4a619ec79f06f2487691}\label{class_binstar_a052185ea21dc4a619ec79f06f2487691}} 
+\index{Binstar@{Binstar}!get\_more\_evolved\_star@{get\_more\_evolved\_star}}
+\index{get\_more\_evolved\_star@{get\_more\_evolved\_star}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_more\_evolved\_star()}{get\_more\_evolved\_star()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}} $\ast$ Binstar\+::get\+\_\+more\+\_\+evolved\+\_\+star (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return t the more evoveld star \begin{DoxyReturn}{Returns}
+Cases\+:
+\begin{DoxyItemize}
+\item If both are empty\+: star\mbox{[}0\mbox{]}
+\item If one star is empty\+: the other star
+\item If stars have the same \mbox{\hyperlink{class_phase}{Phase}}\+: the star with larger plife
+\item In the other cases\+: star with larger \mbox{\hyperlink{class_phase}{Phase}} 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a3533d9004019fd9d494cb759f7fd68b5}\label{class_binstar_a3533d9004019fd9d494cb759f7fd68b5}} 
+\index{Binstar@{Binstar}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily std\+::string Binstar\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a163e065638c477da4d751440a0cd2ac2}\label{class_binstar_a163e065638c477da4d751440a0cd2ac2}} 
+\index{Binstar@{Binstar}!get\_rseed@{get\_rseed}}
+\index{get\_rseed@{get\_rseed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_rseed()}{get\_rseed()}}
+{\footnotesize\ttfamily unsigned long Binstar\+::get\+\_\+rseed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}\label{class_binstar_a3b46bcce8176479ab68ebe4fc589b169}} 
+\index{Binstar@{Binstar}!get\_svpar\_bool@{get\_svpar\_bool}}
+\index{get\_svpar\_bool@{get\_svpar\_bool}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_svpar\_bool()}{get\_svpar\_bool()}}
+{\footnotesize\ttfamily bool Binstar\+::get\+\_\+svpar\+\_\+bool (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a66786ad072e4fa222a8a029a052e1869}\label{class_binstar_a66786ad072e4fa222a8a029a052e1869}} 
+\index{Binstar@{Binstar}!get\_svpar\_num@{get\_svpar\_num}}
+\index{get\_svpar\_num@{get\_svpar\_num}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_svpar\_num()}{get\_svpar\_num()}}
+{\footnotesize\ttfamily double Binstar\+::get\+\_\+svpar\+\_\+num (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the value of the parameters store in the svpar class in io. 
+
+\mbox{\Hypertarget{class_binstar_ae6ac8eb8bf40c68feca2a205449e0618}\label{class_binstar_ae6ac8eb8bf40c68feca2a205449e0618}} 
+\index{Binstar@{Binstar}!get\_svpar\_str@{get\_svpar\_str}}
+\index{get\_svpar\_str@{get\_svpar\_str}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_svpar\_str()}{get\_svpar\_str()}}
+{\footnotesize\ttfamily std\+::string Binstar\+::get\+\_\+svpar\+\_\+str (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}\label{class_binstar_a3d1e189c48f63ba48656dd473af7ede0}} 
+\index{Binstar@{Binstar}!get\_tf@{get\_tf}}
+\index{get\_tf@{get\_tf}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_tf()}{get\_tf()}}
+{\footnotesize\ttfamily double Binstar\+::get\+\_\+tf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ab493e92d3c59c6e2dca195cb6cdb9cac}\label{class_binstar_ab493e92d3c59c6e2dca195cb6cdb9cac}} 
+\index{Binstar@{Binstar}!get\_Z@{get\_Z}}
+\index{get\_Z@{get\_Z}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_Z()}{get\_Z()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Binstar\+::get\+\_\+Z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a815867f513fa1febbe5e5c9fdf42c854}\label{class_binstar_a815867f513fa1febbe5e5c9fdf42c854}} 
+\index{Binstar@{Binstar}!get\_zams@{get\_zams}}
+\index{get\_zams@{get\_zams}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{get\_zams()}{get\_zams()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Binstar\+::get\+\_\+zams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}\label{class_binstar_ae66ba1b2c72bd2637884c45660579fd8}} 
+\index{Binstar@{Binstar}!getp@{getp}}
+\index{getp@{getp}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getp()}{getp()}}
+{\footnotesize\ttfamily double Binstar\+::getp (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+METHODS///. 
+
+\mbox{\Hypertarget{class_binstar_aa24f41ca383d992769a890a837d76448}\label{class_binstar_aa24f41ca383d992769a890a837d76448}} 
+\index{Binstar@{Binstar}!getp\_0@{getp\_0}}
+\index{getp\_0@{getp\_0}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getp\_0()}{getp\_0()}}
+{\footnotesize\ttfamily double Binstar\+::getp\+\_\+0 (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a04b361bb7b2b44b2607c723a9c760c44}\label{class_binstar_a04b361bb7b2b44b2607c723a9c760c44}} 
+\index{Binstar@{Binstar}!getprocess@{getprocess}}
+\index{getprocess@{getprocess}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getprocess()}{getprocess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_process}{Process}} $\ast$ Binstar\+::getprocess (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ab332981ff691ed161875fef11ef0e063}\label{class_binstar_ab332981ff691ed161875fef11ef0e063}} 
+\index{Binstar@{Binstar}!getprocesses@{getprocesses}}
+\index{getprocesses@{getprocesses}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getprocesses()}{getprocesses()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_process}{Process}} $\ast$ $>$ \& Binstar\+::getprocesses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}\label{class_binstar_af96bcfc904a7c724daabcfa2e8a3428c}} 
+\index{Binstar@{Binstar}!getstar@{getstar}}
+\index{getstar@{getstar}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getstar()}{getstar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}} $\ast$ Binstar\+::getstar (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ae9045f1ea047957cf0708c1ca5bcae76}\label{class_binstar_ae9045f1ea047957cf0708c1ca5bcae76}} 
+\index{Binstar@{Binstar}!getstate@{getstate}}
+\index{getstate@{getstate}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{getstate()}{getstate()}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& Binstar\+::getstate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a101c7957ed37b33ece459ca9e90accbf}\label{class_binstar_a101c7957ed37b33ece459ca9e90accbf}} 
+\index{Binstar@{Binstar}!init@{init}}
+\index{init@{init}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Binstar\+::init (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params }\end{DoxyParamCaption})}
+
+Initialise the two stars in the binary and the other binary properties. This functiom assume thta the \mbox{\hyperlink{class_star}{Star}} constructor is called in the standard way from a init param vector with\+: \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output. 
+\begin{DoxyParams}{Parameters}
+{\em params} & A vector of string with the following orderd parameters\+: Mass1, Z1, Spin1, t\+\_\+1 initial, Mass2, Z2, Spin2, t\+\_\+2 initial, sn\+\_\+type, t final, dt\+\_\+out, bin\+\_\+separation, bin\+\_\+eccentricity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_aff1c82eea945fa790312bc4e7a77bec2}\label{class_binstar_aff1c82eea945fa790312bc4e7a77bec2}} 
+\index{Binstar@{Binstar}!init\_binary\_properties@{init\_binary\_properties}}
+\index{init\_binary\_properties@{init\_binary\_properties}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init\_binary\_properties()}{init\_binary\_properties()}}
+{\footnotesize\ttfamily void Binstar\+::init\+\_\+binary\+\_\+properties (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise the binary parameters. 
+\begin{DoxyParams}{Parameters}
+{\em params} & A vector of string with the following ordered parameters\+: if binput\+\_\+mode is legacy\+: Mass1, Mass2, Z1, Z2, Spin1, Spin2, bin\+\_\+separation, bin\+\_\+eccentricity, t\+\_\+final, t\+\_\+ini, tstep sn\+\_\+type1, sn\+\_\+type2, dt\+\_\+out if binput\+\_\+mode is new\+: Mass1, Z1, Spin1, sn\+\_\+type1, t\+\_\+1 initial, Mass2, Z2, Spin2, sn\+\_\+type2, t\+\_\+2 initial, bin\+\_\+separation, bin\+\_\+eccentricity, t\+\_\+final, dt\+\_\+out \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_af662832c416e52e65e81353b13b582dd}\label{class_binstar_af662832c416e52e65e81353b13b582dd}} 
+\index{Binstar@{Binstar}!init\_other\_params@{init\_other\_params}}
+\index{init\_other\_params@{init\_other\_params}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init\_other\_params()}{init\_other\_params()}}
+{\footnotesize\ttfamily void Binstar\+::init\+\_\+other\+\_\+params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+In this function we set the parameters that are already set in each star when we call init\+\_\+stars or init\+\_\+stars\+\_\+legacy. These parameters are\+: break\+\_\+at\+\_\+broken, break\+\_\+at\+\_\+remnant, print\+\_\+all\+\_\+steps and print\+\_\+per\+\_\+phase, tf, dtout. The function just check that the two stars store the same value for the parameters to set. It this is not true it throws a critical error. \begin{DoxyNote}{Note}
+this function should be called after the initialisation of the stars (init\+\_\+stars or init\+\_\+stars\+\_\+legacy). 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_binstar_acc619bacd09980142a743a82b16c9003}\label{class_binstar_acc619bacd09980142a743a82b16c9003}} 
+\index{Binstar@{Binstar}!init\_stars@{init\_stars}}
+\index{init\_stars@{init\_stars}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init\_stars()}{init\_stars()}}
+{\footnotesize\ttfamily void Binstar\+::init\+\_\+stars (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Transform the parameter in input it the stardard form needed from the \mbox{\hyperlink{class_star}{Star}} constructor and then call the stars constructor NB\+: This is the version that I like more, but it is different with respect the old SEVN V1 formalism (implemented in init\+\_\+star\+\_\+legacy) The constructor is called in the standard way from a init param vector with\+: \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output. 
+\begin{DoxyParams}{Parameters}
+{\em params} & A vector of string with the following orderd parameters\+: Mass1, Z1, Spin1, sn\+\_\+type1, t\+\_\+1 initial, Mass2, Z2, Spin2, sn\+\_\+type2, t\+\_\+2 initial, bin\+\_\+separation, bin\+\_\+eccentricity, t\+\_\+final, dt\+\_\+out \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a9dcf72f4fdadda8bf06f19b0e9898ef9}\label{class_binstar_a9dcf72f4fdadda8bf06f19b0e9898ef9}} 
+\index{Binstar@{Binstar}!init\_stars\_legacy@{init\_stars\_legacy}}
+\index{init\_stars\_legacy@{init\_stars\_legacy}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init\_stars\_legacy()}{init\_stars\_legacy()}}
+{\footnotesize\ttfamily void Binstar\+::init\+\_\+stars\+\_\+legacy (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Transform the parameter in input in the standard format needed from the \mbox{\hyperlink{class_star}{Star}} constructor and then call the stars constructor. The input format is in the old SEVN1 style. The constructor is called in the standard way from a init param vector with\+: \mbox{\hyperlink{class_mass}{Mass}}, Z, \mbox{\hyperlink{class_spin}{Spin}}, sn\+\_\+type, t initial, t final, dt print output. 
+\begin{DoxyParams}{Parameters}
+{\em params} & A vector of string with the following orderd parameters\+: Mass1, Mass2, Z1, Z2, Spin1, Spin2, bin\+\_\+separation, bin\+\_\+eccentricity, t\+\_\+final, t\+\_\+ini, tstep, sn\+\_\+type1, sn\+\_\+type2, dt\+\_\+out NB\+: tstep not used at the moment \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a6d9fa9dc69e02246865fc0321549ba72}\label{class_binstar_a6d9fa9dc69e02246865fc0321549ba72}} 
+\index{Binstar@{Binstar}!is\_process\_ongoing@{is\_process\_ongoing}}
+\index{is\_process\_ongoing@{is\_process\_ongoing}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{is\_process\_ongoing()}{is\_process\_ongoing()}}
+{\footnotesize\ttfamily bool Binstar\+::is\+\_\+process\+\_\+ongoing (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if a given process is actually ongoing 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of the process to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the process is ongoing, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a797a71bea2a27583df0df611b36fbfdb}\label{class_binstar_a797a71bea2a27583df0df611b36fbfdb}} 
+\index{Binstar@{Binstar}!isoutputtime@{isoutputtime}}
+\index{isoutputtime@{isoutputtime}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{isoutputtime()}{isoutputtime()}}
+{\footnotesize\ttfamily bool Binstar\+::isoutputtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs. 
+
+Check if time to store the outputs \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_aa455558e6e1e3c834e3c8062bd8de7e0}\label{class_binstar_aa455558e6e1e3c834e3c8062bd8de7e0}} 
+\index{Binstar@{Binstar}!limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary@{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary}}
+\index{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary@{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary()}{limit\_and\_correct\_mass\_transfer\_for\_donor\_from\_binary()}}
+{\footnotesize\ttfamily void Binstar\+::limit\+\_\+and\+\_\+correct\+\_\+mass\+\_\+transfer\+\_\+for\+\_\+donor\+\_\+from\+\_\+binary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{donor,  }\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{accretor,  }\item[{std\+::size\+\_\+t}]{mass\+\_\+limiting\+\_\+property\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Function that limit the mass transfer to a given mass value. For example we can limit the mass transfer to the core mass, in that case the maximum amount of mass we can trasnfer is the Envelope mass. We can also limit the mass transfer to the CO core mass. If the amount of mass transfered is larger, the function estimate the correction to exactly loss the right amount of mass and update the properties. The accreted mass is corrected accordingly. Notice to work this function assume that Total \mbox{\hyperlink{class_mass}{Mass}} \texorpdfstring{$<$}{<} mass\+\_\+limiting\+\_\+property\+\_\+id 
+\begin{DoxyParams}{Parameters}
+{\em donor} & Pointer to the \mbox{\hyperlink{class_star}{Star}} where we want to limit the mass transfer \\
+\hline
+{\em accretor} & Pointer to the \mbox{\hyperlink{class_star}{Star}} that can accrete the mass lost from the donor \\
+\hline
+{\em mass\+\_\+limiting\+\_\+property\+\_\+id} & ID of the mass limiting property (usually \mbox{\hyperlink{class_m_h_e}{MHE}} or \mbox{\hyperlink{class_m_c_o}{MCO}}). \\
+\hline
+\end{DoxyParams}
+Notice\+:
+
+Estimate the DM from the processes
+
+Estimate the actual fraction of mass accred on the accretor (considering all the processes)
+
+Estimate the correcting term
+
+Notice
+
+Correct mass
+
+Correct orbital properties\mbox{\Hypertarget{class_binstar_a1a7a24142d1d36ffbc685c8252aadfe9}\label{class_binstar_a1a7a24142d1d36ffbc685c8252aadfe9}} 
+\index{Binstar@{Binstar}!notprint@{notprint}}
+\index{notprint@{notprint}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{notprint()}{notprint()}}
+{\footnotesize\ttfamily bool Binstar\+::notprint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a7dab973fbbda46726e581094e77d5888}\label{class_binstar_a7dab973fbbda46726e581094e77d5888}} 
+\index{Binstar@{Binstar}!print@{print}}
+\index{print@{print}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Binstar\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Print the current binary properties. It is supposed that the evolution of this binary is not stopped by an error, therefore the summary is printed in the evolved files It uses the method print\+\_\+evolved\+\_\+summary and print\+\_\+formatted\+\_\+output of the class \mbox{\hyperlink{_i_o_8h}{IO.\+h}} \mbox{\Hypertarget{class_binstar_a0611147a14a45d55b971208783f49bf5}\label{class_binstar_a0611147a14a45d55b971208783f49bf5}} 
+\index{Binstar@{Binstar}!print\_failed@{print\_failed}}
+\index{print\_failed@{print\_failed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_failed()}{print\_failed()}}
+{\footnotesize\ttfamily void Binstar\+::print\+\_\+failed (\begin{DoxyParamCaption}\item[{bool}]{include\+\_\+in\+\_\+output = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Print the current binary properties. It is supposed that the evolution of this binary is stopped by an error, therefore the summary is printed in the failed files It uses the method print\+\_\+failed\+\_\+summary and print\+\_\+formatted\+\_\+output of the class \mbox{\hyperlink{_i_o_8h}{IO.\+h}} Print the current binary properties. It is supposed that the evolution of this binary is stopped by an error, therefore the summary is printed in the failed files It uses the method print\+\_\+failed\+\_\+summary and print\+\_\+formatted\+\_\+output of the class \mbox{\hyperlink{_i_o_8h}{IO.\+h}} 
+\begin{DoxyParams}{Parameters}
+{\em include\+\_\+in\+\_\+output} & If true flush allstates to the output even if the evolution failed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a0eb54871696753494838a12289f31f9c}\label{class_binstar_a0eb54871696753494838a12289f31f9c}} 
+\index{Binstar@{Binstar}!print\_to\_log@{print\_to\_log}}
+\index{print\_to\_log@{print\_to\_log}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_to\_log()}{print\_to\_log()}}
+{\footnotesize\ttfamily void Binstar\+::print\+\_\+to\+\_\+log (\begin{DoxyParamCaption}\item[{std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Print a message to the log file. It is a wrapper of the method log\+\_\+put of the class \mbox{\hyperlink{class_i_o}{IO}} 
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}\label{class_binstar_ab7309b8249e41f5faff1ebc42279aa3c}} 
+\index{Binstar@{Binstar}!printall@{printall}}
+\index{printall@{printall}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{printall()}{printall()}}
+{\footnotesize\ttfamily bool Binstar\+::printall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a08f804b7957d014044a1c6e1fd0c1a08}\label{class_binstar_a08f804b7957d014044a1c6e1fd0c1a08}} 
+\index{Binstar@{Binstar}!process\_alarm\_any@{process\_alarm\_any}}
+\index{process\_alarm\_any@{process\_alarm\_any}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{process\_alarm\_any()}{process\_alarm\_any()}}
+{\footnotesize\ttfamily bool Binstar\+::process\+\_\+alarm\+\_\+any (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Check all the processes alarm \begin{DoxyReturn}{Returns}
+True if at least one of the processes has a special\+\_\+evolution\+\_\+alarm switched on, False otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_af11e563c73b698c167cd444bd50cf286}\label{class_binstar_af11e563c73b698c167cd444bd50cf286}} 
+\index{Binstar@{Binstar}!processes\_alarm@{processes\_alarm}}
+\index{processes\_alarm@{processes\_alarm}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{processes\_alarm()}{processes\_alarm()}}
+{\footnotesize\ttfamily bool Binstar\+::processes\+\_\+alarm (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handle processes alarms. 
+
+Check if the specific process is signaling an special\+\_\+evolution\+\_\+alarm 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of the process to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the special evolution alarm is on, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a474c1c11e647c7271bcf5358f48e27ab}\label{class_binstar_a474c1c11e647c7271bcf5358f48e27ab}} 
+\index{Binstar@{Binstar}!Radx@{Radx}}
+\index{Radx@{Radx}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{Radx()}{Radx()}}
+{\footnotesize\ttfamily double Binstar\+::\+Radx (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{star\+ID }\end{DoxyParamCaption})}
+
+Estimate the effective radius during a RLO, i.\+e. Max(\+Rc,\+RL) for a given star. 
+\begin{DoxyParams}{Parameters}
+{\em star\+ID} & Id of the star (0 or 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Radx=max(\+Rc,\+RL) Notice\+: the stellar properties are the one at the beginning of the timestep, the Rc is the CO radius for nakedhelium stars. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_aed96353433af24141cac45949811c9a1}\label{class_binstar_aed96353433af24141cac45949811c9a1}} 
+\index{Binstar@{Binstar}!recordstate@{recordstate}}
+\index{recordstate@{recordstate}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{recordstate()}{recordstate()}}
+{\footnotesize\ttfamily void Binstar\+::recordstate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}\label{class_binstar_a0c5f61d5c97a0f193a24bd5315964989}} 
+\index{Binstar@{Binstar}!recordstate\_binary@{recordstate\_binary}}
+\index{recordstate\_binary@{recordstate\_binary}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{recordstate\_binary()}{recordstate\_binary()}}
+{\footnotesize\ttfamily void Binstar\+::recordstate\+\_\+binary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}\label{class_binstar_ad42962714c49b2201a94c9a80f7a9d21}} 
+\index{Binstar@{Binstar}!recordstate\_w\_timeupdate@{recordstate\_w\_timeupdate}}
+\index{recordstate\_w\_timeupdate@{recordstate\_w\_timeupdate}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{recordstate\_w\_timeupdate()}{recordstate\_w\_timeupdate()}}
+{\footnotesize\ttfamily void Binstar\+::recordstate\+\_\+w\+\_\+timeupdate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check that the evolution has been done\mbox{\Hypertarget{class_binstar_a36128cfad5b054f6b33e5cd1ffbd1897}\label{class_binstar_a36128cfad5b054f6b33e5cd1ffbd1897}} 
+\index{Binstar@{Binstar}!reset\_all\_processes\_alarms@{reset\_all\_processes\_alarms}}
+\index{reset\_all\_processes\_alarms@{reset\_all\_processes\_alarms}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{reset\_all\_processes\_alarms()}{reset\_all\_processes\_alarms()}}
+{\footnotesize\ttfamily void Binstar\+::reset\+\_\+all\+\_\+processes\+\_\+alarms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Switch off all the processes alarms \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binstar_a8971009ead0cecde5352b5b8aeecfba3}\label{class_binstar_a8971009ead0cecde5352b5b8aeecfba3}} 
+\index{Binstar@{Binstar}!reset\_events@{reset\_events}}
+\index{reset\_events@{reset\_events}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{reset\_events()}{reset\_events()}}
+{\footnotesize\ttfamily void Binstar\+::reset\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handle events. 
+
+Reset all the events, i.\+e. set to -\/1 the event member of all the processes \mbox{\Hypertarget{class_binstar_ae496c2e7acd865f56077d7eb3feed9cf}\label{class_binstar_ae496c2e7acd865f56077d7eb3feed9cf}} 
+\index{Binstar@{Binstar}!reset\_evolution\_flags@{reset\_evolution\_flags}}
+\index{reset\_evolution\_flags@{reset\_evolution\_flags}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{reset\_evolution\_flags()}{reset\_evolution\_flags()}}
+{\footnotesize\ttfamily void Binstar\+::reset\+\_\+evolution\+\_\+flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+RESET. 
+
+Reset (put to false) the flag about special evolution\+: mix, comenv, is\+\_\+swallowed. \mbox{\Hypertarget{class_binstar_a1fb61a171833151e3f91c6b0ced607af}\label{class_binstar_a1fb61a171833151e3f91c6b0ced607af}} 
+\index{Binstar@{Binstar}!resynch@{resynch}}
+\index{resynch@{resynch}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{resynch()}{resynch()}}
+{\footnotesize\ttfamily void Binstar\+::resynch (\begin{DoxyParamCaption}\item[{const double \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_binstar_a857dad2fd434d3cc7be21242befadeec}\label{class_binstar_a857dad2fd434d3cc7be21242befadeec}} 
+\index{Binstar@{Binstar}!set\_break\_at\_broken@{set\_break\_at\_broken}}
+\index{set\_break\_at\_broken@{set\_break\_at\_broken}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_break\_at\_broken()}{set\_break\_at\_broken()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+break\+\_\+at\+\_\+broken (\begin{DoxyParamCaption}\item[{std\+::string \&}]{tf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Set time when the tf in input is equal to broken 
+\begin{DoxyParams}{Parameters}
+{\em tf} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_afde7d5efa2872bd096e7668e7f533296}\label{class_binstar_afde7d5efa2872bd096e7668e7f533296}} 
+\index{Binstar@{Binstar}!set\_broken@{set\_broken}}
+\index{set\_broken@{set\_broken}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_broken()}{set\_broken()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+broken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a2439eada01ef664c81dfc6bd7e9d7f8e}\label{class_binstar_a2439eada01ef664c81dfc6bd7e9d7f8e}} 
+\index{Binstar@{Binstar}!set\_dtout@{set\_dtout}}
+\index{set\_dtout@{set\_dtout}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_dtout()}{set\_dtout()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+dtout (\begin{DoxyParamCaption}\item[{const double}]{a,  }\item[{const char $\ast$}]{file,  }\item[{const int}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the dtout time. 
+\begin{DoxyParams}{Parameters}
+{\em a} & value to set \\
+\hline
+{\em file} & \\
+\hline
+{\em line} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a0f66da596fb8e6771bd8effdf37659a6}\label{class_binstar_a0f66da596fb8e6771bd8effdf37659a6}} 
+\index{Binstar@{Binstar}!set\_empty@{set\_empty}}
+\index{set\_empty@{set\_empty}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_empty()}{set\_empty()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}\label{class_binstar_a0c4d84a2b7534d4a7826cb9701e9aab5}} 
+\index{Binstar@{Binstar}!set\_initial\_eccentricity@{set\_initial\_eccentricity}}
+\index{set\_initial\_eccentricity@{set\_initial\_eccentricity}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_eccentricity()}{set\_initial\_eccentricity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+initial\+\_\+eccentricity (\begin{DoxyParamCaption}\item[{double}]{ecc\+\_\+ini }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise the \mbox{\hyperlink{class_eccentricity}{Eccentricity}} checking the value 
+\begin{DoxyParams}{Parameters}
+{\em ecc\+\_\+ini} & Initial value of the eccentricity, it should be lower than 1 and no lower than 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_ad48aad98fc5f6350914ac5eb86882fc8}\label{class_binstar_ad48aad98fc5f6350914ac5eb86882fc8}} 
+\index{Binstar@{Binstar}!set\_initial\_eccentricity@{set\_initial\_eccentricity}}
+\index{set\_initial\_eccentricity@{set\_initial\_eccentricity}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_eccentricity()}{set\_initial\_eccentricity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+initial\+\_\+eccentricity (\begin{DoxyParamCaption}\item[{std\+::string}]{ecc\+\_\+ini }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise the \mbox{\hyperlink{class_eccentricity}{Eccentricity}} checking the value 
+\begin{DoxyParams}{Parameters}
+{\em ecc\+\_\+ini} & string with the initial eccentricity, if the string cannot be transformed to a number the function throw an io error. The initial value of the eccentricity has to be lower than 1 and no lower than 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a226dbca0db6ba4269a84900dd9716428}\label{class_binstar_a226dbca0db6ba4269a84900dd9716428}} 
+\index{Binstar@{Binstar}!set\_initial\_semimajor@{set\_initial\_semimajor}}
+\index{set\_initial\_semimajor@{set\_initial\_semimajor}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_semimajor()}{set\_initial\_semimajor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+initial\+\_\+semimajor (\begin{DoxyParamCaption}\item[{double}]{a\+\_\+ini }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise the \mbox{\hyperlink{class_semimajor}{Semimajor}} checking the value 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+ini} & Initial value of the \mbox{\hyperlink{class_semimajor}{Semimajor}} axis, it should be larger than 0 or the functions throw a critical error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_ac055a8c158630f1d449bb27e1a3d2942}\label{class_binstar_ac055a8c158630f1d449bb27e1a3d2942}} 
+\index{Binstar@{Binstar}!set\_initial\_semimajor@{set\_initial\_semimajor}}
+\index{set\_initial\_semimajor@{set\_initial\_semimajor}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_semimajor()}{set\_initial\_semimajor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+initial\+\_\+semimajor (\begin{DoxyParamCaption}\item[{std\+::string}]{a\+\_\+ini }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Initialise the \mbox{\hyperlink{class_semimajor}{Semimajor}} checking the value 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+ini} & string with the initial semimajor axis, if the string cannot be transformed to a number the function throw an io error. a\+\_\+ini has to be larger than 0 or the functions throw a critical error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a0b5c618923549ca6fc4db699d8d59cab}\label{class_binstar_a0b5c618923549ca6fc4db699d8d59cab}} 
+\index{Binstar@{Binstar}!set\_onesurvived@{set\_onesurvived}}
+\index{set\_onesurvived@{set\_onesurvived}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_onesurvived()}{set\_onesurvived()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+onesurvived (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_binstar_a97ed25d332706a969e7a3156d4414edf}\label{class_binstar_a97ed25d332706a969e7a3156d4414edf}} 
+\index{Binstar@{Binstar}!set\_rseed@{set\_rseed}}
+\index{set\_rseed@{set\_rseed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_rseed()}{set\_rseed()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+rseed (\begin{DoxyParamCaption}\item[{const unsigned long}]{a,  }\item[{const char $\ast$}]{file,  }\item[{const int}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_binstar_aa1b586f803316850cedc4bc8db9e0174}\label{class_binstar_aa1b586f803316850cedc4bc8db9e0174}} 
+\index{Binstar@{Binstar}!set\_tf@{set\_tf}}
+\index{set\_tf@{set\_tf}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{set\_tf()}{set\_tf()}}
+{\footnotesize\ttfamily void Binstar\+::set\+\_\+tf (\begin{DoxyParamCaption}\item[{const double}]{a,  }\item[{const char $\ast$}]{file,  }\item[{const int}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the final time of the simulation 
+\begin{DoxyParams}{Parameters}
+{\em a} & value to set \\
+\hline
+{\em file} & \\
+\hline
+{\em line} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binstar_a21decff12513b1673276460b72a66e19}\label{class_binstar_a21decff12513b1673276460b72a66e19}} 
+\index{Binstar@{Binstar}!SetXspinBavera@{SetXspinBavera}}
+\index{SetXspinBavera@{SetXspinBavera}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{SetXspinBavera()}{SetXspinBavera()}}
+{\footnotesize\ttfamily double Binstar\+::\+Set\+Xspin\+Bavera (\begin{DoxyParamCaption}\item[{const double}]{,  }\item[{const double}]{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_binstar_a116c8e2a2676d286b709d250546a641b}\label{class_binstar_a116c8e2a2676d286b709d250546a641b}} 
+\index{Binstar@{Binstar}!synchronise\_dt\_star@{synchronise\_dt\_star}}
+\index{synchronise\_dt\_star@{synchronise\_dt\_star}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{synchronise\_dt\_star()}{synchronise\_dt\_star()}}
+{\footnotesize\ttfamily void Binstar\+::synchronise\+\_\+dt\+\_\+star (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+METHODS/// SYNCS Set the time step of the next evolution of the two stars to the minimum values between the current timestep (\mbox{\hyperlink{class_property_a3b81e1e12799a9796befb8f4edcb0dd7}{Timestep\+::V}}). \mbox{\Hypertarget{class_binstar_a007cbdae2fb976bc85a21866a0e88526}\label{class_binstar_a007cbdae2fb976bc85a21866a0e88526}} 
+\index{Binstar@{Binstar}!update\_derived\_properties\_star@{update\_derived\_properties\_star}}
+\index{update\_derived\_properties\_star@{update\_derived\_properties\_star}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{update\_derived\_properties\_star()}{update\_derived\_properties\_star()}}
+{\footnotesize\ttfamily void Binstar\+::update\+\_\+derived\+\_\+properties\+\_\+star (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Call the evolve of the derived properties of a given star. The derived properties are properties that depends on other propertis, therefore when the binary evolution chanfe some of the fundamental properties we can call this function to properly set all the other derived properties. 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the star \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_binstar_a1995046c6ca65dfaf4daed12f2594100}\label{class_binstar_a1995046c6ca65dfaf4daed12f2594100}} 
+\index{Binstar@{Binstar}!allstates@{allstates}}
+\index{allstates@{allstates}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{allstates}{allstates}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Binstar\+::allstates\hspace{0.3cm}{\ttfamily [protected]}}
+
+2D Vector storing all the combinedstates. Each time Binstar\+::record is called combinedstate is pushed to allstates \mbox{\Hypertarget{class_binstar_a5933c2a416cbc3a786234a3c632cea99}\label{class_binstar_a5933c2a416cbc3a786234a3c632cea99}} 
+\index{Binstar@{Binstar}!break\_at\_broken@{break\_at\_broken}}
+\index{break\_at\_broken@{break\_at\_broken}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{break\_at\_broken}{break\_at\_broken}}
+{\footnotesize\ttfamily bool Binstar\+::break\+\_\+at\+\_\+broken}
+
+if true stop the evolution when the binary breaks \mbox{\Hypertarget{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}\label{class_binstar_ad45f245d05bfb2fb7ef0ac714219cb94}} 
+\index{Binstar@{Binstar}!break\_at\_remnant@{break\_at\_remnant}}
+\index{break\_at\_remnant@{break\_at\_remnant}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{break\_at\_remnant}{break\_at\_remnant}}
+{\footnotesize\ttfamily bool Binstar\+::break\+\_\+at\+\_\+remnant}
+
+if true stop the evolution when both stars are remnant \mbox{\Hypertarget{class_binstar_a24af3af10983764798eb68b1958f0505}\label{class_binstar_a24af3af10983764798eb68b1958f0505}} 
+\index{Binstar@{Binstar}!broken@{broken}}
+\index{broken@{broken}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{broken}{broken}}
+{\footnotesize\ttfamily bool Binstar\+::broken}
+
+
+
+MEMBERS///. 
+
+If true the binary is broken \mbox{\Hypertarget{class_binstar_a17b0917231d9823ffceaef979674ba91}\label{class_binstar_a17b0917231d9823ffceaef979674ba91}} 
+\index{Binstar@{Binstar}!CE\_E\_tomatch@{CE\_E\_tomatch}}
+\index{CE\_E\_tomatch@{CE\_E\_tomatch}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{CE\_E\_tomatch}{CE\_E\_tomatch}}
+{\footnotesize\ttfamily double Binstar\+::\+CE\+\_\+\+E\+\_\+tomatch = \mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}}
+
+Envelope binding energy of the system after coalesce during a CE ~\newline
+ \mbox{\Hypertarget{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}\label{class_binstar_ad3e2c601045fe4be8155c1b32ba9e6ce}} 
+\index{Binstar@{Binstar}!combinedstate@{combinedstate}}
+\index{combinedstate@{combinedstate}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{combinedstate}{combinedstate}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Binstar\+::combinedstate\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vector containing the properties of the stars (see \mbox{\hyperlink{class_star_a9c470ef914026471d16a7ada727cb9c5}{Star\+::state}}) and the properties of the binary (see above) \mbox{\Hypertarget{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}\label{class_binstar_a09ad1b8a1f4b233687028dde05ad6316}} 
+\index{Binstar@{Binstar}!comenv@{comenv}}
+\index{comenv@{comenv}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{comenv}{comenv}}
+{\footnotesize\ttfamily bool Binstar\+::comenv}
+
+If true the binary is doing a ce \mbox{\Hypertarget{class_binstar_a8c36ce436fee6f539bcffb72c408a803}\label{class_binstar_a8c36ce436fee6f539bcffb72c408a803}} 
+\index{Binstar@{Binstar}!disable\_a\_check@{disable\_a\_check}}
+\index{disable\_a\_check@{disable\_a\_check}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{disable\_a\_check}{disable\_a\_check}}
+{\footnotesize\ttfamily bool Binstar\+::disable\+\_\+a\+\_\+check}
+
+If true, the a\+\_\+check in adpative timestep is disabled \mbox{\Hypertarget{class_binstar_af922e7f1042d200fcf07e80dcb8b750b}\label{class_binstar_af922e7f1042d200fcf07e80dcb8b750b}} 
+\index{Binstar@{Binstar}!disable\_DM\_check@{disable\_DM\_check}}
+\index{disable\_DM\_check@{disable\_DM\_check}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{disable\_DM\_check}{disable\_DM\_check}}
+{\footnotesize\ttfamily bool Binstar\+::disable\+\_\+\+DM\+\_\+check}
+
+If true, the DM\+\_\+check (from binary evolution) in adpative timestep is disabled \mbox{\Hypertarget{class_binstar_a3d8455155259bdf45eb534601f372e4b}\label{class_binstar_a3d8455155259bdf45eb534601f372e4b}} 
+\index{Binstar@{Binstar}!disable\_e\_check@{disable\_e\_check}}
+\index{disable\_e\_check@{disable\_e\_check}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{disable\_e\_check}{disable\_e\_check}}
+{\footnotesize\ttfamily bool Binstar\+::disable\+\_\+e\+\_\+check}
+
+If true, the e\+\_\+check in adpative timestep is disabled \mbox{\Hypertarget{class_binstar_a39716614c3b5ed6b3e6981ec1bf2c9f5}\label{class_binstar_a39716614c3b5ed6b3e6981ec1bf2c9f5}} 
+\index{Binstar@{Binstar}!disable\_OmegaRem\_NS\_check@{disable\_OmegaRem\_NS\_check}}
+\index{disable\_OmegaRem\_NS\_check@{disable\_OmegaRem\_NS\_check}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{disable\_OmegaRem\_NS\_check}{disable\_OmegaRem\_NS\_check}}
+{\footnotesize\ttfamily bool Binstar\+::disable\+\_\+\+Omega\+Rem\+\_\+\+NS\+\_\+check}
+
+If true, the Omega\+Rem\+\_\+\+NS\+\_\+check (from binary evolution) in adpative timestep is disabled \mbox{\Hypertarget{class_binstar_ad680c1c67d1bbabd3f3b4c2c36816a69}\label{class_binstar_ad680c1c67d1bbabd3f3b4c2c36816a69}} 
+\index{Binstar@{Binstar}!disable\_stellar\_rotation\_check@{disable\_stellar\_rotation\_check}}
+\index{disable\_stellar\_rotation\_check@{disable\_stellar\_rotation\_check}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{disable\_stellar\_rotation\_check}{disable\_stellar\_rotation\_check}}
+{\footnotesize\ttfamily bool Binstar\+::disable\+\_\+stellar\+\_\+rotation\+\_\+check}
+
+If true, the \mbox{\hyperlink{class_omega_spin}{Omega\+Spin}} (from binary evolution) in adpative timestep is disabled \mbox{\Hypertarget{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}\label{class_binstar_ab69e070e6fa89216c0150fe1af0c6507}} 
+\index{Binstar@{Binstar}!dtout@{dtout}}
+\index{dtout@{dtout}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{dtout}{dtout}}
+{\footnotesize\ttfamily double Binstar\+::dtout\hspace{0.3cm}{\ttfamily [protected]}}
+
+Time interval for the output \mbox{\Hypertarget{class_binstar_a5c7b3d67a5b81542e869745264d98646}\label{class_binstar_a5c7b3d67a5b81542e869745264d98646}} 
+\index{Binstar@{Binstar}!empty@{empty}}
+\index{empty@{empty}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{empty}{empty}}
+{\footnotesize\ttfamily bool Binstar\+::empty}
+
+\mbox{\Hypertarget{class_binstar_a988646d5e45977f154868cc72c917157}\label{class_binstar_a988646d5e45977f154868cc72c917157}} 
+\index{Binstar@{Binstar}!evolution\_step\_completed@{evolution\_step\_completed}}
+\index{evolution\_step\_completed@{evolution\_step\_completed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{evolution\_step\_completed}{evolution\_step\_completed}}
+{\footnotesize\ttfamily bool Binstar\+::evolution\+\_\+step\+\_\+completed}
+
+\mbox{\Hypertarget{class_binstar_a4176647d0f9a5769112f39abf9cfeedc}\label{class_binstar_a4176647d0f9a5769112f39abf9cfeedc}} 
+\index{Binstar@{Binstar}!force\_tiny\_dt@{force\_tiny\_dt}}
+\index{force\_tiny\_dt@{force\_tiny\_dt}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{force\_tiny\_dt}{force\_tiny\_dt}}
+{\footnotesize\ttfamily bool Binstar\+::force\+\_\+tiny\+\_\+dt}
+
+If true, it forces the next Binary time step to be equal to \mbox{\hyperlink{namespaceutilities_aab5f52a00e3c581ff1681b25f3315b0f}{utilities\+::\+TINY}} \mbox{\Hypertarget{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}\label{class_binstar_ac3f30de5a1e68fc675a60cfd57ea1920}} 
+\index{Binstar@{Binstar}!ID@{ID}}
+\index{ID@{ID}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily size\+\_\+t Binstar\+::\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+ID of the binary (it depends on the position of this system in the list of binary \mbox{\Hypertarget{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}\label{class_binstar_aa14c7ed57a5be236d33010ae30f7f325}} 
+\index{Binstar@{Binstar}!init\_params@{init\_params}}
+\index{init\_params@{init\_params}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{init\_params}{init\_params}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Binstar\+::init\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+vector of string loaded from the list of binary \mbox{\Hypertarget{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}\label{class_binstar_a26f96d5f8f0060c2b0a9069370e2ca46}} 
+\index{Binstar@{Binstar}!io@{io}}
+\index{io@{io}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{io}{io}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_o}{IO}}$\ast$ Binstar\+::io\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to the \mbox{\hyperlink{class_i_o}{IO}} object \mbox{\Hypertarget{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}\label{class_binstar_ad5762e1dcdf979bc961aef9a2f7db6fb}} 
+\index{Binstar@{Binstar}!is\_swallowed@{is\_swallowed}}
+\index{is\_swallowed@{is\_swallowed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{is\_swallowed}{is\_swallowed}}
+{\footnotesize\ttfamily bool Binstar\+::is\+\_\+swallowed\mbox{[}2\mbox{]}}
+
+Array of bool corresponding to the ID of stars in binary. If true, the star has been swallowed \mbox{\Hypertarget{class_binstar_a24217396219460cd0c3c2f77b62c7435}\label{class_binstar_a24217396219460cd0c3c2f77b62c7435}} 
+\index{Binstar@{Binstar}!last\_Timestep@{last\_Timestep}}
+\index{last\_Timestep@{last\_Timestep}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{last\_Timestep}{last\_Timestep}}
+{\footnotesize\ttfamily double Binstar\+::last\+\_\+\+Timestep}
+
+it stores the last value of the \mbox{\hyperlink{class_timestep}{Timestep}} used in the evolution \mbox{\Hypertarget{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}\label{class_binstar_aa4043f7a14c6045ef1f7131f8389b3ee}} 
+\index{Binstar@{Binstar}!mix@{mix}}
+\index{mix@{mix}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{mix}{mix}}
+{\footnotesize\ttfamily bool Binstar\+::mix}
+
+If true the binary is mixing \mbox{\Hypertarget{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}\label{class_binstar_a5d424b21fb860a0c0f31c388b9ad52bf}} 
+\index{Binstar@{Binstar}!name@{name}}
+\index{name@{name}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Binstar\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+Random name of the binary \mbox{\Hypertarget{class_binstar_a537b9adde1c82056d9255d38ee9996e8}\label{class_binstar_a537b9adde1c82056d9255d38ee9996e8}} 
+\index{Binstar@{Binstar}!onesurvived@{onesurvived}}
+\index{onesurvived@{onesurvived}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{onesurvived}{onesurvived}}
+{\footnotesize\ttfamily bool Binstar\+::onesurvived}
+
+true if just one star survived else either both stars are present or no stars are present \mbox{\Hypertarget{class_binstar_a01918bafdd308f4951e83846b2be3deb}\label{class_binstar_a01918bafdd308f4951e83846b2be3deb}} 
+\index{Binstar@{Binstar}!print\_all\_steps@{print\_all\_steps}}
+\index{print\_all\_steps@{print\_all\_steps}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_all\_steps}{print\_all\_steps}}
+{\footnotesize\ttfamily bool Binstar\+::print\+\_\+all\+\_\+steps}
+
+Print options If true print in output all the steps. \mbox{\Hypertarget{class_binstar_afe404388646b25734c88c9c2d918bdbb}\label{class_binstar_afe404388646b25734c88c9c2d918bdbb}} 
+\index{Binstar@{Binstar}!print\_events@{print\_events}}
+\index{print\_events@{print\_events}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_events}{print\_events}}
+{\footnotesize\ttfamily bool Binstar\+::print\+\_\+events}
+
+If true print all the events \mbox{\Hypertarget{class_binstar_abbc52bc2a7091921195a193790e2c9ee}\label{class_binstar_abbc52bc2a7091921195a193790e2c9ee}} 
+\index{Binstar@{Binstar}!print\_only\_end@{print\_only\_end}}
+\index{print\_only\_end@{print\_only\_end}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_only\_end}{print\_only\_end}}
+{\footnotesize\ttfamily bool Binstar\+::print\+\_\+only\+\_\+end}
+
+If true do not print intermediate steps \mbox{\Hypertarget{class_binstar_a99ab4eccc5d731f5280c825b1970f895}\label{class_binstar_a99ab4eccc5d731f5280c825b1970f895}} 
+\index{Binstar@{Binstar}!print\_per\_phase@{print\_per\_phase}}
+\index{print\_per\_phase@{print\_per\_phase}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_per\_phase}{print\_per\_phase}}
+{\footnotesize\ttfamily bool Binstar\+::print\+\_\+per\+\_\+phase}
+
+If true print in output in each phase change \mbox{\Hypertarget{class_binstar_a3919e4796b26dc05942564998392ffdd}\label{class_binstar_a3919e4796b26dc05942564998392ffdd}} 
+\index{Binstar@{Binstar}!print\_rlo@{print\_rlo}}
+\index{print\_rlo@{print\_rlo}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{print\_rlo}{print\_rlo}}
+{\footnotesize\ttfamily bool Binstar\+::print\+\_\+rlo}
+
+If true print all the steps during a rlo \mbox{\Hypertarget{class_binstar_aa669910888db28d6cf81cb61621900c1}\label{class_binstar_aa669910888db28d6cf81cb61621900c1}} 
+\index{Binstar@{Binstar}!process@{process}}
+\index{process@{process}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{class_process}{Process}}$\ast$$>$ Binstar\+::process\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+MEMBERS///. 
+
+List with all the pointers to the processes initialised in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} \mbox{\Hypertarget{class_binstar_a1291c68661934dd8c0f9bad9df82e404}\label{class_binstar_a1291c68661934dd8c0f9bad9df82e404}} 
+\index{Binstar@{Binstar}!property@{property}}
+\index{property@{property}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{property}{property}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{class_binary_property}{Binary\+Property}}$\ast$$>$ Binstar\+::property\hspace{0.3cm}{\ttfamily [private]}}
+
+List with all the pointers to the binary properties initialised in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} \mbox{\Hypertarget{class_binstar_a91908734182a6ef52aea045d8039725d}\label{class_binstar_a91908734182a6ef52aea045d8039725d}} 
+\index{Binstar@{Binstar}!repeatstep@{repeatstep}}
+\index{repeatstep@{repeatstep}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{repeatstep}{repeatstep}}
+{\footnotesize\ttfamily bool Binstar\+::repeatstep}
+
+Control if it is needed to repeat a step of the binary evolution. It is mostly used in \mbox{\hyperlink{class_b_timestep_a5fd2780bf6d0e587c9dce7027be5a34c}{BTimestep\+::evolve}} \mbox{\Hypertarget{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}\label{class_binstar_a4adc381887e359e61cbc54dab6ffcec3}} 
+\index{Binstar@{Binstar}!rseed@{rseed}}
+\index{rseed@{rseed}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{rseed}{rseed}}
+{\footnotesize\ttfamily unsigned long Binstar\+::rseed\hspace{0.3cm}{\ttfamily [private]}}
+
+Random seed \mbox{\Hypertarget{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}\label{class_binstar_a35051a687b487e2d36a0ebad43fd8dd4}} 
+\index{Binstar@{Binstar}!star@{star}}
+\index{star@{star}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{star}{star}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_star}{Star}}$\ast$ Binstar\+::star\mbox{[}2\mbox{]} =\{nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointers to the stars in the binary system, initiliased to nullptr \mbox{\Hypertarget{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}\label{class_binstar_a640ccb5c404bdc1bb429222b47be85ec}} 
+\index{Binstar@{Binstar}!state@{state}}
+\index{state@{state}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Binstar\+::state\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vector containing the properties of the binary (the one stored in \mbox{\hyperlink{class_i_o_a13566b115648e8dd8d7d84c413c4962a}{IO\+::printcolumns\+\_\+binary}}). It is filled with value in Binstar\+::record \mbox{\Hypertarget{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}\label{class_binstar_a2dac1ac1badfad3be83d17343ab9cdf9}} 
+\index{Binstar@{Binstar}!svlog@{svlog}}
+\index{svlog@{svlog}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Binstar\+::svlog\hspace{0.3cm}{\ttfamily [protected]}}
+
+log object to handle output messages \mbox{\Hypertarget{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}\label{class_binstar_a23c46307a04c25bc009f4ec9ff5f5c62}} 
+\index{Binstar@{Binstar}!tf@{tf}}
+\index{tf@{tf}!Binstar@{Binstar}}
+\doxysubsubsection{\texorpdfstring{tf}{tf}}
+{\footnotesize\ttfamily double Binstar\+::tf\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+MEMBERS///. 
+
+End time of the simulation 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{binstar_8h}{binstar.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/binstar/\mbox{\hyperlink{binstar_8cpp}{binstar.\+cpp}}\end{DoxyCompactItemize}

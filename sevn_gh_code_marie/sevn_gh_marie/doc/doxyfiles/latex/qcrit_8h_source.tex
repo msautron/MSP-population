@@ -1,0 +1,66 @@
+\hypertarget{qcrit_8h_source}{}\doxysection{qcrit.\+h}
+\label{qcrit_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/qcrit.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/qcrit.h}}
+\mbox{\hyperlink{qcrit_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 2021-\/03-\/07.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_QCRIT\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_QCRIT\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utilities_8h}{utilities.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_qcrit}{Qcrit}}\{}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48     \mbox{\hyperlink{struct_qcrit_a1657c39bf473739eac8029a544f5447b}{Qcrit}}()\{\}}
+\DoxyCodeLine{49     \mbox{\hyperlink{struct_qcrit_ac3ace9aaeae9822d937a91e9c3daff85}{Qcrit}}(\textcolor{keywordtype}{double} \_qc\_const) : \mbox{\hyperlink{struct_qcrit_a558d74d26ec341e695f6d4146979e57d}{qc\_const}}(\_qc\_const)\{\}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     \textcolor{comment}{//Constants}}
+\DoxyCodeLine{54     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a558d74d26ec341e695f6d4146979e57d}{qc\_const}};}
+\DoxyCodeLine{61     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_af3105a7d887acbf3d1966698df961c57}{qcrit\_constant}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor)\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_qcrit_a558d74d26ec341e695f6d4146979e57d}{qc\_const}};\}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{//Hurley}}
+\DoxyCodeLine{70 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a6077c30b6365d621b7550ba94f194c40}{qcrit\_Hurley}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{//Hurley + Webbink}}
+\DoxyCodeLine{82 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a025bdd97552ef97cd2b3a7e6d626f88e}{qcrit\_Hurley\_Webbink}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{comment}{//Hurley + Webbink + Shao}}
+\DoxyCodeLine{92 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_aea44cb64a4083037c73a9bf1bc1d721c}{qcrit\_Hurley\_Webbink\_Shao}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{class_star}{Star}} *accretor);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{//COMPAS-\/Neijssel}}
+\DoxyCodeLine{106 \textcolor{comment}{}    \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a9b208a8e8757acafd51f03e497b5546b}{qcrit\_Neijssel}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a4fc383a8de18dc4b87ca263cb8d3e5b5}{qcrit\_COMPAS}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{125     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_ab7121c61f346285cfb71cef3f94af9c1}{qcrit\_COSMIC\_Claeys}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 }
+\DoxyCodeLine{136     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a7988e38b46a07ba8a69bfbea61503a7c}{\_Webbink\_giant}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_qcrit_a6ae7dc088a121e01aab4d8e2487b3545}{\_Hurley\_giant}}(\mbox{\hyperlink{class_star}{Star}}* donor, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* accretor);}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{typedef} double (\mbox{\hyperlink{struct_qcrit}{Qcrit}}::*\mbox{\hyperlink{qcrit_8h_ae1a0459344b747b9ecc753bf3709d41d}{qcrit\_method\_t}})(\mbox{\hyperlink{class_star}{Star}} *donor, \mbox{\hyperlink{class_star}{Star}} *accretor);}
+\DoxyCodeLine{152 \textcolor{keyword}{typedef} std::map<std::string, qcrit\_method\_t> \mbox{\hyperlink{qcrit_8h_acaf4b984ca2e9bab9db11072b87d328e}{QCRITMAP}};}
+\DoxyCodeLine{153 \textcolor{keyword}{extern} \textcolor{keyword}{const} \mbox{\hyperlink{qcrit_8h_acaf4b984ca2e9bab9db11072b87d328e}{QCRITMAP}} \mbox{\hyperlink{qcrit_8h_a26cf41b36c0a7f6cf36bebac88070a64}{qcritmap}};}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_QCRIT\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,299 @@
+\hypertarget{class_lambda___klencki__interpolator}{}\doxysection{Lambda\+\_\+\+Klencki\+\_\+interpolator Class Reference}
+\label{class_lambda___klencki__interpolator}\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+
+
+{\ttfamily \#include $<$lambda\+\_\+klencki21.\+h$>$}
+
+Inheritance diagram for Lambda\+\_\+\+Klencki\+\_\+interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_lambda___klencki__interpolator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lambda___klencki__interpolator_aa99c0459bcce4ab352885b726dcec827}{Lambda\+\_\+\+Klencki\+\_\+interpolator}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+\mbox{\hyperlink{class_lambda___klencki__interpolator_ad2ed15cdaa24b6ede77c1e01f46bb57c}{Lambda\+\_\+\+Klencki\+\_\+interpolator}} (const \mbox{\hyperlink{class_i_o}{IO}} $\ast$io)
+\item 
+double \mbox{\hyperlink{class_lambda___klencki__interpolator_a3ae0d2b09f6d62a5aaf55fea2491b916}{operator()}} (double Mzams, double Z, double R) override
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}{find\+\_\+row}} (double Mzams, double Z)
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}{operator()}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_lambda___klencki__interpolator_ae56d4aad8c1d7ecf19921b1a16bfa067}{fill\+\_\+interpolators\+\_\+lists}} ()
+\item 
+void \mbox{\hyperlink{class_lambda___klencki__interpolator_a3c92ece003102ea6e3645757a79f5e16}{find\+\_\+interpolators}} (double Mzams, double Z)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}{estimate\+\_\+lambda}} (double R, const std\+::vector$<$ double $>$ \&coefficients)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_lambda___klencki__interpolator_ab1c9ed047b1ffd4d44ecc8cfe9a6ede5}{vector\+\_\+cache}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} \mbox{\hyperlink{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}{svlog}}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}{Mzams\+\_\+cache}} \{0\}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}{Z\+\_\+cache}} \{0\}
+\item 
+const double \mbox{\hyperlink{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}{Zsun}} =0.\+017
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static thread\+\_\+local std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___klencki__interpolator_a42fe871c0208f9a4c4effb3e71382ec0}{Mzams\+\_\+list}}
+\item 
+static thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_lambda___klencki__interpolator_a366baf4d4c8373e78415160b81ec3f69}{Z\+\_\+list}}
+\item 
+static thread\+\_\+local bool \mbox{\hyperlink{class_lambda___klencki__interpolator_ae2c5f0132d515c0690247c27870b1738}{already\+\_\+loaded\+\_\+lists}} =false
+\item 
+static thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}{table}}
+\item 
+static thread\+\_\+local bool \mbox{\hyperlink{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}{already\+\_\+loaded}} =false
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki__interpolator_abda38aa10f94cd4c74d9dd77f0fff295}{Mzams\+\_\+interpolators}} \mbox{[}2\mbox{]} = \{0.,0.\}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki__interpolator_a1f25c9c5b24e96033416015c259a9566}{Z\+\_\+interpolators}} \mbox{[}4\mbox{]} = \{0.,0.,0.,0.\}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki__interpolator_a782f625e611a059499df6275e0bdf271}{wM}} \mbox{[}2\mbox{]} = \{0., 0.\}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki__interpolator_a40c2405fad6559f3e72af104c4bd9aa7}{wZ}} \mbox{[}4\mbox{]} = \{0., 0., 0., 0.\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Derived class from \mbox{\hyperlink{class_lambda___klencki}{Lambda\+\_\+\+Klencki}} to estimate the lambda using a Mzams-\/Z interpolation from the tracks tabulated by Klencki+21. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lambda___klencki__interpolator_aa99c0459bcce4ab352885b726dcec827}\label{class_lambda___klencki__interpolator_aa99c0459bcce4ab352885b726dcec827}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Klencki\_interpolator()}{Lambda\_Klencki\_interpolator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Lambda\+\_\+\+Klencki\+\_\+interpolator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_lambda___klencki__interpolator_ad2ed15cdaa24b6ede77c1e01f46bb57c}\label{class_lambda___klencki__interpolator_ad2ed15cdaa24b6ede77c1e01f46bb57c}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Klencki\_interpolator()}{Lambda\_Klencki\_interpolator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Lambda\+\_\+\+Klencki\+\_\+interpolator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{io }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}\label{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!estimate\_lambda@{estimate\_lambda}}
+\index{estimate\_lambda@{estimate\_lambda}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{estimate\_lambda()}{estimate\_lambda()}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::estimate\+\_\+lambda (\begin{DoxyParamCaption}\item[{double}]{R,  }\item[{const std\+::vector$<$ double $>$ \&}]{coefficients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Estimate lambda from Klencki+21 using Eq. A.\+1 
+\begin{DoxyParams}{Parameters}
+{\em R} & radius in Rsun \\
+\hline
+{\em coefficients} & coefficients of the Eq. A.\+1 in Klencki + R12,R23 and Rmax, it has to be a vector with dimension 17 with the following columns\+:
+\begin{DoxyItemize}
+\item 0\+: Mzams
+\item 1\+: Z
+\item 2\+: R12
+\item 3\+: R23
+\item 4\+: Rmax
+\item 5-\/8\+: a1,b1,c1,d1
+\item 9-\/12\+: a2,b2,c2,d2
+\item 13-\/16\+: a3,b3,c3,d3 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+
+value of lambda 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___klencki__interpolator_ae56d4aad8c1d7ecf19921b1a16bfa067}\label{class_lambda___klencki__interpolator_ae56d4aad8c1d7ecf19921b1a16bfa067}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!fill\_interpolators\_lists@{fill\_interpolators\_lists}}
+\index{fill\_interpolators\_lists@{fill\_interpolators\_lists}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{fill\_interpolators\_lists()}{fill\_interpolators\_lists()}}
+{\footnotesize\ttfamily void Lambda\+\_\+\+Klencki\+\_\+interpolator\+::fill\+\_\+interpolators\+\_\+lists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Read the already loaded table to find all the Mzams and Z in the Klencki tables \mbox{\Hypertarget{class_lambda___klencki__interpolator_a3c92ece003102ea6e3645757a79f5e16}\label{class_lambda___klencki__interpolator_a3c92ece003102ea6e3645757a79f5e16}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!find\_interpolators@{find\_interpolators}}
+\index{find\_interpolators@{find\_interpolators}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{find\_interpolators()}{find\_interpolators()}}
+{\footnotesize\ttfamily void Lambda\+\_\+\+Klencki\+\_\+interpolator\+::find\+\_\+interpolators (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Find the four interpolating tracks in the Klencki tables for a given Mzams, Z couple. If Mzams and Z are smaller or larger than the minimum and maximum values in the table, they are internally set to the minimum/maximum values in the table. This function set also the weights 
+\begin{DoxyParams}{Parameters}
+{\em Mzams} & zams mass in Msun \\
+\hline
+{\em Z} & metallicity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}\label{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!find\_row@{find\_row}}
+\index{find\_row@{find\_row}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{find\_row()}{find\_row()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Lambda\+\_\+\+Klencki\+::find\+\_\+row (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+Find the row of the Klencki table that best match Mzams and Z in input. The best match is the one for which Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+\begin{DoxyParams}{Parameters}
+{\em Mzams} & zams mass (Msun) of the star for which we want to find the the related track in the Klencki table \\
+\hline
+{\em Z} & Z of the star for which we want to find the the related track in the Klencki table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the quantities of the matched table row as a vector with dimension 17 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}\label{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Estimate lambda for a given star. Internally it calles the operator(double Mzams, double Z, double R). 
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{class_star}{Star}} for which we want to estimate lambda \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of lambda. Notice\+: the lambda is estimated by Klenci+21 using MESA tracks between 10 and 80 Msun and Z/\+Zsun 0.\+01 -\/ 0.\+1, where Zsun=0.\+017 (not all the tracks contains all the ranges in Z). The lambda is estimated in a quantised way, i.\+e. for a Mzams and a Z not present in the table, the closest track with Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_lambda___base_a5c42acdfdadf74207ffcfc26c70496c7}{Lambda\+\_\+\+Base}}.
+
+\mbox{\Hypertarget{class_lambda___klencki__interpolator_a3ae0d2b09f6d62a5aaf55fea2491b916}\label{class_lambda___klencki__interpolator_a3ae0d2b09f6d62a5aaf55fea2491b916}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+\_\+interpolator\+::operator() (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{R }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Estimate the value of lambda as function of Mzams,Z and R. The lambda is estimated interpolating the lambdas obtained for the four interpolating tracks in the Klencki tables. The interpolating tracks are so that Mzams\+\_\+track1\texorpdfstring{$<$}{<}= Mzams \texorpdfstring{$<$}{<}Mzams\+\_\+track2 and Z\+\_\+track12 \texorpdfstring{$<$}{<}= Z \texorpdfstring{$<$}{<} Z\+\_\+track34. So the four interpolating tracks have\+: 1 -\/ Mzams\+\_\+track1, Ztrack1 -\/\texorpdfstring{$>$}{>} lambda1 2-\/ Mzams\+\_\+track1, Ztrack2 -\/\texorpdfstring{$>$}{>} lambda2 3-\/ Mzams\+\_\+track2, Ztrack3 -\/\texorpdfstring{$>$}{>} lambda3 4-\/ Mzams\+\_\+track2, Ztrack4 -\/\texorpdfstring{$>$}{>} lambda4 The final lambda is estimated as w\+M1$\ast$(w\+Z1$\ast$lambda1 + w\+Z2$\ast$lambda2) + w\+M2$\ast$(w\+Z3$\ast$lambda3 + w\+Z4$\ast$lambda4), whew w\+M1,w\+M2,w\+Z1,w\+Z2,w\+Z3,w\+Z4 are the interpolateing weights estimates as w\+M1 = (Mzams\+\_\+track2 -\/ Mzams) / (Mzams\+\_\+track2 -\/ Mzams\+\_\+track1) w\+M2 = (Mzams -\/ Mzams\+\_\+track1) / (Mzams\+\_\+track2 -\/ Mzams\+\_\+track1) w\+Z1 = (Ztrack2 -\/ Z) / (Ztrack2 -\/ Ztrack1) w\+Z2 = (Z -\/ Ztrack1) / (Ztrack2 -\/ Ztrack1) .... etc. etc.
+
+If Mzams and Z are smaller or larger than the minimum and maximum values in the table, they are internally set to the minimum/maximum values in the tabe.
+
+Some part of the lambda estimate are cached. In particular the coefficient from Klencki+21 depends on the Mzams and Z, therefore these two values are cached and the coefficients (see find\+\_\+interpolators) are loaded only if Mzams or Z are different with respect to the last call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mzams} & \mbox{\hyperlink{class_zams}{Zams}} mass in Msun \\
+\hline
+{\em Z} & metallicity \\
+\hline
+{\em R} & radius in Rsun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of lambda. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_lambda___klencki_a60453965befae32bff2f0fd87cb8b62e}{Lambda\+\_\+\+Klencki}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}\label{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!already\_loaded@{already\_loaded}}
+\index{already\_loaded@{already\_loaded}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{already\_loaded}{already\_loaded}}
+{\footnotesize\ttfamily thread\+\_\+local bool Lambda\+\_\+\+Klencki\+::already\+\_\+loaded =false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+flag to check if it is needed to load table \mbox{\Hypertarget{class_lambda___klencki__interpolator_ae2c5f0132d515c0690247c27870b1738}\label{class_lambda___klencki__interpolator_ae2c5f0132d515c0690247c27870b1738}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!already\_loaded\_lists@{already\_loaded\_lists}}
+\index{already\_loaded\_lists@{already\_loaded\_lists}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{already\_loaded\_lists}{already\_loaded\_lists}}
+{\footnotesize\ttfamily thread\+\_\+local bool Lambda\+\_\+\+Klencki\+\_\+interpolator\+::already\+\_\+loaded\+\_\+lists =false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+flag to check if Mzams\+\_\+list and Z\+\_\+list have been already loaded \mbox{\Hypertarget{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}\label{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Mzams\_cache@{Mzams\_cache}}
+\index{Mzams\_cache@{Mzams\_cache}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_cache}{Mzams\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::\+Mzams\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___klencki__interpolator_abda38aa10f94cd4c74d9dd77f0fff295}\label{class_lambda___klencki__interpolator_abda38aa10f94cd4c74d9dd77f0fff295}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Mzams\_interpolators@{Mzams\_interpolators}}
+\index{Mzams\_interpolators@{Mzams\_interpolators}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_interpolators}{Mzams\_interpolators}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Mzams\+\_\+interpolators\mbox{[}2\mbox{]} = \{0.,0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Mzams of the four interpolator \mbox{\Hypertarget{class_lambda___klencki__interpolator_a42fe871c0208f9a4c4effb3e71382ec0}\label{class_lambda___klencki__interpolator_a42fe871c0208f9a4c4effb3e71382ec0}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Mzams\_list@{Mzams\_list}}
+\index{Mzams\_list@{Mzams\_list}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Mzams\_list}{Mzams\_list}}
+{\footnotesize\ttfamily thread\+\_\+local std\+::vector$<$ double $>$ Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Mzams\+\_\+list\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+list of all zams masses in the Klencki table \mbox{\Hypertarget{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}\label{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!svlog@{svlog}}
+\index{svlog@{svlog}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} Lambda\+\_\+\+Klencki\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}\label{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!table@{table}}
+\index{table@{table}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ Lambda\+\_\+\+Klencki\+::table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Here now we define two quantities that are used to load the external table only once per class per thread. In this way we can save memory not loading one table for each \mbox{\hyperlink{class_lambda}{Lambda}} instance, this is possibile using static variables. At the same time using thread\+\_\+local we force to have one separate definition for these variable for each thread avoiding data racing. In this case it is equivalent to defining the variable as threadprivate (see \href{https://stackoverflow.com/questions/60932116/does-thread-local-work-for-openmp-threads}{\texttt{ https\+://stackoverflow.\+com/questions/60932116/does-\/thread-\/local-\/work-\/for-\/openmp-\/threads}}), Variables that appear in threadprivate directives or variables with the \+\_\+\+Thread\+\_\+local (in C) or thread\+\_\+local (in C++) storage-\/class specifier are threadprivate
+
+In the class constructors the table is loaded only if the variable already\+\_\+loaded is set to false, after the table loading alread\+\_\+loaded is set to false. 2D table 170 rows, 17 columns \mbox{\Hypertarget{class_lambda___klencki__interpolator_ab1c9ed047b1ffd4d44ecc8cfe9a6ede5}\label{class_lambda___klencki__interpolator_ab1c9ed047b1ffd4d44ecc8cfe9a6ede5}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!vector\_cache@{vector\_cache}}
+\index{vector\_cache@{vector\_cache}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{vector\_cache}{vector\_cache}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Lambda\+\_\+\+Klencki\+\_\+interpolator\+::vector\+\_\+cache\hspace{0.3cm}{\ttfamily [protected]}}
+
+2d vectors with 4 rows (the interpolating tracks) and 17 columns (each one from a given track in the table) \mbox{\Hypertarget{class_lambda___klencki__interpolator_a782f625e611a059499df6275e0bdf271}\label{class_lambda___klencki__interpolator_a782f625e611a059499df6275e0bdf271}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!wM@{wM}}
+\index{wM@{wM}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{wM}{wM}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+\_\+interpolator\+::wM\mbox{[}2\mbox{]} = \{0., 0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+interpolator weights for the two Mzams \mbox{\Hypertarget{class_lambda___klencki__interpolator_a40c2405fad6559f3e72af104c4bd9aa7}\label{class_lambda___klencki__interpolator_a40c2405fad6559f3e72af104c4bd9aa7}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!wZ@{wZ}}
+\index{wZ@{wZ}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{wZ}{wZ}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+\_\+interpolator\+::wZ\mbox{[}4\mbox{]} = \{0., 0., 0., 0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+interpolator weights for the four metallicities \mbox{\Hypertarget{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}\label{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Z\_cache@{Z\_cache}}
+\index{Z\_cache@{Z\_cache}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Z\_cache}{Z\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::\+Z\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Last Mzams and Z used to estimate lambda \mbox{\Hypertarget{class_lambda___klencki__interpolator_a1f25c9c5b24e96033416015c259a9566}\label{class_lambda___klencki__interpolator_a1f25c9c5b24e96033416015c259a9566}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Z\_interpolators@{Z\_interpolators}}
+\index{Z\_interpolators@{Z\_interpolators}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Z\_interpolators}{Z\_interpolators}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Z\+\_\+interpolators\mbox{[}4\mbox{]} = \{0.,0.,0.,0.\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Z of the four interpolator \mbox{\Hypertarget{class_lambda___klencki__interpolator_a366baf4d4c8373e78415160b81ec3f69}\label{class_lambda___klencki__interpolator_a366baf4d4c8373e78415160b81ec3f69}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Z\_list@{Z\_list}}
+\index{Z\_list@{Z\_list}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Z\_list}{Z\_list}}
+{\footnotesize\ttfamily thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ Lambda\+\_\+\+Klencki\+\_\+interpolator\+::\+Z\+\_\+list\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+list of all metallicity in the Klencki table \mbox{\Hypertarget{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}\label{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}} 
+\index{Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}!Zsun@{Zsun}}
+\index{Zsun@{Zsun}!Lambda\_Klencki\_interpolator@{Lambda\_Klencki\_interpolator}}
+\doxysubsubsection{\texorpdfstring{Zsun}{Zsun}}
+{\footnotesize\ttfamily const double Lambda\+\_\+\+Klencki\+::\+Zsun =0.\+017\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Value of Z for the sun as assumed in Klencki+21 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__klencki21_8h}{lambda\+\_\+klencki21.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__klencki21_8cpp}{lambda\+\_\+klencki21.\+cpp}}\end{DoxyCompactItemize}

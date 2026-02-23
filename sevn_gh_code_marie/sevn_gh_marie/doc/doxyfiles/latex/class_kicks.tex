@@ -1,0 +1,215 @@
+\hypertarget{class_kicks}{}\doxysection{Kicks Class Reference}
+\label{class_kicks}\index{Kicks@{Kicks}}
+
+
+{\ttfamily \#include $<$kicks.\+h$>$}
+
+Inheritance diagram for Kicks\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_kicks}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kicks_a057b89e2b95508404e47bf6311b94b5c}{Kicks}} ()
+\item 
+virtual \mbox{\hyperlink{class_kicks_a47709eb3642db98471c75b22cc86cc2f}{$\sim$\+Kicks}} ()
+\item 
+virtual \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ \mbox{\hyperlink{class_kicks_ad55608716d3198c9d3c24f55e8b9b552}{instance}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}{name}} ()
+\item 
+void \mbox{\hyperlink{class_kicks_a24df9d565af3b8a2c37575cfd152e561}{apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+virtual void \mbox{\hyperlink{class_kicks_a5574ee61f5450621cbbf4b851aadc319}{\+\_\+apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)=0
+\item 
+double \mbox{\hyperlink{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}{get\+\_\+random\+\_\+kick}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ \mbox{\hyperlink{class_kicks_a0bcf9d165b436dceef7b3636600f9750}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}} (\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ptr, const std\+::string \&\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_kicks_a29029dc8666af30104c1483c60c1ac7e}{set\+\_\+random\+\_\+kick}} (const double \&a)
+\item 
+void \mbox{\hyperlink{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}{kick\+\_\+initializer}} ()
+\item 
+virtual void \mbox{\hyperlink{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}{check\+\_\+and\+\_\+correct\+\_\+vkick}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}{draw\+\_\+from\+\_\+gaussian}} (double std, double mean=0.)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\+\_\+gaussian}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}{uniform\+Real\+Distribution}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}}
+\item 
+double \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\+\_\+velocity\+\_\+kick}} =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& \mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{Get\+Static\+Map}} ()
+\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{Get\+Used}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kicks_a057b89e2b95508404e47bf6311b94b5c}\label{class_kicks_a057b89e2b95508404e47bf6311b94b5c}} 
+\index{Kicks@{Kicks}!Kicks@{Kicks}}
+\index{Kicks@{Kicks}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{Kicks()}{Kicks()}}
+{\footnotesize\ttfamily Kicks\+::\+Kicks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_kicks_a47709eb3642db98471c75b22cc86cc2f}\label{class_kicks_a47709eb3642db98471c75b22cc86cc2f}} 
+\index{Kicks@{Kicks}!````~Kicks@{$\sim$Kicks}}
+\index{````~Kicks@{$\sim$Kicks}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{$\sim$Kicks()}{~Kicks()}}
+{\footnotesize\ttfamily virtual Kicks\+::$\sim$\+Kicks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kicks_a5574ee61f5450621cbbf4b851aadc319}\label{class_kicks_a5574ee61f5450621cbbf4b851aadc319}} 
+\index{Kicks@{Kicks}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}}
+{\footnotesize\ttfamily virtual void Kicks\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_kicks_a24df9d565af3b8a2c37575cfd152e561}\label{class_kicks_a24df9d565af3b8a2c37575cfd152e561}} 
+\index{Kicks@{Kicks}!apply@{apply}}
+\index{apply@{apply}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily void Kicks\+::apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+Wrapper for specified \+\_\+apply functions 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}\label{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}} 
+\index{Kicks@{Kicks}!check\_and\_correct\_vkick@{check\_and\_correct\_vkick}}
+\index{check\_and\_correct\_vkick@{check\_and\_correct\_vkick}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{check\_and\_correct\_vkick()}{check\_and\_correct\_vkick()}}
+{\footnotesize\ttfamily void Kicks\+::check\+\_\+and\+\_\+correct\+\_\+vkick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Check if we have to make correction to the final Vkick (after all the fallback and similar correction) It checks\+:
+\begin{DoxyItemize}
+\item If Mremant=0 (e.\+g. after a PPISN) So far it just check that the final Vkick is not lower than the parameter sn\+\_\+min\+\_\+vkick. If this is the case it just sets the final velocity to the minimum value and rescale all the components by the factor min\+\_\+vkick/old\+\_\+vkick if old\+\_\+vkick is 0, new isotropic velocity components are randomly drawn 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}\label{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}} 
+\index{Kicks@{Kicks}!draw\_from\_gaussian@{draw\_from\_gaussian}}
+\index{draw\_from\_gaussian@{draw\_from\_gaussian}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{draw\_from\_gaussian()}{draw\_from\_gaussian()}}
+{\footnotesize\ttfamily double Kicks\+::draw\+\_\+from\+\_\+gaussian (\begin{DoxyParamCaption}\item[{double}]{std,  }\item[{double}]{mean = {\ttfamily 0.} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}\label{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}} 
+\index{Kicks@{Kicks}!get\_random\_kick@{get\_random\_kick}}
+\index{get\_random\_kick@{get\_random\_kick}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{get\_random\_kick()}{get\_random\_kick()}}
+{\footnotesize\ttfamily double Kicks\+::get\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}\label{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}} 
+\index{Kicks@{Kicks}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& Kicks\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}\label{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}} 
+\index{Kicks@{Kicks}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Kicks\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_kicks_ad55608716d3198c9d3c24f55e8b9b552}\label{class_kicks_ad55608716d3198c9d3c24f55e8b9b552}} 
+\index{Kicks@{Kicks}!instance@{instance}}
+\index{instance@{instance}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ Kicks\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_hobbs_pure_ace3c9ea942e690921f11efaffd9472bb}{Hobbs\+Pure}}, \mbox{\hyperlink{class_hobbs_a13ad010ae7563115c8a3408df6447663}{Hobbs}}, \mbox{\hyperlink{class_c_c15_a41f8f4566169ecee43dc291ecf371e52}{CC15}}, \mbox{\hyperlink{class_e_c15_c_c265_a19d5822d9323974a7364647de0f0a3f7}{EC15\+CC265}}, \mbox{\hyperlink{class_e_c_u_s30_a3746bcbc644cbc7ce9d407cd62c30da4}{ECUS30}}, \mbox{\hyperlink{class_unified_a3541bdc65b6c7d53986c3251f8cbb123}{Unified}}, and \mbox{\hyperlink{class_zeros_a0f035653ebe78e085593b16daa3966ca}{Zeros}}.
+
+\mbox{\Hypertarget{class_kicks_a0bcf9d165b436dceef7b3636600f9750}\label{class_kicks_a0bcf9d165b436dceef7b3636600f9750}} 
+\index{Kicks@{Kicks}!Instance@{Instance}}
+\index{Instance@{Instance}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ Kicks\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}\label{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}} 
+\index{Kicks@{Kicks}!kick\_initializer@{kick\_initializer}}
+\index{kick\_initializer@{kick\_initializer}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{kick\_initializer()}{kick\_initializer()}}
+{\footnotesize\ttfamily void Kicks\+::kick\+\_\+initializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}\label{class_kicks_ae66e86ba3f650fbc4e5db1ad86b60164}} 
+\index{Kicks@{Kicks}!name@{name}}
+\index{name@{name}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual std\+::string Kicks\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_hobbs_pure_ad51a7cf74882ce596ba6b4693cf096de}{Hobbs\+Pure}}, \mbox{\hyperlink{class_hobbs_a40d68cfaeb5e824a993cd9d9c84e4040}{Hobbs}}, \mbox{\hyperlink{class_c_c15_a6b111c56a10a20a39a78850d1ec086bb}{CC15}}, \mbox{\hyperlink{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}{EC15\+CC265}}, \mbox{\hyperlink{class_e_c_u_s30_af8aef5ec0985ecb024456e7ac921939e}{ECUS30}}, \mbox{\hyperlink{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}{Unified}}, and \mbox{\hyperlink{class_zeros_aac72e52325bf204f03d6117a272359fe}{Zeros}}.
+
+\mbox{\Hypertarget{class_kicks_a86dff21954db932117e2b4ff1146a192}\label{class_kicks_a86dff21954db932117e2b4ff1146a192}} 
+\index{Kicks@{Kicks}!Register@{Register}}
+\index{Register@{Register}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Kicks\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$}]{ptr,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_a29029dc8666af30104c1483c60c1ac7e}\label{class_kicks_a29029dc8666af30104c1483c60c1ac7e}} 
+\index{Kicks@{Kicks}!set\_random\_kick@{set\_random\_kick}}
+\index{set\_random\_kick@{set\_random\_kick}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{set\_random\_kick()}{set\_random\_kick()}}
+{\footnotesize\ttfamily void Kicks\+::set\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}\item[{const double \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_kicks_aa489fda64b125b3465f9f6249de25b83}\label{class_kicks_aa489fda64b125b3465f9f6249de25b83}} 
+\index{Kicks@{Kicks}!random\_velocity\_kick@{random\_velocity\_kick}}
+\index{random\_velocity\_kick@{random\_velocity\_kick}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{random\_velocity\_kick}{random\_velocity\_kick}}
+{\footnotesize\ttfamily double Kicks\+::random\+\_\+velocity\+\_\+kick =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}\label{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}} 
+\index{Kicks@{Kicks}!standard\_gaussian@{standard\_gaussian}}
+\index{standard\_gaussian@{standard\_gaussian}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{standard\_gaussian}{standard\_gaussian}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution$<$double$>$ Kicks\+::standard\+\_\+gaussian\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}\label{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}} 
+\index{Kicks@{Kicks}!svlog@{svlog}}
+\index{svlog@{svlog}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Kicks\+::svlog\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}\label{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}} 
+\index{Kicks@{Kicks}!uniformRealDistribution@{uniformRealDistribution}}
+\index{uniformRealDistribution@{uniformRealDistribution}!Kicks@{Kicks}}
+\doxysubsubsection{\texorpdfstring{uniformRealDistribution}{uniformRealDistribution}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Kicks\+::uniform\+Real\+Distribution\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{kicks_8h}{kicks.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{kicks_8cpp}{kicks.\+cpp}}\end{DoxyCompactItemize}

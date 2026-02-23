@@ -1,0 +1,199 @@
+\hypertarget{errhand_8h_source}{}\doxysection{errhand.\+h}
+\label{errhand_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/errhand.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/errhand.h}}
+\mbox{\hyperlink{errhand_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by mario on 07/11/18.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_REVISED\_ERRHAND\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_REVISED\_ERRHAND\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <omp.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{sevnlog_8h}{sevnlog.h}}>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{//NB, THis class is now deprecated since all the logging and errors are managed by SevnLogging.}}
+\DoxyCodeLine{20 \textcolor{comment}{// we mantain it  for now for compatibility but all the all the old call to sevenerr have to be repalced}}
+\DoxyCodeLine{21 \textcolor{comment}{//TODO the namespade should be sevnerr}}
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacesevnstd}{sevnstd}} \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} : \textcolor{keyword}{public} std::exception \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1sevnerr_a9884b11b802e7e502b709b2b4af2f78d}{sevnerr}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{29         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{inline}  \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \mbox{\hyperlink{classsevnstd_1_1sevnerr_a79a3726a17ecdd203e1346337511cbcf}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}}(s);}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{classsevnstd_1_1sevnerr_ae4310000ddc373ae32390e0f57b99a63}{what}} () \textcolor{keyword}{const} throw()\{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} \&\mbox{\hyperlink{classsevnstd_1_1sevnerr_aa96f94b82a5d850fe4ef74141b13b7dd}{mess}}[0];}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1sevnerr_a00e407139ad4af85b60d56a2a6e7bd63}{default\_mess}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEVN error: "{}};\}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(std::string\& s)\{}
+\DoxyCodeLine{46         \mbox{\hyperlink{classsevnstd_1_1sevnerr_aa96f94b82a5d850fe4ef74141b13b7dd}{mess}}=\mbox{\hyperlink{classsevnstd_1_1sevnerr_a00e407139ad4af85b60d56a2a6e7bd63}{default\_mess}}()+s;}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48     std::string \mbox{\hyperlink{classsevnstd_1_1sevnerr_aa96f94b82a5d850fe4ef74141b13b7dd}{mess}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnio\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{public}:}
+\DoxyCodeLine{56         \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1sevnio__error_aba42e27b6fd8c645610e6df229e878af}{sevnio\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{57             \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59         \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnio\_error}} \mbox{\hyperlink{classsevnstd_1_1sevnio__error_a765ee5456760abbeec3904a76f0857e5}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1sevnio__error}{sevnio\_error}}(s);}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62         \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1sevnio__error_a87cda192a746c9069aea10fafcd49735}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEVN IO error: "{}};\}}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1sse__error}{sse\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{public}:}
+\DoxyCodeLine{69         \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1sse__error_a9b8cb1f74039532070c04b24f312b352}{sse\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{70             \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1sse__error}{sse\_error}} \mbox{\hyperlink{classsevnstd_1_1sse__error_a8436f5543a57332e6b44cd31185b6f85}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{73             \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1sse__error}{sse\_error}}(s);}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1sse__error_a6c600bf8ab1677675d756d2e64556479}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SSE error: "{}};\}}
+\DoxyCodeLine{76     \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1bse__error}{bse\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keyword}{public}:}
+\DoxyCodeLine{82         \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1bse__error_a14d056dcde97a6031902df674ac6c75e}{bse\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{83             \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85         \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1bse__error}{bse\_error}} \mbox{\hyperlink{classsevnstd_1_1bse__error_acfe594bc2cecf36ddc33470fa712c614}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1bse__error}{bse\_error}}(s);}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88         \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1bse__error_a761ba09e8ce757fcf6b6a189d3036dc0}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BSE error: "{}};\}}
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1rl__error}{rl\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1bse__error}{bse\_error}} \{}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keyword}{public}:}
+\DoxyCodeLine{95         \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1rl__error_ae85fdcb6ec52ebf53fb3c38e14e0164f}{rl\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{96             \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98         \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1rl__error}{rl\_error}} \mbox{\hyperlink{classsevnstd_1_1rl__error_adbac5512a20caeed727827f083199789}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{99             \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1rl__error}{rl\_error}}(s);}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101         \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1rl__error_ae702de02179e448268e5b4cda208c9b3}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RocheLobe error: "{}};\}}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1ce__error}{ce\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1bse__error}{bse\_error}} \{}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{public}:}
+\DoxyCodeLine{107     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1ce__error_a77ab16a5740cb7b8798cf2fe53573977}{ce\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{108         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1ce__error}{ce\_error}} \mbox{\hyperlink{classsevnstd_1_1ce__error_ae4557ce2d77ce26024c3f809687320d7}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{112         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1ce__error}{ce\_error}}(s);}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114     \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1ce__error_a0d440559fdae1210205ef66879470cb5}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CommonEnvelope error: "{}};\}}
+\DoxyCodeLine{115 \};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1sn__error}{sn\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sse__error}{sse\_error}} \{}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keyword}{public}:}
+\DoxyCodeLine{120     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1sn__error_a07d61e571d2163c53e20e75b2271df2d}{sn\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}})\{}
+\DoxyCodeLine{121         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1sn__error}{sn\_error}} \mbox{\hyperlink{classsevnstd_1_1sn__error_a5acd60c10abfcf49d717c0056891d86b}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{125         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1sn__error}{sn\_error}}(s);}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \textcolor{keyword}{inline}  std::string \mbox{\hyperlink{classsevnstd_1_1sn__error_afa8fc0a1f9db48c9c72c53075d0d8ab5}{default\_mess}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SN error: "{}};\}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1jtrack__error}{jtrack\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     \textcolor{keyword}{public}:}
+\DoxyCodeLine{135         \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1jtrack__error_af6cc70575826521e12653f5cad14bf9e}{jtrack\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{136         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138         \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1jtrack__error}{jtrack\_error}} \mbox{\hyperlink{classsevnstd_1_1jtrack__error_a2527078e71d44f2752708fce8cfb9e02}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{139             \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1jtrack__error}{jtrack\_error}}(s);}
+\DoxyCodeLine{140         \}}
+\DoxyCodeLine{141         \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsevnstd_1_1jtrack__error_ad425819649cbb536eaf786cd05dcf4d9}{default\_mess}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Change tracks error: "{}};\}}
+\DoxyCodeLine{142 \};}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1params__error}{params\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{keyword}{public}:}
+\DoxyCodeLine{147     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1params__error_a993ab394ca2a5217019b7b8dd40b6c26}{params\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}})\{}
+\DoxyCodeLine{148         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150     \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1params__error}{params\_error}} \mbox{\hyperlink{classsevnstd_1_1params__error_a1fd3eb01ed6c0fef75ae78bd2c6b1a43}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{151         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1params__error}{params\_error}}(s);}
+\DoxyCodeLine{152     \}}
+\DoxyCodeLine{153     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsevnstd_1_1params__error_ac076807590eb520cded6f566dcb5af22}{default\_mess}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEVN parameters error: "{}};\}}
+\DoxyCodeLine{154 \};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{notimplemented\_error}} : \textcolor{keyword}{public}  \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{157 \textcolor{keyword}{public}:}
+\DoxyCodeLine{158     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1notimplemented__error_a842ea80284f401b5332c3bdfbe2ad1cb}{notimplemented\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}})\{}
+\DoxyCodeLine{159         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{160     \}}
+\DoxyCodeLine{161     \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{notimplemented\_error}} \mbox{\hyperlink{classsevnstd_1_1notimplemented__error_aefa9bd45e63ecd9674fdef3349f2ebe3}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{162         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1notimplemented__error}{notimplemented\_error}}(s);}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsevnstd_1_1notimplemented__error_ad8a6dfd18e3df7af00e21037f96d91b2}{default\_mess}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEVN not implemented error: "{}};\}}
+\DoxyCodeLine{165 \};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1sanity__error}{sanity\_error}} : \textcolor{keyword}{public}  \mbox{\hyperlink{classsevnstd_1_1sevnerr}{sevnerr}} \{}
+\DoxyCodeLine{168 \textcolor{keyword}{public}:}
+\DoxyCodeLine{169     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsevnstd_1_1sanity__error_a86d0aa749d817dd9204ab6c26f0b6480}{sanity\_error}}(std::string s=\textcolor{stringliteral}{"{}"{}})\{}
+\DoxyCodeLine{170         \mbox{\hyperlink{classsevnstd_1_1sevnerr_a1e8a8aa635c0c501a6865474b9e020ae}{set\_mess}}(s);}
+\DoxyCodeLine{171     \}}
+\DoxyCodeLine{172     \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1sanity__error}{sanity\_error}} \mbox{\hyperlink{classsevnstd_1_1sanity__error_a10c8d4b24b89cafa5250c4e1f622f83e}{istance}}(std::string\& s)\{}
+\DoxyCodeLine{173         \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1sanity__error}{sanity\_error}}(s);}
+\DoxyCodeLine{174     \}}
+\DoxyCodeLine{175     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{classsevnstd_1_1sanity__error_a8a9453f11cb562433ca9271171d727da}{default\_mess}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEVN sanity check error: "{}};\}}
+\DoxyCodeLine{176 \};}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{comment}{//This is an example of how override throw of exception class, maybe at a certain point sevnerr can inerhit from exception}}
+\DoxyCodeLine{183 \textcolor{comment}{/*}}
+\DoxyCodeLine{184 \textcolor{comment}{class SevnException : public std::exception}}
+\DoxyCodeLine{185 \textcolor{comment}{\{}}
+\DoxyCodeLine{186 \textcolor{comment}{public:}}
+\DoxyCodeLine{187 \textcolor{comment}{    const char * what() const throw () override  \{}}
+\DoxyCodeLine{188 \textcolor{comment}{        return "{}SEVN EXCEPTION"{};}}
+\DoxyCodeLine{189 \textcolor{comment}{    \}}}
+\DoxyCodeLine{190 \textcolor{comment}{\};}}
+\DoxyCodeLine{191 \textcolor{comment}{ */}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_REVISED\_ERRHAND\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,107 @@
+\hypertarget{class_b_s_e___property}{}\doxysection{BSE\+\_\+\+Property Class Reference}
+\label{class_b_s_e___property}\index{BSE\_Property@{BSE\_Property}}
+
+
+{\ttfamily \#include $<$BSEintegrator.\+h$>$}
+
+Inheritance diagram for BSE\+\_\+\+Property\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_b_s_e___property}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_s_e___property_a39d8c56d321abe203faf2dcc3f58ec2d}{BSE\+\_\+\+Property}} (double Zinput)
+\item 
+virtual double \mbox{\hyperlink{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}{operator()}} (double M)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_b_s_e___property_a3e9e6203ba521b775c267ba2196b9162}{units}} ()
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}{eval}} (double M)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}{chaced\+\_\+M}} =0
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}{chaced\+\_\+logP}} =0
+\item 
+double \mbox{\hyperlink{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}{Z}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}{coeff}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic Abstract class to initialise a BSE property and evolve it. When created a Class property gets all the needed coefficient, then the value can be called with the overloaded operator (\mbox{\hyperlink{class_mass}{Mass}}) or (\mbox{\hyperlink{class_mass}{Mass}},time). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_s_e___property_a39d8c56d321abe203faf2dcc3f58ec2d}\label{class_b_s_e___property_a39d8c56d321abe203faf2dcc3f58ec2d}} 
+\index{BSE\_Property@{BSE\_Property}!BSE\_Property@{BSE\_Property}}
+\index{BSE\_Property@{BSE\_Property}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{BSE\_Property()}{BSE\_Property()}}
+{\footnotesize\ttfamily BSE\+\_\+\+Property\+::\+BSE\+\_\+\+Property (\begin{DoxyParamCaption}\item[{double}]{Zinput }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}\label{class_b_s_e___property_a796ffa171b3c4fbf2c5a41078ccc1444}} 
+\index{BSE\_Property@{BSE\_Property}!eval@{eval}}
+\index{eval@{eval}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::eval (\begin{DoxyParamCaption}\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}\label{class_b_s_e___property_af61fed891b99c284c87b6e25fb439aaa}} 
+\index{BSE\_Property@{BSE\_Property}!operator()@{operator()}}
+\index{operator()@{operator()}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily virtual double BSE\+\_\+\+Property\+::operator() (\begin{DoxyParamCaption}\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_tbgb_acdf2ac0b8cfe4917e1a6e02165228054}{Tbgb}}, \mbox{\hyperlink{class_thook_aa6826efd4e81ea51de46c02ba3336cf0}{Thook}}, and \mbox{\hyperlink{class_tms_af05e5f92e6c40182182bfe2cec9f1373}{Tms}}.
+
+\mbox{\Hypertarget{class_b_s_e___property_a3e9e6203ba521b775c267ba2196b9162}\label{class_b_s_e___property_a3e9e6203ba521b775c267ba2196b9162}} 
+\index{BSE\_Property@{BSE\_Property}!units@{units}}
+\index{units@{units}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{units()}{units()}}
+{\footnotesize\ttfamily virtual std\+::string BSE\+\_\+\+Property\+::units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_s_etimes_a74f74d626cc180a06366b33d557aae02}{BSEtimes}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}\label{class_b_s_e___property_ab1e7143a7fd9cfd10eaceaaf2e8edf02}} 
+\index{BSE\_Property@{BSE\_Property}!chaced\_logP@{chaced\_logP}}
+\index{chaced\_logP@{chaced\_logP}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{chaced\_logP}{chaced\_logP}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::chaced\+\_\+logP =0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}\label{class_b_s_e___property_a0cf80f56c1319bd78579e7a1aa94ceef}} 
+\index{BSE\_Property@{BSE\_Property}!chaced\_M@{chaced\_M}}
+\index{chaced\_M@{chaced\_M}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{chaced\_M}{chaced\_M}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::chaced\+\_\+M =0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}\label{class_b_s_e___property_a22c53ea104f6abdd1141ca332aea4f4d}} 
+\index{BSE\_Property@{BSE\_Property}!coeff@{coeff}}
+\index{coeff@{coeff}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{coeff}{coeff}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ BSE\+\_\+\+Property\+::coeff\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}\label{class_b_s_e___property_add15815038ec1bed19d066ccb1379d64}} 
+\index{BSE\_Property@{BSE\_Property}!Z@{Z}}
+\index{Z@{Z}!BSE\_Property@{BSE\_Property}}
+\doxysubsubsection{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily double BSE\+\_\+\+Property\+::Z\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/\mbox{\hyperlink{_b_s_eintegrator_8h}{BSEintegrator.\+h}}\end{DoxyCompactItemize}

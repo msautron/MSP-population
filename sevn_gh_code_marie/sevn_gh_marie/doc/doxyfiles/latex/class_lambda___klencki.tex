@@ -1,0 +1,222 @@
+\hypertarget{class_lambda___klencki}{}\doxysection{Lambda\+\_\+\+Klencki Class Reference}
+\label{class_lambda___klencki}\index{Lambda\_Klencki@{Lambda\_Klencki}}
+
+
+{\ttfamily \#include $<$lambda\+\_\+klencki21.\+h$>$}
+
+Inheritance diagram for Lambda\+\_\+\+Klencki\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_lambda___klencki}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lambda___klencki_a73d9423b15cda6d226915ac114743582}{Lambda\+\_\+\+Klencki}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+\mbox{\hyperlink{class_lambda___klencki_a73afd370a22fd7cbc01d7dc6fda0cc55}{Lambda\+\_\+\+Klencki}} (const \mbox{\hyperlink{class_i_o}{IO}} $\ast$io)
+\item 
+virtual \mbox{\hyperlink{class_lambda___klencki_ad58ec89f0b1b04e85cc21f68d11d6d93}{$\sim$\+Lambda\+\_\+\+Klencki}} ()=default
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}{find\+\_\+row}} (double Mzams, double Z)
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}{operator()}} (const \mbox{\hyperlink{class_star}{Star}} $\ast$s) override
+\item 
+virtual double \mbox{\hyperlink{class_lambda___klencki_a60453965befae32bff2f0fd87cb8b62e}{operator()}} (double Mzams, double Z, double R)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}{estimate\+\_\+lambda}} (double R, const std\+::vector$<$ double $>$ \&coefficients)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} \mbox{\hyperlink{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}{svlog}}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}{Mzams\+\_\+cache}} \{0\}
+\item 
+double \mbox{\hyperlink{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}{Z\+\_\+cache}} \{0\}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_lambda___klencki_aa200896a0bb14dbee6e1a1f5cb1c660b}{vector\+\_\+cache}}
+\item 
+const double \mbox{\hyperlink{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}{Zsun}} =0.\+017
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}{table}}
+\item 
+static thread\+\_\+local bool \mbox{\hyperlink{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}{already\+\_\+loaded}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic \mbox{\hyperlink{class_lambda___klencki}{Lambda\+\_\+\+Klencki}} class. The \mbox{\hyperlink{class_lambda}{Lambda}} fit comes from Appendix A in Klencki+21 (\href{https://ui.adsabs.harvard.edu/abs/2021A\%26A...645A..54K/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2021\+A\%26\+A...\+645\+A..\+54\+K/abstract}}). \mbox{\hyperlink{class_lambda}{Lambda}} is thus estimates as\+: log10(lambda) = a$\ast$x$^\wedge$3 + b$\ast$x$^\wedge$2 + c$\ast$x + d where x=log10(\+R) The value of a,b,c,d depends on the \mbox{\hyperlink{class_mass}{Mass}} (Mzams), Z (metallicity) and \mbox{\hyperlink{class_radius}{Radius}}. All these values are tabulated for a set of given tracks, the table is in auxiliary\+\_\+data/lambda\+\_\+fit\+\_\+\+Klencki21.\+dat (original link https\+: //ftp.science.\+ru.\+nl/astro/jklencki/).
+
+During the first class initialisation in each thread, the table is loaded as a static 2D vector The following class initialisations will just use the already loaded table.
+
+The lambda can be retrieved using the overload operator (\mbox{\hyperlink{class_star}{Star}} $\ast$s) or (double Mzams, double Z, double R).
+
+Notice\+: the lambda is estimated by Klenci+21 using MESA tracks between 10 and 80 Msun and Z/\+Zsun 0.\+01 -\/ 0.\+1, where Zsun=0.\+017 (not all the tracks contains all the ranges in Z). Using this class the lambda is estimated in a quantised way, i.\+e. for a Mzams and a Z not present in the table, the closed track with Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lambda___klencki_a73d9423b15cda6d226915ac114743582}\label{class_lambda___klencki_a73d9423b15cda6d226915ac114743582}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Lambda\_Klencki@{Lambda\_Klencki}}
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Klencki()}{Lambda\_Klencki()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Klencki\+::\+Lambda\+\_\+\+Klencki (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_lambda___klencki_a73afd370a22fd7cbc01d7dc6fda0cc55}\label{class_lambda___klencki_a73afd370a22fd7cbc01d7dc6fda0cc55}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Lambda\_Klencki@{Lambda\_Klencki}}
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{Lambda\_Klencki()}{Lambda\_Klencki()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Lambda\+\_\+\+Klencki\+::\+Lambda\+\_\+\+Klencki (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_o}{IO}} $\ast$}]{io }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_lambda___klencki_ad58ec89f0b1b04e85cc21f68d11d6d93}\label{class_lambda___klencki_ad58ec89f0b1b04e85cc21f68d11d6d93}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!````~Lambda\_Klencki@{$\sim$Lambda\_Klencki}}
+\index{````~Lambda\_Klencki@{$\sim$Lambda\_Klencki}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{$\sim$Lambda\_Klencki()}{~Lambda\_Klencki()}}
+{\footnotesize\ttfamily virtual Lambda\+\_\+\+Klencki\+::$\sim$\+Lambda\+\_\+\+Klencki (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}\label{class_lambda___klencki_aaa1b8c8a609662fb1c6ec7af1f810a15}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!estimate\_lambda@{estimate\_lambda}}
+\index{estimate\_lambda@{estimate\_lambda}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{estimate\_lambda()}{estimate\_lambda()}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::estimate\+\_\+lambda (\begin{DoxyParamCaption}\item[{double}]{R,  }\item[{const std\+::vector$<$ double $>$ \&}]{coefficients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Estimate lambda from Klencki+21 using Eq. A.\+1 
+\begin{DoxyParams}{Parameters}
+{\em R} & radius in Rsun \\
+\hline
+{\em coefficients} & coefficients of the Eq. A.\+1 in Klencki + R12,R23 and Rmax, it has to be a vector with dimension 17 with the following columns\+:
+\begin{DoxyItemize}
+\item 0\+: Mzams
+\item 1\+: Z
+\item 2\+: R12
+\item 3\+: R23
+\item 4\+: Rmax
+\item 5-\/8\+: a1,b1,c1,d1
+\item 9-\/12\+: a2,b2,c2,d2
+\item 13-\/16\+: a3,b3,c3,d3 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+
+value of lambda 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}\label{class_lambda___klencki_abf65a8cf6fa3462a4c4e325e6e6bac26}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!find\_row@{find\_row}}
+\index{find\_row@{find\_row}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{find\_row()}{find\_row()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Lambda\+\_\+\+Klencki\+::find\+\_\+row (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z }\end{DoxyParamCaption})}
+
+Find the row of the Klencki table that best match Mzams and Z in input. The best match is the one for which Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+\begin{DoxyParams}{Parameters}
+{\em Mzams} & zams mass (Msun) of the star for which we want to find the the related track in the Klencki table \\
+\hline
+{\em Z} & Z of the star for which we want to find the the related track in the Klencki table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the quantities of the matched table row as a vector with dimension 17 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}\label{class_lambda___klencki_a38a6b72a300c0d2440120257eea714a4}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Estimate lambda for a given star. Internally it calles the operator(double Mzams, double Z, double R). 
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{class_star}{Star}} for which we want to estimate lambda \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of lambda. Notice\+: the lambda is estimated by Klenci+21 using MESA tracks between 10 and 80 Msun and Z/\+Zsun 0.\+01 -\/ 0.\+1, where Zsun=0.\+017 (not all the tracks contains all the ranges in Z). The lambda is estimated in a quantised way, i.\+e. for a Mzams and a Z not present in the table, the closest track with Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_lambda___base_a5c42acdfdadf74207ffcfc26c70496c7}{Lambda\+\_\+\+Base}}.
+
+\mbox{\Hypertarget{class_lambda___klencki_a60453965befae32bff2f0fd87cb8b62e}\label{class_lambda___klencki_a60453965befae32bff2f0fd87cb8b62e}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!operator()@{operator()}}
+\index{operator()@{operator()}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::operator() (\begin{DoxyParamCaption}\item[{double}]{Mzams,  }\item[{double}]{Z,  }\item[{double}]{R }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Estimate the value of lambda as function of Mzams, Z and R. Some part of the lambda estimate are cached. In particular the coefficient from Klencki+21 depends on the Mzams and Z, therefore these two values are cached and the coefficients (see find\+\_\+row) are loaded only if Mzams or Z are different with respect to the last call. 
+\begin{DoxyParams}{Parameters}
+{\em Mzams} & \mbox{\hyperlink{class_zams}{Zams}} mass in Msun \\
+\hline
+{\em Z} & metallicity \\
+\hline
+{\em R} & radius in Rsun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of lambda. Notice\+: the lambda is estimated by Klenci+21 using MESA tracks between 10 and 80 Msun and Z/\+Zsun 0.\+01 -\/ 0.\+1, where Zsun=0.\+017 (not all the tracks contains all the ranges in Z). The lambda is estimated in a quantised way, i.\+e. for a Mzams and a Z not present in the table, the closed track with Mtrack\texorpdfstring{$>$}{>}Mzams and Ztrack\texorpdfstring{$>$}{>}Z. If Mzams\texorpdfstring{$<$}{<}10, Mtracks=10 is used, for Z/\+Zsun\texorpdfstring{$<$}{<}0.\+01, Z/\+Zsun=0.\+01 is used. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_lambda___klencki__interpolator_a3ae0d2b09f6d62a5aaf55fea2491b916}{Lambda\+\_\+\+Klencki\+\_\+interpolator}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}\label{class_lambda___klencki_a71f8896e3a8b4b20abdcd3c36769033a}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!already\_loaded@{already\_loaded}}
+\index{already\_loaded@{already\_loaded}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{already\_loaded}{already\_loaded}}
+{\footnotesize\ttfamily thread\+\_\+local bool Lambda\+\_\+\+Klencki\+::already\+\_\+loaded =false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+flag to check if it is needed to load table \mbox{\Hypertarget{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}\label{class_lambda___klencki_a61a682128ea5ac125c3511a953e1e242}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Mzams\_cache@{Mzams\_cache}}
+\index{Mzams\_cache@{Mzams\_cache}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{Mzams\_cache}{Mzams\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::\+Mzams\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}\label{class_lambda___klencki_af3509df412482fed21a7e172eeac188e}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!svlog@{svlog}}
+\index{svlog@{svlog}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{sevnstd\+::\+Sevn\+Logging}} Lambda\+\_\+\+Klencki\+::svlog\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}\label{class_lambda___klencki_ae84c8f4ff86458aae6cb05d8a0d40897}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!table@{table}}
+\index{table@{table}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily thread\+\_\+local std\+::vector$<$ std\+::vector$<$ double $>$ $>$ Lambda\+\_\+\+Klencki\+::table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Here now we define two quantities that are used to load the external table only once per class per thread. In this way we can save memory not loading one table for each \mbox{\hyperlink{class_lambda}{Lambda}} instance, this is possibile using static variables. At the same time using thread\+\_\+local we force to have one separate definition for these variable for each thread avoiding data racing. In this case it is equivalent to defining the variable as threadprivate (see \href{https://stackoverflow.com/questions/60932116/does-thread-local-work-for-openmp-threads}{\texttt{ https\+://stackoverflow.\+com/questions/60932116/does-\/thread-\/local-\/work-\/for-\/openmp-\/threads}}), Variables that appear in threadprivate directives or variables with the \+\_\+\+Thread\+\_\+local (in C) or thread\+\_\+local (in C++) storage-\/class specifier are threadprivate
+
+In the class constructors the table is loaded only if the variable already\+\_\+loaded is set to false, after the table loading alread\+\_\+loaded is set to false. 2D table 170 rows, 17 columns \mbox{\Hypertarget{class_lambda___klencki_aa200896a0bb14dbee6e1a1f5cb1c660b}\label{class_lambda___klencki_aa200896a0bb14dbee6e1a1f5cb1c660b}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!vector\_cache@{vector\_cache}}
+\index{vector\_cache@{vector\_cache}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{vector\_cache}{vector\_cache}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Lambda\+\_\+\+Klencki\+::vector\+\_\+cache\hspace{0.3cm}{\ttfamily [protected]}}
+
+Last coefficient used to estimate lambda \mbox{\Hypertarget{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}\label{class_lambda___klencki_a00cfe98918d2bc171c56dffbb4b60bbc}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Z\_cache@{Z\_cache}}
+\index{Z\_cache@{Z\_cache}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{Z\_cache}{Z\_cache}}
+{\footnotesize\ttfamily double Lambda\+\_\+\+Klencki\+::\+Z\+\_\+cache \{0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Last Mzams and Z used to estimate lambda \mbox{\Hypertarget{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}\label{class_lambda___klencki_af0110c64b6ae813f55cb40019ed7fa19}} 
+\index{Lambda\_Klencki@{Lambda\_Klencki}!Zsun@{Zsun}}
+\index{Zsun@{Zsun}!Lambda\_Klencki@{Lambda\_Klencki}}
+\doxysubsubsection{\texorpdfstring{Zsun}{Zsun}}
+{\footnotesize\ttfamily const double Lambda\+\_\+\+Klencki\+::\+Zsun =0.\+017\hspace{0.3cm}{\ttfamily [protected]}}
+
+Value of Z for the sun as assumed in Klencki+21 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__klencki21_8h}{lambda\+\_\+klencki21.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/lambdas/\mbox{\hyperlink{lambda__klencki21_8cpp}{lambda\+\_\+klencki21.\+cpp}}\end{DoxyCompactItemize}

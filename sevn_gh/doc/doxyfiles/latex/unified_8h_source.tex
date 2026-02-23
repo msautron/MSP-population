@@ -1,0 +1,38 @@
+\hypertarget{unified_8h_source}{}\doxysection{unified.\+h}
+\label{unified_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/unified.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/unified.h}}
+\mbox{\hyperlink{unified_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class Unified: Kicks from Giacobbo \& Mapelli 2020, https://ui.adsabs.harvard.edu/abs/2020ApJ...891..141G/abstract}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef SEVN\_UNIFIED\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define SEVN\_UNIFIED\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_unified}{Unified}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kicks}{Kicks}}\{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_unified_a3e481869b0eee53a7f5024788a0105ee}{Unified}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{20         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{21             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}{name}}());}
+\DoxyCodeLine{22         \}}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{static} \mbox{\hyperlink{class_unified}{Unified}} \mbox{\hyperlink{class_unified_a5c22201ed462d2e916c42f2f15d61bc7}{\_unified}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_unified_a7cfe0e6e8cc51ea1160ef4914539e356}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{class_unified}{Unified}}* \mbox{\hyperlink{class_unified_a3541bdc65b6c7d53986c3251f8cbb123}{instance}}() \{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_unified}{Unified}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_unified_a22b36ddac6404a0d54fcf4c46fd24b80}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}unified"{}}; \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_UNIFIED\_H}}
+
+\end{DoxyCode}

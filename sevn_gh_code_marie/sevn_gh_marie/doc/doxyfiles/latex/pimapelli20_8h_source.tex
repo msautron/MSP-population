@@ -1,0 +1,44 @@
+\hypertarget{pimapelli20_8h_source}{}\doxysection{pimapelli20.\+h}
+\label{pimapelli20_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pimapelli20.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pimapelli20.h}}
+\mbox{\hyperlink{pimapelli20_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/25/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class PIMapelli20:  Pair instability model from Appendix A of Mapelli+20, based on the fit (Spera+17) of the Woosley+17 tables}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef SEVN\_PIMAPELLI20\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define SEVN\_PIMAPELLI20\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pairinstability_8h}{pairinstability.h}}>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_pair_instability}{PairInstability}}\{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{31     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} \mbox{\hyperlink{class_p_i_mapelli20_a45c561fe943a41e121ce1d983cf722fc}{\_pimapelli20}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{//name}}
+\DoxyCodeLine{37     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}mapelli20"{}};\}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}}* \mbox{\hyperlink{class_p_i_mapelli20_a577f54ac2902549776bfafdc96dd171f}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{//Main function to call}}
+\DoxyCodeLine{57 \textcolor{comment}{}    \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_p_i_mapelli20_a8954aa1b4fbf1ecb14fe1abb9cf0bff2}{apply\_afterSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} mremnant) \textcolor{keyword}{const override};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{73     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_p_i_mapelli20_af506acd53d1073696565ea066b42502a}{pisn\_correction}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{class_star}{Star}} *s, \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup::SNExplosionType}}\& sntype) ;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_PIMAPELLI20\_H}}
+
+\end{DoxyCode}

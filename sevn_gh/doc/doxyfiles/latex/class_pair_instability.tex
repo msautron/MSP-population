@@ -1,0 +1,233 @@
+\hypertarget{class_pair_instability}{}\doxysection{Pair\+Instability Class Reference}
+\label{class_pair_instability}\index{PairInstability@{PairInstability}}
+
+
+{\ttfamily \#include $<$pairinstability.\+h$>$}
+
+Inheritance diagram for Pair\+Instability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_pair_instability}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}{name}} () const
+\item 
+virtual \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ \mbox{\hyperlink{class_pair_instability_af376f9740f888b60d7893930726914df}{instance}} ()=0
+\item 
+virtual \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} \mbox{\hyperlink{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}{apply\+\_\+before\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const
+\item 
+virtual \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_pair_instability_a46fba941a123d6d28285b2e895e71837}{apply\+\_\+after\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double mremnant) const
+\item 
+\mbox{\hyperlink{class_pair_instability_a7e8f9cf378952e61812231ca7cd06938}{Pair\+Instability}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} bool reg=true)
+\item 
+virtual \mbox{\hyperlink{class_pair_instability_a47f11874a7d9fc3dcb9651e3a62730bc}{$\sim$\+Pair\+Instability}} ()=default
+\item 
+\mbox{\hyperlink{class_pair_instability_a44c4b4ea22bd6c919c8c7b3ea5f0b816}{Pair\+Instability}} (const \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&)=delete
+\item 
+\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \& \mbox{\hyperlink{class_pair_instability_a60f55469d0a726ef10c27df885320bee}{operator=}} (const \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&)=delete
+\item 
+\mbox{\hyperlink{class_pair_instability_a22dcfb8370ba5230b87d4c4f6852eb08}{Pair\+Instability}} (\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&\&other)=delete
+\item 
+\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \& \mbox{\hyperlink{class_pair_instability_ac12439b6e4c0bf938b94cd80fbaf3c40}{operator=}} (\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&\&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ \mbox{\hyperlink{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}{name}})
+\begin{DoxyCompactList}\small\item\em Base class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}{Register}} (\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_pair_instability_aec6c8468a7b58c439e4207815a198416}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& \mbox{\hyperlink{class_pair_instability_af1f27fb15caef9513f847080d009857b}{Get\+Static\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Option handling. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}{Get\+Used}} ()
+\begin{DoxyCompactList}\small\item\em TODO we are never using this method, we should remove it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to the handle the pulsation pair instability SN 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pair_instability_a7e8f9cf378952e61812231ca7cd06938}\label{class_pair_instability_a7e8f9cf378952e61812231ca7cd06938}} 
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{PairInstability()}{PairInstability()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Pair\+Instability\+::\+Pair\+Instability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{class_pair_instability_a47f11874a7d9fc3dcb9651e3a62730bc}\label{class_pair_instability_a47f11874a7d9fc3dcb9651e3a62730bc}} 
+\index{PairInstability@{PairInstability}!````~PairInstability@{$\sim$PairInstability}}
+\index{````~PairInstability@{$\sim$PairInstability}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{$\sim$PairInstability()}{~PairInstability()}}
+{\footnotesize\ttfamily virtual Pair\+Instability\+::$\sim$\+Pair\+Instability (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_pair_instability_a44c4b4ea22bd6c919c8c7b3ea5f0b816}\label{class_pair_instability_a44c4b4ea22bd6c919c8c7b3ea5f0b816}} 
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{PairInstability()}{PairInstability()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Pair\+Instability\+::\+Pair\+Instability (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_pair_instability_a22dcfb8370ba5230b87d4c4f6852eb08}\label{class_pair_instability_a22dcfb8370ba5230b87d4c4f6852eb08}} 
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\index{PairInstability@{PairInstability}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{PairInstability()}{PairInstability()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Pair\+Instability\+::\+Pair\+Instability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pair_instability_a46fba941a123d6d28285b2e895e71837}\label{class_pair_instability_a46fba941a123d6d28285b2e895e71837}} 
+\index{PairInstability@{PairInstability}!apply\_afterSN@{apply\_afterSN}}
+\index{apply\_afterSN@{apply\_afterSN}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{apply\_afterSN()}{apply\_afterSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} Pair\+Instability\+::apply\+\_\+after\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{mremnant }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Main function to call to apply the pair instability after the SN explosion This function has to be called after the remnant mass has been defined. It apply a correction to the remnant mass (if needed) and set the SNtype The method of the base class just set Mremnant\+\_\+after\+\_\+pi=mremnant and SNType=Core\+Collapse NOTICE\+: the default method does nothing, just initialise the \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} with\+:
+\begin{DoxyItemize}
+\item Mremnant\+\_\+after\+\_\+pi=mremnant
+\item SNType=\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfbaaf921f3a9ed2f973f58d75c6573b4003}{Lookup\+::\+SNExplosion\+Type\+::\+Core\+Collapse}} 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+{\em mremnant} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair instability correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PISNeturn with only two members\+:
+\end{DoxyReturn}
+
+\item Mremnant\+\_\+after\+\_\+pi, \mbox{\hyperlink{class_mass}{Mass}} of the remnant after the application of pi
+\item SNType\+: SN explosion type an object of the enum \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} (Electron\+Capture, Core\+Collapse, PPISN,PISN) 
+\end{DoxyItemize}
+
+Reimplemented in \mbox{\hyperlink{class_p_i_farmer19_ada59b924bc2abfcb145e705af8f1ded7}{PIFarmer19}}, \mbox{\hyperlink{class_p_i_iorio22_a02e4f425f024ba597917119a40a36092}{PIIorio22}}, and \mbox{\hyperlink{class_p_i_mapelli20_a8954aa1b4fbf1ecb14fe1abb9cf0bff2}{PIMapelli20}}.
+
+\mbox{\Hypertarget{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}\label{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}} 
+\index{PairInstability@{PairInstability}!apply\_beforeSN@{apply\_beforeSN}}
+\index{apply\_beforeSN@{apply\_beforeSN}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{apply\_beforeSN()}{apply\_beforeSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} Pair\+Instability\+::apply\+\_\+before\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Methods that can be customized in new models\+: NOTICE these are the two methods that actually estimate the pisn corrections. By default they do nothing (indeed they are not changed in the disabled model) You may want to change one or both of them Main function to call to apply the pulsation pair instability before the SN explosion The function return a structure containing the modified pre\+SN stellar mass(es) (total mass, \mbox{\hyperlink{class_m_h_e}{MHE}}, \mbox{\hyperlink{class_m_c_o}{MCO}}) due to the pulsation pair instability. This function should be called before estimating the final mass in the explosion method in the Supernova classes The method of the base class just copy the \mbox{\hyperlink{class_mass}{Mass}},\mbox{\hyperlink{class_m_h_e}{MHE}} and \mbox{\hyperlink{class_m_c_o}{MCO}} NOTICE\+: the default method does nothing, just initialise the \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} with the current stellar mass properties 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PPISNMass with only three members\+:
+\begin{DoxyItemize}
+\item Mass\+\_\+after\+\_\+ppi, \mbox{\hyperlink{class_mass}{Mass}} of the star before the explosion due to the pulsation pair instability
+\item MHE\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the HE core of the star before the explosion due to the pulsation pair instability
+\item MCO\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the CO core of the star before the explosion due to the pulsation pair instability 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}{PIIorio22}}.
+
+\mbox{\Hypertarget{class_pair_instability_af1f27fb15caef9513f847080d009857b}\label{class_pair_instability_af1f27fb15caef9513f847080d009857b}} 
+\index{PairInstability@{PairInstability}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& Pair\+Instability\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Option handling. 
+
+\mbox{\Hypertarget{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}\label{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}} 
+\index{PairInstability@{PairInstability}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Pair\+Instability\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+TODO we are never using this method, we should remove it. 
+
+\mbox{\Hypertarget{class_pair_instability_af376f9740f888b60d7893930726914df}\label{class_pair_instability_af376f9740f888b60d7893930726914df}} 
+\index{PairInstability@{PairInstability}!instance@{instance}}
+\index{instance@{instance}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ Pair\+Instability\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Create an instance of the class allocated on the heap \begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_p_i_disabled_ae3e14a4275124ad37113de246ba99730}{PIDisabled}}, \mbox{\hyperlink{class_p_i_farmer19_a8dfdce6ffc4d5adfc115c107b2dc6a0c}{PIFarmer19}}, \mbox{\hyperlink{class_p_i_iorio22_abfde7027c3afaf717ddbedbd61d37acf}{PIIorio22}}, \mbox{\hyperlink{class_p_i_iorio22_limited_a60506f52d0a12441829aa5c6fdb874b5}{PIIorio22\+Limited}}, and \mbox{\hyperlink{class_p_i_mapelli20_a577f54ac2902549776bfafdc96dd171f}{PIMapelli20}}.
+
+\mbox{\Hypertarget{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}\label{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}} 
+\index{PairInstability@{PairInstability}!Instance@{Instance}}
+\index{Instance@{Instance}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ Pair\+Instability\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Base class. 
+
+Generic method to call an instance based on name 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}\label{class_pair_instability_a895727ccf5793c901a473a320d4c6b45}} 
+\index{PairInstability@{PairInstability}!name@{name}}
+\index{name@{name}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual std\+::string Pair\+Instability\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Remember that each new proper \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model has to have a public static class instance to define in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} e.\+g. static My\+Model \+\_\+mymodel; (in the class) and My\+Model My\+Model\+::\+\_\+mymodel; in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} Methods that must be customized in new models Name of the \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model, this will be use at runtime to select the given model 
+
+Reimplemented in \mbox{\hyperlink{class_p_i_disabled_aac95f3f9d122f8123f8e7185d31b204d}{PIDisabled}}, \mbox{\hyperlink{class_p_i_farmer19_ab7bca6c1776ab454b3c146f36320595d}{PIFarmer19}}, \mbox{\hyperlink{class_p_i_iorio22_ae539644f090e79f186258a21d8877b4b}{PIIorio22}}, \mbox{\hyperlink{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}{PIIorio22\+Limited}}, and \mbox{\hyperlink{class_p_i_mapelli20_a62a64e35a3673f0ca01d6a0729c37a71}{PIMapelli20}}.
+
+\mbox{\Hypertarget{class_pair_instability_a60f55469d0a726ef10c27df885320bee}\label{class_pair_instability_a60f55469d0a726ef10c27df885320bee}} 
+\index{PairInstability@{PairInstability}!operator=@{operator=}}
+\index{operator=@{operator=}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \& Pair\+Instability\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_pair_instability_ac12439b6e4c0bf938b94cd80fbaf3c40}\label{class_pair_instability_ac12439b6e4c0bf938b94cd80fbaf3c40}} 
+\index{PairInstability@{PairInstability}!operator=@{operator=}}
+\index{operator=@{operator=}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \& Pair\+Instability\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}\label{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}} 
+\index{PairInstability@{PairInstability}!Register@{Register}}
+\index{Register@{Register}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Pair\+Instability\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Register function, to be called inside the option constructor to register the given option 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pair_instability_aec6c8468a7b58c439e4207815a198416}\label{class_pair_instability_aec6c8468a7b58c439e4207815a198416}} 
+\index{PairInstability@{PairInstability}!svlog@{svlog}}
+\index{svlog@{svlog}!PairInstability@{PairInstability}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Pair\+Instability\+::svlog\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{pairinstability_8h}{pairinstability.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{pairinstability_8cpp}{pairinstability.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+"""
+SCRIPT: input_to_sevn1
+PURPOSE: Take an input file written with the SEVN2 style and transform to SEVN1 legacy style
+USAGE; ./input_to_sevn1 input <PATH_TO_THE_SEVN2STYLE_INPUT> outputname  <PATH_TO_THE_SEVN1STYLE_TO_SAVE> [Optional]
+e.g. ./input_to_sevn1 listBin.dat  listBin_v1.dat
+Note: If the outputname is not given the default output will be input_sevn1.dat
+REQUIRED PACKAGE:
+    -pandas
+
+V 1.0: 22/03/21 Giuliano Iorio
+"""
+
+import pandas as pd
+import sys
+
+
+
+Header_SEVN2=("Mass_0", "Z_0", "spin_0","SN_0", "Tstart_0","Mass_1","Z_1","spin_1","SN_1","Tstart_1","a","e","Tend","Dtout","Rseed")
+Header_SEVN1=("Mass_0", "Mass_1", "Z_0","Z_1", "spin_0","spin_1","a","e","Tend","Tstart","dt","SN_0","SN_1","Dtout","Rseed")
+
+if __name__=="__main__":
+
+    argv = sys.argv
+
+    if len(argv)==1:
+        raise IOError("Please write the PATH to the input file")
+    elif len(argv)==2:
+        input_file=sys.argv[1]
+        output_name=sys.argv[1].split(".")[0]+"_sevn1.dat"
+    elif len(argv)==3:
+        input_file, output_name=sys.argv[1:]
+    else:
+        raise IOError("Maximum number of script parameters is 2, you give %i parameters"%(len(argv)-1))
+
+
+    data = pd.read_csv(input_file,delimiter="\s+",engine="python",header=None,names=Header_SEVN2)
+    data["Tstart"]=data[['Tstart_0','Tstart_1']].min(axis=1)
+    data["dt"]=0.001
+    data[list(Header_SEVN1)].to_csv(output_name,sep=" ",na_rep='',header=False,index=False)

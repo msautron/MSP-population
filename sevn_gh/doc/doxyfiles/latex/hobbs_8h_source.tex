@@ -1,0 +1,65 @@
+\hypertarget{hobbs_8h_source}{}\doxysection{hobbs.\+h}
+\label{hobbs_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/hobbs.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/kicks/hobbs.h}}
+\mbox{\hyperlink{hobbs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class HobbsPure:  Pure Hobbs kick, kick drawn from a Maxwellian with sigma=sn\_kick\_velocity\_stdev.}}
+\DoxyCodeLine{5 \textcolor{comment}{-\/ Class Hobbs: Same as HobbePure, but the kick are corrected for the SN fallback (larger fallback, lower velocities)}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SEVN\_HOBBS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SEVN\_HOBBS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_hobbs_pure}{HobbsPure}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_kicks}{Kicks}}\{}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_hobbs_pure_a7147caf6d2cd492c0beccd2126045caf}{HobbsPure}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{19             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hobbs_pure_ad51a7cf74882ce596ba6b4693cf096de}{name}}());}
+\DoxyCodeLine{20         \}}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static} \mbox{\hyperlink{class_hobbs_pure}{HobbsPure}} \mbox{\hyperlink{class_hobbs_pure_a02e2f0fabe0d955ee3069296d6a049a7}{\_hobbspure}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hobbs_pure_af8176c95e2e8fc9dbb4c2b2ca6440abc}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{//when I use the regist function I use the non trivial constructor of the Hermite6th class}}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_hobbs_pure}{HobbsPure}}* \mbox{\hyperlink{class_hobbs_pure_ace3c9ea942e690921f11efaffd9472bb}{instance}}() \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_hobbs_pure}{HobbsPure}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hobbs_pure_ad51a7cf74882ce596ba6b4693cf096de}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hobbs\_pure"{}}; \}}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_hobbs}{Hobbs}} : \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{class_kicks}{Kicks}}\{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_hobbs_a8348f518eb0792ce988fe42c0cf47655}{Hobbs}}(\textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true})\{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{43             \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}}(\textcolor{keyword}{this}, \mbox{\hyperlink{class_hobbs_a40d68cfaeb5e824a993cd9d9c84e4040}{name}}());}
+\DoxyCodeLine{44         \}}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{static} \mbox{\hyperlink{class_hobbs}{Hobbs}} \mbox{\hyperlink{class_hobbs_aba6b4029368eeaf5d4f91f6057330e39}{\_hobbs}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hobbs_ac00446332eca7340f3b241da88e0ba33}{\_apply}}(\mbox{\hyperlink{class_star}{Star}} *s) \textcolor{keyword}{override};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{//when I use the regist function I use the non trivial constructor of the Hermite6th class}}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_hobbs}{Hobbs}}* \mbox{\hyperlink{class_hobbs_a13ad010ae7563115c8a3408df6447663}{instance}}() \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_hobbs}{Hobbs}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hobbs_a40d68cfaeb5e824a993cd9d9c84e4040}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hobbs"{}}; \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{76      \textcolor{keywordtype}{double} \mbox{\hyperlink{class_hobbs_a978a6ef77e31c7ee09e8e929d69fc323}{estimate\_fallback\_correction}}(\mbox{\hyperlink{class_star}{Star}} *s);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_HOBBS\_H}}
+
+\end{DoxyCode}

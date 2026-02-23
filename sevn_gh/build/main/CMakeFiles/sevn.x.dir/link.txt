@@ -1,0 +1,1 @@
+/usr/bin/c++     -std=c++14 -fdiagnostics-color=auto -W -Wall  -O3 -fopenmp -fopenmp  -rdynamic CMakeFiles/sevn.x.dir/sevn.cpp.o  -o sevn.x  ../src/libsevn_lib_static.a -lgsl -lgslcblas 

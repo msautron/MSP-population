@@ -1,0 +1,108 @@
+\hypertarget{_hardening_8h_source}{}\doxysection{Hardening.\+h}
+\label{_hardening_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Hardening.h@{/Users/giulianoiorio/Documents/sevn\_public/src/binstar/procs/Hardening.h}}
+\mbox{\hyperlink{_hardening_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by iorio on 3/30/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_HARDENING\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_HARDENING\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_i_o_8h}{IO.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_processes_8h}{Processes.h}}>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{//Forward declaration}}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_star}{Star}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_binstar}{Binstar}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_hardening}{Hardening}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_process}{Process}}\{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_hardening_a3b9bc3c7be9174c03f22ccab4d918288}{Hardening}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if} (reg) \{}
+\DoxyCodeLine{28             \textcolor{comment}{//First register to include this Property in static array}}
+\DoxyCodeLine{29             \mbox{\hyperlink{class_process_a22775758327708f0135eb29387eb6e63}{Register}}(\textcolor{keyword}{this}, \&\mbox{\hyperlink{class_hardening_a22e6320ea1c40a34f5b6b1cbf17d9a98}{ID}}, \mbox{\hyperlink{class_hardening_aa77c8efd68a20fb62a13b09b857dc4ce}{name}}());}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_hardening_a22e6320ea1c40a34f5b6b1cbf17d9a98}{ID}};}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \mbox{\hyperlink{class_hardening}{Hardening}} \mbox{\hyperlink{class_hardening_ac0df000ceca7d7022f60f3cbde83acf6}{\_hardening}};}
+\DoxyCodeLine{35     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hardening_aa77c8efd68a20fb62a13b09b857dc4ce}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hardening"{}}; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_hardening}{Hardening}} *\mbox{\hyperlink{class_hardening_a50c4341e21d9e08b4b3b4ccbf64a3be5}{Instance}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io) \textcolor{keyword}{override};}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_hardening}{Hardening}} *\mbox{\hyperlink{class_hardening_a4ac0b7946ab3e46138ece42b9e90a012}{instance}}() \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hardening_aa7c12e47308b8818f2f293477e9c46a4}{is\_process\_ongoing}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\};}
+\DoxyCodeLine{41     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_hardening_abf292b257f892a75f2c95be9dd66cb36}{log\_message}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{//this a prototype for the future refactoring of the whole Process classes}}
+\DoxyCodeLine{47     \textcolor{keyword}{static} std::map<std::string, Hardening *> \& \mbox{\hyperlink{class_hardening_a18dda91b1c46bdff9f29aee2b260b4e1}{GetStaticMap}}()\{}
+\DoxyCodeLine{48         \textcolor{keyword}{static} std::map<std::string, Hardening *> \_locmap;}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} \_locmap;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     \textcolor{keyword}{static} std::vector<int> \& \mbox{\hyperlink{class_hardening_a963a9232810d27147c2d3efb11733aee}{GetUsed}}()\{}
+\DoxyCodeLine{52         \textcolor{keyword}{static} std::vector<int> \_used;}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} \_used;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardening_ad1c10dcddbeb177a9438ddb918b59e10}{Register\_specific}}(\mbox{\hyperlink{class_hardening}{Hardening}} *ptr) \{}
+\DoxyCodeLine{56         \mbox{\hyperlink{class_hardening_a18dda91b1c46bdff9f29aee2b260b4e1}{GetStaticMap}}().insert(std::make\_pair(ptr-\/>\mbox{\hyperlink{class_hardening_aa77c8efd68a20fb62a13b09b857dc4ce}{name}}(), ptr));}
+\DoxyCodeLine{57         \mbox{\hyperlink{class_hardening_a963a9232810d27147c2d3efb11733aee}{GetUsed}}().resize(\mbox{\hyperlink{class_hardening_a18dda91b1c46bdff9f29aee2b260b4e1}{GetStaticMap}}().\mbox{\hyperlink{class_process_a95c3723ba5175dbcff4298597322fc6d}{size}}());}
+\DoxyCodeLine{58         \mbox{\hyperlink{class_hardening_a963a9232810d27147c2d3efb11733aee}{GetUsed}}()[\mbox{\hyperlink{class_hardening_a963a9232810d27147c2d3efb11733aee}{GetUsed}}().size()-\/1] = 0;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{class_hardening_disabled}{HardeningDisabled}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hardening}{Hardening}}\{}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{public}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \mbox{\hyperlink{class_hardening_disabled_ae55098cc0ddf453e09123318642e0938}{HardeningDisabled}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_hardening}{Hardening}}(nullptr, false) \{}
+\DoxyCodeLine{73         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{74             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{75             \mbox{\hyperlink{class_hardening_ad1c10dcddbeb177a9438ddb918b59e10}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hardening_disabled_adaff93cd036850621d008ffdafc307ec}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}disabled"{}}; \}}
+\DoxyCodeLine{80     \textcolor{keyword}{static} \mbox{\hyperlink{class_hardening_disabled}{HardeningDisabled}} \mbox{\hyperlink{class_hardening_disabled_aef0dfad8c675543b91dd8f5e12890164}{\_hardeningdisabled}};}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_hardening_disabled}{HardeningDisabled}}* \mbox{\hyperlink{class_hardening_disabled_a00be197fb5f7310e389911fedcfc958d}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_hardening_disabled}{HardeningDisabled}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardening_disabled_a4722a2b9b3e61811fa376812e2c5c4d8}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90 \textcolor{keyword}{class }\mbox{\hyperlink{class_hardening_fast_cluster}{HardeningFastCluster}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_hardening}{Hardening}}\{}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{public}:}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \mbox{\hyperlink{class_hardening_fast_cluster_aecaa0d147522bd2b48952fb673716e65}{HardeningFastCluster}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_i_o}{IO}} *\_io= \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} reg = \textcolor{keyword}{true}) : \mbox{\hyperlink{class_hardening}{Hardening}}(nullptr, false)\{}
+\DoxyCodeLine{95         \textcolor{keywordflow}{if}(reg) \{}
+\DoxyCodeLine{96             \textcolor{comment}{//Second register to handle the different options}}
+\DoxyCodeLine{97             \mbox{\hyperlink{class_hardening_ad1c10dcddbeb177a9438ddb918b59e10}{Register\_specific}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_hardening_fast_cluster_adf6a210a6154d1f7f2eac9289aa9092e}{name}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}fastcluster"{}}; \}}
+\DoxyCodeLine{102     \textcolor{keyword}{static} \mbox{\hyperlink{class_hardening_fast_cluster}{HardeningFastCluster}} \mbox{\hyperlink{class_hardening_fast_cluster_a471cf97049ea7cdaa254bda7ff626fae}{\_hardeningfastcluster}};}
+\DoxyCodeLine{103     \mbox{\hyperlink{class_hardening_fast_cluster}{HardeningFastCluster}}* \mbox{\hyperlink{class_hardening_fast_cluster_a31252b202efc28277cb4316e074da18a}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_hardening_fast_cluster}{HardeningFastCluster}}(\textcolor{keyword}{nullptr},\textcolor{keyword}{false}));}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardening_fast_cluster_a038418b5b46eacd65057daacc2f2e12d}{evolve}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar) \textcolor{keyword}{override};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{116     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hardening_fast_cluster_a0fa89b7e95645c6c0784e26362546b1a}{is\_hard\_binary}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_binstar}{Binstar}} *binstar);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_HARDENING\_H}}
+
+\end{DoxyCode}

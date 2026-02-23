@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['name_0',['name',['../class_binstar.html#a5d424b21fb860a0c0f31c388b9ad52bf',1,'Binstar::name()'],['../class_star.html#ad9ae4846172086e057c241d6a0f21636',1,'Star::name()']]],
+  ['needsinit_1',['needsinit',['../class_star.html#a6c49a1375164ec4c3f6d99067b5bc4d7',1,'Star']]],
+  ['neutrinomassloss_2',['neutrinomassloss',['../classsupernova.html#afed78b84fd13f6ade1bdd9177578808a',1,'supernova']]],
+  ['no_5fcollision_3',['NO_COLLISION',['../class_kollision.html#aeee0a8fd3cd11e6d80bb98a8b8cd3a11',1,'Kollision']]],
+  ['no_5fjump_4',['NO_JUMP',['../namespaceutilities.html#aea36271797cd62a5821e150266445ea7',1,'utilities']]],
+  ['normal_5fdist_5',['normal_dist',['../classcompactness.html#a5e0c8165037859e4da2c29b8f96cf9b0',1,'compactness::normal_dist()'],['../class_n_sfrom_gau.html#ac46c57101482039076c6264e36198e0c',1,'NSfromGau::normal_dist()']]],
+  ['novae_6',['novae',['../class_orbital__change___r_l.html#a312c60e7b072e1fb51ec50e5e15eab3c',1,'Orbital_change_RL']]],
+  ['ns_5fmax_5fmass_7',['NS_max_mass',['../class_death_matrix.html#afd60266e900490218577ed6e5616176f',1,'DeathMatrix']]],
+  ['ns_5fmin_5fmass_8',['NS_min_mass',['../class_death_matrix.html#a7c9125d13155297bf7f661bab0f93e3a',1,'DeathMatrix']]],
+  ['ntables_9',['ntables',['../class_i_o.html#a95c786b97f2781158479418eb6c198fa',1,'IO']]],
+  ['nthreads_10',['nthreads',['../class_i_o.html#a77a4905e7d35bee2deda850455e05afc',1,'IO']]],
+  ['null_5fdouble_11',['NULL_DOUBLE',['../namespaceutilities.html#ad2a6991914544bc90698ecf7a2baa89c',1,'utilities']]],
+  ['null_5fint_12',['NULL_INT',['../namespaceutilities.html#a4f322cc8d4e2379accc16850e5e2877c',1,'utilities']]],
+  ['null_5fsint_13',['NULL_SINT',['../namespaceutilities.html#a437549a34ca4e945d0af00dbeadf132f',1,'utilities']]],
+  ['null_5fstr_14',['NULL_STR',['../namespaceutilities.html#ab5a36637937008a46b2a3ed133c14607',1,'utilities']]],
+  ['num_5fparameters_15',['num_parameters',['../structevolve__utility_1_1_options.html#a4c318e873520cb6569ce2421aaab1676',1,'evolve_utility::Options']]]
+];

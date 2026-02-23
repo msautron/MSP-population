@@ -1,0 +1,71 @@
+\hypertarget{piiorio22_8h_source}{}\doxysection{piiorio22.\+h}
+\label{piiorio22_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/piiorio22.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/piiorio22.h}}
+\mbox{\hyperlink{piiorio22_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 7/26/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class PIIorio22:  Simple prescription presented in Iorio+22 (in prep.) based on the Farmer+19 results}}
+\DoxyCodeLine{5 \textcolor{comment}{-\/ Class PIIorio22Limited: Same as PIIorio22, but the BH mass is limited using Eq. 2 in Farmer+19}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SEVN\_PIIORIO22\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SEVN\_PIIORIO22\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pairinstability_8h}{pairinstability.h}}>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_pair_instability}{PairInstability}}\{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{35     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}} \mbox{\hyperlink{class_p_i_iorio22_aa85499a286c74a3080da9c39db0662d5}{\_piiorio22}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{//name}}
+\DoxyCodeLine{41     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_p_i_iorio22_ae539644f090e79f186258a21d8877b4b}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}iorio22"{}};\}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{44     \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}}* \mbox{\hyperlink{class_p_i_iorio22_abfde7027c3afaf717ddbedbd61d37acf}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities::MassContainer}} \mbox{\hyperlink{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}{apply\_beforeSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_p_i_iorio22_a02e4f425f024ba597917119a40a36092}{apply\_afterSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} mremnant) \textcolor{keyword}{const override};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_p_i_iorio22_a911ccf194952c46f3bbf0a9cf0e2141a}{ppisn\_mass\_limitation}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mremnant, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} Mremnant;\}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{85 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}}\{}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{public}:}
+\DoxyCodeLine{88     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{89     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{92     \textcolor{keyword}{static} \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}} \mbox{\hyperlink{class_p_i_iorio22_limited_a9f441d524837e202624f1fd39f603773}{\_piiorio22limited}};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{//name}}
+\DoxyCodeLine{95     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}iorio22\_limited"{}};\}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{98     \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}}* \mbox{\hyperlink{class_p_i_iorio22_limited_a60506f52d0a12441829aa5c6fdb874b5}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{112      \textcolor{keywordtype}{double} \mbox{\hyperlink{class_p_i_iorio22_limited_ad5b55b97a5902e24156bdffbfbf1ac68}{ppisn\_mass\_limitation}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} Mremnant, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s) \textcolor{keyword}{const override};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_PIIORIO22\_H}}
+
+\end{DoxyCode}

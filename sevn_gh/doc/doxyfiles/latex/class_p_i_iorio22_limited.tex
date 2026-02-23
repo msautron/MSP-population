@@ -1,0 +1,258 @@
+\hypertarget{class_p_i_iorio22_limited}{}\doxysection{PIIorio22\+Limited Class Reference}
+\label{class_p_i_iorio22_limited}\index{PIIorio22Limited@{PIIorio22Limited}}
+
+
+{\ttfamily \#include $<$piiorio22.\+h$>$}
+
+Inheritance diagram for PIIorio22\+Limited\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_p_i_iorio22_limited}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_iorio22_limited_a472ff59be676305087c9854a2149c0fe}{PIIorio22\+Limited}} (bool reg=true)
+\item 
+std\+::string \mbox{\hyperlink{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}{name}} () const override
+\item 
+\mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22\+Limited}} $\ast$ \mbox{\hyperlink{class_p_i_iorio22_limited_a60506f52d0a12441829aa5c6fdb874b5}{instance}} () override
+\item 
+\mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} \mbox{\hyperlink{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}{apply\+\_\+before\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const override
+\item 
+\mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_p_i_iorio22_a02e4f425f024ba597917119a40a36092}{apply\+\_\+after\+SN}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double mremnant) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ \mbox{\hyperlink{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}{name}})
+\begin{DoxyCompactList}\small\item\em Base class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22\+Limited}} \mbox{\hyperlink{class_p_i_iorio22_limited_a9f441d524837e202624f1fd39f603773}{\+\_\+piiorio22limited}}
+\item 
+static \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}} \mbox{\hyperlink{class_p_i_iorio22_aa85499a286c74a3080da9c39db0662d5}{\+\_\+piiorio22}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_p_i_iorio22_limited_ad5b55b97a5902e24156bdffbfbf1ac68}{ppisn\+\_\+mass\+\_\+limitation}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double Mremnant, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}{Register}} (\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_pair_instability_aec6c8468a7b58c439e4207815a198416}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& \mbox{\hyperlink{class_pair_instability_af1f27fb15caef9513f847080d009857b}{Get\+Static\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Option handling. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}{Get\+Used}} ()
+\begin{DoxyCompactList}\small\item\em TODO we are never using this method, we should remove it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+iorio22\+\_\+limited option
+
+Same as iorio22 but with an upper limit on the PPISN BH mass following Eq. 2 in Farmer+19 see\+:
+\begin{DoxyItemize}
+\item Farmer+19\+: \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2019\+Ap\+J...\+887...\+53\+F/abstract}}
+\end{DoxyItemize}
+
+Modification with respect to the standard
+\begin{DoxyItemize}
+\item apply\+\_\+before\+SN\+: modify the pre\+SN mass
+\begin{DoxyItemize}
+\item MCO$<$38 Msun or MHE$>$135 Msun -\/\texorpdfstring{$>$}{>} not modifications
+\item \mbox{\hyperlink{class_m_c_o}{MCO}}\texorpdfstring{$>$}{>}=38 Msun and (\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}=135 Msun)-\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_mass}{Mass}}=\mbox{\hyperlink{class_m_h_e}{MHE}}=\mbox{\hyperlink{class_m_c_o}{MCO}}
+\end{DoxyItemize}
+\item apply\+\_\+after\+SN\+:
+\begin{DoxyItemize}
+\item MCO$<$38 Msun or MHE$>$135 Msun, no mass correction -\/\texorpdfstring{$>$}{>}Core Collapse
+\item 38 Msun\texorpdfstring{$<$}{<}=\mbox{\hyperlink{class_m_c_o}{MCO}}\texorpdfstring{$<$}{<}=60 Msun, limit BH mass using the $\ast$\+MBH\+\_\+max from Equation 2 in Farmer+19 -\/\texorpdfstring{$>$}{>} PPISN $\ast$\+MBH\+\_\+max=35.\+1 -\/3.\+9 log10(\+Z) -\/0.\+31 log10(\+Z)$\ast$log10(Z), where Z is the metallicity
+\item \mbox{\hyperlink{class_m_c_o}{MCO}}\texorpdfstring{$>$}{>}60 Msun and (\mbox{\hyperlink{class_m_h_e}{MHE}}\texorpdfstring{$<$}{<}135 Msun), set Mremnant to 0 -\/\texorpdfstring{$>$}{>} PISN 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_i_iorio22_limited_a472ff59be676305087c9854a2149c0fe}\label{class_p_i_iorio22_limited_a472ff59be676305087c9854a2149c0fe}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!PIIorio22Limited@{PIIorio22Limited}}
+\index{PIIorio22Limited@{PIIorio22Limited}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{PIIorio22Limited()}{PIIorio22Limited()}}
+{\footnotesize\ttfamily PIIorio22\+Limited\+::\+PIIorio22\+Limited (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_i_iorio22_a02e4f425f024ba597917119a40a36092}\label{class_p_i_iorio22_a02e4f425f024ba597917119a40a36092}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!apply\_afterSN@{apply\_afterSN}}
+\index{apply\_afterSN@{apply\_afterSN}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{apply\_afterSN()}{apply\_afterSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} PIIorio22\+::apply\+\_\+after\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{mremnant }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Main function to call to apply the pair instability after the SN explosion This function has to be called after the remnant mass has been defined. It apply a correction to the remnant mass (if needed) and set the SNtype The method of the base class just set Mremnant\+\_\+after\+\_\+pi=mremnant and SNType=Core\+Collapse NOTICE\+: the default method does nothing, just initialise the \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} with\+:
+\begin{DoxyItemize}
+\item Mremnant\+\_\+after\+\_\+pi=mremnant
+\item SNType=\mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfbaaf921f3a9ed2f973f58d75c6573b4003}{Lookup\+::\+SNExplosion\+Type\+::\+Core\+Collapse}} 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+{\em mremnant} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair instability correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PISNeturn with only two members\+:
+\end{DoxyReturn}
+
+\item Mremnant\+\_\+after\+\_\+pi, \mbox{\hyperlink{class_mass}{Mass}} of the remnant after the application of pi
+\item SNType\+: SN explosion type an object of the enum \mbox{\hyperlink{namespace_lookup_aa3427a56b96420351d5c740e15beddfb}{Lookup\+::\+SNExplosion\+Type}} (Electron\+Capture, Core\+Collapse, PPISN,PISN) 
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{class_pair_instability_a46fba941a123d6d28285b2e895e71837}{Pair\+Instability}}.
+
+\mbox{\Hypertarget{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}\label{class_p_i_iorio22_a3c22eda2bbb04f34e01499c4f0e60f0c}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!apply\_beforeSN@{apply\_beforeSN}}
+\index{apply\_beforeSN@{apply\_beforeSN}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{apply\_beforeSN()}{apply\_beforeSN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} PIIorio22\+::apply\+\_\+before\+SN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Methods that can be customized in new models\+: NOTICE these are the two methods that actually estimate the pisn corrections. By default they do nothing (indeed they are not changed in the disabled model) You may want to change one or both of them Main function to call to apply the pulsation pair instability before the SN explosion The function return a structure containing the modified pre\+SN stellar mass(es) (total mass, \mbox{\hyperlink{class_m_h_e}{MHE}}, \mbox{\hyperlink{class_m_c_o}{MCO}}) due to the pulsation pair instability. This function should be called before estimating the final mass in the explosion method in the Supernova classes The method of the base class just copy the \mbox{\hyperlink{class_mass}{Mass}},\mbox{\hyperlink{class_m_h_e}{MHE}} and \mbox{\hyperlink{class_m_c_o}{MCO}} NOTICE\+: the default method does nothing, just initialise the \mbox{\hyperlink{structutilities_1_1_mass_container}{utilities\+::\+Mass\+Container}} with the current stellar mass properties 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Instance of the struct PPISNMass with only three members\+:
+\begin{DoxyItemize}
+\item Mass\+\_\+after\+\_\+ppi, \mbox{\hyperlink{class_mass}{Mass}} of the star before the explosion due to the pulsation pair instability
+\item MHE\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the HE core of the star before the explosion due to the pulsation pair instability
+\item MCO\+\_\+after\+\_\+ppi\+: \mbox{\hyperlink{class_mass}{Mass}} of the CO core of the star before the explosion due to the pulsation pair instability 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_pair_instability_aa1e1873fbd1f0cba2bba2b980a9f3c2f}{Pair\+Instability}}.
+
+\mbox{\Hypertarget{class_pair_instability_af1f27fb15caef9513f847080d009857b}\label{class_pair_instability_af1f27fb15caef9513f847080d009857b}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ $>$ \& Pair\+Instability\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Option handling. 
+
+\mbox{\Hypertarget{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}\label{class_pair_instability_a5ea16bbcf9d4950b94ffbab71614b49e}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Pair\+Instability\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+TODO we are never using this method, we should remove it. 
+
+\mbox{\Hypertarget{class_p_i_iorio22_limited_a60506f52d0a12441829aa5c6fdb874b5}\label{class_p_i_iorio22_limited_a60506f52d0a12441829aa5c6fdb874b5}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!instance@{instance}}
+\index{instance@{instance}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22\+Limited}} $\ast$ PIIorio22\+Limited\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create an instance of the class allocated on the heap \begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_p_i_iorio22_abfde7027c3afaf717ddbedbd61d37acf}{PIIorio22}}.
+
+\mbox{\Hypertarget{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}\label{class_pair_instability_a5afa220efe0ee5f1e7872d35bcd25dfd}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!Instance@{Instance}}
+\index{Instance@{Instance}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$ Pair\+Instability\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+
+
+Base class. 
+
+Generic method to call an instance based on name 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}\label{class_p_i_iorio22_limited_aec2296e0fd17c9cee645256c1d42ae5b}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!name@{name}}
+\index{name@{name}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string PIIorio22\+Limited\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Remember that each new proper \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model has to have a public static class instance to define in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} e.\+g. static My\+Model \+\_\+mymodel; (in the class) and My\+Model My\+Model\+::\+\_\+mymodel; in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} Methods that must be customized in new models Name of the \mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} model, this will be use at runtime to select the given model 
+
+Reimplemented from \mbox{\hyperlink{class_p_i_iorio22_ae539644f090e79f186258a21d8877b4b}{PIIorio22}}.
+
+\mbox{\Hypertarget{class_p_i_iorio22_limited_ad5b55b97a5902e24156bdffbfbf1ac68}\label{class_p_i_iorio22_limited_ad5b55b97a5902e24156bdffbfbf1ac68}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!ppisn\_mass\_limitation@{ppisn\_mass\_limitation}}
+\index{ppisn\_mass\_limitation@{ppisn\_mass\_limitation}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{ppisn\_mass\_limitation()}{ppisn\_mass\_limitation()}}
+{\footnotesize\ttfamily double PIIorio22\+Limited\+::ppisn\+\_\+mass\+\_\+limitation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} double}]{Mremnant,  }\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Apply a mass limit to the BH mass after ppisn Limit the BH mass to the MBH\+\_\+max obtained with Eq. 2 in Farmer+19\+: MBH\+\_\+max=35.\+1 -\/3.\+9 log10(\+Z) -\/0.\+31 log10(\+Z)$\ast$log10(Z), where Z is the metallicity 
+\begin{DoxyParams}{Parameters}
+{\em Mremnant} & Remnant mass before the application of the mass limit \\
+\hline
+{\em s} & Pointer to the exploding star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value of the remnant mass after the application of the limits 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_p_i_iorio22_a911ccf194952c46f3bbf0a9cf0e2141a}{PIIorio22}}.
+
+\mbox{\Hypertarget{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}\label{class_pair_instability_ad7d6eb2a3015d31e81d5879e46b573b0}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!Register@{Register}}
+\index{Register@{Register}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Pair\+Instability\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pair_instability}{Pair\+Instability}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Register function, to be called inside the option constructor to register the given option 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_p_i_iorio22_aa85499a286c74a3080da9c39db0662d5}\label{class_p_i_iorio22_aa85499a286c74a3080da9c39db0662d5}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!\_piiorio22@{\_piiorio22}}
+\index{\_piiorio22@{\_piiorio22}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{\_piiorio22}{\_piiorio22}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}} PIIorio22\+::\+\_\+piiorio22\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_p_i_iorio22_limited_a9f441d524837e202624f1fd39f603773}\label{class_p_i_iorio22_limited_a9f441d524837e202624f1fd39f603773}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!\_piiorio22limited@{\_piiorio22limited}}
+\index{\_piiorio22limited@{\_piiorio22limited}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{\_piiorio22limited}{\_piiorio22limited}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22\+Limited}} PIIorio22\+Limited\+::\+\_\+piiorio22limited\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_pair_instability_aec6c8468a7b58c439e4207815a198416}\label{class_pair_instability_aec6c8468a7b58c439e4207815a198416}} 
+\index{PIIorio22Limited@{PIIorio22Limited}!svlog@{svlog}}
+\index{svlog@{svlog}!PIIorio22Limited@{PIIorio22Limited}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Pair\+Instability\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{piiorio22_8h}{piiorio22.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/pairinstability/\mbox{\hyperlink{piiorio22_8cpp}{piiorio22.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

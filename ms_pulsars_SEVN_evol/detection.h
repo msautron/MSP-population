@@ -1,0 +1,21 @@
+double pdf_density_rho(double r);
+double theta_arms(double r,int choice);
+FILE *kick(void *params);
+int distribution(void *params);
+void distrib_init_2(void *params);
+void spinvel_angle(void *params);
+void pulse_profile(void *params);
+void save_all(void *params);
+void gamma_ray_peak_sep(void *params);
+void count_nb_msp_formed(void *params);
+void sky_temp_Fmin_fermi(void *params);
+void pos_all_MSP(void *params);
+void subms_info(void *params);
+void save_info_AIC(void *params);
+void compute_wr_htru_pks(void *params);
+int detection(void *params);
+//int geometry(void *params);
+int radio_flux(void *params);
+int get_fomega(void *params);
+int gamma_flux(void *params);
+

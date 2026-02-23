@@ -1,0 +1,401 @@
+\hypertarget{static__main_8h_source}{}\doxysection{static\+\_\+main.\+h}
+\label{static__main_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/include/static\_main.h@{/Users/giulianoiorio/Documents/sevn\_public/include/static\_main.h}}
+\mbox{\hyperlink{static__main_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano Iorio on 2020-\/02-\/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SEVN\_STATIC\_MAIN\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SEVN\_STATIC\_MAIN\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{property_8h}{property.h}}>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_binary_property_8h}{BinaryProperty.h}}>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_orbit_8h}{Orbit.h}}>}}
+\DoxyCodeLine{11 \textcolor{comment}{//Processes}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_processes_8h}{Processes.h}}>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_collision_8h}{Collision.h}}>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_hardening_8h}{Hardening.h}}>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_circularisation_8h}{Circularisation.h}}>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_m_tstability_8h}{MTstability.h}}>}}
+\DoxyCodeLine{17 \textcolor{comment}{//SN}}
+\DoxyCodeLine{18 \textcolor{comment}{//SN models}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{supernova_8h}{supernova.h}}>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{rapid_8h}{rapid.h}}>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{delayed_8h}{delayed.h}}>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{compactness_8h}{compactness.h}}>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{directcollapse_8h}{directcollapse.h}}>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{deathmatrix_8h}{deathmatrix.h}}>}}
+\DoxyCodeLine{25 \textcolor{comment}{//Kick models}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{kicks_8h}{kicks.h}}>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{zeros_8h}{zeros.h}}>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{specialkicks_8h}{specialkicks.h}}>}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{hobbs_8h}{hobbs.h}}>}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{unified_8h}{unified.h}}>}}
+\DoxyCodeLine{31 \textcolor{comment}{//Pair instability models}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pairinstability_8h}{pairinstability.h}}>}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pimapelli20_8h}{pimapelli20.h}}>}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{piiorio22_8h}{piiorio22.h}}>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pifarmer19_8h}{pifarmer19.h}}>}}
+\DoxyCodeLine{36 \textcolor{comment}{//Neutron star models}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{neutrinomassloss_8h}{neutrinomassloss.h}}>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{nmllattimer89_8h}{nmllattimer89.h}}>}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{//TODO At the moment the order in which the processes and properties are evolved depend on the order we define them here.}}
+\DoxyCodeLine{41 \textcolor{comment}{//TODO It is better to put some check in the derived properties to be sure that the properties that should have been evolved before have been already evolved}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{/*******************************************}}
+\DoxyCodeLine{46 \textcolor{comment}{ ******** PROPERTY STATIC INIT *************}}
+\DoxyCodeLine{47 \textcolor{comment}{ *******************************************/}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{56     \textcolor{comment}{//TODO In all the other cases \_size is called just size. Change \_size to size?}}
+\DoxyCodeLine{63 \textcolor{comment}{}    \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_property_a34a7e861265e5d8147a3af5d0773902f}{Property::\_size}} = 0;  \textcolor{comment}{//setting the initial size at 0.}}
+\DoxyCodeLine{64     vector<Property*> \mbox{\hyperlink{class_property_ab5cdf06d67068eb1098883cfffe31581}{Property::all}};}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_property_a6f9a5424342899495a0dbaf50de06161}{Property::\_PrintMap}} \mbox{\hyperlink{class_property_ab84e5f4676c7bc0da81d5609f64e783b}{Property::PrintMap}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_mass_a28889a5e19af947d4e614c399a869e9b}{Mass::ID}};}
+\DoxyCodeLine{70     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_radius_a0db9fe95a63fad977a9c1e28ad84d907}{Radius::ID}};}
+\DoxyCodeLine{71     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_luminosity_a40ca953f6ba4d6f6b1fac046bf8a6a4e}{Luminosity::ID}};}
+\DoxyCodeLine{72     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_inertia_af8a8096a0679ecaf5b629674e180fb5e}{Inertia::ID}};}
+\DoxyCodeLine{73     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_next_output_a4e7f82115980634d7eb26594d869619e}{NextOutput::ID}};}
+\DoxyCodeLine{74     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_rdt_a1d25e924a01a98e6d1db67768f276f66}{dRdt::ID}};}
+\DoxyCodeLine{75     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_phase_a2a21ac78276e3f283adaaca38ccfae21}{Phase::ID}};}
+\DoxyCodeLine{76     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_remnant_type_a43febf5b5d0040a1a86ba7d592483335}{RemnantType::ID}};}
+\DoxyCodeLine{77     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_localtime_aecc760963f7041ec3c52ceaa485a1fd7}{Localtime::ID}};}
+\DoxyCodeLine{78     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_timestep_a24a23439b8f40c8d942102966c4fed3a}{Timestep::ID}};}
+\DoxyCodeLine{79     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_temperature_a6dd975d0dce8dd11f73ec55e8a3ccf29}{Temperature::ID}};}
+\DoxyCodeLine{80     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_m_c_o_af269671be6c2484d801b7ad7116f0ae5}{MCO::ID}};}
+\DoxyCodeLine{81     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_m_h_e_a577a3ee3d6a317081c3040c7e5c410eb}{MHE::ID}};}
+\DoxyCodeLine{82     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_c_o_a71a60351f97d7e0b0be5f9deb944ed99}{RCO::ID}};}
+\DoxyCodeLine{83     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_h_e_a03431cac7299f10c440b980517656992}{RHE::ID}};}
+\DoxyCodeLine{84     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_hsup_ab7146c448a7ab3b5819abc4fc86c793c}{Hsup::ID}};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_h_esup_a53e46716ba2e432b81cf39fd77a4413d}{HEsup::ID}};}
+\DoxyCodeLine{86     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_csup_a6461fc643924b3dda9cda88d4e914899}{Csup::ID}};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_nsup_ae3fd1870732dff0fe18601cd372200e4}{Nsup::ID}};}
+\DoxyCodeLine{88     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_osup_ac4cd41f4d45de825707474bed96cb685}{Osup::ID}};}
+\DoxyCodeLine{89     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_qconv_a491700a2f1f00d2b2378ae5c1e6c761e}{Qconv::ID}};}
+\DoxyCodeLine{90     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_tconv_a068921a4437eea758d057e5d851ac785}{Tconv::ID}};}
+\DoxyCodeLine{91     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_depthconv_aab80ab5e18d484790bd7c8e3548c513e}{Depthconv::ID}};}
+\DoxyCodeLine{92     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_spin_aaa6c662a5e7dd282621ed90af916469c}{Spin::ID}};}
+\DoxyCodeLine{93     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_xspin_a71914a21e0132850c22132bdf976ffa4}{Xspin::ID}};}
+\DoxyCodeLine{94     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_mdt_a7dec0163b14ede950f482d61e9adc016}{dMdt::ID}};}
+\DoxyCodeLine{95     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_m_h_edt_a6ce09d15915a0c5691a6b7d9a4d42c8d}{dMHEdt::ID}};}
+\DoxyCodeLine{96     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_m_c_odt_a36399d789ea01b245c05aeb14a1e6823}{dMCOdt::ID}};}
+\DoxyCodeLine{97     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_mcumul__binary_a73cefab0a5f323b7144a0680c015310d}{dMcumul\_binary::ID}};}
+\DoxyCodeLine{98     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_mcumul___r_l_o_a0266a3ce17961ad1a16b7c8138f3e6f1}{dMcumul\_RLO::ID}};}
+\DoxyCodeLine{99     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_mcumulacc__wind_ad8441b4089e124ec93d22ad2434d4678}{dMcumulacc\_wind::ID}};}
+\DoxyCodeLine{100     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_bmag_ab80c88c3a76513cf8487188a6f9a59a0}{Bmag::ID}};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_omega_rem_a2f50598a00b8492a2c9355cfcda07c64}{OmegaRem::ID}};}
+\DoxyCodeLine{102     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_rs_ab7bf97072feb3a48fdbebe9320649cb3}{Rs::ID}};}
+\DoxyCodeLine{103     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_worldtime_ab381f199766f8efa5423b11a3ad62e51}{Worldtime::ID}};}
+\DoxyCodeLine{104     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_lambda_ac819e6b8462ccdffd8b301f2dfcc3d56}{Lambda::ID}};}
+\DoxyCodeLine{105     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ebind_ae27463c42d7c4ed6b41d7ade6f68209e}{Ebind::ID}};}
+\DoxyCodeLine{106     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_phase_b_s_e_ac00a51c0cd5351a95c4f0b2e8e298978}{PhaseBSE::ID}};}
+\DoxyCodeLine{107     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_zams_a987c81a776c8244d1ef235d050010fcf}{Zams::ID}};}
+\DoxyCodeLine{108     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_event_ab8a3039f0f84e6dd0fd11aa4c76c8a7c}{Event::ID}};}
+\DoxyCodeLine{109     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ang_mom_spin_a4eb3ecd257b831bf6e3b92e88ec76bd5}{AngMomSpin::ID}};}
+\DoxyCodeLine{110     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_omega_spin_ae3e77dee081b7dfde398d85f28954d36}{OmegaSpin::ID}};}
+\DoxyCodeLine{111     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_zmet_a80ab665ecb782e15e0197c44d652a4ba}{Zmet::ID}};}
+\DoxyCodeLine{112     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_m_r_l_odt_a434ad02fe205d27e8748aa4a579bea74}{dMRLOdt::ID}};}
+\DoxyCodeLine{113     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classd_maccwinddt_a335a2ca78dab16ee222e7a9879d93d5e}{dMaccwinddt::ID}};}
+\DoxyCodeLine{114     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_plife_a8292d7fe6cca5a6ccf8981a93f21533c}{Plife::ID}};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{//TODO to be removed}}
+\DoxyCodeLine{118     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_n_ssalpha_af5b23cf75bc7836870e97b86f09fbba0}{NSsalpha::ID}};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122     \textcolor{comment}{//size\_t Mconv::ID;}}
+\DoxyCodeLine{123     \textcolor{comment}{//size\_t Rconv::ID;}}
+\DoxyCodeLine{124     \textcolor{comment}{//size\_t Tconv::ID;}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{131     \mbox{\hyperlink{class_localtime}{Localtime}} \mbox{\hyperlink{class_localtime_a72872a17a52cf0d3b67ca8f7f255d8c7}{Localtime::\_localtime}}; \textcolor{comment}{//special evolve function (outside the main evolve() loop)}}
+\DoxyCodeLine{132     \mbox{\hyperlink{class_phase}{Phase}} \mbox{\hyperlink{class_phase_add86a6a4e5b354b5581e83ba690eaf51}{Phase::\_phase}};\textcolor{comment}{//special evolve function (outside the main evolve() loop)}}
+\DoxyCodeLine{133     \mbox{\hyperlink{class_next_output}{NextOutput}} \mbox{\hyperlink{class_next_output_ab378b195b7591b64d587fe03d7ef7cab}{NextOutput::\_nextoutput}}; \textcolor{comment}{//special evolve function (outside the main evolve() loop)}}
+\DoxyCodeLine{134     \mbox{\hyperlink{class_worldtime}{Worldtime}} \mbox{\hyperlink{class_worldtime_a8824696c2fbd1926074218e8b27d9035}{Worldtime::\_worldtime}}; \textcolor{comment}{//time evolution of the simulation (it always starts from zero, independently of the localtime of the star)}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{//fundamental stellar parameters (They evolve from lookup tables)}}
+\DoxyCodeLine{137     \textcolor{comment}{//WARNING: Mass and Radius needs to be the first two!}}
+\DoxyCodeLine{138     \mbox{\hyperlink{class_mass}{Mass}} \mbox{\hyperlink{class_mass_ac0f1eefdbedd1eb230250f0e9137a00a}{Mass::\_mass}};}
+\DoxyCodeLine{139     \mbox{\hyperlink{class_radius}{Radius}} \mbox{\hyperlink{class_radius_ad6a8dbd3b2db289d216c827b73abf942}{Radius::\_radius}};}
+\DoxyCodeLine{140     \mbox{\hyperlink{class_m_h_e}{MHE}} \mbox{\hyperlink{class_m_h_e_a8502eb03f3f6e75ecef0c9d24ef0da69}{MHE::\_masshe}};}
+\DoxyCodeLine{141     \mbox{\hyperlink{class_m_c_o}{MCO}} \mbox{\hyperlink{class_m_c_o_a18402c4403d0a7b0efdc0bb45d289e20}{MCO::\_massco}};}
+\DoxyCodeLine{142     \mbox{\hyperlink{class_luminosity}{Luminosity}} \mbox{\hyperlink{class_luminosity_a06006c6df340efc78b0a95dc8fd9bcbb}{Luminosity::\_luminosity}};}
+\DoxyCodeLine{144     \textcolor{comment}{//Optional  (they can be table or derived from above properties)}}
+\DoxyCodeLine{145     \mbox{\hyperlink{class_r_h_e}{RHE}} \mbox{\hyperlink{class_r_h_e_a045b94e31a12648df6691237b9a5737c}{RHE::\_rhe}};}
+\DoxyCodeLine{146     \mbox{\hyperlink{class_r_c_o}{RCO}} \mbox{\hyperlink{class_r_c_o_a077850a8f72207d94c1fb98477315dae}{RCO::\_rco}};}
+\DoxyCodeLine{147     \mbox{\hyperlink{class_inertia}{Inertia}} \mbox{\hyperlink{class_inertia_a3397d71587c58b1be8d2fe7b1aa22db9}{Inertia::\_inertia}};}
+\DoxyCodeLine{148     \mbox{\hyperlink{class_hsup}{Hsup}} \mbox{\hyperlink{class_hsup_a6fe2278ae15332c5a40639b26e72c462}{Hsup::\_hsup}};}
+\DoxyCodeLine{149     \mbox{\hyperlink{class_h_esup}{HEsup}} \mbox{\hyperlink{class_h_esup_acd5a1efab6cfff342b294ea139eecccb}{HEsup::\_hesup}};}
+\DoxyCodeLine{150     \mbox{\hyperlink{class_csup}{Csup}} \mbox{\hyperlink{class_csup_adfe75ac09a8122eb97489d671df8ec18}{Csup::\_csup}};}
+\DoxyCodeLine{151     \mbox{\hyperlink{class_nsup}{Nsup}} \mbox{\hyperlink{class_nsup_ac6ce4f1d3f4a2a63417a8796607c1c0a}{Nsup::\_nsup}};}
+\DoxyCodeLine{152     \mbox{\hyperlink{class_osup}{Osup}} \mbox{\hyperlink{class_osup_aee727de59fd5d46ac37ed48cdb9f6b7a}{Osup::\_osup}};}
+\DoxyCodeLine{153     \mbox{\hyperlink{class_qconv}{Qconv}} \mbox{\hyperlink{class_qconv_a363f6174f0cf6df75e6d82c90116c92e}{Qconv::\_qconv}};}
+\DoxyCodeLine{154     \mbox{\hyperlink{class_tconv}{Tconv}} \mbox{\hyperlink{class_tconv_ab37133b762d77759ee59e65828a6dcca}{Tconv::\_tconv}};}
+\DoxyCodeLine{155     \mbox{\hyperlink{class_depthconv}{Depthconv}} \mbox{\hyperlink{class_depthconv_a5603f2f0f3a24950c6a13fd5393211d5}{Depthconv::\_depthconv}};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{comment}{//Non tab property}}
+\DoxyCodeLine{158     \mbox{\hyperlink{class_remnant_type}{RemnantType}} \mbox{\hyperlink{class_remnant_type_ac5999b5aeb3d2d536993899ef5908fd4}{RemnantType::\_remnanttype}};}
+\DoxyCodeLine{159     \mbox{\hyperlink{class_bmag}{Bmag}} \mbox{\hyperlink{class_bmag_a6cfc1c81d6cfe6791ce9cfabca4f98cd}{Bmag::\_bmag}};}
+\DoxyCodeLine{160     \mbox{\hyperlink{class_omega_rem}{OmegaRem}} \mbox{\hyperlink{class_omega_rem_abecde4b03cc0be2d92e0cb79bef25ac9}{OmegaRem::\_omegarem}}; \textcolor{comment}{//Notice OmegaRem evolves after Bmag since it depends on the updated value of Bmag}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     \textcolor{comment}{//derived stellar parameters. NB: They have to evolve after fundamental stellar parameters.}}
+\DoxyCodeLine{164     \mbox{\hyperlink{class_xspin}{Xspin}} \mbox{\hyperlink{class_xspin_ae5890202e41238a5604b77df8005a809}{Xspin::\_xspin}};}
+\DoxyCodeLine{165     \mbox{\hyperlink{classd_mdt}{dMdt}} \mbox{\hyperlink{classd_mdt_ad7ed56b3c17a96f127cb20af89c3a8f1}{dMdt::\_dmdt}};}
+\DoxyCodeLine{166     \mbox{\hyperlink{classd_m_h_edt}{dMHEdt}} \mbox{\hyperlink{classd_m_h_edt_a64f3163e7db9d657c5d12a665b61a261}{dMHEdt::\_dmhedt}};}
+\DoxyCodeLine{167     \mbox{\hyperlink{classd_m_c_odt}{dMCOdt}} \mbox{\hyperlink{classd_m_c_odt_a829fd55b0daec2165b354c9dcce6439f}{dMCOdt::\_dmcodt}};}
+\DoxyCodeLine{168     \mbox{\hyperlink{classd_rdt}{dRdt}} \mbox{\hyperlink{classd_rdt_a4c92600473e7d5103e424d34cb2dafe5}{dRdt::\_drdt}};}
+\DoxyCodeLine{169     \mbox{\hyperlink{class_temperature}{Temperature}} \mbox{\hyperlink{class_temperature_a8fba9e1bf553ae3b7cb9f2cb6208eaa5}{Temperature::\_temperature}};}
+\DoxyCodeLine{170     \mbox{\hyperlink{class_rs}{Rs}} \mbox{\hyperlink{class_rs_ac967c17b7df22c3b61e7f335b5f513b8}{Rs::\_rs}};}
+\DoxyCodeLine{171     \mbox{\hyperlink{class_ang_mom_spin}{AngMomSpin}} \mbox{\hyperlink{class_ang_mom_spin_a53d62375bf896a1bf09fb1d055409069}{AngMomSpin::\_angmomspin}};}
+\DoxyCodeLine{172     \mbox{\hyperlink{class_omega_spin}{OmegaSpin}} \mbox{\hyperlink{class_omega_spin_adfbbdd8046e83e324fb6cac9dd640ff7}{OmegaSpin::\_omegaspin}};}
+\DoxyCodeLine{173     \mbox{\hyperlink{class_spin}{Spin}} \mbox{\hyperlink{class_spin_a644dd02785267a10ea3f73c3f357bd19}{Spin::\_spin}};}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{comment}{//Properties that are updated only in binary}}
+\DoxyCodeLine{176     \mbox{\hyperlink{classd_mcumul__binary}{dMcumul\_binary}} \mbox{\hyperlink{classd_mcumul__binary_a6945090dedcc677b9767e3443fb3f0cf}{dMcumul\_binary::\_dMcumul\_binary}};}
+\DoxyCodeLine{177     \mbox{\hyperlink{classd_mcumul___r_l_o}{dMcumul\_RLO}}    \mbox{\hyperlink{classd_mcumul___r_l_o_a4a5c66945609855cd20c39710925315d}{dMcumul\_RLO::\_dMcumul\_RLO}};}
+\DoxyCodeLine{178     \mbox{\hyperlink{classd_mcumulacc__wind}{dMcumulacc\_wind}} \mbox{\hyperlink{classd_mcumulacc__wind_ac8a72a0c945c6c1aaf4c4e471707dba4}{dMcumulacc\_wind::\_dMcumulacc\_wind}};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{comment}{//JIT property}}
+\DoxyCodeLine{181     \mbox{\hyperlink{class_lambda}{Lambda}} \mbox{\hyperlink{class_lambda_a1ddada0bbdec6cb0dfc94acf36ca1443}{Lambda::\_lambda}};}
+\DoxyCodeLine{182     \mbox{\hyperlink{class_ebind}{Ebind}} \mbox{\hyperlink{class_ebind_aa5b61cdce862531218c45398a147df9a}{Ebind::\_ebind}};}
+\DoxyCodeLine{183     \mbox{\hyperlink{class_phase_b_s_e}{PhaseBSE}} \mbox{\hyperlink{class_phase_b_s_e_a696e7607c90c1f81a9175b3552a8eb28}{PhaseBSE::\_phasebse}};}
+\DoxyCodeLine{184     \mbox{\hyperlink{class_zams}{Zams}} \mbox{\hyperlink{class_zams_a0354f51322e27a80b4e0917f41fd6bac}{Zams::\_zams}};}
+\DoxyCodeLine{185     \mbox{\hyperlink{class_event}{Event}} \mbox{\hyperlink{class_event_af976cfbca77d875f581d9e02eeddfb58}{Event::\_event}};}
+\DoxyCodeLine{186     \mbox{\hyperlink{class_zmet}{Zmet}} \mbox{\hyperlink{class_zmet_a618929287c89ea39833300eddc986143}{Zmet::\_zmet}};}
+\DoxyCodeLine{187     \mbox{\hyperlink{classd_m_r_l_odt}{dMRLOdt}} \mbox{\hyperlink{classd_m_r_l_odt_a1f9c0f671baa39e39a9e5cbd09b55e76}{dMRLOdt::\_dmorlodt}};}
+\DoxyCodeLine{188     \mbox{\hyperlink{classd_maccwinddt}{dMaccwinddt}} \mbox{\hyperlink{classd_maccwinddt_a527fb1185d5ab0a3d3d387109f0f9027}{dMaccwinddt::\_dmaccwinddt}};}
+\DoxyCodeLine{189     \mbox{\hyperlink{class_plife}{Plife}} \mbox{\hyperlink{class_plife_acf27d444a98dc5fa53d3f7b8e53aaf51}{Plife::\_plife}};}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{comment}{//TODO to be removed;}}
+\DoxyCodeLine{192     \mbox{\hyperlink{class_n_ssalpha}{NSsalpha}} \mbox{\hyperlink{class_n_ssalpha_a518b4f371b4764361f32a043e126fa13}{NSsalpha::\_nssalpha}};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{comment}{//predict the next time step based on the calculated variations of stellar parameters}}
+\DoxyCodeLine{195     \textcolor{comment}{//WARNING:Timestep needs to be the last one!}}
+\DoxyCodeLine{196     \mbox{\hyperlink{class_timestep}{Timestep}} \mbox{\hyperlink{class_timestep_a30abebbc0577bd94393349c203d41b2c}{Timestep::\_timestep}}; \textcolor{comment}{//this needs be the very last element to evolve}}
+\DoxyCodeLine{197 \textcolor{comment}{/***************************************************************************************/}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{comment}{/**************************************************}}
+\DoxyCodeLine{200 \textcolor{comment}{ *********** SN PRESCRIPTIONS   *******************}}
+\DoxyCodeLine{201 \textcolor{comment}{ **************************************************/}}
+\DoxyCodeLine{202     \textcolor{comment}{//SN explosions}}
+\DoxyCodeLine{203     \mbox{\hyperlink{classdelayed}{delayed}} \mbox{\hyperlink{classdelayed_aad773e2e91219abc77ef7f634b0f9d01}{delayed::\_delayed}};}
+\DoxyCodeLine{204     \mbox{\hyperlink{classdelayed__gau_n_s}{delayed\_gauNS}} \mbox{\hyperlink{static__main_8h_a6aeb4aad72569dc32aaa8f947f02cb13}{\_delayed\_gauns}};}
+\DoxyCodeLine{205     \mbox{\hyperlink{classrapid}{rapid}} \mbox{\hyperlink{classrapid_a90d17c24eaf8d8d827a7218af7354934}{rapid::\_rapid}};}
+\DoxyCodeLine{206     \mbox{\hyperlink{classrapid__gau_n_s}{rapid\_gauNS}} \mbox{\hyperlink{static__main_8h_a200729a8748d690d0117ae7ce6d406cf}{\_rapid\_gauns}};}
+\DoxyCodeLine{207     \mbox{\hyperlink{classcompactness}{compactness}} \mbox{\hyperlink{classcompactness_aa3030995326e7bb36000964335f1683b}{compactness::\_compactness}};}
+\DoxyCodeLine{208     \mbox{\hyperlink{classdirectcollapse}{directcollapse}} \mbox{\hyperlink{classdirectcollapse_a1eb9cc515d49fe180b8a1581cdef8462}{directcollapse::\_directcollapse}};}
+\DoxyCodeLine{209     \mbox{\hyperlink{class_death_matrix}{DeathMatrix}} \mbox{\hyperlink{class_death_matrix_ae5cee6e20e182b8c13e345893f13ea1c}{DeathMatrix::\_deathmatrix}};}
+\DoxyCodeLine{210     \textcolor{comment}{//PISN prescriptions}}
+\DoxyCodeLine{211     \mbox{\hyperlink{class_p_i_disabled}{PIDisabled}} \mbox{\hyperlink{static__main_8h_a3cb986ee60b356229ee373015293aa77}{\_ppidisabled}};}
+\DoxyCodeLine{212     \mbox{\hyperlink{class_p_i_mapelli20}{PIMapelli20}} \mbox{\hyperlink{static__main_8h_a66e4c8d80f4d348e46de8d196446a7ac}{\_pimapelli20}};}
+\DoxyCodeLine{213     \mbox{\hyperlink{class_p_i_iorio22}{PIIorio22}} \mbox{\hyperlink{class_p_i_iorio22_aa85499a286c74a3080da9c39db0662d5}{PIIorio22::\_piiorio22}};}
+\DoxyCodeLine{214     \mbox{\hyperlink{class_p_i_iorio22_limited}{PIIorio22Limited}} \mbox{\hyperlink{class_p_i_iorio22_limited_a9f441d524837e202624f1fd39f603773}{PIIorio22Limited::\_piiorio22limited}};}
+\DoxyCodeLine{215     \mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}} \mbox{\hyperlink{class_p_i_farmer19_a460460af289a0537f0ae6d96e2efb06d}{PIFarmer19::\_pifarmer19}};}
+\DoxyCodeLine{216     \textcolor{comment}{// SN kick prescriptions}}
+\DoxyCodeLine{217     \mbox{\hyperlink{class_hobbs}{Hobbs}} \mbox{\hyperlink{class_hobbs_aba6b4029368eeaf5d4f91f6057330e39}{Hobbs::\_hobbs}};}
+\DoxyCodeLine{218     \mbox{\hyperlink{class_hobbs_pure}{HobbsPure}} \mbox{\hyperlink{class_hobbs_pure_a02e2f0fabe0d955ee3069296d6a049a7}{HobbsPure::\_hobbspure}};}
+\DoxyCodeLine{219     \mbox{\hyperlink{class_unified}{Unified}} \mbox{\hyperlink{class_unified_a5c22201ed462d2e916c42f2f15d61bc7}{Unified::\_unified}};}
+\DoxyCodeLine{220     \mbox{\hyperlink{class_e_c15_c_c265}{EC15CC265}} \mbox{\hyperlink{class_e_c15_c_c265_a252ddf9b32c7abd88f1e5fa180a9a998}{EC15CC265::\_ec15cc265}};}
+\DoxyCodeLine{221     \mbox{\hyperlink{class_zeros}{Zeros}} \mbox{\hyperlink{class_zeros_a9e96776e9221c093c3b8b6ff85513a97}{Zeros::\_zeros}};}
+\DoxyCodeLine{222     \mbox{\hyperlink{class_c_c15}{CC15}} \mbox{\hyperlink{class_c_c15_aaad1d0c62bd257c7515dcf6db8ee03f4}{CC15::\_cc15}};}
+\DoxyCodeLine{223     \mbox{\hyperlink{class_e_c_u_s30}{ECUS30}} \mbox{\hyperlink{class_e_c_u_s30_a0dc18e58807a44c37104a34e9b597c79}{ECUS30::\_ecus30}};}
+\DoxyCodeLine{224     \textcolor{comment}{//SN presciptions}}
+\DoxyCodeLine{225     \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} \mbox{\hyperlink{class_n_m_l_disabled_af3eadbfbf97fd824f1dac047447844e4}{NMLDisabled::\_nmldisabled}};}
+\DoxyCodeLine{226     \mbox{\hyperlink{class_n_m_l_lattimer89}{NMLLattimer89}} \mbox{\hyperlink{class_n_m_l_lattimer89_aada6986f22a96a668208910af7aa0da9}{NMLLattimer89::\_nmllattimer89}};}
+\DoxyCodeLine{227 \textcolor{comment}{/***************************************************************************************/}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{comment}{/*************************************************************}}
+\DoxyCodeLine{230 \textcolor{comment}{ ****** MASS TRANSFER STABILITY PRESCRIPTIONS ****************}}
+\DoxyCodeLine{231 \textcolor{comment}{ *************************************************************/}}
+\DoxyCodeLine{232 \textcolor{comment}{    /***                    Always stable              ***/}}
+\DoxyCodeLine{233     \mbox{\hyperlink{class_m_t___stable}{MT\_Stable}}                          \mbox{\hyperlink{class_m_t___stable_ac030970e0df6669f3b2634c896098d34}{MT\_Stable::\_mt\_stable}};}
+\DoxyCodeLine{234 \textcolor{comment}{    /***                    Always unstable              ***/}}
+\DoxyCodeLine{235     \mbox{\hyperlink{class_m_t___un_stable}{MT\_UnStable}}                        \mbox{\hyperlink{class_m_t___un_stable_ae806a4607877c01deb79dfc07fec9544}{MT\_UnStable::\_mt\_unstable}};}
+\DoxyCodeLine{236 \textcolor{comment}{    /***                   Qcrit style stability              ***/}}
+\DoxyCodeLine{237     \mbox{\hyperlink{class_qcrit___hurley}{Qcrit\_Hurley}}                      \mbox{\hyperlink{class_qcrit___hurley_af746a8c2e33be5f74b22e4d55cf5e7fe}{Qcrit\_Hurley::\_qcrit\_hurley}};}
+\DoxyCodeLine{238     \mbox{\hyperlink{class_qcrit___hurley___webbink}{Qcrit\_Hurley\_Webbink}}              \mbox{\hyperlink{class_qcrit___hurley___webbink_a323f9035a0637bdd7349883d8245154c}{Qcrit\_Hurley\_Webbink::\_qcrit\_hurley\_webbink}};}
+\DoxyCodeLine{239     \mbox{\hyperlink{class_qcrit___hurley___webbink___shao}{Qcrit\_Hurley\_Webbink\_Shao}}         \mbox{\hyperlink{class_qcrit___hurley___webbink___shao_abdc08aaea1fcd9e115c191ee3c4dd361}{Qcrit\_Hurley\_Webbink\_Shao::\_qcrit\_hurley\_webbink\_shao}};}
+\DoxyCodeLine{240     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel}{Qcrit\_COSMIC\_Neijssel}}             \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___neijssel_a9aaa89933c8e7fe817bb6fb8bf970308}{Qcrit\_COSMIC\_Neijssel::\_qcrit\_cosmic\_neijssel}};}
+\DoxyCodeLine{241     \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys}{Qcrit\_COSMIC\_Claeys}}               \mbox{\hyperlink{class_qcrit___c_o_s_m_i_c___claeys_a84230ee5ecfa49855095a2fdd7bf0192}{Qcrit\_COSMIC\_Claeys::\_qcrit\_cosmic\_claeys}};}
+\DoxyCodeLine{242     \mbox{\hyperlink{class_qcrit___star_track}{Qcrit\_StarTrack}}                   \mbox{\hyperlink{class_qcrit___star_track_a7d97f5d6782dc1d23910930e7f1ee49c}{Qcrit\_StarTrack::\_qcrit\_startrack}};}
+\DoxyCodeLine{243     \mbox{\hyperlink{class_qcrit___radiative___stable}{Qcrit\_Radiative\_Stable}}            \mbox{\hyperlink{class_qcrit___radiative___stable_ae38dfebdb7e28f0728a48970ea7cea38}{Qcrit\_Radiative\_Stable::\_qcrit\_radiative\_stable}};}
+\DoxyCodeLine{244     \mbox{\hyperlink{class_qcrit___h_radiative___stable}{Qcrit\_HRadiative\_Stable}}           \mbox{\hyperlink{class_qcrit___h_radiative___stable_a46d4257aa0246cca526f62dc5687ea58}{Qcrit\_HRadiative\_Stable::\_qcrit\_hradiative\_stable}};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{comment}{/**************************************************}}
+\DoxyCodeLine{248 \textcolor{comment}{ ******** BINARY PROPERTY STATIC INIT *************}}
+\DoxyCodeLine{249 \textcolor{comment}{ **************************************************/}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 }
+\DoxyCodeLine{265      \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_binary_property_af825df9ef4a34ee4c9afb53a95c61707}{BinaryProperty::size}} = 0;}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 \textcolor{comment}{//setting the initial size at 0.}}
+\DoxyCodeLine{270      std::vector<BinaryProperty*> \mbox{\hyperlink{class_binary_property_a34a2aa8d4230b38426907977675dae1c}{BinaryProperty::all}};}
+\DoxyCodeLine{271      \mbox{\hyperlink{class_binary_property_af2f9bdb0490c1aa7d5f7d72cde9269be}{BinaryProperty::\_PrintMap}} \mbox{\hyperlink{class_binary_property_a29af1e0724502cadedc96e3766e601f7}{BinaryProperty::PrintMap}};}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{275     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_eccentricity_ac3ecc7d7ec2422d0e45cdf3a4bc9c892}{Eccentricity::ID}};}
+\DoxyCodeLine{276     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_semimajor_af6acd2e9058fb190fd8942f96fad0d90}{Semimajor::ID}};}
+\DoxyCodeLine{277     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_timestep_acdc36a207c0ef0318c9f45526ca1554d}{BTimestep::ID}};}
+\DoxyCodeLine{278     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_worldtime_a0bb6e7e26d1ff1204595b8ee07137336}{BWorldtime::ID}};}
+\DoxyCodeLine{279     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classdadt_a2a0c1499dce5a8f5d0a416a45b6f4a10}{dadt::ID}};}
+\DoxyCodeLine{280     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classdedt_a34bd7bd4c44fbf5fe7aba0c64a4ae945}{dedt::ID}};}
+\DoxyCodeLine{281     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ang_mom_aa5d18b17bfdc0c393443584063eb19a0}{AngMom::ID}};}
+\DoxyCodeLine{282     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_period_aa223b330e2d40d99618e9a3afebda0c5}{Period::ID}};}
+\DoxyCodeLine{283     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_g_wtime_a50bd17b6d944afa94d92f9bd4959729a}{GWtime::ID}};}
+\DoxyCodeLine{284     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_l0_aa1144a055795c04e0560ddd52820e8cf}{RL0::ID}};}
+\DoxyCodeLine{285     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_r_l1_a112e01529802781a6a24bb6df520c833}{RL1::ID}};}
+\DoxyCodeLine{286     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_b_event_af99294f025726cc04091fd384f6b4230}{BEvent::ID}};}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{294     \textcolor{comment}{//Stuff that does not evolve but just use special\_evolve}}
+\DoxyCodeLine{295     \mbox{\hyperlink{class_b_worldtime}{BWorldtime}} \mbox{\hyperlink{class_b_worldtime_aaaea42509fafd3ca17861d311556dd5b}{BWorldtime::\_bworldtime}};}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297     \textcolor{comment}{//fundamental binary parameters (they need to be evolved before other properties)}}
+\DoxyCodeLine{298     \mbox{\hyperlink{class_eccentricity}{Eccentricity}} \mbox{\hyperlink{class_eccentricity_aa9725fa8adf38edcb4eba7dfa7bbafea}{Eccentricity::\_eccentricity}};}
+\DoxyCodeLine{299     \mbox{\hyperlink{class_semimajor}{Semimajor}} \mbox{\hyperlink{class_semimajor_a232aa2df174e38ae5adfe20b80742d67}{Semimajor::\_semimajor}};}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{comment}{//derived binary parameters from fundamental}}
+\DoxyCodeLine{302     \mbox{\hyperlink{classdadt}{dadt}} \mbox{\hyperlink{classdadt_ae0f3dd4c0269571aef3db422fb547fed}{dadt::\_dadt}};}
+\DoxyCodeLine{303     \mbox{\hyperlink{classdedt}{dedt}} \mbox{\hyperlink{classdedt_a2090368cca22e8fde4e190bd275f63aa}{dedt::\_dedt}};}
+\DoxyCodeLine{304     \mbox{\hyperlink{class_ang_mom}{AngMom}} \mbox{\hyperlink{class_ang_mom_aabf0d81c9c5e98d5740f75b9a97f2e84}{AngMom::\_angmom}};}
+\DoxyCodeLine{305     \mbox{\hyperlink{class_period}{Period}} \mbox{\hyperlink{class_period_a25d1d09165e9c838dc55bec0c15563ce}{Period::\_period}};}
+\DoxyCodeLine{306     \mbox{\hyperlink{class_g_wtime}{GWtime}} \mbox{\hyperlink{class_g_wtime_a411bef0ef0edf1bd4dfe03c675f80508}{GWtime::\_gwtime}};}
+\DoxyCodeLine{307     \mbox{\hyperlink{class_r_l0}{RL0}} \mbox{\hyperlink{class_r_l0_a4924a0ccf87f26a76eca4af64344fe0c}{RL0::\_rl0}};}
+\DoxyCodeLine{308     \mbox{\hyperlink{class_r_l1}{RL1}} \mbox{\hyperlink{class_r_l1_a206cbe4f924f4846b1f6f560f76309d5}{RL1::\_rl1}};}
+\DoxyCodeLine{309     \mbox{\hyperlink{class_b_event}{BEvent}} \mbox{\hyperlink{class_b_event_a879fcd777186fa1afec053bfbfd77a5d}{BEvent::\_bevent}};}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311     \textcolor{comment}{//predict the next time step based on the calculated variations of stellar and binary parameters}}
+\DoxyCodeLine{312     \mbox{\hyperlink{class_b_timestep}{BTimestep}} \mbox{\hyperlink{class_b_timestep_a8106a9a19af6eb6c6a7f4eb616afa17b}{BTimestep::\_btimestep}}; \textcolor{comment}{//this needs be the very last element to evolve}}
+\DoxyCodeLine{313 \textcolor{comment}{/***************************************************************************************/}}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 \textcolor{comment}{/*******************************************}}
+\DoxyCodeLine{317 \textcolor{comment}{******** PROCESS STATIC INIT *************}}
+\DoxyCodeLine{318 \textcolor{comment}{*******************************************/}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{333     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_process_a95c3723ba5175dbcff4298597322fc6d}{Process::size}} = 0;}
+\DoxyCodeLine{334     std::vector<Process*> \mbox{\hyperlink{class_process_ab65dcfdf8b2bbd06e15de82b41116e02}{Process::all}};}
+\DoxyCodeLine{335     \mbox{\hyperlink{class_process_a38ef601981b5f2feeffbf4cb0906f222}{Process::\_PrintMap}} \mbox{\hyperlink{class_process_a332d0f6431c087d40da2931c491937d2}{Process::PrintMap}};}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{339     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_common_envelope_a808fef970eadca2e0fe88bcaecb6fb76}{CommonEnvelope::ID}};}
+\DoxyCodeLine{340     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_roche_lobe_aeb29651cd3555b07b979889263d1ef66}{RocheLobe::ID}};}
+\DoxyCodeLine{341     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_s_n_kicks_a7b5257b8ca130b492afebdf7b9f358b4}{SNKicks::ID}};}
+\DoxyCodeLine{342     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_g_wrad_a13cf76a99b689ac4683ebab640d99346}{GWrad::ID}};}
+\DoxyCodeLine{343     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_windaccretion_a2a78080675e5e7fb80d64e640ab2f33c}{Windaccretion::ID}};}
+\DoxyCodeLine{344     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_tides_ab3e20aab8a9c9032ea34d6fe2fc1688b}{Tides::ID}};}
+\DoxyCodeLine{345     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_mix_a8b3226b90f29b0a28dbf709ca4854450}{Mix::ID}};}
+\DoxyCodeLine{346     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_kollision_a6c45296d668b61d738b35fec6e008aac}{Kollision::ID}};}
+\DoxyCodeLine{347     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_hardening_a22e6320ea1c40a34f5b6b1cbf17d9a98}{Hardening::ID}};}
+\DoxyCodeLine{348     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_circularisation_a87d9d776bbf342464497132f4e061da5}{Circularisation::ID}};}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 }
+\DoxyCodeLine{356     \mbox{\hyperlink{class_s_n_kicks}{SNKicks}} \mbox{\hyperlink{class_s_n_kicks_ac3e7747d0255a74a28131233dc0fd05d}{SNKicks::\_snkicks}};}
+\DoxyCodeLine{357     \mbox{\hyperlink{class_roche_lobe}{RocheLobe}} \mbox{\hyperlink{class_roche_lobe_ad24250376fb41269b48efbfc37eb6b45}{RocheLobe::\_rochelobe}};}
+\DoxyCodeLine{358     \mbox{\hyperlink{class_g_wrad}{GWrad}} \mbox{\hyperlink{class_g_wrad_ab43be925c7f98565c680b46658fcd6a4}{GWrad::\_gwrad}};}
+\DoxyCodeLine{359     \mbox{\hyperlink{class_windaccretion}{Windaccretion}} \mbox{\hyperlink{class_windaccretion_a80f60f5dde7ed2baa1418e986a993f37}{Windaccretion::\_windaccretion}};}
+\DoxyCodeLine{360     \mbox{\hyperlink{class_tides}{Tides}} \mbox{\hyperlink{class_tides_a1b3580daa7da6931226481f1a3b4fe73}{Tides::\_tides}};}
+\DoxyCodeLine{361     \mbox{\hyperlink{class_mix}{Mix}} \mbox{\hyperlink{class_mix_ac12a61096b5512e4dc996bcef62232b8}{Mix::\_mix}};}
+\DoxyCodeLine{362     \mbox{\hyperlink{class_kollision}{Kollision}} \mbox{\hyperlink{class_kollision_a72dfec57ca5fe9aca57ed6a9168897b7}{Kollision::\_kollision}};}
+\DoxyCodeLine{363     \mbox{\hyperlink{class_hardening}{Hardening}} \mbox{\hyperlink{class_hardening_ac0df000ceca7d7022f60f3cbde83acf6}{Hardening::\_hardening}};}
+\DoxyCodeLine{364     \mbox{\hyperlink{class_circularisation}{Circularisation}} \mbox{\hyperlink{class_circularisation_a9dd0e89b4db390809798c4980523609a}{Circularisation::\_circularisation}};}
+\DoxyCodeLine{365     \mbox{\hyperlink{class_common_envelope}{CommonEnvelope}} \mbox{\hyperlink{class_common_envelope_ae1508067d4dffa6a669716c46509c370}{CommonEnvelope::\_commonenvelope}};}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367     \mbox{\hyperlink{class_kollision_disabled}{KollisionDisabled}} \mbox{\hyperlink{class_kollision_disabled_a4ae1f95bac9d0f5383105b395b1effe2}{KollisionDisabled::\_kollisiondisabled}};}
+\DoxyCodeLine{368     \mbox{\hyperlink{class_kollision_hurley}{KollisionHurley}} \mbox{\hyperlink{class_kollision_hurley_ae7a427bc9dc3e272a681da3820024f6c}{KollisionHurley::\_kollisionhurley}};}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \mbox{\hyperlink{class_hardening_disabled}{HardeningDisabled}} \mbox{\hyperlink{class_hardening_disabled_aef0dfad8c675543b91dd8f5e12890164}{HardeningDisabled::\_hardeningdisabled}};}
+\DoxyCodeLine{371     \mbox{\hyperlink{class_hardening_fast_cluster}{HardeningFastCluster}} \mbox{\hyperlink{class_hardening_fast_cluster_a471cf97049ea7cdaa254bda7ff626fae}{HardeningFastCluster::\_hardeningfastcluster}};}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \mbox{\hyperlink{class_circularisation_disabled}{CircularisationDisabled}} \mbox{\hyperlink{class_circularisation_disabled_a7c295787bdace80007be1d59dd863ad6}{CircularisationDisabled::\_circularisationdisabled}};}
+\DoxyCodeLine{374     \mbox{\hyperlink{class_circularisation_periastron}{CircularisationPeriastron}} \mbox{\hyperlink{class_circularisation_periastron_adfa11e080315e2263fc961bbbc14d947}{CircularisationPeriastron::\_circularisationperiastron}};}
+\DoxyCodeLine{375     \mbox{\hyperlink{class_circularisation_periastron_full}{CircularisationPeriastronFull}} \mbox{\hyperlink{class_circularisation_periastron_full_a03d53dc341d7a7f46395c55dfe08f799}{CircularisationPeriastronFull::\_circularisationperiastronfull}};}
+\DoxyCodeLine{376     \mbox{\hyperlink{class_circularisation_ang_mom}{CircularisationAngMom}} \mbox{\hyperlink{class_circularisation_ang_mom_a1c64515c84f129472aa05d531ab8b4c8}{CircularisationAngMom::\_circularisationangmom}};}
+\DoxyCodeLine{377     \mbox{\hyperlink{class_circularisation_semimajor}{CircularisationSemimajor}} \mbox{\hyperlink{class_circularisation_semimajor_ae921093147f98c9a37cb28e5bc2b26d2}{CircularisationSemimajor::\_circularisationsemimajor}};}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379 \textcolor{comment}{/*******************************************}}
+\DoxyCodeLine{380 \textcolor{comment}{ ****** ORBIT CHANGE STATIC INIT ***********}}
+\DoxyCodeLine{381 \textcolor{comment}{ *******************************************/}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{390 \textcolor{comment}{//map\_name defined in lookup\_and\_phases.h}}
+\DoxyCodeLine{391 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_ad227cf63599acea009d2018359b7b440}{Lookup::WINDSMAP\_NAME}} \mbox{\hyperlink{namespace_lookup_a842962d685f2e1f53fba72430a139254}{Lookup::windsmap\_name}}\{}
+\DoxyCodeLine{392         \{WindsMode::\_WHurley, \textcolor{stringliteral}{"{}hurley\_wind"{}}\},}
+\DoxyCodeLine{393         \{WindsMode::\_WFaniAD, \textcolor{stringliteral}{"{}faniad\_wind"{}}\},}
+\DoxyCodeLine{394         \{WindsMode::\_WFaniDE, \textcolor{stringliteral}{"{}fanide\_wind"{}}\},}
+\DoxyCodeLine{395         \{WindsMode::\_Wdisabled, \textcolor{stringliteral}{"{}disabled\_wind"{}}\},}
+\DoxyCodeLine{396 \};}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398 \mbox{\hyperlink{classdisabled__winds}{disabled\_winds}} \mbox{\hyperlink{classdisabled__winds_a0f2573cbb00eeae04296296ee8d12287}{disabled\_winds::\_disabled\_winds}};}
+\DoxyCodeLine{399 \mbox{\hyperlink{class_hurley__winds}{Hurley\_winds}} \mbox{\hyperlink{class_hurley__winds_ad501f0900bd0985babec238597507c35}{Hurley\_winds::\_Hurley\_winds}};}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{402 \textcolor{comment}{//map\_name defined in lookup\_and\_phases.h}}
+\DoxyCodeLine{403 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_ac8e87a9c9da08cacda536060be6470d3}{Lookup::TIDESMAP\_NAME}}  \mbox{\hyperlink{namespace_lookup_a294a33caf6d9bacdeb0520182ea6cff7}{Lookup::tidesmap\_name}}\{}
+\DoxyCodeLine{404         \{TidesMode::\_Tsimple, \textcolor{stringliteral}{"{}simple"{}}\},}
+\DoxyCodeLine{405         \{TidesMode::\_Tsimple\_notab, \textcolor{stringliteral}{"{}simple\_notab"{}}\},}
+\DoxyCodeLine{406         \{TidesMode::\_Tdisabled, \textcolor{stringliteral}{"{}disabled\_tides"{}}\}}
+\DoxyCodeLine{407 \};}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409 \mbox{\hyperlink{classdisabled__tides}{disabled\_tides}} \mbox{\hyperlink{classdisabled__tides_af8239491ce5f3fa2510662ad9a5eef02}{disabled\_tides::\_disabled\_tides}};}
+\DoxyCodeLine{410 \mbox{\hyperlink{class_tides__simple}{Tides\_simple}} \mbox{\hyperlink{class_tides__simple_a7a1b7f6e2991c2cda80fb99bbaeac5b6}{Tides\_simple::\_Tides\_simple}};}
+\DoxyCodeLine{411 \mbox{\hyperlink{class_tides__simple__notab}{Tides\_simple\_notab}} \mbox{\hyperlink{class_tides__simple__notab_a73cd9ba5984b5c0089c9986effa8a061}{Tides\_simple\_notab::\_Tides\_simple\_notab}};}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{414 \textcolor{comment}{//map\_name defined in lookup\_and\_phases.h}}
+\DoxyCodeLine{415 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_a5611f096d9afeaad2cbb6ecfe9b574ed}{Lookup::GW\_NAME}}  \mbox{\hyperlink{namespace_lookup_a19d4e2e5f3aa67fc2e1ee0999de7d8ad}{Lookup::gwmap\_name}}\{}
+\DoxyCodeLine{416         \{GWMode::\_GWdisabled, \textcolor{stringliteral}{"{}disabled\_GW"{}}\},}
+\DoxyCodeLine{417         \{GWMode::\_GWPeters, \textcolor{stringliteral}{"{}Peters\_GW"{}}\}}
+\DoxyCodeLine{418 \};}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \mbox{\hyperlink{classdisabled__gw}{disabled\_gw}} \mbox{\hyperlink{classdisabled__gw_a947a91a4772003c5f6b911b598a2c634}{disabled\_gw::\_disabled\_gw}};}
+\DoxyCodeLine{421 \mbox{\hyperlink{class_peters__gw}{Peters\_gw}} \mbox{\hyperlink{class_peters__gw_aa383fd895e7e84cda9a4be6264bb49c3}{Peters\_gw::\_peters\_gw}};}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423 \textcolor{comment}{//RL}}
+\DoxyCodeLine{424 \textcolor{comment}{//map\_name defined in lookup\_and\_phases.h}}
+\DoxyCodeLine{425 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_ac785d6e537426453874050f16adf39fa}{Lookup::RL\_NAME}} \mbox{\hyperlink{namespace_lookup_af6e0689baa4894ea2136c8600d6d4783}{Lookup::rlmap\_name}}\{}
+\DoxyCodeLine{426         \{RLMode::\_RLdisabled,\textcolor{stringliteral}{"{}disabled\_RL"{}}\},}
+\DoxyCodeLine{427         \{RLMode::\_RLHurley,\textcolor{stringliteral}{"{}Hurley\_RL"{}}\},}
+\DoxyCodeLine{428         \{RLMode::\_RLHurleyBSE,\textcolor{stringliteral}{"{}Hurley\_RL\_BSE"{}}\},}
+\DoxyCodeLine{429         \{RLMode::\_RLHurleymod,\textcolor{stringliteral}{"{}Hurley\_mod\_RL"{}}\}}
+\DoxyCodeLine{430 \};}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \mbox{\hyperlink{classdisabled__rl}{disabled\_rl}} \mbox{\hyperlink{classdisabled__rl_af8e2ca7bfcd08e10854046e5eb5d4fd0}{disabled\_rl::\_disabled\_rl}};}
+\DoxyCodeLine{433 \mbox{\hyperlink{class_hurley__rl}{Hurley\_rl}} \mbox{\hyperlink{class_hurley__rl_a1f3fbb85a05d54ec4ca2d74b65cb75b7}{Hurley\_rl::\_Hurley\_rl}};}
+\DoxyCodeLine{434 \mbox{\hyperlink{class_hurley__rl__bse}{Hurley\_rl\_bse}} \mbox{\hyperlink{class_hurley__rl__bse_af064ac2ca6810c57a85bd7aa66695cfd}{Hurley\_rl\_bse::\_Hurley\_rl\_bse}};}
+\DoxyCodeLine{435 \mbox{\hyperlink{class_hurley__mod__rl}{Hurley\_mod\_rl}} \mbox{\hyperlink{class_hurley__mod__rl_acc3bf1f866feaf99764d0bf911ebe24a}{Hurley\_mod\_rl::\_Hurley\_mod\_rl}};}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 \textcolor{comment}{//Mix}}
+\DoxyCodeLine{438 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_ab056e7db92ec9ab875c39757c2baac30}{Lookup::MIX\_NAME}} \mbox{\hyperlink{namespace_lookup_ae0f707b925fb15f1621deaaba1d21aef}{Lookup::mixmap\_name}}\{}
+\DoxyCodeLine{439         \{MixMode::\_Mixdisabled,\textcolor{stringliteral}{"{}disabled\_mix"{}}\},}
+\DoxyCodeLine{440         \{MixMode::\_Mixsimple,\textcolor{stringliteral}{"{}simple\_mix"{}}\},}
+\DoxyCodeLine{441 \};}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443 \mbox{\hyperlink{classdisabled__mix}{disabled\_mix}} \mbox{\hyperlink{classdisabled__mix_ac0c9236d08d5d1ea310490c7851aca19}{disabled\_mix::\_disabled\_mix}};}
+\DoxyCodeLine{444 \mbox{\hyperlink{classsimple__mix}{simple\_mix}} \mbox{\hyperlink{classsimple__mix_a228001b052048ab2b0003550f3e07401}{simple\_mix::\_simple\_mix}};}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446 \textcolor{comment}{//SN}}
+\DoxyCodeLine{447 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_ae573c1384673244d509628a11eabb1a5}{Lookup::SNK\_NAME}} \mbox{\hyperlink{namespace_lookup_ae577447b0fb0c18ce28942292ab21f0f}{Lookup::snkmap\_name}}\{}
+\DoxyCodeLine{448         \{SNKickMode::\_SNKickdisabled,\textcolor{stringliteral}{"{}disabled\_snk"{}}\},}
+\DoxyCodeLine{449         \{SNKickMode::\_SNKickHurley,\textcolor{stringliteral}{"{}hurley\_snk"{}}\},}
+\DoxyCodeLine{450 \};}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452 \mbox{\hyperlink{classdisabled___s_n_kicks}{disabled\_SNKicks}} \mbox{\hyperlink{classdisabled___s_n_kicks_a3b9292523b895524738c31aa25601459}{disabled\_SNKicks::\_disabled\_SNKicks}};}
+\DoxyCodeLine{453 \mbox{\hyperlink{class_hurley___s_n_kicks}{Hurley\_SNKicks}} \mbox{\hyperlink{class_hurley___s_n_kicks_ab903f48cf1a9ab61d7d12d2d69099183}{Hurley\_SNKicks::\_Hurley\_SNKicks}};}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 \textcolor{comment}{//CE}}
+\DoxyCodeLine{456 \textcolor{keyword}{const} \mbox{\hyperlink{namespace_lookup_a64cdcb8a305611c8a6848f8cfc1d20be}{Lookup::CE\_NAME}} \mbox{\hyperlink{namespace_lookup_ae2b4919081f4cbd2cb81d08d06779804}{Lookup::cemap\_name}}\{}
+\DoxyCodeLine{457         \{CEMode::\_CEdisabled,\textcolor{stringliteral}{"{}disabled\_ce"{}}\},}
+\DoxyCodeLine{458         \{CEMode::\_CEEnergy,\textcolor{stringliteral}{"{}energy\_ce"{}}\},}
+\DoxyCodeLine{459 \};}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \mbox{\hyperlink{classdisabled___c_e}{disabled\_CE}}  \mbox{\hyperlink{classdisabled___c_e_ae57881678777a1ceacb7137a1b645dd8}{disabled\_CE::\_disabled\_CE}};}
+\DoxyCodeLine{462 \mbox{\hyperlink{classenergy___c_e}{energy\_CE}}   \mbox{\hyperlink{classenergy___c_e_af0de42117c686a84942dbcc4772b4d64}{energy\_CE::\_energy\_CE}};}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_STATIC\_MAIN\_H}}
+
+\end{DoxyCode}

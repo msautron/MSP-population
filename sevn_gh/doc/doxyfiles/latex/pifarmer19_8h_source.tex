@@ -1,0 +1,40 @@
+\hypertarget{pifarmer19_8h_source}{}\doxysection{pifarmer19.\+h}
+\label{pifarmer19_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pifarmer19.h@{/Users/giulianoiorio/Documents/sevn\_public/src/star/procs/pairinstability/pifarmer19.h}}
+\mbox{\hyperlink{pifarmer19_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ Created by iorio on 08/02/22.}}
+\DoxyCodeLine{3 \textcolor{comment}{ it includes:}}
+\DoxyCodeLine{4 \textcolor{comment}{-\/ Class PIFarmer19:  BH mass in the PPISN following Farmer19}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef SEVN\_FARMER19\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define SEVN\_FARMER19\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pairinstability_8h}{pairinstability.h}}>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_pair_instability}{PairInstability}}\{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{comment}{//Ctor}}
+\DoxyCodeLine{32     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}}(\textcolor{keywordtype}{bool} reg=\textcolor{keyword}{true});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{//Static instance}}
+\DoxyCodeLine{35     \textcolor{keyword}{static} \mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}} \mbox{\hyperlink{class_p_i_farmer19_a460460af289a0537f0ae6d96e2efb06d}{\_pifarmer19}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{//name}}
+\DoxyCodeLine{38     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_p_i_farmer19_ab7bca6c1776ab454b3c146f36320595d}{name}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}farmer19"{}};\}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{//return an heap allocated instance}}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}}* \mbox{\hyperlink{class_p_i_farmer19_a8dfdce6ffc4d5adfc115c107b2dc6a0c}{instance}}()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} (\textcolor{keyword}{new} \mbox{\hyperlink{class_p_i_farmer19}{PIFarmer19}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{61     \mbox{\hyperlink{struct_p_i_s_nreturn}{PISNreturn}} \mbox{\hyperlink{class_p_i_farmer19_ada59b924bc2abfcb145e705af8f1ded7}{apply\_afterSN}}(\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \mbox{\hyperlink{class_star}{Star}}* s, \mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\_UNUSED}} \textcolor{keywordtype}{double} mremnant) \textcolor{keyword}{const override};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_FARMER19\_H}}
+
+\end{DoxyCode}

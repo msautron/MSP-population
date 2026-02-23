@@ -1,0 +1,300 @@
+\hypertarget{class_e_c15_c_c265}{}\doxysection{EC15\+CC265 Class Reference}
+\label{class_e_c15_c_c265}\index{EC15CC265@{EC15CC265}}
+
+
+{\ttfamily \#include $<$specialkicks.\+h$>$}
+
+Inheritance diagram for EC15\+CC265\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_e_c15_c_c265}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_kicks_a5574ee61f5450621cbbf4b851aadc319}{\+\_\+apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)=0
+\item 
+void \mbox{\hyperlink{class_kicks_a24df9d565af3b8a2c37575cfd152e561}{apply}} (\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}{get\+\_\+random\+\_\+kick}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ \mbox{\hyperlink{class_kicks_a0bcf9d165b436dceef7b3636600f9750}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_hobbs}{Hobbs}} \mbox{\hyperlink{class_hobbs_aba6b4029368eeaf5d4f91f6057330e39}{\+\_\+hobbs}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_hobbs_a978a6ef77e31c7ee09e8e929d69fc323}{estimate\+\_\+fallback\+\_\+correction}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+void \mbox{\hyperlink{class_kicks_a86dff21954db932117e2b4ff1146a192}{Register}} (\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ptr, const std\+::string \&\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_kicks_a29029dc8666af30104c1483c60c1ac7e}{set\+\_\+random\+\_\+kick}} (const double \&a)
+\item 
+void \mbox{\hyperlink{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}{kick\+\_\+initializer}} ()
+\item 
+virtual void \mbox{\hyperlink{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}{check\+\_\+and\+\_\+correct\+\_\+vkick}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s)
+\item 
+double \mbox{\hyperlink{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}{draw\+\_\+from\+\_\+gaussian}} (double std, double mean=0.)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_e_c15_c_c265_a97cb722f2bcb409b666f4695d160ee31}{sigma\+\_\+ecsn}} =15.\+0
+\item 
+const double \mbox{\hyperlink{class_e_c15_c_c265_ac6ceb17455778a7f2c9ba224a3b3189f}{sigma\+\_\+ccsn}} =256.\+0
+\item 
+std\+::normal\+\_\+distribution \mbox{\hyperlink{class_e_c15_c_c265_abf06e23741eef6df73ac28dd4234d6b9}{gaussian\+\_\+ecsn}}
+\item 
+std\+::normal\+\_\+distribution \mbox{\hyperlink{class_e_c15_c_c265_a6951627eab023c031a4bf730d2e9cbc9}{gaussian\+\_\+ccsn}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}{standard\+\_\+gaussian}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}{uniform\+Real\+Distribution}}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}{svlog}}
+\item 
+double \mbox{\hyperlink{class_kicks_aa489fda64b125b3465f9f6249de25b83}{random\+\_\+velocity\+\_\+kick}} =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_c15_c_c265_a0ad4e830a8e191901afcd3e62e8b9056}{EC15\+CC265}} (bool reg=true)
+\item 
+void \mbox{\hyperlink{class_e_c15_c_c265_adb8a2ab82265853c59d40a8b1a8f64d0}{\+\_\+apply}} (\mbox{\hyperlink{class_star}{Star}} $\ast$s) override
+\item 
+\mbox{\hyperlink{class_e_c15_c_c265}{EC15\+CC265}} $\ast$ \mbox{\hyperlink{class_e_c15_c_c265_a19d5822d9323974a7364647de0f0a3f7}{instance}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}{name}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& \mbox{\hyperlink{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}{Get\+Static\+Map}} ()
+\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}{Get\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_e_c15_c_c265}{EC15\+CC265}} \mbox{\hyperlink{class_e_c15_c_c265_a252ddf9b32c7abd88f1e5fa180a9a998}{\+\_\+ec15cc265}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kick as in models alpha in Giacobbo\&Mapelli2018 \href{https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2011G/abstract}{\texttt{ https\+://ui.\+adsabs.\+harvard.\+edu/abs/2018\+MNRAS.\+480.\+2011\+G/abstract}} The ECSN receives a kick from a Maxwellian with sigma= 15 km/s the CCSN from a Maxwellian with sigma= 265 km/s, the BH kick is then corrected for the fallback fraction vkick\+\_\+corrected =(1−ffb)vkick\+\_\+maxwellian, 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_c15_c_c265_a0ad4e830a8e191901afcd3e62e8b9056}\label{class_e_c15_c_c265_a0ad4e830a8e191901afcd3e62e8b9056}} 
+\index{EC15CC265@{EC15CC265}!EC15CC265@{EC15CC265}}
+\index{EC15CC265@{EC15CC265}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{EC15CC265()}{EC15CC265()}}
+{\footnotesize\ttfamily EC15\+CC265\+::\+EC15\+CC265 (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kicks_a5574ee61f5450621cbbf4b851aadc319}\label{class_kicks_a5574ee61f5450621cbbf4b851aadc319}} 
+\index{EC15CC265@{EC15CC265}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Kicks\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_adb8a2ab82265853c59d40a8b1a8f64d0}\label{class_e_c15_c_c265_adb8a2ab82265853c59d40a8b1a8f64d0}} 
+\index{EC15CC265@{EC15CC265}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void EC15\+CC265\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_kicks_a24df9d565af3b8a2c37575cfd152e561}\label{class_kicks_a24df9d565af3b8a2c37575cfd152e561}} 
+\index{EC15CC265@{EC15CC265}!apply@{apply}}
+\index{apply@{apply}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily void Kicks\+::apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_binary_property_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+Wrapper for specified \+\_\+apply functions 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}\label{class_kicks_ad579aeb54a9bc522bc03b7afd3229525}} 
+\index{EC15CC265@{EC15CC265}!check\_and\_correct\_vkick@{check\_and\_correct\_vkick}}
+\index{check\_and\_correct\_vkick@{check\_and\_correct\_vkick}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{check\_and\_correct\_vkick()}{check\_and\_correct\_vkick()}}
+{\footnotesize\ttfamily void Kicks\+::check\+\_\+and\+\_\+correct\+\_\+vkick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+Check if we have to make correction to the final Vkick (after all the fallback and similar correction) It checks\+:
+\begin{DoxyItemize}
+\item If Mremant=0 (e.\+g. after a PPISN) So far it just check that the final Vkick is not lower than the parameter sn\+\_\+min\+\_\+vkick. If this is the case it just sets the final velocity to the minimum value and rescale all the components by the factor min\+\_\+vkick/old\+\_\+vkick if old\+\_\+vkick is 0, new isotropic velocity components are randomly drawn 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}\label{class_kicks_abcdf2feb02d48058575eb7fa1ce19b51}} 
+\index{EC15CC265@{EC15CC265}!draw\_from\_gaussian@{draw\_from\_gaussian}}
+\index{draw\_from\_gaussian@{draw\_from\_gaussian}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{draw\_from\_gaussian()}{draw\_from\_gaussian()}}
+{\footnotesize\ttfamily double Kicks\+::draw\+\_\+from\+\_\+gaussian (\begin{DoxyParamCaption}\item[{double}]{std,  }\item[{double}]{mean = {\ttfamily 0.} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_hobbs_a978a6ef77e31c7ee09e8e929d69fc323}\label{class_hobbs_a978a6ef77e31c7ee09e8e929d69fc323}} 
+\index{EC15CC265@{EC15CC265}!estimate\_fallback\_correction@{estimate\_fallback\_correction}}
+\index{estimate\_fallback\_correction@{estimate\_fallback\_correction}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{estimate\_fallback\_correction()}{estimate\_fallback\_correction()}}
+{\footnotesize\ttfamily double Hobbs\+::estimate\+\_\+fallback\+\_\+correction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Estimate the fallback f\+\_\+b to correct the kick, i.\+e. Vk\+\_\+new = Vk\+\_\+old $\ast$f\+\_\+b, where f\+\_\+b = (1-\/fallback) The fallback is introduced in the rapid and delayed SN model as
+
+fallback = (Mremnant -\/ Mproto) / (Mpre\+SN -\/ Mproto)
+
+where Mproto depends on the SN model, in SEVN Mproto = 1.\+1 for rapid and 1.\+15 for delayed
+
+However, the Sn model can set the fallback, therefore in this method we firstly check if the fallback in the SN model is set (i.\+e. \texorpdfstring{$>$}{>}=0), in this case we use the value set by the SN model otherwise we use the equation above assuming Mproto=1.\+1 Msun.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the exploding star \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the fallback correction term fb 
+\end{DoxyReturn}
+New proptotype for fb estimate\mbox{\Hypertarget{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}\label{class_kicks_a8f2cbe6992b73bd4909aecefa857a09a}} 
+\index{EC15CC265@{EC15CC265}!get\_random\_kick@{get\_random\_kick}}
+\index{get\_random\_kick@{get\_random\_kick}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{get\_random\_kick()}{get\_random\_kick()}}
+{\footnotesize\ttfamily double Kicks\+::get\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}\label{class_kicks_add42458ac89c18dd5b4ccdb572aec0e0}} 
+\index{EC15CC265@{EC15CC265}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ $>$ \& Kicks\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}\label{class_kicks_a8af03dddc996c29395b57e0b41abf2f8}} 
+\index{EC15CC265@{EC15CC265}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Kicks\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_a19d5822d9323974a7364647de0f0a3f7}\label{class_e_c15_c_c265_a19d5822d9323974a7364647de0f0a3f7}} 
+\index{EC15CC265@{EC15CC265}!instance@{instance}}
+\index{instance@{instance}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_e_c15_c_c265}{EC15\+CC265}} $\ast$ EC15\+CC265\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_hobbs_a13ad010ae7563115c8a3408df6447663}{Hobbs}}.
+
+\mbox{\Hypertarget{class_kicks_a0bcf9d165b436dceef7b3636600f9750}\label{class_kicks_a0bcf9d165b436dceef7b3636600f9750}} 
+\index{EC15CC265@{EC15CC265}!Instance@{Instance}}
+\index{Instance@{Instance}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kicks}{Kicks}} $\ast$ Kicks\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}\label{class_kicks_ad1d51caa463f9268cbf1c349e3ee05a0}} 
+\index{EC15CC265@{EC15CC265}!kick\_initializer@{kick\_initializer}}
+\index{kick\_initializer@{kick\_initializer}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{kick\_initializer()}{kick\_initializer()}}
+{\footnotesize\ttfamily void Kicks\+::kick\+\_\+initializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}\label{class_e_c15_c_c265_a5e97a9202d609895b90129e85fc658bf}} 
+\index{EC15CC265@{EC15CC265}!name@{name}}
+\index{name@{name}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string EC15\+CC265\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_hobbs_a40d68cfaeb5e824a993cd9d9c84e4040}{Hobbs}}.
+
+\mbox{\Hypertarget{class_kicks_a86dff21954db932117e2b4ff1146a192}\label{class_kicks_a86dff21954db932117e2b4ff1146a192}} 
+\index{EC15CC265@{EC15CC265}!Register@{Register}}
+\index{Register@{Register}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Kicks\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kicks}{Kicks}} $\ast$}]{ptr,  }\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a29029dc8666af30104c1483c60c1ac7e}\label{class_kicks_a29029dc8666af30104c1483c60c1ac7e}} 
+\index{EC15CC265@{EC15CC265}!set\_random\_kick@{set\_random\_kick}}
+\index{set\_random\_kick@{set\_random\_kick}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{set\_random\_kick()}{set\_random\_kick()}}
+{\footnotesize\ttfamily void Kicks\+::set\+\_\+random\+\_\+kick (\begin{DoxyParamCaption}\item[{const double \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_c15_c_c265_a252ddf9b32c7abd88f1e5fa180a9a998}\label{class_e_c15_c_c265_a252ddf9b32c7abd88f1e5fa180a9a998}} 
+\index{EC15CC265@{EC15CC265}!\_ec15cc265@{\_ec15cc265}}
+\index{\_ec15cc265@{\_ec15cc265}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{\_ec15cc265}{\_ec15cc265}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_e_c15_c_c265}{EC15\+CC265}} EC15\+CC265\+::\+\_\+ec15cc265\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_hobbs_aba6b4029368eeaf5d4f91f6057330e39}\label{class_hobbs_aba6b4029368eeaf5d4f91f6057330e39}} 
+\index{EC15CC265@{EC15CC265}!\_hobbs@{\_hobbs}}
+\index{\_hobbs@{\_hobbs}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{\_hobbs}{\_hobbs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hobbs}{Hobbs}} Hobbs\+::\+\_\+hobbs\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_a6951627eab023c031a4bf730d2e9cbc9}\label{class_e_c15_c_c265_a6951627eab023c031a4bf730d2e9cbc9}} 
+\index{EC15CC265@{EC15CC265}!gaussian\_ccsn@{gaussian\_ccsn}}
+\index{gaussian\_ccsn@{gaussian\_ccsn}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{gaussian\_ccsn}{gaussian\_ccsn}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution EC15\+CC265\+::gaussian\+\_\+ccsn\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_abf06e23741eef6df73ac28dd4234d6b9}\label{class_e_c15_c_c265_abf06e23741eef6df73ac28dd4234d6b9}} 
+\index{EC15CC265@{EC15CC265}!gaussian\_ecsn@{gaussian\_ecsn}}
+\index{gaussian\_ecsn@{gaussian\_ecsn}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{gaussian\_ecsn}{gaussian\_ecsn}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution EC15\+CC265\+::gaussian\+\_\+ecsn\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_kicks_aa489fda64b125b3465f9f6249de25b83}\label{class_kicks_aa489fda64b125b3465f9f6249de25b83}} 
+\index{EC15CC265@{EC15CC265}!random\_velocity\_kick@{random\_velocity\_kick}}
+\index{random\_velocity\_kick@{random\_velocity\_kick}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{random\_velocity\_kick}{random\_velocity\_kick}}
+{\footnotesize\ttfamily double Kicks\+::random\+\_\+velocity\+\_\+kick =\mbox{\hyperlink{namespaceutilities_ad2a6991914544bc90698ecf7a2baa89c}{utilities\+::\+NULL\+\_\+\+DOUBLE}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_e_c15_c_c265_ac6ceb17455778a7f2c9ba224a3b3189f}\label{class_e_c15_c_c265_ac6ceb17455778a7f2c9ba224a3b3189f}} 
+\index{EC15CC265@{EC15CC265}!sigma\_ccsn@{sigma\_ccsn}}
+\index{sigma\_ccsn@{sigma\_ccsn}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{sigma\_ccsn}{sigma\_ccsn}}
+{\footnotesize\ttfamily const double EC15\+CC265\+::sigma\+\_\+ccsn =256.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+dispersion of the Maxwellian used to draw the natal kick of CCSN remnant \mbox{\Hypertarget{class_e_c15_c_c265_a97cb722f2bcb409b666f4695d160ee31}\label{class_e_c15_c_c265_a97cb722f2bcb409b666f4695d160ee31}} 
+\index{EC15CC265@{EC15CC265}!sigma\_ecsn@{sigma\_ecsn}}
+\index{sigma\_ecsn@{sigma\_ecsn}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{sigma\_ecsn}{sigma\_ecsn}}
+{\footnotesize\ttfamily const double EC15\+CC265\+::sigma\+\_\+ecsn =15.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+dispersion of the Maxwellian used to draw the natal kick of ECSN remnant \mbox{\Hypertarget{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}\label{class_kicks_ae1056779a3fc3a09c414618b5c61eb92}} 
+\index{EC15CC265@{EC15CC265}!standard\_gaussian@{standard\_gaussian}}
+\index{standard\_gaussian@{standard\_gaussian}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{standard\_gaussian}{standard\_gaussian}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution$<$double$>$ Kicks\+::standard\+\_\+gaussian\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}\label{class_kicks_a90ef65680bb5a84681b02b9939cecbe9}} 
+\index{EC15CC265@{EC15CC265}!svlog@{svlog}}
+\index{svlog@{svlog}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Kicks\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}\label{class_kicks_af209b3d8f2caa3fc991c5f53b6f1f0d3}} 
+\index{EC15CC265@{EC15CC265}!uniformRealDistribution@{uniformRealDistribution}}
+\index{uniformRealDistribution@{uniformRealDistribution}!EC15CC265@{EC15CC265}}
+\doxysubsubsection{\texorpdfstring{uniformRealDistribution}{uniformRealDistribution}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Kicks\+::uniform\+Real\+Distribution\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{specialkicks_8h}{specialkicks.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/kicks/\mbox{\hyperlink{specialkicks_8cpp}{specialkicks.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}

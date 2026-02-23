@@ -1,0 +1,264 @@
+\hypertarget{sevnlog_8h_source}{}\doxysection{sevnlog.\+h}
+\label{sevnlog_8h_source}\index{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/sevnlog.h@{/Users/giulianoiorio/Documents/sevn\_public/src/general/utils/sevnlog.h}}
+\mbox{\hyperlink{sevnlog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Giuliano on 29/11/19.}}
+\DoxyCodeLine{3 \textcolor{comment}{// Header to store logging functions and definitions (mostly for debug)}}
+\DoxyCodeLine{4 \textcolor{comment}{//}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef SEVN\_SEVNLOG\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define SEVN\_SEVNLOG\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <omp.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{errhand_8h}{errhand.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{//TODO Remove this and correctly use SevnLogging}}
+\DoxyCodeLine{20 \textcolor{comment}{//GI291119: Define the DEBUG\_LOG functions to print the Debug message only if enable in the compilation}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifdef DEBUG}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define DEBUG\_LOG(str) do \{ std::cout <<  "{}DEBUG: FILE::"{}} << \_\_FILE\_\_ << "{} LINE::"{}  <<\_\_LINE\_\_ << std::endl << "{} -\/> "{} << str << "{} <-\/ "{} << std::endl; \} while (false)}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define DEBUG\_LOG(str) do \{  \} while (false)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{//TODO Add the possibility to directly flush the output in some log file(s).}}
+\DoxyCodeLine{28 \textcolor{comment}{//TODO It is really thread safe?}}
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacesevnstd}{sevnstd}}\{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{class }sevnerr;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{43     \textcolor{keyword}{class }\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{SevnLogging}} \{}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{public}:}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a73f289157288ec0ac8869379d225c53a}{SevnLogging}}() \{\}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{comment}{//TODO Is ok for a single instance to modify the log\_level. Is maybe better to modify only a local log\_level and the use this in the various log function?}}
+\DoxyCodeLine{57 \textcolor{comment}{}        \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a71c518bb55c4410e0070a16b40707a01}{SevnLogging}}(\textcolor{keywordtype}{int} level) \{}
+\DoxyCodeLine{58             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a34b8c6b2f5e872fe0c04e493f8a2ac58}{set\_level}}(level);}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{63         \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a881a7a577c58380f8d2c08735c06b8c5}{\string~SevnLogging}}() \{\}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{73         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_affcf3939810e71cacac9c1b3508040dd}{log}}(\textcolor{keywordtype}{int} level, std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1, \textcolor{keywordtype}{int} stop = 0)  \textcolor{keyword}{const};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{81         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a69574b52b1d9f85c8e8bfc413ea55470}{debug}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1)  \textcolor{keyword}{const};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{90         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8b67b53c273bfa7b170226f84e25631d}{info}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1)  \textcolor{keyword}{const};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 }
+\DoxyCodeLine{99         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aeaf2a8fe0bc8cc61de85fb136e1b6717}{warning}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1)  \textcolor{keyword}{const};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a02bfada5ae043bc6b5398cc1acc9108b}{error}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1, \textcolor{keywordtype}{bool} stop = \textcolor{keyword}{true})  \textcolor{keyword}{const};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{119         \textcolor{keyword}{template}<\textcolor{keyword}{class} E>}
+\DoxyCodeLine{120         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad59a16166b8ddffd119b03b3515ddcb8}{error}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1, \textcolor{keywordtype}{bool} stop = \textcolor{keyword}{true}, E\&\& err= \textcolor{keyword}{nullptr})\textcolor{keyword}{  const}\{}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{123                         \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{124 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{125                         \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{126 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128             std::ostringstream oss;}
+\DoxyCodeLine{129             oss << \textcolor{stringliteral}{"{} LOG::ERROR (Thread "{}} << num\_thread << \textcolor{stringliteral}{"{}): "{}} << std::endl;}
+\DoxyCodeLine{130             oss << \textcolor{stringliteral}{"{}   Message : "{}} << errstate << std::endl;}
+\DoxyCodeLine{131             \textcolor{keywordflow}{if} (file\_input)}
+\DoxyCodeLine{132                 oss << \textcolor{stringliteral}{"{} From file: "{}} << std::string(file\_input) << std::endl;}
+\DoxyCodeLine{133             \textcolor{keywordflow}{if} (line\_input >= 0)}
+\DoxyCodeLine{134                 oss << \textcolor{stringliteral}{"{} From line: "{}} << line\_input << std::endl;}
+\DoxyCodeLine{135             std::string err\_mess=oss.str();}
+\DoxyCodeLine{136             \textcolor{keywordflow}{if} (stop)}
+\DoxyCodeLine{137                 \textcolor{keywordflow}{throw} err.istance(err\_mess);}
+\DoxyCodeLine{138             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{139                 std::cerr << oss.str();}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#pragma omp atomic}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}{count\_error}}++;}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 }
+\DoxyCodeLine{155         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ac810d4f95fefa336855ff5460d94b14c}{critical}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1) \textcolor{keyword}{const};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{166         \textcolor{keyword}{template}<\textcolor{keyword}{class} E>}
+\DoxyCodeLine{167         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a5505d78a8c49351021bed1aa69ef97e5}{critical}}(std::string errstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_input = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{int} line\_input = -\/1, E\&\& err= \textcolor{keyword}{nullptr})\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{170                         \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{171 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{172                         \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{173 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175             std::ostringstream oss;}
+\DoxyCodeLine{176             oss << \textcolor{stringliteral}{"{} LOG::CRITICAL (Thread "{}} << num\_thread << \textcolor{stringliteral}{"{}): "{}} << std::endl;}
+\DoxyCodeLine{177             oss << \textcolor{stringliteral}{"{}   Message : "{}} << errstate << std::endl;}
+\DoxyCodeLine{178             \textcolor{keywordflow}{if} (file\_input)}
+\DoxyCodeLine{179                 oss << \textcolor{stringliteral}{"{} From file: "{}} << std::string(file\_input) << std::endl;}
+\DoxyCodeLine{180             \textcolor{keywordflow}{if} (line\_input >= 0)}
+\DoxyCodeLine{181                 oss << \textcolor{stringliteral}{"{} From line: "{}} << line\_input << std::endl;}
+\DoxyCodeLine{182             std::string err\_mess=oss.str();}
+\DoxyCodeLine{183             \textcolor{keywordflow}{throw} err.istance(err\_mess);}
+\DoxyCodeLine{184         \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 }
+\DoxyCodeLine{190         \textcolor{comment}{//debug}}
+\DoxyCodeLine{191         \textcolor{keywordtype}{void} \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}{pdebug}}()\textcolor{keyword}{  const }\{}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{194                         \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{195 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{196                         \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{197 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)nLOG::DEBUG (Thread "{}} << num\_thread << \textcolor{stringliteral}{"{})"{}}<< std::endl;}
+\DoxyCodeLine{200 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{            \#pragma omp atomic}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{203             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}{count\_debug}}++;\}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Tail>}
+\DoxyCodeLine{206         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a9875d891e667229412179cbd53e9e957}{pdebug}}(T head, Tail... tail)\textcolor{keyword}{  const}\{}
+\DoxyCodeLine{207             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a0e7e78c0facfdb7ce6d36b65357a7522}{\_LOG\_LEVEL::\_debug}}>=\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}}) \{}
+\DoxyCodeLine{208                 std::cout << head << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{209                 \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad08441023b3c68c90ed505d9b41c954c}{pdebug}}(tail...);}
+\DoxyCodeLine{210             \}}
+\DoxyCodeLine{211         \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214         \textcolor{comment}{//info}}
+\DoxyCodeLine{215         \textcolor{keywordtype}{void} \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ab8261f1e09d6cbebe4eab2ad7ebbb688}{pinfo}}()\textcolor{keyword}{  const }\{}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{218                         \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{219 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{220                         \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{221 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)nLOG::INFO (Thread "{}} << num\_thread << \textcolor{stringliteral}{"{})"{}}<< std::endl;}
+\DoxyCodeLine{224 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{            \#pragma omp atomic}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{227             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}{count\_info}}++;\}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Tail>}
+\DoxyCodeLine{230         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ab8bc14e4917a2c9006966c1e08750e80}{pinfo}}(T head, Tail... tail)\textcolor{keyword}{  const }\{}
+\DoxyCodeLine{231             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3af981d75baba046ae61c773eabdafc4fe}{\_LOG\_LEVEL::\_info}}>=\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}}) \{}
+\DoxyCodeLine{232                 std::cout << head << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{233                 \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ab8261f1e09d6cbebe4eab2ad7ebbb688}{pinfo}}(tail...);}
+\DoxyCodeLine{234             \}}
+\DoxyCodeLine{235         \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237         \textcolor{comment}{//warning}}
+\DoxyCodeLine{238         \textcolor{keywordtype}{void} \textcolor{keyword}{inline} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad6b19be2483605ef782445803efa5602}{pwarning}}()\textcolor{keyword}{  const }\{}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{242                         \textcolor{keywordtype}{int} num\_thread=omp\_get\_thread\_num();}
+\DoxyCodeLine{243 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{244                         \textcolor{keywordtype}{int} num\_thread=0;}
+\DoxyCodeLine{245 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247             std::cerr<<\textcolor{stringliteral}{"{}\(\backslash\)nLOG::WARNING (Thread "{}} << num\_thread << \textcolor{stringliteral}{"{})"{}}<< std::endl;}
+\DoxyCodeLine{248 \textcolor{preprocessor}{            \#ifdef \_OPENMP}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{            \#pragma omp atomic}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{251             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}{count\_warning}}++;}
+\DoxyCodeLine{252         \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Tail>}
+\DoxyCodeLine{255         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a2c29af1bab7df47837f74adcc6e394dc}{pwarning}}(T head, Tail... tail)\textcolor{keyword}{  const }\{}
+\DoxyCodeLine{256             \textcolor{comment}{//if (\_LOG\_LEVEL::\_warning>=log\_level and count\_warning<=MAX\_N\_WARNING) \{}}
+\DoxyCodeLine{257             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a79e37f86b7fe53470ad7eea7a1ac3c63}{\_LOG\_LEVEL::\_warning}}>=\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}}) \{}
+\DoxyCodeLine{258                 std::cerr << head << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{259                 \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_ad6b19be2483605ef782445803efa5602}{pwarning}}(tail...);}
+\DoxyCodeLine{260             \}}
+\DoxyCodeLine{261         \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 }
+\DoxyCodeLine{265 \textcolor{comment}{/*        */}\textcolor{comment}{/*}}
+\DoxyCodeLine{270 \textcolor{comment}{        template<typename... Args>}}
+\DoxyCodeLine{271 \textcolor{comment}{        void pdebug(Args... args)\{}}
+\DoxyCodeLine{272 \textcolor{comment}{            if (\_LOG\_LEVEL::\_debug>=log\_level)\{}}
+\DoxyCodeLine{273 \textcolor{comment}{                std::cout << "{} LOG::DEBUG (Thread "{} << omp\_get\_thread\_num() << "{}): "{} << std::endl;}}
+\DoxyCodeLine{274 \textcolor{comment}{                std::cout << "{}  Message:"{};}}
+\DoxyCodeLine{275 \textcolor{comment}{                ((std::cout << "{} "{}<<args), ...);}}
+\DoxyCodeLine{276 \textcolor{comment}{                \#pragma omp atomic}}
+\DoxyCodeLine{277 \textcolor{comment}{                count\_debug++;}}
+\DoxyCodeLine{278 \textcolor{comment}{            \}}}
+\DoxyCodeLine{279 \textcolor{comment}{        \}}}
+\DoxyCodeLine{280 \textcolor{comment}{}}
+\DoxyCodeLine{281 \textcolor{comment}{        */}\textcolor{comment}{/*}}
+\DoxyCodeLine{286 \textcolor{comment}{        template<typename... Args>}}
+\DoxyCodeLine{287 \textcolor{comment}{        void pinfo(Args... args)\{}}
+\DoxyCodeLine{288 \textcolor{comment}{            if (\_LOG\_LEVEL::\_info>=log\_level)\{}}
+\DoxyCodeLine{289 \textcolor{comment}{                std::cout << "{} LOG::INFO (Thread "{} << omp\_get\_thread\_num() << "{}): "{} << std::endl;}}
+\DoxyCodeLine{290 \textcolor{comment}{                std::cout << "{}  Message:"{};}}
+\DoxyCodeLine{291 \textcolor{comment}{                ((std::cout << "{} "{}<<args), ...);}}
+\DoxyCodeLine{292 \textcolor{comment}{                \#pragma omp atomic}}
+\DoxyCodeLine{293 \textcolor{comment}{                count\_info++;}}
+\DoxyCodeLine{294 \textcolor{comment}{            \}}}
+\DoxyCodeLine{295 \textcolor{comment}{        \}*/}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{306         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a0324f04abb6f2c16156b38b36e74183f}{get\_level}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}};\};}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{312         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_aa82e9abf2587f6545c22a92256034b12}{get\_Ndebug}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}{count\_debug}};\};}
+\DoxyCodeLine{317         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a22f80d730ca57058e19a019a8397c398}{get\_Ninfo}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}{count\_info}};\};}
+\DoxyCodeLine{322         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a75d3362476f35368f0a9333c4e29f0ea}{get\_Nwarning}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}{count\_warning}};\};}
+\DoxyCodeLine{327         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6c56932c4f2c666d571f3a2efa14694e}{get\_Nerror}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}{count\_error}};\};}
+\DoxyCodeLine{332         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8fa8f56583b4a32696d3f488b3b39506}{get\_Ncustom}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abc41e5bc612bf4f9656f28fd220ff7c0}{count\_custom\_log}};\};}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{338         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a34b8c6b2f5e872fe0c04e493f8a2ac58}{set\_level}}(std::string level);}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 }
+\DoxyCodeLine{345         \textcolor{keyword}{enum} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3}{\_LOG\_LEVEL}} \{}
+\DoxyCodeLine{346             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a00212081277d22e6116363427fa7d7ac}{\_notset}} = 0,       }
+\DoxyCodeLine{347             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a0e7e78c0facfdb7ce6d36b65357a7522}{\_debug}} = 10,       }
+\DoxyCodeLine{348             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3af981d75baba046ae61c773eabdafc4fe}{\_info}} = 20,        }
+\DoxyCodeLine{349             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3a79e37f86b7fe53470ad7eea7a1ac3c63}{\_warning}} = 30,     }
+\DoxyCodeLine{350             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3ac5027f9d37cf8c092062b44757f0fb8e}{\_error}} = 40,       }
+\DoxyCodeLine{351             \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a6dfb2f1f6d2fbcf361a9fb379c82a7b3afa6d9d02077f407573811f574aa09951}{\_critical}} = 100,   }
+\DoxyCodeLine{352         \};}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354         \textcolor{comment}{//const unsigned int MAX\_N\_WARNING=10;}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{360         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a8263616aaf9d5fd2b36c7996a7d828d7}{set\_level}}(\textcolor{keywordtype}{int} level) \{\mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}}=level;\};}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364         \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a78203c55c2023fce47a8d6abde21bf3f}{log\_level}};    }
+\DoxyCodeLine{366         \textcolor{comment}{//GI This counter should be thread safe because each update is proteceted by the openmp atomic directive.}}
+\DoxyCodeLine{367         \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a1af98ea274344cd105bafb3bbb477d81}{count\_debug}};  }
+\DoxyCodeLine{368         \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a198810df9690ec180eaaf697981fa3f2}{count\_info}};   }
+\DoxyCodeLine{369         \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_a7e4fea8bcc6e975feb15f19fa084f5a3}{count\_warning}}; }
+\DoxyCodeLine{370         \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abfdbf2c781d029a1e1113fbed6217111}{count\_error}};     }
+\DoxyCodeLine{371         \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsevnstd_1_1_sevn_logging_abc41e5bc612bf4f9656f28fd220ff7c0}{count\_custom\_log}};   }
+\DoxyCodeLine{375         \textcolor{comment}{//NB the critical has not a counter since it always throws an exception, so we cannot have more than one call at runtime.}}
+\DoxyCodeLine{376     \};}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379 \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SEVN\_SEVNLOG\_H}}
+
+\end{DoxyCode}

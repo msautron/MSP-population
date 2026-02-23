@@ -1,0 +1,186 @@
+\hypertarget{class_n_m_l_disabled}{}\doxysection{NMLDisabled Class Reference}
+\label{class_n_m_l_disabled}\index{NMLDisabled@{NMLDisabled}}
+
+
+{\ttfamily \#include $<$neutrinomassloss.\+h$>$}
+
+Inheritance diagram for NMLDisabled\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_n_m_l_disabled}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_m_l_disabled_acf83cc610a9084c30815d8226f3ae445}{NMLDisabled}} (bool reg=true)
+\item 
+std\+::string \mbox{\hyperlink{class_n_m_l_disabled_abb50716c308cdc4f62af0ec1533a0acf}{name}} () const override
+\item 
+\mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} $\ast$ \mbox{\hyperlink{class_n_m_l_disabled_a638938eb3e0b2b84c09ecf224dac006f}{instance}} () override
+\item 
+double \mbox{\hyperlink{class_n_m_l_disabled_aa0f768c56e091b8a915faf0db3121d4c}{apply}} (const double mremnant, \mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const override
+\item 
+virtual double \mbox{\hyperlink{class_neutrino_mass_loss_af7da1dffb3354819b56961149324a147}{apply}} (\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double mremnant, \mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$s) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$ \mbox{\hyperlink{class_neutrino_mass_loss_a98f206d00c8b76e31844ebb284ebe4fb}{Instance}} (std\+::string const \&\mbox{\hyperlink{class_n_m_l_disabled_abb50716c308cdc4f62af0ec1533a0acf}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} \mbox{\hyperlink{class_n_m_l_disabled_af3eadbfbf97fd824f1dac047447844e4}{\+\_\+nmldisabled}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_neutrino_mass_loss_a4b29264b9855051a83033f772b457dbd}{Register}} (\mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} \mbox{\hyperlink{class_neutrino_mass_loss_a41dc7be56c8f44135200e47279ab6e4a}{svlog}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$ $>$ \& \mbox{\hyperlink{class_neutrino_mass_loss_ac61852e271770ff671b5757a772f2de8}{Get\+Static\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Option handling. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_neutrino_mass_loss_a45da0575d5891a34024879502ed056b1}{Get\+Used}} ()
+\begin{DoxyCompactList}\small\item\em TODO we are never using this method, we should remove it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+option disabled
+
+Do nothing, do not apply any correction for neutrino mass loss 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_n_m_l_disabled_acf83cc610a9084c30815d8226f3ae445}\label{class_n_m_l_disabled_acf83cc610a9084c30815d8226f3ae445}} 
+\index{NMLDisabled@{NMLDisabled}!NMLDisabled@{NMLDisabled}}
+\index{NMLDisabled@{NMLDisabled}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{NMLDisabled()}{NMLDisabled()}}
+{\footnotesize\ttfamily NMLDisabled\+::\+NMLDisabled (\begin{DoxyParamCaption}\item[{bool}]{reg = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_neutrino_mass_loss_af7da1dffb3354819b56961149324a147}\label{class_neutrino_mass_loss_af7da1dffb3354819b56961149324a147}} 
+\index{NMLDisabled@{NMLDisabled}!apply@{apply}}
+\index{apply@{apply}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Neutrino\+Mass\+Loss\+::apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} const double}]{mremnant,  }\item[{\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}
+
+Estimate the neutrino mass loss correction 
+\begin{DoxyParams}{Parameters}
+{\em mremnant} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair instability correction \\
+\hline
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_mass}{Mass}} after the neutrino mass loss correction 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_n_m_l_disabled_aa0f768c56e091b8a915faf0db3121d4c}\label{class_n_m_l_disabled_aa0f768c56e091b8a915faf0db3121d4c}} 
+\index{NMLDisabled@{NMLDisabled}!apply@{apply}}
+\index{apply@{apply}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double NMLDisabled\+::apply (\begin{DoxyParamCaption}\item[{const double}]{mremnant,  }\item[{\mbox{\hyperlink{neutrinomassloss_8h_a44145f6f9805df57da735ea6ac0f1dbb}{\+\_\+\+UNUSED}} \mbox{\hyperlink{class_star}{Star}} $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+Estimate the neutrino mass loss correction, in this disabled version do nothing, just return mremnant 
+\begin{DoxyParams}{Parameters}
+{\em mremnant} & \mbox{\hyperlink{class_mass}{Mass}} of the remnant before the pair instability correction \\
+\hline
+{\em s} & Pointer to the exploding star to which we want to apply the correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mremnant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_neutrino_mass_loss_ac61852e271770ff671b5757a772f2de8}\label{class_neutrino_mass_loss_ac61852e271770ff671b5757a772f2de8}} 
+\index{NMLDisabled@{NMLDisabled}!GetStaticMap@{GetStaticMap}}
+\index{GetStaticMap@{GetStaticMap}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{GetStaticMap()}{GetStaticMap()}}
+{\footnotesize\ttfamily static std\+::map$<$ std\+::string, \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$ $>$ \& Neutrino\+Mass\+Loss\+::\+Get\+Static\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+Option handling. 
+
+\mbox{\Hypertarget{class_neutrino_mass_loss_a45da0575d5891a34024879502ed056b1}\label{class_neutrino_mass_loss_a45da0575d5891a34024879502ed056b1}} 
+\index{NMLDisabled@{NMLDisabled}!GetUsed@{GetUsed}}
+\index{GetUsed@{GetUsed}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{GetUsed()}{GetUsed()}}
+{\footnotesize\ttfamily static std\+::vector$<$ int $>$ \& Neutrino\+Mass\+Loss\+::\+Get\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+TODO we are never using this method, we should remove it. 
+
+\mbox{\Hypertarget{class_n_m_l_disabled_a638938eb3e0b2b84c09ecf224dac006f}\label{class_n_m_l_disabled_a638938eb3e0b2b84c09ecf224dac006f}} 
+\index{NMLDisabled@{NMLDisabled}!instance@{instance}}
+\index{instance@{instance}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} $\ast$ NMLDisabled\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create an instance of the class allocated on the heap \begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_neutrino_mass_loss_a9fd730f4b5fb8930003a7a219a51023a}{Neutrino\+Mass\+Loss}}.
+
+\mbox{\Hypertarget{class_neutrino_mass_loss_a98f206d00c8b76e31844ebb284ebe4fb}\label{class_neutrino_mass_loss_a98f206d00c8b76e31844ebb284ebe4fb}} 
+\index{NMLDisabled@{NMLDisabled}!Instance@{Instance}}
+\index{Instance@{Instance}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$ Neutrino\+Mass\+Loss\+::\+Instance (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+Generic method to call an instance based on name 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a real instance of the class that is allocated on the heap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_n_m_l_disabled_abb50716c308cdc4f62af0ec1533a0acf}\label{class_n_m_l_disabled_abb50716c308cdc4f62af0ec1533a0acf}} 
+\index{NMLDisabled@{NMLDisabled}!name@{name}}
+\index{name@{name}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string NMLDisabled\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Remember that each new proper \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} model has to have a public static class instance to define in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} e.\+g. static My\+Model \+\_\+mymodel; (in the class) and My\+Model My\+Model\+::\+\_\+mymodel; in \mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}} Methods that must be overridded in new models Name of the \mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} model, this will be use at runtime to select the given model 
+
+Reimplemented from \mbox{\hyperlink{class_neutrino_mass_loss_a15bc827a8625d4c66630855dbef5fbaa}{Neutrino\+Mass\+Loss}}.
+
+\mbox{\Hypertarget{class_neutrino_mass_loss_a4b29264b9855051a83033f772b457dbd}\label{class_neutrino_mass_loss_a4b29264b9855051a83033f772b457dbd}} 
+\index{NMLDisabled@{NMLDisabled}!Register@{Register}}
+\index{Register@{Register}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Neutrino\+Mass\+Loss\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_neutrino_mass_loss}{Neutrino\+Mass\+Loss}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Register function, to be called inside the option constructor to register the given option 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_n_m_l_disabled_af3eadbfbf97fd824f1dac047447844e4}\label{class_n_m_l_disabled_af3eadbfbf97fd824f1dac047447844e4}} 
+\index{NMLDisabled@{NMLDisabled}!\_nmldisabled@{\_nmldisabled}}
+\index{\_nmldisabled@{\_nmldisabled}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{\_nmldisabled}{\_nmldisabled}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_l_disabled}{NMLDisabled}} NMLDisabled\+::\+\_\+nmldisabled\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_neutrino_mass_loss_a41dc7be56c8f44135200e47279ab6e4a}\label{class_neutrino_mass_loss_a41dc7be56c8f44135200e47279ab6e4a}} 
+\index{NMLDisabled@{NMLDisabled}!svlog@{svlog}}
+\index{svlog@{svlog}!NMLDisabled@{NMLDisabled}}
+\doxysubsubsection{\texorpdfstring{svlog}{svlog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsevnstd_1_1_sevn_logging}{Sevn\+Logging}} Neutrino\+Mass\+Loss\+::svlog\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/neutrinomassloss/\mbox{\hyperlink{neutrinomassloss_8h}{neutrinomassloss.\+h}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/src/star/procs/neutrinomassloss/\mbox{\hyperlink{neutrinomassloss_8cpp}{neutrinomassloss.\+cpp}}\item 
+/\+Users/giulianoiorio/\+Documents/sevn\+\_\+public/include/\mbox{\hyperlink{static__main_8h}{static\+\_\+main.\+h}}\end{DoxyCompactItemize}
