@@ -4,7 +4,7 @@ This github contains:
 - A code allowing to produce a MSP population.
 - A code allowing to produce pulsars obtained through AIC of WD.
 
-SEVN (N-body code) is in this repository, however M.Sautron modified some files, especially concerning the evolution of NS. 
+The N-body code [SEVN](https://gitlab.com/sevncodes/sevn) (Spera & Mapelli 2017; Spera et al. 2019; Mapelli et al. 2020; Sgalletta et al. 2023) was copied in this repository, however M.Sautron modified some files, especially concerning the evolution of NS. 
 
 ## Step 1 - Generate and evolve the population 
 
@@ -16,7 +16,7 @@ Once SEVN is compiled, you need to compile the C code allowing to generate each 
 ```bash
 bash compile_be.sh
 ```
-Check the file `ms_pulsars.slurm` to check how many binaries you want to simulate, modify the number after `./birth_and_evol` if you want to modify the number of simulated binaries. Then, to choose the number of different simulation that you are doing, go to `run_sims.py`. 
+Check the file `ms_pulsars.slurm` to check how many binaries you want to simulate, modify the number in `./birth_and_evol` if you want to modify this number. Then, to choose the number of different simulation that you are doing, go to `run_sims.py`. 
 
 In the files `birth_evolution_pop.c` and `birth_pulsars.c` you can modify the initial distribution related to the pulsars and the binary parameters. `run.sh` and `run2.sh` allowed to run an instance of sevn, for companion with a mass > 2M and < 2M respectively. The code related to the evolution of the NS is in `sevn_gh/src/star/remnant.cpp`
 and the code related to the binary evolution (that I modified) is in `sevn_gh/src/binary/Processes.cpp`. Especially, the irradiation from the pulsar onto the companion is in the function related to the RLO evolution (evaluated at each step !).  
