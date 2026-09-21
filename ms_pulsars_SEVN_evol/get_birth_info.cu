@@ -15,11 +15,11 @@ void get_info_birth(void *params){
 	FILE *betainit_file=NULL;
 	FILE *subms_info=NULL;
 	long np=0;
-	birth_info=fopen("/home/matteo.sautron/Documents/ms_pulsars/ms_pulsars_SEVN_evol/data_pop_ms_all.txt","r");
-	taud_file=fopen("/home/matteo.sautron/Documents/ms_pulsars/ms_pulsars_SEVN_evol/data_taud_all.txt","r");
-	beta_file=fopen("/home/matteo.sautron/Documents/ms_pulsars/ms_pulsars_SEVN_evol/data_beta_all.txt","r");
-	betainit_file=fopen("/home/matteo.sautron/Documents/ms_pulsars/ms_pulsars_SEVN_evol/data_beta_init_all.txt","r");
-	subms_info=fopen("/home/matteo.sautron/Documents/ms_pulsars/ms_pulsars_SEVN_evol/data_subms_all.txt","r");
+	birth_info=fopen("data_pop_ms_all.txt","r");
+	taud_file=fopen("data_taud_all.txt","r");
+	beta_file=fopen("data_beta_all.txt","r");
+	betainit_file=fopen("data_beta_init_all.txt","r");
+	subms_info=fopen("data_subms_all.txt","r");
 	while(fscanf(birth_info,"%le %le %le %le %le %le %le %le %le %le %le %le %le %le %le %le %le %le %le %le\n",&part->period[np],&part->Pdot[np],&part->Edot[np],&part->alpha[np],&part->B[np],&part->age_pulsar[np],&part->Pinit[np],&part->Binit[np],&part->alpha0[np],&part->t_acc[np],&part->spin_up_or_not[np],&part->M_NS_f[np],&part->M_NS_i[np],&part->ellipticity[np],&part->Mc_i[np],&part->Mc_f[np],&part->a_bin[np],&part->ecc_bin[np],&part->comp_type[np],&part->comp_rem_type[np]) == 20) {np++;}
 	printf("Check recovery of the data: %e\n",part->period[np-1]);
 	np=0;

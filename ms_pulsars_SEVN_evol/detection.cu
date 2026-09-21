@@ -385,7 +385,7 @@ void pos_all_MSP(void *params){
 	pos_all=fopen("pos_all.txt","w+");
 	for(np=0;np<part->Npulsars;np++){
 		if (part->spin_up_or_not[np]==1 && part->t_acc[np]>=3.1536e12 && part->period[np]<=0.6){
-			fprintf(pos_all,"%e %e %e %e %e\n",part->x[np],part->y[np],part->z[np],part->Lgamma[np],part->gl[np]);
+			fprintf(pos_all,"%e %e %e %e %e %e %e\n",part->gl[np],part->gb[np],part->dist[np],part->Fg[np],part->Fr[np],part->period[np],part->Pdot[np]);
 		}
 	}
 	fclose(pos_all);

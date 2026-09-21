@@ -594,17 +594,17 @@ int main(int argc, char **argv){
         //pulse_profile_complete_2(&params); //Computes the pulse profile taking into account the DM + scattering + instrument
 	//corrective_factor_Pdot(&params); //Computes the correction on Pdot due to acceleration effects as described by Toscano et al. (1999) to get the Pdot that would be observed
 	compute_wr_htru_pks(&params); //Compute the pulse profile observed with survey htru_pks
-	sky_temp_Fmin_fermi(&params); //Get the sky temperatur at the position (l,b) of the pulsar. Maps of Haslam et al. (1982), reworked by Remazailles et al. (2015) + get the sensitivity of Fermi/LAT at a given position with python code from fermi
-	radio_flux(&params); //calculates the radio flux of each pulsar
-	get_fomega(&params); //Get all the different values of f_omega for the different angles of chi and zeta
-	gamma_flux(&params); //idem for gamma flux
-	spinvel_angle(&params); //Computes the angle between the velocity vector and the rotation axis
-	gamma_ray_peak_sep(&params); //Computes the gamma-ray peak separation 
+	sky_temp_Fmin_fermi(&params); printf("sky temp + Fmin fermi OK\n"); //Get the sky temperatur at the position (l,b) of the pulsar. Maps of Haslam et al. (1982), reworked by Remazailles et al. (2015) + get the sensitivity of Fermi/LAT at a given position with python code from fermi
+	radio_flux(&params); printf("Radio flux OK\n");//calculates the radio flux of each pulsar
+	get_fomega(&params); printf("fomega OK\n");//Get all the different values of f_omega for the different angles of chi and zeta
+	gamma_flux(&params); printf("gamma flux OK\n");//idem for gamma flux
+	spinvel_angle(&params); printf("spinvel angle OK\n");//Computes the angle between the velocity vector and the rotation axis
+	gamma_ray_peak_sep(&params); printf("gamma-ray peak sep OK\n");//Computes the gamma-ray peak separation 
 	//save_all(&params);
-	pos_all_MSP(&params); //Save the position of every MSP born 
-	detection(&params); // check if the pulsar is beaming to us and if its flux is high enough to be detected
-	subms_info(&params); //If we want to have info on the pulsars that went subms
-	count_nb_msp_formed(&params); //Count the number of MSP formed to compute the birth rate (second time in order to keep the BR displayed)
+	pos_all_MSP(&params); printf("pos_all MSP OK\n");//Save the position of every MSP born 
+	detection(&params); printf("detection OK\n");// check if the pulsar is beaming to us and if its flux is high enough to be detected
+	subms_info(&params); printf("subms info OK\n");//If we want to have info on the pulsars that went subms
+	count_nb_msp_formed(&params); printf("count_nb_msp_formed OK\n");//Count the number of MSP formed to compute the birth rate (second time in order to keep the BR displayed)
 	//save_info_AIC(&params); //Save in a file the info about the AIC WD into pulsar to plot later the corbet diagram
 
 
